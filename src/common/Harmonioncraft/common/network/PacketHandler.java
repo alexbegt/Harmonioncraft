@@ -10,7 +10,7 @@ import cpw.mods.fml.common.network.Player;
  * 
  * Handles the dispatch and receipt of packets for the mod
  * 
- * @author pahimar
+ * @author Alexbegt,DJP
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  * 
  */

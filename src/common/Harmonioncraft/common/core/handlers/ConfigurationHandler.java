@@ -23,8 +23,6 @@ import static net.minecraftforge.common.Configuration.*;
  */
 public class ConfigurationHandler {
 
-    private static final String CATEGORY_KEYBIND = "keybinds";
-
     public static void init(File configFile) {
         Configuration configuration = new Configuration(configFile);
 
@@ -40,6 +38,11 @@ public class ConfigurationHandler {
 
             /* Item Configs */
             ItemIds.HARMONIONSWORD = configuration.getOrCreateIntProperty(ModItems.Harmonicsword, CATEGORY_ITEM, ItemIds.HARMONIONSWORD_DEFAULT).getInt(ItemIds.HARMONIONSWORD_DEFAULT);
+            ItemIds.REFINEDSOUNDSTONE = configuration.getOrCreateIntProperty(ModItems.Soundstoneingot, CATEGORY_ITEM, ItemIds.REFINEDSOUNDSTONE_DEFAULT).getInt(ItemIds.REFINEDSOUNDSTONE_DEFAULT);
+            ItemIds.HARMONIONPEARL = configuration.getOrCreateIntProperty(ModItems.Soundstonepearl, CATEGORY_ITEM, ItemIds.HARMONIONPEARL_DEFAULT).getInt(ItemIds.HARMONIONPEARL_DEFAULT);
+            ItemIds.HARMONIONPICK = configuration.getOrCreateIntProperty(ModItems.Soundstonepick, CATEGORY_ITEM, ItemIds.HARMONIONPICK_DEFAULT).getInt(ItemIds.HARMONIONPICK_DEFAULT);
+            ItemIds.HARMONIONAXE = configuration.getOrCreateIntProperty(ModItems.Soundstoneaxe, CATEGORY_ITEM, ItemIds.HARMONIONAXE_DEFAULT).getInt(ItemIds.HARMONIONAXE_DEFAULT);
+            ItemIds.HARMONIONSHOVEL = configuration.getOrCreateIntProperty(ModItems.Soundstoneshovel, CATEGORY_ITEM, ItemIds.HARMONIONSHOVEL_DEFAULT).getInt(ItemIds.HARMONIONSHOVEL_DEFAULT);
             
         }
         catch (Exception e) {
