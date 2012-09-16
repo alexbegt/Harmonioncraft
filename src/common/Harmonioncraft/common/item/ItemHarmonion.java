@@ -1,6 +1,7 @@
 package Harmonioncraft.common.item;
 
 import Harmonioncraft.common.lib.Reference;
+import net.minecraft.src.EnumToolMaterial;
 import net.minecraft.src.Item;
 
 public class ItemHarmonion extends Item {

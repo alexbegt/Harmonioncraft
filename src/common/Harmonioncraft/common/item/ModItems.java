@@ -3,7 +3,10 @@ package Harmonioncraft.common.item;
 import Harmonioncraft.common.lib.ItemIds;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.minecraft.src.CreativeTabs;
+import net.minecraft.src.EnumArmorMaterial;
+import net.minecraft.src.EnumToolMaterial;
 import net.minecraft.src.Item;
+import net.minecraftforge.common.EnumHelper;
 
 /**
  * ModItems
