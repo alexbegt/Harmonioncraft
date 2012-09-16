@@ -14,9 +14,10 @@
 /src/minecraft/*
 /src/minecraft_server/*
 /src/common/*
-!/src/common/com/
+!/src/common/Harmonioncraft/
 !/src/common/mcmod.info
 !/src/common/SP.png
+!/src/minecraft/Harmonioncraft/
 
 *.bat
 *.sh
