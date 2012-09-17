@@ -1,10 +1,13 @@
 package Harmonioncraft.common.item;
 
+import Harmonioncraft.common.Harmonioncraft;
+import Harmonioncraft.common.lib.CustomItemRarity;
 import Harmonioncraft.common.lib.Reference;
 import net.minecraft.src.Block;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.Entity;
 import net.minecraft.src.EntityLiving;
+import net.minecraft.src.EnumRarity;
 import net.minecraft.src.EnumToolMaterial;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
@@ -14,6 +17,7 @@ import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
 
 public class ItemHarmonionTool extends Item {
+	
 	    /** Array of blocks the tool has extra effect against. */
 	    private Block[] blocksEffectiveAgainst;
 	    protected float efficiencyOnProperMaterial = 4.0F;
@@ -35,6 +39,11 @@ public class ItemHarmonionTool extends Item {
 	        this.damageVsEntity = par2 + par3EnumToolMaterial.getDamageVsEntity();
 	        this.setTabToDisplayOn(CreativeTabs.tabTools);
 	        setTextureFile(Reference.SPRITE_SHEET_LOCATION + Reference.ITEM_SPRITE_SHEET);
+	    }
+	    
+	    @SideOnly(Side.CLIENT)
+	    public EnumRarity getRarity(ItemStack stack) {
+	        return Harmonioncraft.proxy.getCustomRarityType(CustomItemRarity.MAGICAL);
 	    }
 
 	    /**

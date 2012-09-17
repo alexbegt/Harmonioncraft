@@ -11,12 +11,12 @@ package Harmonioncraft.common.lib;
  */
 public class Sounds {
 
-    private static final String SOUND_RESOURCE_LOCATION = "/Harmonioncraft/client/sounds/";
-    private static final String SOUND_PREFIX = "Hmc.sound.";
+    private static final String SOUND_RESOURCE_LOCATION = "Harmonioncraft/client/sounds/";
+    private static final String SOUND_PREFIX = "Hmc.sound";
 
     public static String[] soundFiles = {
             SOUND_RESOURCE_LOCATION + "break.ogg"};
 
-    public static final String BREAK = SOUND_PREFIX + "break";
+    public static final String BREAK2 = SOUND_PREFIX + "break.ogg";
 
 }

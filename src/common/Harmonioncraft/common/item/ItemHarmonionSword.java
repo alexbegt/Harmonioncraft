@@ -1,5 +1,6 @@
 package Harmonioncraft.common.item;
 
+import Harmonioncraft.common.lib.CustomItemRarity;
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
 import net.minecraft.src.Block;
@@ -8,10 +9,11 @@ import net.minecraft.src.Entity;
 import net.minecraft.src.EntityLiving;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.EnumAction;
+import net.minecraft.src.EnumRarity;
 import net.minecraft.src.EnumToolMaterial;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.World;
-
+import Harmonioncraft.common.Harmonioncraft;
 
 public class ItemHarmonionSword extends ItemHarmonion {
 	

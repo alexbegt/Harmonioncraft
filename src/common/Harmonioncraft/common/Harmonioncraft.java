@@ -26,7 +26,7 @@ import Harmonioncraft.common.network.PacketHandler;
  * 
  */
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
-@NetworkMod(channels = { Reference.CHANNEL_NAME }, clientSideRequired = true, serverSideRequired = false)//, packetHandler = PacketHandler.class)
+@NetworkMod(channels = { Reference.CHANNEL_NAME }, clientSideRequired = true, serverSideRequired = false, packetHandler = PacketHandler.class)
 public class Harmonioncraft {
 	
 	@Instance
@@ -46,6 +46,8 @@ public class Harmonioncraft {
 
         // Register the Sound Handler (Client only)
         proxy.registerSoundHandler();
+        
+        //Set everything to play BREAK2 on breaking.
         
 	}
 	

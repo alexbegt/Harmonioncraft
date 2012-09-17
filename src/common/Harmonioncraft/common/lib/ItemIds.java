@@ -9,6 +9,7 @@ public class ItemIds {
 	public static int HARMONIONPICK_DEFAULT = 27272;
 	public static int HARMONIONAXE_DEFAULT = 27273;
 	public static int HARMONIONSHOVEL_DEFAULT = 27274;
+	public static int HARMONIONHOE_DEFAULT = 27275;
 	
 	/* Current item ids */
 	public static int HARMONIONSWORD;
@@ -17,4 +18,5 @@ public class ItemIds {
 	public static int HARMONIONPICK;
 	public static int HARMONIONAXE;
 	public static int HARMONIONSHOVEL;
+	public static int HARMONIONHOE;
 }

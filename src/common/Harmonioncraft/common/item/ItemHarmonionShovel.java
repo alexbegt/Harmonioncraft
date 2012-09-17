@@ -1,7 +1,9 @@
 package Harmonioncraft.common.item;
 
 import net.minecraft.src.Block;
+import net.minecraft.src.EnumRarity;
 import net.minecraft.src.EnumToolMaterial;
+import net.minecraft.src.ItemStack;
 
 public class ItemHarmonionShovel extends ItemHarmonionTool {
 	

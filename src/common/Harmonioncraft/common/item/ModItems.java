@@ -26,6 +26,7 @@ public class ModItems {
 	public static final String Soundstonepick = "Soundstonepick";
 	public static final String Soundstoneaxe = "Soundstoneaxe";
 	public static final String Soundstoneshovel = "Soundstoneshovel";
+	public static final String Soundstonehoe = "Soundstonehoe";
 	
 	/* Mod item instances */
 	public static Item HarmonionSword;
@@ -34,8 +35,9 @@ public class ModItems {
 	public static Item Harmonionpick;
 	public static Item Harmonionaxe;
 	public static Item Harmonionshovel;
+	public static Item Harmonionhoe;
 	
-	static EnumToolMaterial harmoniontool = EnumHelper.addToolMaterial("Harmonion", 3, 1500, 40.0F, 3, 9);
+	static EnumToolMaterial harmoniontool = EnumHelper.addToolMaterial("Harmonion", 3, 100, 40.0F, 3, 9);
 	
 	public static void init() {
 		
@@ -46,6 +48,7 @@ public class ModItems {
 		Harmonionpick = new ItemHarmonionPick(ItemIds.HARMONIONPICK, harmoniontool).setIconCoord(0,6).setItemName(Soundstonepick).setTabToDisplayOn(CreativeTabs.tabTools);
 		Harmonionaxe = new ItemHarmonionAxe(ItemIds.HARMONIONAXE, harmoniontool).setIconCoord(0,7).setItemName(Soundstoneaxe).setTabToDisplayOn(CreativeTabs.tabTools);
 		Harmonionshovel = new ItemHarmonionShovel(ItemIds.HARMONIONSHOVEL, harmoniontool).setIconCoord(0,5).setItemName(Soundstoneshovel).setTabToDisplayOn(CreativeTabs.tabTools);
+		Harmonionhoe = new ItemHarmonionHoe(ItemIds.HARMONIONHOE, harmoniontool).setIconCoord(0,8).setItemName(Soundstonehoe).setTabToDisplayOn(CreativeTabs.tabTools);
 		
 		/* Gives Item its name */
 		LanguageRegistry.addName(HarmonionSword, "Harmonic Sword");
@@ -54,6 +57,7 @@ public class ModItems {
 		LanguageRegistry.addName(Harmonionpick, "Soundstone Pickaxe");
 		LanguageRegistry.addName(Harmonionaxe, "Soundstone Axe");
 		LanguageRegistry.addName(Harmonionshovel, "Soundstone Shovel");
+		LanguageRegistry.addName(Harmonionhoe, "Soundstone Hoe");
 		
 	}
 }

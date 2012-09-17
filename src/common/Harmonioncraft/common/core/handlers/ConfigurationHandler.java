@@ -43,6 +43,7 @@ public class ConfigurationHandler {
             ItemIds.HARMONIONPICK = configuration.getOrCreateIntProperty(ModItems.Soundstonepick, CATEGORY_ITEM, ItemIds.HARMONIONPICK_DEFAULT).getInt(ItemIds.HARMONIONPICK_DEFAULT);
             ItemIds.HARMONIONAXE = configuration.getOrCreateIntProperty(ModItems.Soundstoneaxe, CATEGORY_ITEM, ItemIds.HARMONIONAXE_DEFAULT).getInt(ItemIds.HARMONIONAXE_DEFAULT);
             ItemIds.HARMONIONSHOVEL = configuration.getOrCreateIntProperty(ModItems.Soundstoneshovel, CATEGORY_ITEM, ItemIds.HARMONIONSHOVEL_DEFAULT).getInt(ItemIds.HARMONIONSHOVEL_DEFAULT);
+            ItemIds.HARMONIONHOE = configuration.getOrCreateIntProperty(ModItems.Soundstonehoe, CATEGORY_ITEM, ItemIds.HARMONIONHOE_DEFAULT).getInt(ItemIds.HARMONIONHOE_DEFAULT);
             
         }
         catch (Exception e) {
