@@ -11,13 +11,12 @@
 /runtime/*
 /temp/*
 
+/src/common/*
 /src/minecraft/*
 /src/minecraft_server/*
-/src/common/*
-!/src/common/Harmonioncraft/
-!/src/common/mcmod.info
-!/src/common/SP.png
-!/src/minecraft/Harmonioncraft/
+
+!/src/common/com/
+!/src/minecraft/com/
 
 *.bat
 *.sh

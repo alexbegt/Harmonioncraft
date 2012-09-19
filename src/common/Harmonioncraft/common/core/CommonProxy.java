@@ -1,10 +1,15 @@
 package Harmonioncraft.common.core;
 
+import java.util.Iterator;
+import Harmonioncraft.common.commands.CommandHMCV;
 import Harmonioncraft.common.lib.GuiIds;
 import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.src.CommandHandler;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.EnumRarity;
+import net.minecraft.src.ICommand;
 import net.minecraft.src.World;
 
 /**
@@ -54,5 +59,25 @@ public class CommonProxy implements IGuiHandler {
         
         return null;
     }
-
+    
+    public void serverStarting(MinecraftServer var1)
+    {
+        CommandHandler var2 = (CommandHandler)var1.getCommandManager();
+        
+        ICommand[] var5 = this.getConsoleCommands();
+        {
+        	ICommand[] var6 = var5;
+        	int var7 = var5.length;
+        	for (int var8 = 0; var8 < var7; ++var8)
+        	{
+        		ICommand var9 = var6[var8];
+        		var2.registerCommand(var9);
+        	}
+        }
+    }
+    
+    public ICommand[] getConsoleCommands()
+    {
+        return new ICommand[] {new CommandHMCV()};
+    }
 }

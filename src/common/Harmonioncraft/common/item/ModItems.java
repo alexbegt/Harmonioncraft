@@ -1,11 +1,14 @@
 package Harmonioncraft.common.item;
 
 import Harmonioncraft.common.lib.ItemIds;
+import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.EnumArmorMaterial;
 import net.minecraft.src.EnumToolMaterial;
+import net.minecraft.src.FurnaceRecipes;
 import net.minecraft.src.Item;
+import net.minecraft.src.ItemStack;
 import net.minecraftforge.common.EnumHelper;
 
 /**
@@ -37,7 +40,7 @@ public class ModItems {
 	public static Item Harmonionshovel;
 	public static Item Harmonionhoe;
 	
-	static EnumToolMaterial harmoniontool = EnumHelper.addToolMaterial("Harmonion", 3, 100, 40.0F, 3, 9);
+	static EnumToolMaterial harmoniontool = EnumHelper.addToolMaterial("Harmonion", 3, 3000, 40.0F, 3, 9);
 	
 	public static void init() {
 		
@@ -59,5 +62,57 @@ public class ModItems {
 		LanguageRegistry.addName(Harmonionshovel, "Soundstone Shovel");
 		LanguageRegistry.addName(Harmonionhoe, "Soundstone Hoe");
 		
+		/* Item Recipes*/
+		initItemRecipes();
+		
+		/* Item Smelting */
+		initItemSmelting();
+		
+	}
+	
+	private static void initItemRecipes() {
+		
+		/* Harmonic Sword Recipe*/
+		GameRegistry.addRecipe(new ItemStack(ModItems.HarmonionSword), 
+				new Object[]{" h "," h "," s ", 
+			Character.valueOf('h'), ModItems.Refinedsoundstone,
+			Character.valueOf('s'), Item.stick
+		});
+		
+		/*Soundstone Pick Recipe*/
+		GameRegistry.addRecipe(new ItemStack(ModItems.Harmonionpick), 
+				new Object[]{"hhh"," s "," s ", 
+			Character.valueOf('h'), ModItems.Refinedsoundstone,
+			Character.valueOf('s'), Item.stick
+		});
+		
+		/*Soundstone Axe Recipe*/
+		GameRegistry.addRecipe(new ItemStack(ModItems.Harmonionaxe), 
+				new Object[]{"hh ","hs "," s ", 
+			Character.valueOf('h'), ModItems.Refinedsoundstone,
+			Character.valueOf('s'), Item.stick
+		});
+		
+		/*Soundstone Hoe Recipe*/
+		GameRegistry.addRecipe(new ItemStack(ModItems.Harmonionhoe), 
+				new Object[]{"hh "," s "," s ", 
+			Character.valueOf('h'), ModItems.Refinedsoundstone,
+			Character.valueOf('s'), Item.stick
+		});
+		
+		/*Soundstone Shovel Recipe*/
+		GameRegistry.addRecipe(new ItemStack(ModItems.Harmonionshovel), 
+				new Object[]{" h "," s "," s ", 
+			Character.valueOf('h'), ModItems.Refinedsoundstone,
+			Character.valueOf('s'), Item.stick
+		});
+	}
+	
+	private static void initItemSmelting() {
+		
+		FurnaceRecipes furnaceRecipes = FurnaceRecipes.smelting();
+		
+		/* Harmonion Pearl Smelting. */
+		furnaceRecipes.addSmelting(ModItems.Harmonionpearl.shiftedIndex, new ItemStack(ModItems.Refinedsoundstone, 10), 10);
 	}
 }

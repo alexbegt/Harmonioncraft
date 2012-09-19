@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.logging.Level;
 
 import cpw.mods.fml.common.FMLLog;
+import Harmonioncraft.common.block.ModBlocks;
 import Harmonioncraft.common.item.ModItems;
 import Harmonioncraft.common.lib.BlockIds;
 import Harmonioncraft.common.lib.ConfigurationSettings;
@@ -35,6 +36,7 @@ public class ConfigurationHandler {
 
             /* Block Configs */
             ConfigurationSettings.AUTO_RESOLVE_BLOCK_IDS = configuration.getOrCreateBooleanProperty(Reference.AUTO_RESOLVE_BLOCK_IDS, CATEGORY_BLOCK, ConfigurationSettings.AUTO_RESOLVE_BLOCK_IDS_DEFAULT).getBoolean(ConfigurationSettings.AUTO_RESOLVE_BLOCK_IDS_DEFAULT);
+            BlockIds.HARMONION = configuration.getOrCreateIntProperty(ModBlocks.Soundstoneore, CATEGORY_BLOCK, BlockIds.HARMONION_DEFAULT).getInt(BlockIds.HARMONION_DEFAULT);
 
             /* Item Configs */
             ItemIds.HARMONIONSWORD = configuration.getOrCreateIntProperty(ModItems.Harmonicsword, CATEGORY_ITEM, ItemIds.HARMONIONSWORD_DEFAULT).getInt(ItemIds.HARMONIONSWORD_DEFAULT);

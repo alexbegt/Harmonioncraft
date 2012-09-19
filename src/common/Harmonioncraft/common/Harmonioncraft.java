@@ -1,19 +1,28 @@
 package Harmonioncraft.common;
 
+import net.minecraft.src.CommandHandler;
+import net.minecraft.src.ItemStack;
 import cpw.mods.fml.common.*;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.Mod.PostInit;
 import cpw.mods.fml.common.Mod.PreInit;
+import cpw.mods.fml.common.Mod.ServerStarted;
+import cpw.mods.fml.common.Mod.ServerStarting;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
+import Harmonioncraft.common.block.ModBlocks;
+import Harmonioncraft.common.commands.CommandHMCV;
 import Harmonioncraft.common.core.CommonProxy;
 import Harmonioncraft.common.core.handlers.ConfigurationHandler;
 import Harmonioncraft.common.item.ModItems;
 import Harmonioncraft.common.lib.Reference;
+import Harmonioncraft.common.lib.Version;
 import Harmonioncraft.common.network.PacketHandler;
 
 /**
@@ -38,6 +47,8 @@ public class Harmonioncraft {
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event) {	
 		
+		Version.versionCheck();
+		
 		// Initialize the configuration
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
 
@@ -47,35 +58,42 @@ public class Harmonioncraft {
         // Register the Sound Handler (Client only)
         proxy.registerSoundHandler();
         
-        //Set everything to play BREAK2 on breaking.
-        
 	}
 	
 	@Init
 	public void load(FMLInitializationEvent evt) {
 		
-		 // Initialize the custom item rarity types
+		/* Initialize the custom item rarity types */
         proxy.initCustomRarityTypes();
 
-        // Register the GUI Handler
+        /* Register the GUI Handler */
         NetworkRegistry.instance().registerGuiHandler(instance, proxy);
 
-        // Initialize mod blocks
-        //ModBlocks.init();
+        /* Initialize mod blocks */
+        ModBlocks.init();
         
-        // Initialize mod items
+        /* Initialize mod items */
         ModItems.init();
         
-        // Initialize mod tile entities
+        /* Initialize mod tile entities */
         proxy.initTileEntities();
         
-        // Initialize custom rendering and pre-load textures (Client only)
+        /* Initialize custom rendering and pre-load textures (Client only) */
         proxy.initRenderingAndTextures();
+        
+        /* Block Smelting */
+        ModBlocks.initBlockSmelting();
 		
 	}
 	
 	@PostInit
 	public void modsLoaded(FMLPostInitializationEvent evt) {
 		
+	}
+	
+	@ServerStarting
+	public void serverStarting(FMLServerStartingEvent event)
+	{
+		proxy.serverStarting(event.getServer());
 	}
 }
