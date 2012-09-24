@@ -45,13 +45,13 @@ public class ModItems {
 	public static void init() {
 		
         /* Initialize each mod item individually */
-		HarmonionSword = new ItemHarmonionSword(ItemIds.HARMONIONSWORD, harmoniontool).setIconCoord(0,4).setItemName(Harmonicsword).setTabToDisplayOn(CreativeTabs.tabCombat);
-		Refinedsoundstone = new ItemHarmonionIngot(ItemIds.REFINEDSOUNDSTONE).setIconCoord(6, 1).setItemName(Soundstoneingot).setTabToDisplayOn(CreativeTabs.tabMaterials);
-		Harmonionpearl = new ItemHarmonionPearl(ItemIds.HARMONIONPEARL).setIconCoord(11, 6).setItemName(Soundstonepearl).setTabToDisplayOn(CreativeTabs.tabMisc);
-		Harmonionpick = new ItemHarmonionPick(ItemIds.HARMONIONPICK, harmoniontool).setIconCoord(0,6).setItemName(Soundstonepick).setTabToDisplayOn(CreativeTabs.tabTools);
-		Harmonionaxe = new ItemHarmonionAxe(ItemIds.HARMONIONAXE, harmoniontool).setIconCoord(0,7).setItemName(Soundstoneaxe).setTabToDisplayOn(CreativeTabs.tabTools);
-		Harmonionshovel = new ItemHarmonionShovel(ItemIds.HARMONIONSHOVEL, harmoniontool).setIconCoord(0,5).setItemName(Soundstoneshovel).setTabToDisplayOn(CreativeTabs.tabTools);
-		Harmonionhoe = new ItemHarmonionHoe(ItemIds.HARMONIONHOE, harmoniontool).setIconCoord(0,8).setItemName(Soundstonehoe).setTabToDisplayOn(CreativeTabs.tabTools);
+		HarmonionSword = new ItemHarmonionSword(ItemIds.HARMONIONSWORD, harmoniontool).setIconCoord(0,4).setItemName(Harmonicsword).setCreativeTab(CreativeTabs.tabCombat);
+		Refinedsoundstone = new ItemHarmonionIngot(ItemIds.REFINEDSOUNDSTONE).setIconCoord(6, 1).setItemName(Soundstoneingot).setCreativeTab(CreativeTabs.tabMaterials);
+		Harmonionpearl = new ItemHarmonionPearl(ItemIds.HARMONIONPEARL).setIconCoord(11, 6).setItemName(Soundstonepearl).setCreativeTab(CreativeTabs.tabMisc);
+		Harmonionpick = new ItemHarmonionPick(ItemIds.HARMONIONPICK, harmoniontool).setIconCoord(0,6).setItemName(Soundstonepick).setCreativeTab(CreativeTabs.tabTools);
+		Harmonionaxe = new ItemHarmonionAxe(ItemIds.HARMONIONAXE, harmoniontool).setIconCoord(0,7).setItemName(Soundstoneaxe).setCreativeTab(CreativeTabs.tabTools);
+		Harmonionshovel = new ItemHarmonionShovel(ItemIds.HARMONIONSHOVEL, harmoniontool).setIconCoord(0,5).setItemName(Soundstoneshovel).setCreativeTab(CreativeTabs.tabTools);
+		Harmonionhoe = new ItemHarmonionHoe(ItemIds.HARMONIONHOE, harmoniontool).setIconCoord(0,8).setItemName(Soundstonehoe).setCreativeTab(CreativeTabs.tabTools);
 		
 		/* Gives Item its name */
 		LanguageRegistry.addName(HarmonionSword, "Harmonic Sword");

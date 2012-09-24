@@ -353,7 +353,7 @@ public class BlockHarmonionFire extends Block{
      */
     public void onBlockAdded(World par1World, int par2, int par3, int par4)
     {
-        if (par1World.provider.worldType > 0 || par1World.getBlockId(par2, par3 - 1, par4) != ModBlocks.HarmonionBlock.blockID || !ModBlocks.HarmonionPortal.tryToCreatePortal(par1World, par2, par3, par4))
+        if (par1World.provider.dimensionId > 8 || par1World.getBlockId(par2, par3 - 1, par4) != ModBlocks.HarmonionBlock.blockID || !ModBlocks.HarmonionPortal.tryToCreatePortal(par1World, par2, par3, par4))
         {
             if (!par1World.doesBlockHaveSolidTopSurface(par2, par3 - 1, par4) && !this.canNeighborBurn(par1World, par2, par3, par4))
             {

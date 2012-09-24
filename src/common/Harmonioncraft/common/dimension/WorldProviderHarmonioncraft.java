@@ -10,7 +10,7 @@ public class WorldProviderHarmonioncraft extends WorldProvider {
 	
 	public WorldProviderHarmonioncraft() {
 		this.setDimension(8);
-		this.worldType = 8;
+		this.dimensionId = 8;
 	}
 	
 	 /**
@@ -61,7 +61,7 @@ public class WorldProviderHarmonioncraft extends WorldProvider {
     public void registerWorldChunkManager()
     {
         this.worldChunkMgr = new HMCWorldChunkManager(this.worldObj);
-        this.worldType = 8;
+        this.dimensionId = 8;
         this.setDimension(8);
     }
 
@@ -105,17 +105,20 @@ public class WorldProviderHarmonioncraft extends WorldProvider {
         return "DIM8";
     }
 
+    @Override
     public String getWelcomeMessage()
     {
         return "Entering the HarmonionCraft";
     }
-
+    
+    @Override
     public String getDepartMessage()
     {
         return "Leaving the HarmonionCraft";
     }
-	
-	public String func_80007_l() {
+
+	@Override
+	public String getDimensionName() {
 		return "HarmonionCraft";
 	}
 

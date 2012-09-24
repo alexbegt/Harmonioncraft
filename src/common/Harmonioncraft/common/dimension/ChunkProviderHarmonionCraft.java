@@ -820,7 +820,7 @@ public class ChunkProviderHarmonionCraft implements IChunkProvider {
         {
             this.majorFeatureGenerator.getNearestInstance(this.worldObj, var2, var3, var4);
 
-            if (this.majorFeatureGenerator.func_75048_a(var2, var3, var4))
+            if (this.majorFeatureGenerator.hasStructureAt(var2, var3, var4))
             {
                 return var5.getSpawnableList(var1);
             }

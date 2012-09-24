@@ -37,7 +37,7 @@ public class ItemHarmonionTool extends Item {
 	        this.setMaxDamage(par3EnumToolMaterial.getMaxUses());
 	        this.efficiencyOnProperMaterial = par3EnumToolMaterial.getEfficiencyOnProperMaterial();
 	        this.damageVsEntity = par2 + par3EnumToolMaterial.getDamageVsEntity();
-	        this.setTabToDisplayOn(CreativeTabs.tabTools);
+	        this.setCreativeTab(CreativeTabs.tabTools);
 	        setTextureFile(Reference.SPRITE_SHEET_LOCATION + Reference.ITEM_SPRITE_SHEET);
 	    }
 	    

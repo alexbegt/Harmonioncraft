@@ -13,6 +13,7 @@
 
 /src/common/*
 /src/minecraft/*
+/hey/*
 /src/minecraft_server/*
 
 !/src/common/Harmonioncraft/
