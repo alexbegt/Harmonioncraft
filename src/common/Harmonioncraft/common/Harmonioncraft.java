@@ -2,6 +2,7 @@ package Harmonioncraft.common;
 
 import net.minecraft.src.CommandHandler;
 import net.minecraft.src.ItemStack;
+import net.minecraftforge.common.DimensionManager;
 import cpw.mods.fml.common.*;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -20,6 +21,7 @@ import Harmonioncraft.common.block.ModBlocks;
 import Harmonioncraft.common.commands.CommandHMCV;
 import Harmonioncraft.common.core.CommonProxy;
 import Harmonioncraft.common.core.handlers.ConfigurationHandler;
+import Harmonioncraft.common.dimension.WorldProviderHarmonioncraft;
 import Harmonioncraft.common.item.ModItems;
 import Harmonioncraft.common.lib.Reference;
 import Harmonioncraft.common.lib.Version;
@@ -38,7 +40,7 @@ import Harmonioncraft.common.network.PacketHandler;
 @NetworkMod(channels = { Reference.CHANNEL_NAME }, clientSideRequired = true, serverSideRequired = false, packetHandler = PacketHandler.class)
 public class Harmonioncraft {
 	
-	@Instance
+	@Instance("Harmonioncraft")
 	public static Harmonioncraft instance;
 	
 	@SidedProxy(clientSide = "Harmonioncraft.client.core.ClientProxy", serverSide = "Harmonioncraft.common.core.CommonProxy")
@@ -83,6 +85,10 @@ public class Harmonioncraft {
         
         /* Block Smelting */
         ModBlocks.initBlockSmelting();
+        
+        /* Biome Adding */
+        DimensionManager.registerProviderType(8, WorldProviderHarmonioncraft.class, false);
+        DimensionManager.registerDimension(8, 8);
 		
 	}
 	

@@ -12,7 +12,7 @@ import Harmonioncraft.common.commands.CommandHMCV;
 public class Version
 {
     public static final String VERSION = Reference.VERSION;//"0.0.0.1";
-    public static final String BUILD_NUMBER = "b";
+    public static final String BUILD_NUMBER = "";
     private static final String REMOTE_VERSION_FILE = "http://bit.ly/Harmonioncraftver";
     public static EnumUpdateState currentVersion = EnumUpdateState.CURRENT;
     public static final int FORGE_VERSION_MAJOR = 4;
@@ -65,7 +65,7 @@ public class Version
                 }
             }
 
-            FMLLog.warning("Harmonioncraft: Using outdated version [0.0.0.0 (build:B)] for Minecraft " + var4 + ". Consider updating.", new Object[0]);
+            FMLLog.warning("Harmonioncraft: Using outdated version [0.0.0.2] for Minecraft " + var4 + ". Consider updating.", new Object[0]);
             currentVersion = EnumUpdateState.OUTDATED;
         }
         catch (Exception var6)
