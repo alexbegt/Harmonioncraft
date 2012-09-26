@@ -49,6 +49,7 @@ public class Harmonioncraft {
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event) {	
 		
+		// Checks the Version
 		Version.versionCheck();
 		
 		// Initialize the configuration
