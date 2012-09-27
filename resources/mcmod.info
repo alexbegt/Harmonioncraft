@@ -1,0 +1,16 @@
+[
+{
+  "modid": "HMC",
+  "name": "Harmonioncraft",
+  "description": "Sonic devices and tools.  ENOUGH SAID.  Mmmm Tesla coils... yum.",
+  "version": "0.0.0.3",
+  "mcversion": "1.3.2",
+  "url": "",
+  "updateUrl": "",
+  "authors": ["alexbegt, DJPantheris"],
+  "credits": "Authored by alexbegt and DJPantheris.",
+  "logoFile": "/Harmonioncraft/client/textures/Harmonioncraft_logo.png",
+  "screenshots": [],
+  "dependencies": ["MCFORGE"]
+}
+]
