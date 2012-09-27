@@ -86,6 +86,7 @@ public class Harmonioncraft {
         
         /* Block Smelting */
         ModBlocks.initBlockSmelting();
+        ModBlocks.initBlockRecipes();
         
         /* Biome Adding */
         DimensionManager.registerProviderType(8, WorldProviderHarmonioncraft.class, false);

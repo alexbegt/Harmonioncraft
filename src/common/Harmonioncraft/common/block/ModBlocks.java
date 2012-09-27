@@ -7,6 +7,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.minecraft.src.Block;
 import net.minecraft.src.FurnaceRecipes;
+import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 
 public class ModBlocks {
@@ -47,15 +48,24 @@ public class ModBlocks {
 		GameRegistry.registerBlock(HarmonionFire);
 		
 		/* Block Recipes*/
-		initBlockRecipes();
+		//initBlockRecipes();
 		
 		/* WorldGen */
 		GameRegistry.registerWorldGenerator(worldGen);
 		
 	}
 	
-	private static void initBlockRecipes() {
+	public static void initBlockRecipes() {
 		
+		/* Harmonic Block Recipe*/
+		GameRegistry.addRecipe(new ItemStack(ModBlocks.HarmonionBlock), new Object[] {"###", "###", "###", '#', ModItems.Harmonionpearl});
+		/**GameRegistry.addRecipe(new ItemStack(ModBlocks.HarmonionBlock, 1), 
+				new Object[]{"hhh","hhh","hhh", 
+			Character.valueOf('h'), ModItems.Harmonionpearl
+		});*/
+		
+		/* Harmonic Block Recipe*/
+		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.Harmonionpearl, 9), new Object[] {ModBlocks.HarmonionBlock});
 	}
 	
 	public static void initBlockSmelting() {
