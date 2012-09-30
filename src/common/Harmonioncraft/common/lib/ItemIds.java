@@ -10,6 +10,10 @@ public class ItemIds {
 	public static int HARMONIONAXE_DEFAULT = 27273;
 	public static int HARMONIONSHOVEL_DEFAULT = 27274;
 	public static int HARMONIONHOE_DEFAULT = 27275;
+	public static int HARMONIONHELMET_DEFAULT = 27276;
+	public static int HARMONIONCHESTPLATE_DEFAULT = 27277;
+	public static int HARMONIONLEGGINGS_DEFAULT = 27278;
+	public static int HARMONIONBOOTS_DEFAULT = 27279;
 	
 	/* Current item ids */
 	public static int HARMONIONSWORD;
@@ -19,4 +23,8 @@ public class ItemIds {
 	public static int HARMONIONAXE;
 	public static int HARMONIONSHOVEL;
 	public static int HARMONIONHOE;
+	public static int HARMONIONHELMET;
+	public static int HARMONIONCHESTPLATE;
+	public static int HARMONIONLEGGINGS;
+	public static int HARMONIONBOOTS;
 }

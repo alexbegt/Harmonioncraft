@@ -21,6 +21,7 @@ import Harmonioncraft.common.block.ModBlocks;
 import Harmonioncraft.common.commands.CommandHMCV;
 import Harmonioncraft.common.core.CommonProxy;
 import Harmonioncraft.common.core.handlers.ConfigurationHandler;
+import Harmonioncraft.common.core.handlers.LocalizationHandler;
 import Harmonioncraft.common.dimension.WorldProviderHarmonioncraft;
 import Harmonioncraft.common.item.ModItems;
 import Harmonioncraft.common.lib.Reference;
@@ -49,11 +50,14 @@ public class Harmonioncraft {
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event) {	
 		
-		// Checks the Version.
-		Version.versionCheck();
-		
 		// Initialize the configuration
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
+		
+		// Checks the Version
+		Version.versionCheck();
+		
+		// Load the localization files into the LanguageRegistry
+    	LocalizationHandler.instance().loadLanguages();
 
         // Register the KeyBinding Handler (Client only)
         proxy.registerKeyBindingHandler();

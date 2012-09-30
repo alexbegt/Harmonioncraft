@@ -50,6 +50,10 @@ public class ConfigurationHandler {
             ItemIds.HARMONIONAXE = configuration.getOrCreateIntProperty(ModItems.Soundstoneaxe, CATEGORY_ITEM, ItemIds.HARMONIONAXE_DEFAULT).getInt(ItemIds.HARMONIONAXE_DEFAULT);
             ItemIds.HARMONIONSHOVEL = configuration.getOrCreateIntProperty(ModItems.Soundstoneshovel, CATEGORY_ITEM, ItemIds.HARMONIONSHOVEL_DEFAULT).getInt(ItemIds.HARMONIONSHOVEL_DEFAULT);
             ItemIds.HARMONIONHOE = configuration.getOrCreateIntProperty(ModItems.Soundstonehoe, CATEGORY_ITEM, ItemIds.HARMONIONHOE_DEFAULT).getInt(ItemIds.HARMONIONHOE_DEFAULT);
+            ItemIds.HARMONIONHELMET = configuration.getOrCreateIntProperty(ModItems.Soundstonehelmet, CATEGORY_ITEM, ItemIds.HARMONIONHELMET_DEFAULT).getInt(ItemIds.HARMONIONHELMET_DEFAULT);
+            ItemIds.HARMONIONCHESTPLATE = configuration.getOrCreateIntProperty(ModItems.Soundstonechestplate, CATEGORY_ITEM, ItemIds.HARMONIONCHESTPLATE_DEFAULT).getInt(ItemIds.HARMONIONCHESTPLATE_DEFAULT);
+            ItemIds.HARMONIONLEGGINGS = configuration.getOrCreateIntProperty(ModItems.Soundstonelegs, CATEGORY_ITEM, ItemIds.HARMONIONLEGGINGS_DEFAULT).getInt(ItemIds.HARMONIONLEGGINGS_DEFAULT);
+            ItemIds.HARMONIONBOOTS = configuration.getOrCreateIntProperty(ModItems.Soundstoneboots, CATEGORY_ITEM, ItemIds.HARMONIONBOOTS_DEFAULT).getInt(ItemIds.HARMONIONBOOTS_DEFAULT);
             
             /* Biome Configs */
             BiomeIds.idBiomeLake = configuration.getOrCreateIntProperty(BiomeIds.idBiomeLake_name, CATEGORY_GENERAL, BiomeIds.idBiomeLake_Default).getInt(BiomeIds.idBiomeLake_Default);

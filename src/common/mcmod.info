@@ -7,10 +7,15 @@
   "mcversion": "1.3.2",
   "url": "",
   "updateUrl": "",
-  "authors": ["alexbegt, DJPantheris"],
-  "credits": "Authored by alexbegt and DJPantheris.",
+  "authors": [
+    "alexbegt", "DJPantheris"
+  ],
+  "credits": "Authored by Alexbegt and DJPantheris.",
   "logoFile": "/Harmonioncraft/client/textures/Harmonioncraft_logo.png",
-  "screenshots": [],
-  "dependencies": ["MCFORGE"]
+  "screenshots": [
+  ],
+  "parent":"",
+  "dependencies": [
+  ]
 }
 ]

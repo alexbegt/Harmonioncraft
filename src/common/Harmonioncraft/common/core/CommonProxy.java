@@ -85,4 +85,7 @@ public class CommonProxy implements IGuiHandler {
     {
         return null;
     }
+    public int addArmor(String name) {
+        return 0;
+      }
 }

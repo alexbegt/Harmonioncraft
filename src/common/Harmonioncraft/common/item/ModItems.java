@@ -1,5 +1,6 @@
 package Harmonioncraft.common.item;
 
+import Harmonioncraft.client.core.ClientProxy;
 import Harmonioncraft.common.lib.ItemIds;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
@@ -9,7 +10,9 @@ import net.minecraft.src.EnumToolMaterial;
 import net.minecraft.src.FurnaceRecipes;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
+import net.minecraft.src.ModLoader;
 import net.minecraftforge.common.EnumHelper;
+import net.minecraftforge.common.MinecraftForge;
 
 /**
  * ModItems
@@ -30,6 +33,12 @@ public class ModItems {
 	public static final String Soundstoneaxe = "Soundstoneaxe";
 	public static final String Soundstoneshovel = "Soundstoneshovel";
 	public static final String Soundstonehoe = "Soundstonehoe";
+	public static final String Soundstonehelmet = "Soundstonehelmet";
+	public static final String Soundstonechestplate = "Soundstonechestplate";
+	public static final String Soundstonelegs = "Soundstonelegs";
+	public static final String Soundstoneboots = "Soundstoneboots";
+	public static final String Resoniumpowder = "Resoniumpowder";
+	public static final String Soundstonechip = "Soundstonechip";
 	
 	/* Mod item instances */
 	public static Item HarmonionSword;
@@ -39,28 +48,32 @@ public class ModItems {
 	public static Item Harmonionaxe;
 	public static Item Harmonionshovel;
 	public static Item Harmonionhoe;
+	public static Item Harmonionhelmet;
+	public static Item Harmonionchestplate;
+	public static Item Harmonionlegs;
+	public static Item Harmonionboots;
+	public static Item HarmonionChip;
 	
 	static EnumToolMaterial harmoniontool = EnumHelper.addToolMaterial("Harmonion", 3, 3000, 40.0F, 3, 9);
+	static EnumArmorMaterial harmonionarmor = EnumHelper.addArmorMaterial("Harmonion", 3000, new int[]{3, 8, 6, 3}, 9);
 	
 	public static void init() {
 		
         /* Initialize each mod item individually */
-		HarmonionSword = new ItemHarmonionSword(ItemIds.HARMONIONSWORD, harmoniontool).setIconCoord(0,4).setItemName(Harmonicsword).setCreativeTab(CreativeTabs.tabCombat);
-		Refinedsoundstone = new ItemHarmonionIngot(ItemIds.REFINEDSOUNDSTONE).setIconCoord(6, 1).setItemName(Soundstoneingot).setCreativeTab(CreativeTabs.tabMaterials);
-		Harmonionpearl = new ItemHarmonionPearl(ItemIds.HARMONIONPEARL).setIconCoord(11, 6).setItemName(Soundstonepearl).setCreativeTab(CreativeTabs.tabMisc);
-		Harmonionpick = new ItemHarmonionPick(ItemIds.HARMONIONPICK, harmoniontool).setIconCoord(0,6).setItemName(Soundstonepick).setCreativeTab(CreativeTabs.tabTools);
-		Harmonionaxe = new ItemHarmonionAxe(ItemIds.HARMONIONAXE, harmoniontool).setIconCoord(0,7).setItemName(Soundstoneaxe).setCreativeTab(CreativeTabs.tabTools);
-		Harmonionshovel = new ItemHarmonionShovel(ItemIds.HARMONIONSHOVEL, harmoniontool).setIconCoord(0,5).setItemName(Soundstoneshovel).setCreativeTab(CreativeTabs.tabTools);
-		Harmonionhoe = new ItemHarmonionHoe(ItemIds.HARMONIONHOE, harmoniontool).setIconCoord(0,8).setItemName(Soundstonehoe).setCreativeTab(CreativeTabs.tabTools);
+		HarmonionSword = new ItemHarmonionSword(ItemIds.HARMONIONSWORD, harmoniontool).setIconIndex(10).setItemName(Harmonicsword).setCreativeTab(CreativeTabs.tabCombat);
+		Refinedsoundstone = new ItemHarmonionIngot(ItemIds.REFINEDSOUNDSTONE).setIconIndex(0).setItemName(Soundstoneingot).setCreativeTab(CreativeTabs.tabMaterials);
+		Harmonionpearl = new ItemHarmonionPearl(ItemIds.HARMONIONPEARL).setIconIndex(18).setItemName(Soundstonepearl).setCreativeTab(CreativeTabs.tabMisc);
+		Harmonionpick = new ItemHarmonionPick(ItemIds.HARMONIONPICK, harmoniontool).setIconIndex(12).setItemName(Soundstonepick).setCreativeTab(CreativeTabs.tabTools);
+		Harmonionaxe = new ItemHarmonionAxe(ItemIds.HARMONIONAXE, harmoniontool).setIconIndex(13).setItemName(Soundstoneaxe).setCreativeTab(CreativeTabs.tabTools);
+		Harmonionshovel = new ItemHarmonionShovel(ItemIds.HARMONIONSHOVEL, harmoniontool).setIconIndex(11).setItemName(Soundstoneshovel).setCreativeTab(CreativeTabs.tabTools);
+		Harmonionhoe = new ItemHarmonionHoe(ItemIds.HARMONIONHOE, harmoniontool).setIconIndex(14).setItemName(Soundstonehoe).setCreativeTab(CreativeTabs.tabTools);
+		Harmonionhelmet = new ItemHarmonionArmor(ItemIds.HARMONIONHELMET, 6, harmonionarmor, ModLoader.addArmor("Harmonioncraft/client/armor/soundstone"), 0).setIconIndex(6).setItemName(Soundstonehelmet);
+		Harmonionchestplate = new ItemHarmonionArmor(ItemIds.HARMONIONCHESTPLATE, 7, harmonionarmor, ModLoader.addArmor("Harmonioncraft/client/armor/soundstone"), 1).setIconIndex(7).setItemName(Soundstonechestplate);
+		Harmonionlegs = new ItemHarmonionArmor(ItemIds.HARMONIONLEGGINGS, 8, harmonionarmor, ModLoader.addArmor("Harmonioncraft/client/armor/soundstone"), 2).setIconIndex(8).setItemName(Soundstonelegs);
+		Harmonionboots = new ItemHarmonionArmor(ItemIds.HARMONIONBOOTS, 9, harmonionarmor, ModLoader.addArmor("Harmonioncraft/client/armor/soundstone"), 3).setIconIndex(9).setItemName(Soundstoneboots);
 		
 		/* Gives Item its name */
-		LanguageRegistry.addName(HarmonionSword, "Harmonic Sword");
-		LanguageRegistry.addName(Refinedsoundstone, "Refined Soundstone");
-		LanguageRegistry.addName(Harmonionpearl, "Soundstone Pearl");
-		LanguageRegistry.addName(Harmonionpick, "Soundstone Pickaxe");
-		LanguageRegistry.addName(Harmonionaxe, "Soundstone Axe");
-		LanguageRegistry.addName(Harmonionshovel, "Soundstone Shovel");
-		LanguageRegistry.addName(Harmonionhoe, "Soundstone Hoe");
+		/** Removed */
 		
 		/* Item Recipes*/
 		initItemRecipes();
@@ -106,6 +119,25 @@ public class ModItems {
 			Character.valueOf('h'), ModItems.Refinedsoundstone,
 			Character.valueOf('s'), Item.stick
 		});
+		
+		/*Soundstone Armor Recipe*/
+		GameRegistry.addRecipe(new ItemStack(ModItems.Harmonionhelmet), 
+				new Object[]{"hhh","h h","   ", 
+			Character.valueOf('h'), ModItems.Refinedsoundstone
+		});
+		GameRegistry.addRecipe(new ItemStack(ModItems.Harmonionchestplate), 
+				new Object[]{"h h","hhh","hhh", 
+			Character.valueOf('h'), ModItems.Refinedsoundstone
+		});
+		GameRegistry.addRecipe(new ItemStack(ModItems.Harmonionlegs), 
+				new Object[]{"hhh","h h","h h", 
+			Character.valueOf('h'), ModItems.Refinedsoundstone
+		});
+		GameRegistry.addRecipe(new ItemStack(ModItems.Harmonionboots), 
+				new Object[]{"   ","h h","h h", 
+			Character.valueOf('h'), ModItems.Refinedsoundstone
+		});
+		
 	}
 	
 	private static void initItemSmelting() {

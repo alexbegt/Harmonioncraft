@@ -36,10 +36,7 @@ public class ModBlocks {
 		HarmonionFire = (BlockHarmonionFire) new BlockHarmonionFire(BlockIds.HARMONIONFIRE, 31).setBlockName(Soundstonefire);
 		
 		/* Gives Blocks its name */
-		LanguageRegistry.addName(HarmonionOre, "Harmonion Ore");
-		LanguageRegistry.addName(HarmonionPortal, "Soundstone Portal");
-		LanguageRegistry.addName(HarmonionBlock, "Soundstone Block");
-		LanguageRegistry.addName(HarmonionFire, "Soundstone Fire [WIP]");
+		/** Removed */
 		
 		/* Adds Blocks into the game */
 		GameRegistry.registerBlock(HarmonionOre);

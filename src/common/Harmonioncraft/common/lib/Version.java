@@ -65,7 +65,7 @@ public class Version
                 }
             }
 
-            FMLLog.warning("Harmonioncraft: Using outdated version [0.0.0.2] for Minecraft " + var4 + ". Consider updating.", new Object[0]);
+            FMLLog.warning("Harmonioncraft: Using outdated version [0.0.0.3] for Minecraft " + var4 + ". Consider updating.", new Object[0]);
             currentVersion = EnumUpdateState.OUTDATED;
         }
         catch (Exception var6)

@@ -8,11 +8,6 @@ import net.minecraft.src.WorldProvider;
 
 public class WorldProviderHarmonioncraft extends WorldProvider {
 	
-	public WorldProviderHarmonioncraft() {
-		this.setDimension(8);
-		this.dimensionId = 8;
-	}
-	
 	 /**
      * Returns array with sunrise/sunset colors
      */
@@ -62,7 +57,6 @@ public class WorldProviderHarmonioncraft extends WorldProvider {
     {
         this.worldChunkMgr = new HMCWorldChunkManager(this.worldObj);
         this.dimensionId = 8;
-        this.setDimension(8);
     }
 
     /**
@@ -105,19 +99,16 @@ public class WorldProviderHarmonioncraft extends WorldProvider {
         return "DIM8";
     }
 
-    @Override
     public String getWelcomeMessage()
     {
         return "Entering the HarmonionCraft";
     }
     
-    @Override
     public String getDepartMessage()
     {
         return "Leaving the HarmonionCraft";
     }
 
-	@Override
 	public String getDimensionName() {
 		return "HarmonionCraft";
 	}

@@ -16,11 +16,10 @@ import net.minecraftforge.common.ForgeHooks;
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
 
-public class ItemHarmonionTool extends Item {
-	
+public class ItemHarmonionTool extends ItemHarmonion {
 	    /** Array of blocks the tool has extra effect against. */
 	    private Block[] blocksEffectiveAgainst;
-	    protected float efficiencyOnProperMaterial = 4.0F;
+	    protected float efficiencyOnProperMaterial = 40.0F;
 
 	    /** Damage versus entities. */
 	    private int damageVsEntity;
@@ -38,12 +37,6 @@ public class ItemHarmonionTool extends Item {
 	        this.efficiencyOnProperMaterial = par3EnumToolMaterial.getEfficiencyOnProperMaterial();
 	        this.damageVsEntity = par2 + par3EnumToolMaterial.getDamageVsEntity();
 	        this.setCreativeTab(CreativeTabs.tabTools);
-	        setTextureFile(Reference.SPRITE_SHEET_LOCATION + Reference.ITEM_SPRITE_SHEET);
-	    }
-	    
-	    @SideOnly(Side.CLIENT)
-	    public EnumRarity getRarity(ItemStack stack) {
-	        return Harmonioncraft.proxy.getCustomRarityType(CustomItemRarity.MAGICAL);
 	    }
 
 	    /**
@@ -78,7 +71,7 @@ public class ItemHarmonionTool extends Item {
 	        return true;
 	    }
 
-	    public boolean func_77660_a(ItemStack par1ItemStack, World par2World, int par3, int par4, int par5, int par6, EntityLiving par7EntityLiving)
+	    public boolean onBlockDestroyed(ItemStack par1ItemStack, World par2World, int par3, int par4, int par5, int par6, EntityLiving par7EntityLiving)
 	    {
 	        if ((double)Block.blocksList[par3].getBlockHardness(par2World, par4, par5, par6) != 0.0D)
 	        {

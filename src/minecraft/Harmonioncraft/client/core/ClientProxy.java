@@ -75,4 +75,9 @@ public class ClientProxy extends CommonProxy {
     	//ClientRegistry.bindTileEntitySpecialRenderer(TileCalcinator.class, new RenderCalcinator());
     	
     }
+    
+    public int addArmor(String name)
+    {
+      return RenderingRegistry.addNewArmourRendererPrefix(name);
+    }
 }
