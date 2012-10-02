@@ -9,6 +9,7 @@ import net.minecraft.src.Block;
 import net.minecraft.src.FurnaceRecipes;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
+import net.minecraft.src.Material;
 
 public class ModBlocks {
 	
@@ -17,12 +18,20 @@ public class ModBlocks {
 	public static final String Soundstoneportal = "Soundstoneportal";
 	public static final String Soundstoneblock = "Soundstoneblock";
 	public static final String Soundstonefire = "Soundstonefire";
+	public static final String Soundstonelog = "Soundstonelog";
+	public static final String Soundstoneleaves = "Soundstoneleaves";
+	public static final String Soundstonesapling = "Soundstonesapling";
+	public static final String Soundstonedoor = "Soundstonedoor";
 
     /* Mod Block instances */
 	public static Block HarmonionOre;
 	public static Block HarmonionBlock;
 	public static BlockHarmonionPortal HarmonionPortal;
 	public static BlockHarmonionFire HarmonionFire;
+	public static Block HarmonionLog;
+	public static Block HarmonionLeaves;
+	public static Block HarmonionSapling;
+	public static Block HarmonionDoor;
 	
 	/* WorldGen Reg */
 	public static HarmonionWorldGenerator worldGen = new HarmonionWorldGenerator();
@@ -34,6 +43,10 @@ public class ModBlocks {
 		HarmonionPortal = (BlockHarmonionPortal) new BlockHarmonionPortal(BlockIds.HARMONIONPORTAL, 14).setBlockName(Soundstoneportal);
 		HarmonionBlock = new BlockHarmonionBlock(BlockIds.HARMONIONBLOCK, 8).setBlockName(Soundstoneblock);
 		HarmonionFire = (BlockHarmonionFire) new BlockHarmonionFire(BlockIds.HARMONIONFIRE, 31).setBlockName(Soundstonefire);
+		HarmonionLog = new BlockHarmonionLog(BlockIds.HARMONIONLOG).setBlockName(Soundstonelog);
+		HarmonionLeaves = new BlockHarmonionLeaves(BlockIds.HARMONIONLEAVES).setBlockName(Soundstoneleaves);
+		HarmonionSapling = new BlockHarmonionSapling(BlockIds.HARMONIONSAPLING, 12).setBlockName(Soundstonesapling);
+		HarmonionDoor = new BlockHarmonionDoor(BlockIds.HARMONIONDOOR, 37, 38, Material.iron).setBlockName(Soundstonedoor);
 		
 		/* Gives Blocks its name */
 		/** Removed */
@@ -43,6 +56,10 @@ public class ModBlocks {
 		GameRegistry.registerBlock(HarmonionPortal);
 		GameRegistry.registerBlock(HarmonionBlock);
 		GameRegistry.registerBlock(HarmonionFire);
+		GameRegistry.registerBlock(HarmonionLog);
+		GameRegistry.registerBlock(HarmonionLeaves);
+		GameRegistry.registerBlock(HarmonionSapling);
+		GameRegistry.registerBlock(HarmonionDoor);
 		
 		/* Block Recipes*/
 		//initBlockRecipes();

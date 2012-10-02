@@ -14,6 +14,7 @@ public class ItemIds {
 	public static int HARMONIONCHESTPLATE_DEFAULT = 27277;
 	public static int HARMONIONLEGGINGS_DEFAULT = 27278;
 	public static int HARMONIONBOOTS_DEFAULT = 27279;
+	public static int HARMONIONDOOR_DEFAULT = 27280;
 	
 	/* Current item ids */
 	public static int HARMONIONSWORD;
@@ -27,4 +28,6 @@ public class ItemIds {
 	public static int HARMONIONCHESTPLATE;
 	public static int HARMONIONLEGGINGS;
 	public static int HARMONIONBOOTS;
+	public static int HARMONIONDOOR;
+	
 }

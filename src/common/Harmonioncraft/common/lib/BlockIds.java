@@ -16,11 +16,19 @@ public class BlockIds {
     public static int HARMONIONPORTAL_DEFAULT = 601;
     public static int HARMONIONBLOCK_DEFAULT = 602;
     public static int HARMONIONFIRE_DEFAULT = 603;
+    public static int HARMONIONLOG_DEFAULT = 604;
+    public static int HARMONIONLEAVES_DEFAULT = 605;
+    public static int HARMONIONSAPLING_DEFAULT = 606;
+    public static int HARMONIONDOOR_DEFAULT = 607;
     
     /* Current block ids */
     public static int HARMONION;
     public static int HARMONIONPORTAL;
     public static int HARMONIONBLOCK;
     public static int HARMONIONFIRE;
+    public static int HARMONIONLOG;
+    public static int HARMONIONLEAVES;
+    public static int HARMONIONSAPLING;
+    public static int HARMONIONDOOR;
 
 }

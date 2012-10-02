@@ -2,7 +2,6 @@ package Harmonioncraft.common.core.handlers;
 
 import java.io.File;
 import java.util.logging.Level;
-
 import cpw.mods.fml.common.FMLLog;
 import Harmonioncraft.common.block.ModBlocks;
 import Harmonioncraft.common.item.ModItems;
@@ -41,6 +40,10 @@ public class ConfigurationHandler {
             BlockIds.HARMONIONPORTAL = configuration.getOrCreateIntProperty(ModBlocks.Soundstoneportal, CATEGORY_BLOCK, BlockIds.HARMONIONPORTAL_DEFAULT).getInt(BlockIds.HARMONIONPORTAL_DEFAULT);
             BlockIds.HARMONIONBLOCK = configuration.getOrCreateIntProperty(ModBlocks.Soundstoneblock, CATEGORY_BLOCK, BlockIds.HARMONIONBLOCK_DEFAULT).getInt(BlockIds.HARMONIONBLOCK_DEFAULT);
             BlockIds.HARMONIONFIRE = configuration.getOrCreateIntProperty(ModBlocks.Soundstonefire, CATEGORY_BLOCK, BlockIds.HARMONIONFIRE_DEFAULT).getInt(BlockIds.HARMONIONFIRE_DEFAULT);
+            BlockIds.HARMONIONLOG = configuration.getOrCreateIntProperty(ModBlocks.Soundstonelog, CATEGORY_BLOCK, BlockIds.HARMONIONLOG_DEFAULT).getInt(BlockIds.HARMONIONLOG_DEFAULT);
+            BlockIds.HARMONIONLEAVES = configuration.getOrCreateIntProperty(ModBlocks.Soundstoneleaves, CATEGORY_BLOCK, BlockIds.HARMONIONLEAVES_DEFAULT).getInt(BlockIds.HARMONIONLEAVES_DEFAULT);
+            BlockIds.HARMONIONSAPLING = configuration.getOrCreateIntProperty(ModBlocks.Soundstonesapling, CATEGORY_BLOCK, BlockIds.HARMONIONSAPLING_DEFAULT).getInt(BlockIds.HARMONIONSAPLING_DEFAULT);
+            BlockIds.HARMONIONDOOR = configuration.getOrCreateIntProperty(ModBlocks.Soundstonedoor, CATEGORY_BLOCK, BlockIds.HARMONIONDOOR_DEFAULT).getInt(BlockIds.HARMONIONDOOR_DEFAULT);
             
             /* Item Configs */
             ItemIds.HARMONIONSWORD = configuration.getOrCreateIntProperty(ModItems.Harmonicsword, CATEGORY_ITEM, ItemIds.HARMONIONSWORD_DEFAULT).getInt(ItemIds.HARMONIONSWORD_DEFAULT);
@@ -54,6 +57,7 @@ public class ConfigurationHandler {
             ItemIds.HARMONIONCHESTPLATE = configuration.getOrCreateIntProperty(ModItems.Soundstonechestplate, CATEGORY_ITEM, ItemIds.HARMONIONCHESTPLATE_DEFAULT).getInt(ItemIds.HARMONIONCHESTPLATE_DEFAULT);
             ItemIds.HARMONIONLEGGINGS = configuration.getOrCreateIntProperty(ModItems.Soundstonelegs, CATEGORY_ITEM, ItemIds.HARMONIONLEGGINGS_DEFAULT).getInt(ItemIds.HARMONIONLEGGINGS_DEFAULT);
             ItemIds.HARMONIONBOOTS = configuration.getOrCreateIntProperty(ModItems.Soundstoneboots, CATEGORY_ITEM, ItemIds.HARMONIONBOOTS_DEFAULT).getInt(ItemIds.HARMONIONBOOTS_DEFAULT);
+            ItemIds.HARMONIONDOOR = configuration.getOrCreateIntProperty(ModItems.Soundstonedoor, CATEGORY_ITEM, ItemIds.HARMONIONDOOR_DEFAULT).getInt(ItemIds.HARMONIONDOOR_DEFAULT);
             
             /* Biome Configs */
             BiomeIds.idBiomeLake = configuration.getOrCreateIntProperty(BiomeIds.idBiomeLake_name, CATEGORY_GENERAL, BiomeIds.idBiomeLake_Default).getInt(BiomeIds.idBiomeLake_Default);

@@ -2,6 +2,7 @@ package Harmonioncraft.common.worldgen;
 
 import java.util.Random;
 import Harmonioncraft.common.block.ModBlocks;
+import net.minecraft.src.BiomeGenBase;
 import net.minecraft.src.IChunkProvider;
 import net.minecraft.src.World;
 import net.minecraft.src.WorldGenMinable;
@@ -24,10 +25,41 @@ public class HarmonionWorldGenerator implements IWorldGenerator {
 		    int z = chunkZ * 16 + random.nextInt(16);
 		    new WorldGenMinable(ModBlocks.HarmonionOre.blockID, 8).generate(world, random, x, y, z);
 		}
-	}
+		
+		int var8;
+		
+		BiomeGenBase var7 = world.getWorldChunkManager().getBiomeGenAt(chunkX * 16 + 16, chunkZ * 16 + 16);
+        var8 = 0;
+
+        if (var7.biomeName.toLowerCase().contains("taiga"))
+        {
+            var8 += random.nextInt(3);
+        }
+
+        if (var7.biomeName.toLowerCase().contains("forest") || var7.biomeName.toLowerCase().contains("jungle"))
+        {
+            var8 += random.nextInt(5) + 1;
+        }
+
+        if (var7.biomeName.toLowerCase().contains("swamp"))
+        {
+            var8 += random.nextInt(10) + 5;
+        }
+
+        if (random.nextInt(10) + 1 <= var8 * 2)
+        {
+            (new WorldGenHarmonionTree()).generate(world, random, chunkX * 16 + random.nextInt(16), var8, chunkZ * 16 + random.nextInt(16));
+        }
+    }
 	
-	public static int getSeaLevel(World world) {
-	    return world.provider.getAverageGroundLevel();
-	  }
+	public static int getSeaLevel(World var0)
+	{
+		return var0.provider.getAverageGroundLevel();
+    }
+
+	public static int getWorldHeight(World var0)
+	{
+		return var0.getHeight();
+	}
 
 }

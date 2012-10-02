@@ -10,6 +10,7 @@ import net.minecraft.src.CommandHandler;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.EnumRarity;
 import net.minecraft.src.ICommand;
+import net.minecraft.src.ThreadServerApplication;
 import net.minecraft.src.World;
 
 /**
@@ -58,6 +59,11 @@ public class CommonProxy implements IGuiHandler {
         }*/
         
         return null;
+    }
+    
+    public boolean isSimulating()
+    {
+        return Thread.currentThread() instanceof ThreadServerApplication;
     }
     
     public void serverStarting(MinecraftServer var1)

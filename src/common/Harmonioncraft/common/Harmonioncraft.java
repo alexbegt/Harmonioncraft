@@ -16,7 +16,10 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.network.NetworkMod.NULL;
+import cpw.mods.fml.common.network.NetworkMod.SidedPacketHandler;
 import cpw.mods.fml.common.registry.GameRegistry;
+import Harmonioncraft.client.network.NetworkManagerClient;
 import Harmonioncraft.common.block.ModBlocks;
 import Harmonioncraft.common.commands.CommandHMCV;
 import Harmonioncraft.common.core.CommonProxy;
@@ -26,7 +29,7 @@ import Harmonioncraft.common.dimension.WorldProviderHarmonioncraft;
 import Harmonioncraft.common.item.ModItems;
 import Harmonioncraft.common.lib.Reference;
 import Harmonioncraft.common.lib.Version;
-import Harmonioncraft.common.network.PacketHandler;
+import Harmonioncraft.common.network.NetworkManager;
 
 /**
  * HarmonionCraft
@@ -38,14 +41,33 @@ import Harmonioncraft.common.network.PacketHandler;
  * 
  */
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
-@NetworkMod(channels = { Reference.CHANNEL_NAME }, clientSideRequired = true, serverSideRequired = false, packetHandler = PacketHandler.class)
+@NetworkMod(
+        clientSideRequired = true,
+        clientPacketHandlerSpec =       @SidedPacketHandler(
+                channels = {Reference.CHANNEL_NAME},
+                packetHandler = NetworkManagerClient.class
+                ),
+        serverPacketHandlerSpec =       @SidedPacketHandler(
+                channels = {Reference.CHANNEL_NAME},
+                packetHandler = NetworkManager.class
+                )
+)
 public class Harmonioncraft {
 	
 	@Instance("Harmonioncraft")
 	public static Harmonioncraft instance;
 	
-	@SidedProxy(clientSide = "Harmonioncraft.client.core.ClientProxy", serverSide = "Harmonioncraft.common.core.CommonProxy")
+	@SidedProxy(
+			clientSide = "Harmonioncraft.client.core.ClientProxy",
+			serverSide = "Harmonioncraft.common.core.CommonProxy"
+	)
     public static CommonProxy proxy;
+	
+	@SidedProxy(
+			clientSide = "Harmonioncraft.client.network.NetworkManagerClient",
+			serverSide = "Harmonioncraft.common.network.NetworkManager"
+	)
+    public static NetworkManager network;
 	
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event) {	

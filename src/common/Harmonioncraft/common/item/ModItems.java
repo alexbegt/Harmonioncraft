@@ -39,6 +39,7 @@ public class ModItems {
 	public static final String Soundstoneboots = "Soundstoneboots";
 	public static final String Resoniumpowder = "Resoniumpowder";
 	public static final String Soundstonechip = "Soundstonechip";
+	public static final String Soundstonedoor = "Soundstonedoor";
 	
 	/* Mod item instances */
 	public static Item HarmonionSword;
@@ -53,9 +54,11 @@ public class ModItems {
 	public static Item Harmonionlegs;
 	public static Item Harmonionboots;
 	public static Item HarmonionChip;
+	public static Item HarmonionPowder;
+	public static Item HarmonionDoor;
 	
 	static EnumToolMaterial harmoniontool = EnumHelper.addToolMaterial("Harmonion", 3, 3000, 40.0F, 3, 9);
-	static EnumArmorMaterial harmonionarmor = EnumHelper.addArmorMaterial("Harmonion", 3000, new int[]{3, 8, 6, 3}, 9);
+	static EnumArmorMaterial harmonionarmor = EnumHelper.addArmorMaterial("Harmonion", 30, new int[]{3, 8, 6, 3}, 9);
 	
 	public static void init() {
 		
@@ -71,6 +74,7 @@ public class ModItems {
 		Harmonionchestplate = new ItemHarmonionArmor(ItemIds.HARMONIONCHESTPLATE, 7, harmonionarmor, ModLoader.addArmor("Harmonioncraft/client/armor/soundstone"), 1).setIconIndex(7).setItemName(Soundstonechestplate);
 		Harmonionlegs = new ItemHarmonionArmor(ItemIds.HARMONIONLEGGINGS, 8, harmonionarmor, ModLoader.addArmor("Harmonioncraft/client/armor/soundstone"), 2).setIconIndex(8).setItemName(Soundstonelegs);
 		Harmonionboots = new ItemHarmonionArmor(ItemIds.HARMONIONBOOTS, 9, harmonionarmor, ModLoader.addArmor("Harmonioncraft/client/armor/soundstone"), 3).setIconIndex(9).setItemName(Soundstoneboots);
+		HarmonionDoor = new ItemHarmonionDoor(ItemIds.HARMONIONDOOR).setItemName(Soundstonedoor).setIconIndex(17);
 		
 		/* Gives Item its name */
 		/** Removed */

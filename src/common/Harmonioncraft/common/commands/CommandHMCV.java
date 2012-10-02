@@ -1,11 +1,7 @@
 package Harmonioncraft.common.commands;
 
 import java.util.List;
-
-import Harmonioncraft.common.block.BlockHarmonionPortal;
-import Harmonioncraft.common.dimension.HMCTeleporter;
 import Harmonioncraft.common.lib.Version;
-
 import cpw.mods.fml.common.FMLCommonHandler;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.src.CommandBase;
