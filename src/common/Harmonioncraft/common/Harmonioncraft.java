@@ -1,8 +1,12 @@
 package Harmonioncraft.common;
 
 import net.minecraft.src.CommandHandler;
+import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.ItemStack;
 import net.minecraftforge.common.DimensionManager;
+import net.minecraftforge.event.ForgeSubscribe;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.world.WorldEvent.Save;
 import cpw.mods.fml.common.*;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -23,6 +27,7 @@ import Harmonioncraft.client.network.NetworkManagerClient;
 import Harmonioncraft.common.block.ModBlocks;
 import Harmonioncraft.common.commands.CommandHMCV;
 import Harmonioncraft.common.core.CommonProxy;
+import Harmonioncraft.common.core.handlers.AddonHandler;
 import Harmonioncraft.common.core.handlers.ConfigurationHandler;
 import Harmonioncraft.common.core.handlers.LocalizationHandler;
 import Harmonioncraft.common.dimension.WorldProviderHarmonioncraft;
@@ -30,6 +35,7 @@ import Harmonioncraft.common.item.ModItems;
 import Harmonioncraft.common.lib.Reference;
 import Harmonioncraft.common.lib.Version;
 import Harmonioncraft.common.network.NetworkManager;
+import Harmonioncraft.common.power.ElectricityManager;
 
 /**
  * HarmonionCraft
@@ -123,6 +129,9 @@ public class Harmonioncraft {
 	@PostInit
 	public void modsLoaded(FMLPostInitializationEvent evt) {
 		
+		// Initialize the Addon Handler
+        AddonHandler.init(); 
+        
 	}
 	
 	@ServerStarting
@@ -130,4 +139,20 @@ public class Harmonioncraft {
 	{
 		proxy.serverStarting(event.getServer());
 	}
+	
+	@ForgeSubscribe
+    public void onEntityDeath(LivingDeathEvent event)
+    {
+    	if(event.entity instanceof EntityPlayer)
+    	{
+        	ElectricityManager.instance.timedConductorRefresh();
+    	}
+    }
+    
+    @ForgeSubscribe
+	public void onWorldSave(Save event)
+	{
+    	ElectricityManager.instance.timedConductorRefresh();
+	}
+	
 }

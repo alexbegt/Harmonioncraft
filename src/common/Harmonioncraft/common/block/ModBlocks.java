@@ -1,5 +1,6 @@
 package Harmonioncraft.common.block;
 
+import Harmonioncraft.common.block.item.ItemHarmonionWire;
 import Harmonioncraft.common.item.ModItems;
 import Harmonioncraft.common.lib.BlockIds;
 import Harmonioncraft.common.worldgen.HarmonionWorldGenerator;
@@ -21,7 +22,9 @@ public class ModBlocks {
 	public static final String Soundstonelog = "Soundstonelog";
 	public static final String Soundstoneleaves = "Soundstoneleaves";
 	public static final String Soundstonesapling = "Soundstonesapling";
+	public static final String Soundstoneplank = "Soundstoneplank";
 	public static final String Soundstonedoor = "Soundstonedoor";
+	public static final String Soundstonewire = "Soundstonewire";
 
     /* Mod Block instances */
 	public static Block HarmonionOre;
@@ -31,7 +34,9 @@ public class ModBlocks {
 	public static Block HarmonionLog;
 	public static Block HarmonionLeaves;
 	public static Block HarmonionSapling;
+	public static Block HarmonionPlank;
 	public static Block HarmonionDoor;
+	public static Block HarmonionWire;
 	
 	/* WorldGen Reg */
 	public static HarmonionWorldGenerator worldGen = new HarmonionWorldGenerator();
@@ -47,6 +52,8 @@ public class ModBlocks {
 		HarmonionLeaves = new BlockHarmonionLeaves(BlockIds.HARMONIONLEAVES).setBlockName(Soundstoneleaves);
 		HarmonionSapling = new BlockHarmonionSapling(BlockIds.HARMONIONSAPLING, 12).setBlockName(Soundstonesapling);
 		HarmonionDoor = new BlockHarmonionDoor(BlockIds.HARMONIONDOOR, 37, 38, Material.iron).setBlockName(Soundstonedoor);
+		HarmonionPlank = new BlockHarmonionPlank(BlockIds.HARMONIONPLANK).setBlockName(Soundstoneplank);
+		HarmonionWire = new BlockHarmonionWire(BlockIds.HARMONIONWIRE).setBlockName(Soundstonewire);
 		
 		/* Gives Blocks its name */
 		/** Removed */
@@ -60,6 +67,8 @@ public class ModBlocks {
 		GameRegistry.registerBlock(HarmonionLeaves);
 		GameRegistry.registerBlock(HarmonionSapling);
 		GameRegistry.registerBlock(HarmonionDoor);
+		GameRegistry.registerBlock(HarmonionPlank);
+		GameRegistry.registerBlock(HarmonionWire, ItemHarmonionWire.class);
 		
 		/* Block Recipes*/
 		//initBlockRecipes();

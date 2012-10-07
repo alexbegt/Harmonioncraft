@@ -64,4 +64,12 @@ public class BlockHarmonionDoor extends BlockDoor {
     {
         return (var1 & 8) == 8 ? 0 : this.itemDropped;
     }
+    
+    /**
+     * only called by clickMiddleMouseButton , and passed to inventory.setCurrentItem (along with isCreative)
+     */
+    public int idPicked(World par1World, int par2, int par3, int par4)
+    {
+        return ModItems.HarmonionDoor.shiftedIndex;
+    }
 }

@@ -43,7 +43,9 @@ public class ConfigurationHandler {
             BlockIds.HARMONIONLOG = configuration.getOrCreateIntProperty(ModBlocks.Soundstonelog, CATEGORY_BLOCK, BlockIds.HARMONIONLOG_DEFAULT).getInt(BlockIds.HARMONIONLOG_DEFAULT);
             BlockIds.HARMONIONLEAVES = configuration.getOrCreateIntProperty(ModBlocks.Soundstoneleaves, CATEGORY_BLOCK, BlockIds.HARMONIONLEAVES_DEFAULT).getInt(BlockIds.HARMONIONLEAVES_DEFAULT);
             BlockIds.HARMONIONSAPLING = configuration.getOrCreateIntProperty(ModBlocks.Soundstonesapling, CATEGORY_BLOCK, BlockIds.HARMONIONSAPLING_DEFAULT).getInt(BlockIds.HARMONIONSAPLING_DEFAULT);
+            BlockIds.HARMONIONPLANK = configuration.getOrCreateIntProperty(ModBlocks.Soundstoneplank, CATEGORY_BLOCK, BlockIds.HARMONIONPLANK_DEFAULT).getInt(BlockIds.HARMONIONPLANK_DEFAULT);
             BlockIds.HARMONIONDOOR = configuration.getOrCreateIntProperty(ModBlocks.Soundstonedoor, CATEGORY_BLOCK, BlockIds.HARMONIONDOOR_DEFAULT).getInt(BlockIds.HARMONIONDOOR_DEFAULT);
+            BlockIds.HARMONIONWIRE = configuration.getOrCreateIntProperty(ModBlocks.Soundstonewire, CATEGORY_BLOCK, BlockIds.HARMONIONWIRE_DEFAULT).getInt(BlockIds.HARMONIONWIRE_DEFAULT);
             
             /* Item Configs */
             ItemIds.HARMONIONSWORD = configuration.getOrCreateIntProperty(ModItems.Harmonicsword, CATEGORY_ITEM, ItemIds.HARMONIONSWORD_DEFAULT).getInt(ItemIds.HARMONIONSWORD_DEFAULT);

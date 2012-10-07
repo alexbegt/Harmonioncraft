@@ -21,5 +21,10 @@
 	<entry key="tile.Soundstonelog.name">Crystal Oak</entry>
 	<entry key="tile.Soundstoneleaves.name">Crystal Leaves</entry>
 	<entry key="tile.Soundstonesapling.name">Crystalline Saplling</entry>
+	<entry key="item.Soundstonedoor.name">Harmonion Door</entry>
+	<entry key="tile.Soundstonedoor.name">Harmonion Door</entry>
+	<entry key="tile.Soundstoneplank.name">Crystal Planks</entry>
+	<entry key="tile.Soundstonewire.name">Harmonion Wire</entry>
+	<entry key="item.Soundstonewire.name">Harmonion Wire</entry>
 	<entry key="achievement.acquireResin.desc">Test</entry>
 </properties>
