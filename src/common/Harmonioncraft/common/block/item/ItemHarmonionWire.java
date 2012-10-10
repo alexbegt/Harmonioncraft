@@ -11,6 +11,7 @@ import net.minecraft.src.ItemBlock;
 import net.minecraft.src.ItemStack;
 
 public class ItemHarmonionWire extends ItemBlock {
+	
 	public ItemHarmonionWire(int id)
     {
         super(id);
