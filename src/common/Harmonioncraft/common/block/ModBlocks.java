@@ -26,6 +26,8 @@ public class ModBlocks {
 	public static final String Soundstonedoor = "Soundstonedoor";
 	public static final String Soundstonewire = "Soundstonewire";
 
+	//hey
+	
     /* Mod Block instances */
 	public static Block HarmonionOre;
 	public static Block HarmonionBlock;
