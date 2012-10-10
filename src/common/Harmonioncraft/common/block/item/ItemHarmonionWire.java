@@ -24,8 +24,6 @@ public class ItemHarmonionWire extends ItemBlock {
     {
         return damage;
     }
-
-    //test
     
     @Override
     public String getItemName() {
