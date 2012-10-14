@@ -1,7 +1,6 @@
 package Harmonioncraft.common.commands;
 
 import java.util.List;
-import Harmonioncraft.common.lib.Version;
 import cpw.mods.fml.common.FMLCommonHandler;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.src.CommandBase;
@@ -9,6 +8,7 @@ import net.minecraft.src.Entity;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.EntityPlayerMP;
 import net.minecraft.src.ICommandSender;
+import net.minecraft.src.ServerConfigurationManager;
 import net.minecraft.src.World;
 import net.minecraft.src.WrongUsageException;
 import net.minecraft.src.ICommand;
@@ -42,25 +42,15 @@ public class CommandHMCV extends CommandBase{
         {
             throw new WrongUsageException("Type \'" + this.getCommandUsage(var1) + "\' for help.", new Object[0]);
         }
-        else if (var2[0].matches("version"))
-        {
-            this.commandVersion(var1, var2);
-        }
         else if (var2[0].matches("about"))
         {
             this.commandAbout(var1, var2);
-        }
-        else if (var2[0].matches("AboVer"))
-        {
-        	this.commandAll(var1, var2);
         }
         else if (var2[0].matches("help"))
         {
             var1.sendChatToPlayer("Format: \'" + this.getCommandName() + " <command> <arguments>\'");
             var1.sendChatToPlayer("Available commands:");
-            var1.sendChatToPlayer("- version : Version information.");
             var1.sendChatToPlayer("- about : Mod Information.");
-            var1.sendChatToPlayer("- AboVer : Both Version and mod info.");
         }
         else
         {
@@ -68,19 +58,9 @@ public class CommandHMCV extends CommandBase{
         }
 	}
 	
-	private void commandVersion(ICommandSender var1, String[] var2)
-    {
-        var1.sendChatToPlayer(String.format("Harmonioncraft %s for Minecraft %s (Latest: %s).", new Object[] {Version.getVersion(), this.getMinecraftVersion(), Version.getRecommendedVersion()}));
-    }
 	
 	private void commandAbout(ICommandSender var1, String[] var2)
     {
-        var1.sendChatToPlayer("Was Made By Alexbegt and DJ Pantheris.");
-    }
-	
-	private void commandAll(ICommandSender var1, String[] var2)
-    {
-        var1.sendChatToPlayer(String.format("Harmonioncraft %s for Minecraft %s (Latest: %s).", new Object[] {Version.getVersion(), this.getMinecraftVersion(), Version.getRecommendedVersion()}));
         var1.sendChatToPlayer("Was Made By Alexbegt and DJ Pantheris.");
     }
 	

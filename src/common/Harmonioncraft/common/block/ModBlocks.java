@@ -13,21 +13,19 @@ import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;
 
 public class ModBlocks {
-	
-	/* Block name constants */
-	public static final String Soundstoneore = "Soundstoneore";
-	public static final String Soundstoneportal = "Soundstoneportal";
-	public static final String Soundstoneblock = "Soundstoneblock";
-	public static final String Soundstonefire = "Soundstonefire";
-	public static final String Soundstonelog = "Soundstonelog";
-	public static final String Soundstoneleaves = "Soundstoneleaves";
-	public static final String Soundstonesapling = "Soundstonesapling";
-	public static final String Soundstoneplank = "Soundstoneplank";
-	public static final String Soundstonedoor = "Soundstonedoor";
-	public static final String Soundstonewire = "Soundstonewire";
 
-	//hey
-	
+	/* Block name constants */
+	public static final String Sound_Stone_Ore_Name = "Soundstoneore";
+	public static final String Sound_Stone_Portal_Name = "Soundstoneportal";
+	public static final String Sound_Stone_Block_Name = "Soundstoneblock";
+	public static final String Sound_Stone_Fire_Name = "Soundstonefire";
+	public static final String Sound_Stone_Log_Name = "Soundstonelog";
+	public static final String Sound_Stone_Leaves_Name = "Soundstoneleaves";
+	public static final String Sound_Stone_Sapling_Name = "Soundstonesapling";
+	public static final String Sound_Stone_Plank_Name = "Soundstoneplank";
+	public static final String Sound_Stone_Door_Name = "Soundstonedoor";
+	public static final String Sound_Stone_Wire_Name = "Soundstonewire";
+
     /* Mod Block instances */
 	public static Block HarmonionOre;
 	public static Block HarmonionBlock;
@@ -39,23 +37,23 @@ public class ModBlocks {
 	public static Block HarmonionPlank;
 	public static Block HarmonionDoor;
 	public static Block HarmonionWire;
-	
+
 	/* WorldGen Reg */
 	public static HarmonionWorldGenerator worldGen = new HarmonionWorldGenerator();
 	
 	public static void init() {
 		
 		/* Initialize each mod block individually */
-		HarmonionOre = new BlockHarmonionOre(BlockIds.HARMONION, 0).setBlockName(Soundstoneore);
-		HarmonionPortal = (BlockHarmonionPortal) new BlockHarmonionPortal(BlockIds.HARMONIONPORTAL, 14).setBlockName(Soundstoneportal);
-		HarmonionBlock = new BlockHarmonionBlock(BlockIds.HARMONIONBLOCK, 8).setBlockName(Soundstoneblock);
-		HarmonionFire = (BlockHarmonionFire) new BlockHarmonionFire(BlockIds.HARMONIONFIRE, 31).setBlockName(Soundstonefire);
-		HarmonionLog = new BlockHarmonionLog(BlockIds.HARMONIONLOG).setBlockName(Soundstonelog);
-		HarmonionLeaves = new BlockHarmonionLeaves(BlockIds.HARMONIONLEAVES).setBlockName(Soundstoneleaves);
-		HarmonionSapling = new BlockHarmonionSapling(BlockIds.HARMONIONSAPLING, 12).setBlockName(Soundstonesapling);
-		HarmonionDoor = new BlockHarmonionDoor(BlockIds.HARMONIONDOOR, 37, 38, Material.iron).setBlockName(Soundstonedoor);
-		HarmonionPlank = new BlockHarmonionPlank(BlockIds.HARMONIONPLANK).setBlockName(Soundstoneplank);
-		HarmonionWire = new BlockHarmonionWire(BlockIds.HARMONIONWIRE).setBlockName(Soundstonewire);
+		HarmonionOre = new BlockHarmonionOre(BlockIds.Harmonion, 0).setBlockName(Sound_Stone_Ore_Name);
+		HarmonionPortal = (BlockHarmonionPortal) new BlockHarmonionPortal(BlockIds.Harmonion_Portal, 14).setBlockName(Sound_Stone_Portal_Name);
+		HarmonionBlock = new BlockHarmonionBlock(BlockIds.Harmonion_Block, 8).setBlockName(Sound_Stone_Block_Name);
+		HarmonionFire = (BlockHarmonionFire) new BlockHarmonionFire(BlockIds.Harmonion_Fire, 31).setBlockName(Sound_Stone_Fire_Name);
+		HarmonionLog = new BlockHarmonionLog(BlockIds.Harmonion_Log).setBlockName(Sound_Stone_Log_Name);
+		HarmonionLeaves = new BlockHarmonionLeaves(BlockIds.Harmonion_Leaves).setBlockName(Sound_Stone_Leaves_Name);
+		HarmonionSapling = new BlockHarmonionSapling(BlockIds.Harmonion_Sapling, 12).setBlockName(Sound_Stone_Sapling_Name);
+		HarmonionDoor = new BlockHarmonionDoor(BlockIds.Harmonion_Door, 37, 38, Material.iron).setBlockName(Sound_Stone_Door_Name);
+		HarmonionPlank = new BlockHarmonionPlank(BlockIds.Harmonion_Plank).setBlockName(Sound_Stone_Plank_Name);
+		HarmonionWire = new BlockHarmonionWire(BlockIds.Harmonion_Wire).setBlockName(Sound_Stone_Wire_Name);
 		
 		/* Gives Blocks its name */
 		/** Removed */

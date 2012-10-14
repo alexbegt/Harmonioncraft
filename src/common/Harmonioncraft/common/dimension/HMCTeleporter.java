@@ -3,16 +3,24 @@ package Harmonioncraft.common.dimension;
 import java.util.Random;
 
 import Harmonioncraft.common.block.ModBlocks;
-import net.minecraft.src.*;
+
+import net.minecraft.src.Block;
+import net.minecraft.src.Entity;
+import net.minecraft.src.MathHelper;
+import net.minecraft.src.Teleporter;
+import net.minecraft.src.World;
 
 public class HMCTeleporter extends Teleporter {
 	
+	/** A private Random() function in Teleporter */
+    private Random random = new Random();
+
     /**
      * Place an entity in a nearby portal, creating one if necessary.
      */
     public void placeInPortal(World par1World, Entity par2Entity)
     {
-        if (par1World.provider.dimensionId != 9)
+        if (par1World.provider.dimensionId != 0)
         {
             if (!this.placeInExistingPortal(par1World, par2Entity))
             {
@@ -51,35 +59,35 @@ public class HMCTeleporter extends Teleporter {
     /**
      * Place an entity in a nearby portal which already exists.
      */
-    public boolean placeInExistingPortal(World var1, Entity var2)
+    public boolean placeInExistingPortal(World par1World, Entity par2Entity)
     {
-        short var3 = 200;
+        short var3 = 128;
         double var4 = -1.0D;
         int var6 = 0;
         int var7 = 0;
         int var8 = 0;
-        int var9 = MathHelper.floor_double(var2.posX);
-        int var10 = MathHelper.floor_double(var2.posZ);
+        int var9 = MathHelper.floor_double(par2Entity.posX);
+        int var10 = MathHelper.floor_double(par2Entity.posZ);
         double var18;
 
         for (int var11 = var9 - var3; var11 <= var9 + var3; ++var11)
         {
-            double var12 = (double)var11 + 0.5D - var2.posX;
+            double var12 = (double)var11 + 0.5D - par2Entity.posX;
 
             for (int var14 = var10 - var3; var14 <= var10 + var3; ++var14)
             {
-                double var15 = (double)var14 + 0.5D - var2.posZ;
+                double var15 = (double)var14 + 0.5D - par2Entity.posZ;
 
-                for (int var17 = HMCWorld.WORLDHEIGHT - 1; var17 >= 0; --var17)
+                for (int var17 = par1World.getActualHeight() - 1; var17 >= 0; --var17)
                 {
-                    if (this.isBlockPortal(var1, var11, var17, var14))
+                    if (par1World.getBlockId(var11, var17, var14) == ModBlocks.HarmonionPortal.blockID)
                     {
-                        while (this.isBlockPortal(var1, var11, var17 - 1, var14))
+                        while (par1World.getBlockId(var11, var17 - 1, var14) == ModBlocks.HarmonionPortal.blockID)
                         {
                             --var17;
                         }
 
-                        var18 = (double)var17 + 0.5D - var2.posY;
+                        var18 = (double)var17 + 0.5D - par2Entity.posY;
                         double var20 = var12 * var12 + var18 * var18 + var15 * var15;
 
                         if (var4 < 0.0D || var20 < var4)
@@ -100,28 +108,28 @@ public class HMCTeleporter extends Teleporter {
             double var16 = (double)var7 + 0.5D;
             var18 = (double)var8 + 0.5D;
 
-            if (this.isBlockPortal(var1, var6 - 1, var7, var8))
+            if (par1World.getBlockId(var6 - 1, var7, var8) == ModBlocks.HarmonionPortal.blockID)
             {
                 var22 -= 0.5D;
             }
 
-            if (this.isBlockPortal(var1, var6 + 1, var7, var8))
+            if (par1World.getBlockId(var6 + 1, var7, var8) == ModBlocks.HarmonionPortal.blockID)
             {
                 var22 += 0.5D;
             }
 
-            if (this.isBlockPortal(var1, var6, var7, var8 - 1))
+            if (par1World.getBlockId(var6, var7, var8 - 1) == ModBlocks.HarmonionPortal.blockID)
             {
                 var18 -= 0.5D;
             }
 
-            if (this.isBlockPortal(var1, var6, var7, var8 + 1))
+            if (par1World.getBlockId(var6, var7, var8 + 1) == ModBlocks.HarmonionPortal.blockID)
             {
                 var18 += 0.5D;
             }
 
-            var2.setLocationAndAngles(var22, var16 + 1.0D, var18 + 1.0D, var2.rotationYaw, 0.0F);
-            var2.motionX = var2.motionY = var2.motionZ = 0.0D;
+            par2Entity.setLocationAndAngles(var22, var16, var18, par2Entity.rotationYaw, 0.0F);
+            par2Entity.motionX = par2Entity.motionY = par2Entity.motionZ = 0.0D;
             return true;
         }
         else
@@ -144,7 +152,7 @@ public class HMCTeleporter extends Teleporter {
         int var10 = var7;
         int var11 = var8;
         int var12 = 0;
-        int var13 = par1World.rand.nextInt(4);
+        int var13 = this.random.nextInt(4);
         int var14;
         double var15;
         int var17;
@@ -358,9 +366,5 @@ public class HMCTeleporter extends Teleporter {
         }
 
         return true;
-    }
-    public boolean isBlockPortal(World var1, int var2, int var3, int var4)
-    {
-        return var1.getBlockId(var2, var3, var4) == ModBlocks.HarmonionPortal.blockID;
     }
 }

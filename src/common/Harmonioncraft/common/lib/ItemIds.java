@@ -3,31 +3,31 @@ package Harmonioncraft.common.lib;
 public class ItemIds {
 	
 	/* Default item ids */
-	public static int HARMONIONSWORD_DEFAULT = 27269;
-	public static int REFINEDSOUNDSTONE_DEFAULT = 27270;
-	public static int HARMONIONPEARL_DEFAULT = 27271;
-	public static int HARMONIONPICK_DEFAULT = 27272;
-	public static int HARMONIONAXE_DEFAULT = 27273;
-	public static int HARMONIONSHOVEL_DEFAULT = 27274;
-	public static int HARMONIONHOE_DEFAULT = 27275;
-	public static int HARMONIONHELMET_DEFAULT = 27276;
-	public static int HARMONIONCHESTPLATE_DEFAULT = 27277;
-	public static int HARMONIONLEGGINGS_DEFAULT = 27278;
-	public static int HARMONIONBOOTS_DEFAULT = 27279;
-	public static int HARMONIONDOOR_DEFAULT = 27280;
+	public static int Harmonion_Sword_Default = 27269;
+	public static int Harmonion_Ingot_Default = 27270;
+	public static int Harmonion_Pearl_default = 27271;
+	public static int Harmonion_Pickaxe_default = 27272;
+	public static int Harmonion_Axe_default = 27273;
+	public static int Harmonion_Shovel_default = 27274;
+	public static int Harmonion_Hoe_default = 27275;
+	public static int Harmonion_Helmet_default = 27276;
+	public static int Harmonion_Chestplate_default = 27277;
+	public static int Harmonion_Leggings_default = 27278;
+	public static int Harmonion_Boots_default = 27279;
+	public static int Harmonion_Door_default = 27280;
 	
 	/* Current item ids */
-	public static int HARMONIONSWORD;
-	public static int REFINEDSOUNDSTONE;
-	public static int HARMONIONPEARL;
-	public static int HARMONIONPICK;
-	public static int HARMONIONAXE;
-	public static int HARMONIONSHOVEL;
-	public static int HARMONIONHOE;
-	public static int HARMONIONHELMET;
-	public static int HARMONIONCHESTPLATE;
-	public static int HARMONIONLEGGINGS;
-	public static int HARMONIONBOOTS;
-	public static int HARMONIONDOOR;
+	public static int Harmonion_Sword;
+	public static int Harmonion_Ingot;
+	public static int Harmonion_Pearl;
+	public static int Harmonion_Pickaxe;
+	public static int Harmonion_Axe;
+	public static int Harmonion_Shovel;
+	public static int Harmonion_Hoe;
+	public static int Harmonion_Helmet;
+	public static int Harmonion_Chestplate;
+	public static int Harmonion_Leggings;
+	public static int Harmonion_Boots;
+	public static int Harmonion_Door;
 	
 }

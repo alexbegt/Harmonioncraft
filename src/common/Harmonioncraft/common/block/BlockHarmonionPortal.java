@@ -1,12 +1,10 @@
 package Harmonioncraft.common.block;
 
 import java.util.Random;
-
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
-
 import Harmonioncraft.common.dimension.HMCTeleporter;
-
+import net.minecraft.src.AchievementList;
 import net.minecraft.src.AxisAlignedBB;
 import net.minecraft.src.Block;
 import net.minecraft.src.BlockBreakable;
@@ -21,13 +19,14 @@ import net.minecraft.src.World;
 
 public class BlockHarmonionPortal extends BlockBreakable
 {
-    public BlockHarmonionPortal(int par1, int par2)
+    public BlockHarmonionPortal(int var1, int var2)
     {
-        super(par1, par2, Material.portal, false);
-        this.setTickRandomly(true);
-        this.setCreativeTab(CreativeTabs.tabBlock);
+        super(var1, var2, Material.portal, false);
+        this.setHardness(-1.0F);
+        this.setStepSound(Block.soundGlassFootstep);
+        this.setLightValue(0.75F);
     }
-
+    
     /**
      * Ticks the block if it's been scheduled
      */
@@ -239,32 +238,6 @@ public class BlockHarmonionPortal extends BlockBreakable
         return 0;
     }
 
-    /**
-     * Triggered whenever an entity collides with this block (enters into the block). Args: world, x, y, z, entity
-     */
-    public void onEntityCollidedWithBlock(World var1, int var2, int var3, int var4, Entity var5)
-    {
-        if (var5.ridingEntity == null && var5.riddenByEntity == null && var5 instanceof EntityPlayerMP)
-        {
-            EntityPlayerMP var6 = (EntityPlayerMP)var5;
-
-            if (var6.timeUntilPortal > 0)
-            {
-                var6.timeUntilPortal = 10;
-            }
-            else if (var6.dimension != 8)
-            {
-                var6.mcServer.getConfigurationManager().transferPlayerToDimension(var6, 8, new HMCTeleporter());
-                var6.removeExperience(0);
-            }
-            else
-            {
-                var6.mcServer.getConfigurationManager().transferPlayerToDimension(var6, 0, new HMCTeleporter());
-                var6.removeExperience(0);
-            }
-        }
-    }
-
     @SideOnly(Side.CLIENT)
 
     /**
@@ -336,6 +309,43 @@ public class BlockHarmonionPortal extends BlockBreakable
             }
 
             par1World.spawnParticle("portal", var7, var9, var11, var13, var15, var17);
+        }
+    }
+
+    @SideOnly(Side.CLIENT)
+
+    /**
+     * only called by clickMiddleMouseButton , and passed to inventory.setCurrentItem (along with isCreative)
+     */
+    public int idPicked(World par1World, int par2, int par3, int par4)
+    {
+        return 0;
+    }
+
+    /**
+     * Triggered whenever an entity collides with this block (enters into the block). Args: world, x, y, z, entity
+     */
+    public void onEntityCollidedWithBlock(World var1, int var2, int var3, int var4, Entity var5)
+    {
+        if (var5.ridingEntity == null && var5.riddenByEntity == null && var5 instanceof EntityPlayerMP)
+        {
+            EntityPlayerMP var6 = (EntityPlayerMP)var5;
+
+            var6.timeInPortal += 0.0125F;
+
+            if (var6.timeInPortal >= 1.0F)
+            {
+            	if (var6.dimension != 8)
+            	{
+            		var6.mcServer.getConfigurationManager().transferPlayerToDimension(var6, 8, new HMCTeleporter());
+            		var6.removeExperience(0);
+            	}
+            	else
+            	{
+            		var6.mcServer.getConfigurationManager().transferPlayerToDimension(var6, 0, new HMCTeleporter());
+            		var6.removeExperience(0);
+            	}
+            }
         }
     }
 }

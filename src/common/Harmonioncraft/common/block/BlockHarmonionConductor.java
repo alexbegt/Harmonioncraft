@@ -1,7 +1,8 @@
 package Harmonioncraft.common.block;
 
+import Harmonioncraft.common.api.Vector3;
 import Harmonioncraft.common.entity.TileEntityConductor;
-import Harmonioncraft.common.lib.Vector3;
+import Harmonioncraft.common.lib.Reference;
 import net.minecraft.src.BlockContainer;
 import net.minecraft.src.Material;
 import net.minecraft.src.TileEntity;
@@ -13,6 +14,7 @@ public abstract class BlockHarmonionConductor extends BlockContainer
     public BlockHarmonionConductor(int id, Material material)
     {
         super(id, material);
+        setTextureFile(Reference.SPRITE_SHEET_LOCATION + Reference.BLOCK_SPRITE_SHEET);
     }
 
     /**

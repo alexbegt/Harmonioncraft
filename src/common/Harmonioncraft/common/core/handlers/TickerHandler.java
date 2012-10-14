@@ -2,7 +2,7 @@ package Harmonioncraft.common.core.handlers;
 
 import java.util.EnumSet;
 
-import Harmonioncraft.common.power.ElectricityManager;
+import Harmonioncraft.common.api.ElectricityManager;
 
 import cpw.mods.fml.common.ITickHandler;
 import cpw.mods.fml.common.TickType;

@@ -2,10 +2,12 @@ package Harmonioncraft.common.entity;
 
 import com.google.common.io.ByteArrayDataInput;
 
+import Harmonioncraft.common.api.ElectricityManager;
+import Harmonioncraft.common.api.IConductor;
+import Harmonioncraft.common.api.IConnector;
+import Harmonioncraft.common.api.IPacketReceiver;
 import Harmonioncraft.common.block.BlockHarmonionConductor;
-import Harmonioncraft.common.network.IPacketReceiver;
 import Harmonioncraft.common.network.NetworkManager;
-import Harmonioncraft.common.power.ElectricityManager;
 import net.minecraft.src.Block;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.Packet250CustomPayload;

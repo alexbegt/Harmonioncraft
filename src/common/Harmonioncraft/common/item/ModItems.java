@@ -26,20 +26,20 @@ import net.minecraftforge.common.MinecraftForge;
 public class ModItems {
 	
 	/* Item name constants */
-	public static final String Harmonicsword = "Harmonicsword";
-	public static final String Soundstoneingot = "Refinedsoundstone";
-	public static final String Soundstonepearl = "Soundstonepearl";
-	public static final String Soundstonepick = "Soundstonepick";
-	public static final String Soundstoneaxe = "Soundstoneaxe";
-	public static final String Soundstoneshovel = "Soundstoneshovel";
-	public static final String Soundstonehoe = "Soundstonehoe";
-	public static final String Soundstonehelmet = "Soundstonehelmet";
-	public static final String Soundstonechestplate = "Soundstonechestplate";
-	public static final String Soundstonelegs = "Soundstonelegs";
-	public static final String Soundstoneboots = "Soundstoneboots";
-	public static final String Resoniumpowder = "Resoniumpowder";
-	public static final String Soundstonechip = "Soundstonechip";
-	public static final String Soundstonedoor = "Soundstonedoor";
+	public static final String Harmonic_Sword_Name = "Harmonicsword";
+	public static final String Sound_Stone_Ingot_Name = "Refinedsoundstone";
+	public static final String Sound_Stone_Pearl_Name = "Soundstonepearl";
+	public static final String Sound_Stone_Pickaxe_Name = "Soundstonepick";
+	public static final String Sound_Stone_Axe_Name = "Soundstoneaxe";
+	public static final String Sound_Stone_Shovel_Name = "Soundstoneshovel";
+	public static final String Sound_Stone_Hoe_Name = "Soundstonehoe";
+	public static final String Sound_Stone_Helmet_Name = "Soundstonehelmet";
+	public static final String Sound_Stone_Chestplate_Name = "Soundstonechestplate";
+	public static final String Sound_Stone_Leggings_Name = "Soundstonelegs";
+	public static final String Sound_Stone_Boots_Name = "Soundstoneboots";
+	public static final String Sound_Stone_Powder_Name = "Resoniumpowder";
+	public static final String Sound_Stone_Chip_Name = "Soundstonechip";
+	public static final String Sound_Stone_Door_Name = "Soundstonedoor";
 	
 	/* Mod item instances */
 	public static Item HarmonionSword;
@@ -63,18 +63,18 @@ public class ModItems {
 	public static void init() {
 		
         /* Initialize each mod item individually */
-		HarmonionSword = new ItemHarmonionSword(ItemIds.HARMONIONSWORD, harmoniontool).setIconIndex(10).setItemName(Harmonicsword).setCreativeTab(CreativeTabs.tabCombat);
-		Refinedsoundstone = new ItemHarmonionIngot(ItemIds.REFINEDSOUNDSTONE).setIconIndex(0).setItemName(Soundstoneingot).setCreativeTab(CreativeTabs.tabMaterials);
-		Harmonionpearl = new ItemHarmonionPearl(ItemIds.HARMONIONPEARL).setIconIndex(18).setItemName(Soundstonepearl).setCreativeTab(CreativeTabs.tabMisc);
-		Harmonionpick = new ItemHarmonionPick(ItemIds.HARMONIONPICK, harmoniontool).setIconIndex(12).setItemName(Soundstonepick).setCreativeTab(CreativeTabs.tabTools);
-		Harmonionaxe = new ItemHarmonionAxe(ItemIds.HARMONIONAXE, harmoniontool).setIconIndex(13).setItemName(Soundstoneaxe).setCreativeTab(CreativeTabs.tabTools);
-		Harmonionshovel = new ItemHarmonionShovel(ItemIds.HARMONIONSHOVEL, harmoniontool).setIconIndex(11).setItemName(Soundstoneshovel).setCreativeTab(CreativeTabs.tabTools);
-		Harmonionhoe = new ItemHarmonionHoe(ItemIds.HARMONIONHOE, harmoniontool).setIconIndex(14).setItemName(Soundstonehoe).setCreativeTab(CreativeTabs.tabTools);
-		Harmonionhelmet = new ItemHarmonionArmor(ItemIds.HARMONIONHELMET, 6, harmonionarmor, ModLoader.addArmor("Harmonioncraft/client/armor/soundstone"), 0).setIconIndex(6).setItemName(Soundstonehelmet);
-		Harmonionchestplate = new ItemHarmonionArmor(ItemIds.HARMONIONCHESTPLATE, 7, harmonionarmor, ModLoader.addArmor("Harmonioncraft/client/armor/soundstone"), 1).setIconIndex(7).setItemName(Soundstonechestplate);
-		Harmonionlegs = new ItemHarmonionArmor(ItemIds.HARMONIONLEGGINGS, 8, harmonionarmor, ModLoader.addArmor("Harmonioncraft/client/armor/soundstone"), 2).setIconIndex(8).setItemName(Soundstonelegs);
-		Harmonionboots = new ItemHarmonionArmor(ItemIds.HARMONIONBOOTS, 9, harmonionarmor, ModLoader.addArmor("Harmonioncraft/client/armor/soundstone"), 3).setIconIndex(9).setItemName(Soundstoneboots);
-		HarmonionDoor = new ItemHarmonionDoor(ItemIds.HARMONIONDOOR).setItemName(Soundstonedoor).setIconIndex(17);
+		HarmonionSword = new ItemHarmonionSword(ItemIds.Harmonion_Sword, harmoniontool).setIconIndex(10).setItemName(Harmonic_Sword_Name).setCreativeTab(CreativeTabs.tabCombat);
+		Refinedsoundstone = new ItemHarmonionIngot(ItemIds.Harmonion_Ingot).setIconIndex(0).setItemName(Sound_Stone_Ingot_Name).setCreativeTab(CreativeTabs.tabMaterials);
+		Harmonionpearl = new ItemHarmonionPearl(ItemIds.Harmonion_Pearl).setIconIndex(18).setItemName(Sound_Stone_Pearl_Name).setCreativeTab(CreativeTabs.tabMisc);
+		Harmonionpick = new ItemHarmonionPick(ItemIds.Harmonion_Pickaxe, harmoniontool).setIconIndex(12).setItemName(Sound_Stone_Pickaxe_Name).setCreativeTab(CreativeTabs.tabTools);
+		Harmonionaxe = new ItemHarmonionAxe(ItemIds.Harmonion_Axe, harmoniontool).setIconIndex(13).setItemName(Sound_Stone_Axe_Name).setCreativeTab(CreativeTabs.tabTools);
+		Harmonionshovel = new ItemHarmonionShovel(ItemIds.Harmonion_Shovel, harmoniontool).setIconIndex(11).setItemName(Sound_Stone_Shovel_Name).setCreativeTab(CreativeTabs.tabTools);
+		Harmonionhoe = new ItemHarmonionHoe(ItemIds.Harmonion_Hoe, harmoniontool).setIconIndex(14).setItemName(Sound_Stone_Hoe_Name).setCreativeTab(CreativeTabs.tabTools);
+		Harmonionhelmet = new ItemHarmonionArmor(ItemIds.Harmonion_Helmet, 6, harmonionarmor, ModLoader.addArmor("Harmonioncraft/client/armor/soundstone"), 0).setIconIndex(6).setItemName(Sound_Stone_Helmet_Name);
+		Harmonionchestplate = new ItemHarmonionArmor(ItemIds.Harmonion_Chestplate, 7, harmonionarmor, ModLoader.addArmor("Harmonioncraft/client/armor/soundstone"), 1).setIconIndex(7).setItemName(Sound_Stone_Chestplate_Name);
+		Harmonionlegs = new ItemHarmonionArmor(ItemIds.Harmonion_Leggings, 8, harmonionarmor, ModLoader.addArmor("Harmonioncraft/client/armor/soundstone"), 2).setIconIndex(8).setItemName(Sound_Stone_Leggings_Name);
+		Harmonionboots = new ItemHarmonionArmor(ItemIds.Harmonion_Boots, 9, harmonionarmor, ModLoader.addArmor("Harmonioncraft/client/armor/soundstone"), 3).setIconIndex(9).setItemName(Sound_Stone_Boots_Name);
+		HarmonionDoor = new ItemHarmonionDoor(ItemIds.Harmonion_Door).setItemName(Sound_Stone_Door_Name).setIconIndex(17);
 		
 		/* Gives Item its name */
 		/** Removed */

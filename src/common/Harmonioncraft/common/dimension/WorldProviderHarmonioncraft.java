@@ -1,5 +1,6 @@
 package Harmonioncraft.common.dimension;
 
+import net.minecraft.src.BiomeGenBase;
 import net.minecraft.src.Block;
 import net.minecraft.src.IChunkProvider;
 import net.minecraft.src.MathHelper;
@@ -94,21 +95,25 @@ public class WorldProviderHarmonioncraft extends WorldProvider {
         return true;
     }
 
+    @Override
     public String getSaveFolder()
     {
         return "DIM8";
     }
 
+    @Override
     public String getWelcomeMessage()
     {
         return "Entering the HarmonionCraft";
     }
     
+    @Override
     public String getDepartMessage()
     {
         return "Leaving the HarmonionCraft";
     }
 
+    @Override
 	public String getDimensionName() {
 		return "HarmonionCraft";
 	}

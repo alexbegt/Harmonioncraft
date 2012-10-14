@@ -14,7 +14,7 @@ public class BlockHarmonionWire extends BlockHarmonionConductor{
         this.setResistance(0.2F);
         this.setBlockBounds(0.30F, 0.30F, 0.30F, 0.70F, 0.70F, 0.70F);
         this.setRequiresSelfNotify();
-        this.blockIndexInTexture = 19;
+        this.blockIndexInTexture = 14;
         this.setCreativeTab(CreativeTabs.tabRedstone);
 	}
 	/**

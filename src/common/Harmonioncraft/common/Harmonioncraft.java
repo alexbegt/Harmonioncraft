@@ -24,18 +24,20 @@ import cpw.mods.fml.common.network.NetworkMod.NULL;
 import cpw.mods.fml.common.network.NetworkMod.SidedPacketHandler;
 import cpw.mods.fml.common.registry.GameRegistry;
 import Harmonioncraft.client.network.NetworkManagerClient;
+import Harmonioncraft.common.api.ElectricityManager;
 import Harmonioncraft.common.block.ModBlocks;
 import Harmonioncraft.common.commands.CommandHMCV;
 import Harmonioncraft.common.core.CommonProxy;
 import Harmonioncraft.common.core.handlers.AddonHandler;
 import Harmonioncraft.common.core.handlers.ConfigurationHandler;
 import Harmonioncraft.common.core.handlers.LocalizationHandler;
+import Harmonioncraft.common.core.helper.LogHelper;
+import Harmonioncraft.common.core.helper.VersionHelper;
 import Harmonioncraft.common.dimension.WorldProviderHarmonioncraft;
 import Harmonioncraft.common.item.ModItems;
+import Harmonioncraft.common.lib.ConfigurationSettings;
 import Harmonioncraft.common.lib.Reference;
-import Harmonioncraft.common.lib.Version;
 import Harmonioncraft.common.network.NetworkManager;
-import Harmonioncraft.common.power.ElectricityManager;
 
 /**
  * HarmonionCraft
@@ -60,18 +62,18 @@ import Harmonioncraft.common.power.ElectricityManager;
 )
 public class Harmonioncraft {
 	
-	@Instance("Harmonioncraft")
+	@Instance(Reference.MOD_ID)
 	public static Harmonioncraft instance;
 	
 	@SidedProxy(
-			clientSide = "Harmonioncraft.client.core.ClientProxy",
-			serverSide = "Harmonioncraft.common.core.CommonProxy"
+			clientSide = Reference.CLIENT_PROXY_CLASS,
+			serverSide = Reference.SERVER_PROXY_CLASS
 	)
     public static CommonProxy proxy;
 	
 	@SidedProxy(
-			clientSide = "Harmonioncraft.client.network.NetworkManagerClient",
-			serverSide = "Harmonioncraft.common.network.NetworkManager"
+			clientSide = Reference.CLIENT_NETWORK_CLASS,
+			serverSide = Reference.SERVER_NETWORK_CLASS
 	)
     public static NetworkManager network;
 	
@@ -81,11 +83,17 @@ public class Harmonioncraft {
 		// Initialize the configuration
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
 		
-		// Checks the Version
-		Version.versionCheck();
+     // Conduct the version check and log the result
+        if (ConfigurationSettings.ENABLE_VERSION_CHECK) {
+        	VersionHelper.checkVersion();
+        }
+    	VersionHelper.logResult();
+    	
+    	// Initialize the log helper
+    	LogHelper.init();
 		
 		// Load the localization files into the LanguageRegistry
-    	LocalizationHandler.instance().loadLanguages();
+    	LocalizationHandler.loadLanguages();
 
         // Register the KeyBinding Handler (Client only)
         proxy.registerKeyBindingHandler();
@@ -121,7 +129,7 @@ public class Harmonioncraft {
         ModBlocks.initBlockRecipes();
         
         /* Biome Adding */
-        DimensionManager.registerProviderType(8, WorldProviderHarmonioncraft.class, false);
+        DimensionManager.registerProviderType(8, WorldProviderHarmonioncraft.class, true);
         DimensionManager.registerDimension(8, 8);
 		
 	}

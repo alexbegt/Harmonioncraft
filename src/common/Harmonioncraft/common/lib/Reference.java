@@ -17,14 +17,27 @@ public class Reference {
     /* General Mod related constants */
     public static final String MOD_ID = "HMC";
     public static final String MOD_NAME = "Harmonioncraft";
-    public static final String VERSION = "0.0.0.4B";
+    public static final String VERSION = "0.0.0.5";
     public static final String CHANNEL_NAME = MOD_ID;
     public static final String LOGGER_PREFIX = "[" + MOD_ID + "] ";
     
-	/* Configuration related constants */
+    public static final int SECOND_IN_TICKS = 20;
+    public static final int SHIFTED_ID_RANGE_CORRECTION = 256;
+    
+    public static final String SERVER_PROXY_CLASS = "Harmonioncraft.common.core.CommonProxy";
+    public static final String CLIENT_PROXY_CLASS = "Harmonioncraft.client.core.ClientProxy";
+    
+    public static final String SERVER_NETWORK_CLASS = "Harmonioncraft.common.network.NetworkManager";
+    public static final String CLIENT_NETWORK_CLASS = "Harmonioncraft.client.network.NetworkManagerClient";
+    
+    /* Configuration related constants */
+    public static final String ENABLE_VERSION_CHECK = "enable_version_check";
     public static final String ENABLE_SOUNDS = "enable_sounds";
     public static final String ENABLE_PARTICLE_FX = "enable_particle_fx";
     public static final String AUTO_RESOLVE_BLOCK_IDS = "auto_resolve_block_ids";
+
+    /* Text colour related constants */
+    public static final String VERSION_CHECK_COLOUR_PREFIX = "\u00a7e";
     
     /* Texture related constants */
     public static final String SPRITE_SHEET_LOCATION = "/Harmonioncraft/client/textures/";

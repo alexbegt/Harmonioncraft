@@ -2,10 +2,10 @@ package Harmonioncraft.common.block.item;
 
 import java.util.List;
 
+import Harmonioncraft.common.api.ElectricInfo;
+import Harmonioncraft.common.api.ElectricInfo.ElectricUnit;
 import Harmonioncraft.common.block.ModBlocks;
 import Harmonioncraft.common.entity.TileEntityHarmonionWire;
-import Harmonioncraft.common.power.ElectricInfo;
-import Harmonioncraft.common.power.ElectricInfo.ElectricUnit;
 
 import net.minecraft.src.ItemBlock;
 import net.minecraft.src.ItemStack;

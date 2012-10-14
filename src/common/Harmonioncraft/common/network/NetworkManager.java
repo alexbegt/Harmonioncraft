@@ -8,8 +8,9 @@ import java.util.Iterator;
 import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteStreams;
 
+import Harmonioncraft.common.api.IPacketReceiver;
+import Harmonioncraft.common.api.Vector3;
 import Harmonioncraft.common.lib.Reference;
-import Harmonioncraft.common.lib.Vector3;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.EntityPlayerMP;

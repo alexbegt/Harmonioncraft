@@ -5,7 +5,6 @@ import java.util.logging.Level;
 import cpw.mods.fml.common.FMLLog;
 import Harmonioncraft.common.block.ModBlocks;
 import Harmonioncraft.common.item.ModItems;
-import Harmonioncraft.common.lib.BiomeIds;
 import Harmonioncraft.common.lib.BlockIds;
 import Harmonioncraft.common.lib.ConfigurationSettings;
 import Harmonioncraft.common.lib.ItemIds;
@@ -24,6 +23,8 @@ import static net.minecraftforge.common.Configuration.*;
  */
 public class ConfigurationHandler {
 
+    private static final String CATEGORY_KEYBIND = "keybinds";
+
     public static void init(File configFile) {
         Configuration configuration = new Configuration(configFile);
 
@@ -31,10 +32,77 @@ public class ConfigurationHandler {
             configuration.load();
 
             /* General Configs */
-            ConfigurationSettings.ENABLE_SOUNDS = configuration.getOrCreateBooleanProperty(Reference.ENABLE_SOUNDS, CATEGORY_GENERAL, ConfigurationSettings.ENABLE_SOUNDS_DEFAULT).getBoolean(ConfigurationSettings.ENABLE_SOUNDS_DEFAULT);
-            ConfigurationSettings.ENABLE_PARTICLE_FX = configuration.getOrCreateBooleanProperty(Reference.ENABLE_PARTICLE_FX, CATEGORY_GENERAL, ConfigurationSettings.ENABLE_PARTICLE_FX_DEFAULT).getBoolean(ConfigurationSettings.ENABLE_PARTICLE_FX_DEFAULT);
+            ConfigurationSettings.ENABLE_VERSION_CHECK = configuration
+            		.get(CATEGORY_GENERAL, Reference.ENABLE_VERSION_CHECK, ConfigurationSettings.ENABLE_VERSION_CHECK_DEFAULT)
+            		.getBoolean(ConfigurationSettings.ENABLE_VERSION_CHECK_DEFAULT);
+            ConfigurationSettings.ENABLE_SOUNDS = configuration
+            		.get(CATEGORY_GENERAL, Reference.ENABLE_SOUNDS, ConfigurationSettings.ENABLE_SOUNDS_DEFAULT)
+            		.getBoolean(ConfigurationSettings.ENABLE_SOUNDS_DEFAULT);
+            ConfigurationSettings.ENABLE_PARTICLE_FX = configuration
+            		.get(CATEGORY_GENERAL, Reference.ENABLE_PARTICLE_FX, ConfigurationSettings.ENABLE_PARTICLE_FX_DEFAULT)
+            		.getBoolean(ConfigurationSettings.ENABLE_PARTICLE_FX_DEFAULT);
 
             /* Block Configs */
+            ConfigurationSettings.AUTO_RESOLVE_BLOCK_IDS = configuration
+            		.get(CATEGORY_BLOCK, Reference.AUTO_RESOLVE_BLOCK_IDS, ConfigurationSettings.AUTO_RESOLVE_BLOCK_IDS_DEFAULT)
+            		.getBoolean(ConfigurationSettings.AUTO_RESOLVE_BLOCK_IDS_DEFAULT);
+            BlockIds.Harmonion =  configuration
+            		.getBlock(ModBlocks.Sound_Stone_Ore_Name, BlockIds.Harmonion_Default)
+            		.getInt(BlockIds.Harmonion_Default);
+            BlockIds.Harmonion_Portal = configuration
+            		.getBlock(ModBlocks.Sound_Stone_Portal_Name, BlockIds.Harmonion_Portal_Default)
+            		.getInt(BlockIds.Harmonion_Portal_Default);
+            
+            BlockIds.Harmonion_Block =  configuration
+            		.getBlock(ModBlocks.Sound_Stone_Block_Name, BlockIds.Harmonion_Block_Default)
+            		.getInt(BlockIds.Harmonion_Block_Default);
+            BlockIds.Harmonion_Fire = configuration
+            		.getBlock(ModBlocks.Sound_Stone_Fire_Name, BlockIds.Harmonion_Fire_Default)
+            		.getInt(BlockIds.Harmonion_Fire_Default);
+            BlockIds.Harmonion_Log =  configuration
+            		.getBlock(ModBlocks.Sound_Stone_Log_Name, BlockIds.Harmonion_Log_Default)
+            		.getInt(BlockIds.Harmonion_Log_Default);
+            BlockIds.Harmonion_Leaves = configuration
+            		.getBlock(ModBlocks.Sound_Stone_Leaves_Name, BlockIds.Harmonion_Leaves_Default)
+            		.getInt(BlockIds.Harmonion_Leaves_Default);
+            BlockIds.Harmonion_Sapling =  configuration
+            		.getBlock(ModBlocks.Sound_Stone_Sapling_Name, BlockIds.Harmonion_Sapling_Default)
+            		.getInt(BlockIds.Harmonion_Default);
+            BlockIds.Harmonion_Door = configuration
+            		.getBlock(ModBlocks.Sound_Stone_Door_Name, BlockIds.Harmonion_Door_Default)
+            		.getInt(BlockIds.Harmonion_Door_Default);
+            BlockIds.Harmonion_Plank =  configuration
+            		.getBlock(ModBlocks.Sound_Stone_Plank_Name, BlockIds.Harmonion_Planks_Default)
+            		.getInt(BlockIds.Harmonion_Planks_Default);
+            BlockIds.Harmonion_Wire = configuration
+            		.getBlock(ModBlocks.Sound_Stone_Wire_Name, BlockIds.Harmonion_Wire_Default)
+            		.getInt(BlockIds.Harmonion_Wire_Default);
+
+            /* Item Configs */
+            
+        }
+        catch (Exception e) {
+            FMLLog.log(Level.SEVERE, e, Reference.MOD_NAME + " has had a problem loading its configuration");
+        }
+        finally {
+            configuration.save();
+        }
+    }
+	/**
+    public static void init(File configFile) {
+        Configuration configuration = new Configuration(configFile);
+
+        try {
+            configuration.load();
+
+            /* General Configs *
+            ConfigurationSettings.ENABLE_SOUNDS = configuration.getOrCreateBooleanProperty(Reference.ENABLE_SOUNDS, CATEGORY_GENERAL, ConfigurationSettings.ENABLE_SOUNDS_DEFAULT).getBoolean(ConfigurationSettings.ENABLE_SOUNDS_DEFAULT);
+            ConfigurationSettings.ENABLE_PARTICLE_FX = configuration.getOrCreateBooleanProperty(Reference.ENABLE_PARTICLE_FX, CATEGORY_GENERAL, ConfigurationSettings.ENABLE_PARTICLE_FX_DEFAULT).getBoolean(ConfigurationSettings.ENABLE_PARTICLE_FX_DEFAULT);
+            ConfigurationSettings.ENABLE_VERSION_CHECK = configuration
+            		.get(CATEGORY_GENERAL, Reference.ENABLE_VERSION_CHECK, ConfigurationSettings.ENABLE_VERSION_CHECK_DEFAULT)
+            		.getBoolean(ConfigurationSettings.ENABLE_VERSION_CHECK_DEFAULT);
+
+            /* Block Configs *
             ConfigurationSettings.AUTO_RESOLVE_BLOCK_IDS = configuration.getOrCreateBooleanProperty(Reference.AUTO_RESOLVE_BLOCK_IDS, CATEGORY_BLOCK, ConfigurationSettings.AUTO_RESOLVE_BLOCK_IDS_DEFAULT).getBoolean(ConfigurationSettings.AUTO_RESOLVE_BLOCK_IDS_DEFAULT);
             BlockIds.HARMONION = configuration.getOrCreateIntProperty(ModBlocks.Soundstoneore, CATEGORY_BLOCK, BlockIds.HARMONION_DEFAULT).getInt(BlockIds.HARMONION_DEFAULT);
             BlockIds.HARMONIONPORTAL = configuration.getOrCreateIntProperty(ModBlocks.Soundstoneportal, CATEGORY_BLOCK, BlockIds.HARMONIONPORTAL_DEFAULT).getInt(BlockIds.HARMONIONPORTAL_DEFAULT);
@@ -47,7 +115,7 @@ public class ConfigurationHandler {
             BlockIds.HARMONIONDOOR = configuration.getOrCreateIntProperty(ModBlocks.Soundstonedoor, CATEGORY_BLOCK, BlockIds.HARMONIONDOOR_DEFAULT).getInt(BlockIds.HARMONIONDOOR_DEFAULT);
             BlockIds.HARMONIONWIRE = configuration.getOrCreateIntProperty(ModBlocks.Soundstonewire, CATEGORY_BLOCK, BlockIds.HARMONIONWIRE_DEFAULT).getInt(BlockIds.HARMONIONWIRE_DEFAULT);
             
-            /* Item Configs */
+            /* Item Configs *
             ItemIds.HARMONIONSWORD = configuration.getOrCreateIntProperty(ModItems.Harmonicsword, CATEGORY_ITEM, ItemIds.HARMONIONSWORD_DEFAULT).getInt(ItemIds.HARMONIONSWORD_DEFAULT);
             ItemIds.REFINEDSOUNDSTONE = configuration.getOrCreateIntProperty(ModItems.Soundstoneingot, CATEGORY_ITEM, ItemIds.REFINEDSOUNDSTONE_DEFAULT).getInt(ItemIds.REFINEDSOUNDSTONE_DEFAULT);
             ItemIds.HARMONIONPEARL = configuration.getOrCreateIntProperty(ModItems.Soundstonepearl, CATEGORY_ITEM, ItemIds.HARMONIONPEARL_DEFAULT).getInt(ItemIds.HARMONIONPEARL_DEFAULT);
@@ -61,7 +129,7 @@ public class ConfigurationHandler {
             ItemIds.HARMONIONBOOTS = configuration.getOrCreateIntProperty(ModItems.Soundstoneboots, CATEGORY_ITEM, ItemIds.HARMONIONBOOTS_DEFAULT).getInt(ItemIds.HARMONIONBOOTS_DEFAULT);
             ItemIds.HARMONIONDOOR = configuration.getOrCreateIntProperty(ModItems.Soundstonedoor, CATEGORY_ITEM, ItemIds.HARMONIONDOOR_DEFAULT).getInt(ItemIds.HARMONIONDOOR_DEFAULT);
             
-            /* Biome Configs */
+            /* Biome Configs *
             BiomeIds.idBiomeLake = configuration.getOrCreateIntProperty(BiomeIds.idBiomeLake_name, CATEGORY_GENERAL, BiomeIds.idBiomeLake_Default).getInt(BiomeIds.idBiomeLake_Default);
             BiomeIds.idBiomeHMC = configuration.getOrCreateIntProperty(BiomeIds.idBiomeHMC_name, CATEGORY_GENERAL, BiomeIds.idBiomeHMC_Default).getInt(BiomeIds.idBiomeHMC_Default);
             BiomeIds.idBiomeHMCVariant = configuration.getOrCreateIntProperty(BiomeIds.idBiomeHMCVariant_name, CATEGORY_GENERAL, BiomeIds.idBiomeHMCVariant_Default).getInt(BiomeIds.idBiomeHMCVariant_Default);
@@ -89,4 +157,5 @@ public class ConfigurationHandler {
             configuration.save();
         }
     }
+    */
 }
