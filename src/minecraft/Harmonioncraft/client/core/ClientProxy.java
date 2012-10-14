@@ -34,6 +34,8 @@ public class ClientProxy extends CommonProxy {
 		TickRegistry.registerTickHandler(new TickerHandler(), Side.CLIENT);
 	}
 	
+	//hello
+	
     @Override
     public void registerKeyBindingHandler() {
         //KeyBindingRegistry.registerKeyBinding(new KeyBindingHandler());
