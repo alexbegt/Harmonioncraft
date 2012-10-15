@@ -24,7 +24,6 @@ import cpw.mods.fml.common.network.NetworkMod.NULL;
 import cpw.mods.fml.common.network.NetworkMod.SidedPacketHandler;
 import cpw.mods.fml.common.registry.GameRegistry;
 import Harmonioncraft.client.network.NetworkManagerClient;
-import Harmonioncraft.common.api.ElectricityManager;
 import Harmonioncraft.common.block.ModBlocks;
 import Harmonioncraft.common.commands.CommandHMCV;
 import Harmonioncraft.common.core.CommonProxy;
@@ -146,21 +145,6 @@ public class Harmonioncraft {
 	public void serverStarting(FMLServerStartingEvent event)
 	{
 		proxy.serverStarting(event.getServer());
-	}
-	
-	@ForgeSubscribe
-    public void onEntityDeath(LivingDeathEvent event)
-    {
-    	if(event.entity instanceof EntityPlayer)
-    	{
-        	ElectricityManager.instance.timedConductorRefresh();
-    	}
-    }
-    
-    @ForgeSubscribe
-	public void onWorldSave(Save event)
-	{
-    	ElectricityManager.instance.timedConductorRefresh();
 	}
 	
 }

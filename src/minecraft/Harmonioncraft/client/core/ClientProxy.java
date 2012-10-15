@@ -5,10 +5,7 @@ import net.minecraftforge.client.EnumHelperClient;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
 import Harmonioncraft.client.core.handlers.SoundHandler;
-import Harmonioncraft.client.render.RenderHarmonionCable;
 import Harmonioncraft.common.core.CommonProxy;
-import Harmonioncraft.common.core.handlers.TickerHandler;
-import Harmonioncraft.common.entity.TileEntityHarmonionWire;
 import Harmonioncraft.common.lib.Reference;
 import Harmonioncraft.common.lib.RenderIds;
 import cpw.mods.fml.client.FMLClientHandler;
@@ -31,7 +28,6 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void registerTickHander() {
-		TickRegistry.registerTickHandler(new TickerHandler(), Side.CLIENT);
 	}
 	
 	//hello
@@ -83,9 +79,7 @@ public class ClientProxy extends CommonProxy {
     
     @Override
     public void initTileEntities() {
-    	super.initTileEntities();
-    	
-    	ClientRegistry.registerTileEntity(TileEntityHarmonionWire.class, "TileEntityHarmonionWireClient", new RenderHarmonionCable());
+    	//super.initTileEntities();
     	
     	//ClientRegistry.bindTileEntitySpecialRenderer(TileCalcinator.class, new RenderCalcinator());
     	

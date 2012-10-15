@@ -1,6 +1,5 @@
 package Harmonioncraft.common.block;
 
-import Harmonioncraft.common.block.item.ItemHarmonionWire;
 import Harmonioncraft.common.item.ModItems;
 import Harmonioncraft.common.lib.BlockIds;
 import Harmonioncraft.common.worldgen.HarmonionWorldGenerator;
@@ -53,7 +52,6 @@ public class ModBlocks {
 		HarmonionSapling = new BlockHarmonionSapling(BlockIds.Harmonion_Sapling, 12).setBlockName(Sound_Stone_Sapling_Name);
 		HarmonionDoor = new BlockHarmonionDoor(BlockIds.Harmonion_Door, 37, 38, Material.iron).setBlockName(Sound_Stone_Door_Name);
 		HarmonionPlank = new BlockHarmonionPlank(BlockIds.Harmonion_Plank).setBlockName(Sound_Stone_Plank_Name);
-		HarmonionWire = new BlockHarmonionWire(BlockIds.Harmonion_Wire).setBlockName(Sound_Stone_Wire_Name);
 		
 		/* Gives Blocks its name */
 		/** Removed */
@@ -68,7 +66,6 @@ public class ModBlocks {
 		GameRegistry.registerBlock(HarmonionSapling);
 		GameRegistry.registerBlock(HarmonionDoor);
 		GameRegistry.registerBlock(HarmonionPlank);
-		GameRegistry.registerBlock(HarmonionWire, ItemHarmonionWire.class);
 		
 		/* Block Recipes*/
 		//initBlockRecipes();

@@ -4,12 +4,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.Iterator;
-
 import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteStreams;
-
-import Harmonioncraft.common.api.IPacketReceiver;
-import Harmonioncraft.common.api.Vector3;
 import Harmonioncraft.common.lib.Reference;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.src.EntityPlayer;
@@ -32,56 +28,7 @@ import cpw.mods.fml.common.network.Player;
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  * 
  */
-public class NetworkManager implements IPacketHandler, IPacketReceiver {
-    
-	public static void sendPacketToClients(Packet packet)
-	{
-		try
-		{
-	        if(FMLCommonHandler.instance().getMinecraftServerInstance() != null)
-	        {
-	        	FMLCommonHandler.instance().getMinecraftServerInstance().getConfigurationManager().sendPacketToAllPlayers(packet);
-	        }
-		}
-		catch (Exception e)
-        {
-			System.out.println("Sending packet to client failed.");
-            e.printStackTrace();
-        }
-	}
-	
-	/**
-	 * Sends packets to clients around a specific coordinate. A wrapper using Vector3.
-	 * See {@PacketDispatcher} for detailed information.
-	 */
-	public static void sendPacketToClients(Packet packet, World worldObj, Vector3 position, double range)
-	{
-		try
-		{
-	        PacketDispatcher.sendPacketToAllAround(position.x, position.y, position.z, range, worldObj.provider.dimensionId, packet);
-		}
-		catch (Exception e)
-        {
-			System.out.println("Sending packet to client failed.");
-            e.printStackTrace();
-        }
-	}
-	
-	/**
-	 * Sends a packet to all the clients on this server.
-	 */
-	public static void sendPacketToClients(Packet packet, World worldObj)
-	{
-		try
-		{
-			PacketDispatcher.sendPacketToAllInDimension(packet, worldObj.provider.dimensionId);
-		}
-		catch (Exception e)
-        {
-			System.out.println("Sending packet to client failed.");
-            e.printStackTrace();
-        }
-	}
+public class NetworkManager implements IPacketHandler{
 	
     public void announceBlockUpdate(World var1, int var2, int var3, int var4)
     {
@@ -259,50 +206,7 @@ public class NetworkManager implements IPacketHandler, IPacketReceiver {
 	@Override
 	public void onPacketData(net.minecraft.src.NetworkManager network, Packet250CustomPayload packet, Player player)
 	{
-		try
-        {
-			ByteArrayDataInput data = ByteStreams.newDataInput(packet.data);
-			
-			int packetTypeID = data.readInt();
-			
-			PacketType packetType = PacketType.get(packetTypeID);
-			
-			if(packetType == PacketType.TILEENTITY)
-			{
-				int x = data.readInt();
-				int y = data.readInt();
-				int z = data.readInt();
-				
-				World world = ((EntityPlayer)player).worldObj;
-				
-				if(world != null)
-				{
-					TileEntity tileEntity = world.getBlockTileEntity(x, y, z);
-					
-					if(tileEntity != null)
-					{
-						if(tileEntity instanceof IPacketReceiver)
-						{
-							((IPacketReceiver)tileEntity).handlePacketData(network, packetTypeID, packet, ((EntityPlayer)player), data);
-						}
-					}
-				}
-			}
-			else
-			{
-				this.handlePacketData(network, packetTypeID, packet, ((EntityPlayer)player), data);
-			}
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-        }
-	}
-
-	@Override
-	public void handlePacketData(net.minecraft.src.NetworkManager network, int packetType, Packet250CustomPayload packet, EntityPlayer player, ByteArrayDataInput dataStream)
-	{
-
+		
 	}
 
 }

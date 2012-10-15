@@ -1,10 +1,7 @@
 package Harmonioncraft.common.core;
 
 import java.util.Iterator;
-
 import Harmonioncraft.common.commands.CommandHMCV;
-import Harmonioncraft.common.core.handlers.TickerHandler;
-import Harmonioncraft.common.entity.TileEntityHarmonionWire;
 import Harmonioncraft.common.lib.GuiIds;
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.network.IGuiHandler;
@@ -31,7 +28,7 @@ import net.minecraft.src.World;
 public class CommonProxy implements IGuiHandler {
 	
 	public void registerTickHander() {
-		TickRegistry.registerTickHandler(new TickerHandler(), Side.SERVER);
+		
 	}
 
     public void registerKeyBindingHandler() {}
@@ -49,8 +46,6 @@ public class CommonProxy implements IGuiHandler {
     public void initRenderingAndTextures() {}
     
     public void initTileEntities() {
-    	
-    	GameRegistry.registerTileEntity(TileEntityHarmonionWire.class, "TileEntityHarmonionWire");
     	
     	//GameRegistry.registerTileEntity(TileCalcinator.class, "tileCalcinator");
     }
