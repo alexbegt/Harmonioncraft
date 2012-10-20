@@ -105,6 +105,9 @@ public class Harmonioncraft {
         // Register the Sound Handler (Client only)
         proxy.registerSoundHandler();
         
+        // Registering the Achevement Handler (Client Only)
+        // TODO Add this
+        
 	}
 	
 	@Init
