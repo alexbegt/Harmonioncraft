@@ -23,6 +23,7 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.NetworkMod.NULL;
 import cpw.mods.fml.common.network.NetworkMod.SidedPacketHandler;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.TickRegistry;
 import Harmonioncraft.client.network.NetworkManagerClient;
 import Harmonioncraft.common.block.ModBlocks;
 import Harmonioncraft.common.commands.CommandHMCV;
@@ -30,6 +31,7 @@ import Harmonioncraft.common.core.CommonProxy;
 import Harmonioncraft.common.core.handlers.AddonHandler;
 import Harmonioncraft.common.core.handlers.ConfigurationHandler;
 import Harmonioncraft.common.core.handlers.LocalizationHandler;
+import Harmonioncraft.common.core.handlers.VersionCheckTickHandler;
 import Harmonioncraft.common.core.helper.LogHelper;
 import Harmonioncraft.common.core.helper.VersionHelper;
 import Harmonioncraft.common.dimension.WorldProviderHarmonioncraft;
@@ -90,6 +92,9 @@ public class Harmonioncraft {
     	
     	// Initialize the log helper
     	LogHelper.init();
+    	
+    	 // Initialize the Version Check Tick Handler (Client only)
+        TickRegistry.registerTickHandler(new VersionCheckTickHandler(), Side.CLIENT);
 		
 		// Load the localization files into the LanguageRegistry
     	LocalizationHandler.loadLanguages();

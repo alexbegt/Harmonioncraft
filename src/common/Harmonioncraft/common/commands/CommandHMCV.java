@@ -1,6 +1,10 @@
 package Harmonioncraft.common.commands;
 
 import java.util.List;
+
+import Harmonioncraft.common.core.helper.VersionHelper;
+import Harmonioncraft.common.lib.Reference;
+import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.FMLCommonHandler;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.src.CommandBase;
@@ -46,11 +50,16 @@ public class CommandHMCV extends CommandBase{
         {
             this.commandAbout(var1, var2);
         }
+        else if (var2[0].matches("version"))
+        {
+        	this.commandVersion(var1, var2);
+        }
         else if (var2[0].matches("help"))
         {
             var1.sendChatToPlayer("Format: \'" + this.getCommandName() + " <command> <arguments>\'");
             var1.sendChatToPlayer("Available commands:");
             var1.sendChatToPlayer("- about : Mod Information.");
+            var1.sendChatToPlayer("- version : Check Mod Version.");
         }
         else
         {
@@ -63,6 +72,12 @@ public class CommandHMCV extends CommandBase{
     {
         var1.sendChatToPlayer("Was Made By Alexbegt and DJ Pantheris.");
     }
+	
+	private void commandVersion(ICommandSender var1, String[] var2)
+	{
+		VersionHelper.checkVersion();
+		FMLClientHandler.instance().getClient().ingameGUI.getChatGUI().printChatMessage(Reference.VERSION_CHECK_COLOUR_PREFIX + "[" + Reference.MOD_NAME + "] " + VersionHelper.getResultMessage());
+	}
 	
 	/**
 	 * Not Needed Recoded
