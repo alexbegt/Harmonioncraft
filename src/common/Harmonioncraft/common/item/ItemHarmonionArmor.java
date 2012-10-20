@@ -21,6 +21,7 @@ public class ItemHarmonionArmor extends ItemArmor{
         
         this.setMaxDamage(enumArmorMaterial.getDurability(l));
         setTextureFile(Reference.SPRITE_SHEET_LOCATION + Reference.ITEM_SPRITE_SHEET);
+        setCreativeTab(ModItems.tabHarmonioncraftI);
     }
     
     @SideOnly(Side.CLIENT)

@@ -79,6 +79,42 @@ public class ConfigurationHandler {
             		.getInt(BlockIds.Harmonion_Wire_Default);
 
             /* Item Configs */
+            ItemIds.Harmonion_Sword =  configuration
+            		.getItem(ModItems.Sound_Stone_Sword_Name, ItemIds.Harmonion_Sword_Default)
+            		.getInt(ItemIds.Harmonion_Sword_Default);
+            ItemIds.Harmonion_Ingot = configuration
+            		.getItem(ModItems.Sound_Stone_Ingot_Name, ItemIds.Harmonion_Ingot_Default)
+            		.getInt(ItemIds.Harmonion_Ingot_Default);
+            ItemIds.Harmonion_Pearl =  configuration
+            		.getItem(ModItems.Sound_Stone_Pearl_Name, ItemIds.Harmonion_Pearl_Default)
+            		.getInt(ItemIds.Harmonion_Pearl_Default);
+            ItemIds.Harmonion_Pickaxe = configuration
+            		.getItem(ModItems.Sound_Stone_Pickaxe_Name, ItemIds.Harmonion_Pickaxe_Default)
+            		.getInt(ItemIds.Harmonion_Pickaxe_Default);
+            ItemIds.Harmonion_Axe =  configuration
+            		.getItem(ModItems.Sound_Stone_Axe_Name, ItemIds.Harmonion_Axe_Default)
+            		.getInt(ItemIds.Harmonion_Axe_Default);
+            ItemIds.Harmonion_Shovel = configuration
+            		.getItem(ModItems.Sound_Stone_Shovel_Name, ItemIds.Harmonion_Shovel_Default)
+            		.getInt(ItemIds.Harmonion_Shovel_Default);
+            ItemIds.Harmonion_Hoe =  configuration
+            		.getItem(ModItems.Sound_Stone_Hoe_Name, ItemIds.Harmonion_Hoe_Default)
+            		.getInt(ItemIds.Harmonion_Hoe_Default);
+            ItemIds.Harmonion_Helmet = configuration
+            		.getItem(ModItems.Sound_Stone_Helmet_Name, ItemIds.Harmonion_Helmet_Default)
+            		.getInt(ItemIds.Harmonion_Helmet_Default);
+            ItemIds.Harmonion_Chestplate =  configuration
+            		.getItem(ModItems.Sound_Stone_Chestplate_Name, ItemIds.Harmonion_Chestplate_Default)
+            		.getInt(ItemIds.Harmonion_Chestplate_Default);
+            ItemIds.Harmonion_Leggings = configuration
+            		.getItem(ModItems.Sound_Stone_Leggings_Name, ItemIds.Harmonion_Leggings_Default)
+            		.getInt(ItemIds.Harmonion_Leggings_Default);
+            ItemIds.Harmonion_Boots =  configuration
+            		.getItem(ModItems.Sound_Stone_Boots_Name, ItemIds.Harmonion_Boots_Default)
+            		.getInt(ItemIds.Harmonion_Boots_Default);
+            ItemIds.Harmonion_Door = configuration
+            		.getItem(ModItems.Sound_Stone_Door_Name, ItemIds.Harmonion_Door_Default)
+            		.getInt(ItemIds.Harmonion_Door_Default);
             
         }
         catch (Exception e) {
