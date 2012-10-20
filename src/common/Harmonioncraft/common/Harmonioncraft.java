@@ -41,7 +41,7 @@ import Harmonioncraft.common.lib.Reference;
 import Harmonioncraft.common.network.NetworkManager;
 
 /**
- * HarmonionCraft.
+ * HarmonionCraft
  * 
  * Main mod class for the Minecraft mod HarmonionCraft
  * 
