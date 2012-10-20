@@ -2,6 +2,7 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties version="1.0">
 	<comment>English (US) Localization File</comment>
+	
 	<entry key="item.Harmonicsword.name">Harmonic Sword</entry>
 	<entry key="item.Refinedsoundstone.name">Refined Soundstone</entry>
 	<entry key="item.Soundstonepearl.name">Soundstone Pearl</entry>
