@@ -21,6 +21,7 @@ public class BlockHarmonionSapling extends BlockSapling
         this.setHardness(0.0F);
         this.setStepSound(soundGrassFootstep);
         this.setTextureFile(Reference.SPRITE_SHEET_LOCATION + Reference.BLOCK_SPRITE_SHEET);
+        this.setCreativeTab(ModBlocks.tabHarmonioncraftB);
     }
 
     /**

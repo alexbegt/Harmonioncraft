@@ -23,7 +23,8 @@ public class BlockHarmonionLog extends BlockHarmonion
         super(var1, Material.wood);
         this.setHardness(1.0F);
         this.setStepSound(soundWoodFootstep);
-        this.setCreativeTab(CreativeTabs.tabBlock);
+        //this.setCreativeTab(CreativeTabs.tabBlock);
+        this.setCreativeTab(ModBlocks.tabHarmonioncraftB);
     }
     
     /**

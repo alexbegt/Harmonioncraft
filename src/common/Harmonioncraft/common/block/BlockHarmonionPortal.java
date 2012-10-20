@@ -25,6 +25,7 @@ public class BlockHarmonionPortal extends BlockBreakable
         this.setHardness(-1.0F);
         this.setStepSound(Block.soundGlassFootstep);
         this.setLightValue(0.75F);
+        this.setCreativeTab(ModBlocks.tabHarmonioncraftB);
     }
     
     /**

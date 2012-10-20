@@ -17,7 +17,7 @@ public class ItemHarmonionDoor extends ItemHarmonion {
     {
         super(par1);
         this.maxStackSize = 1;
-        this.setCreativeTab(CreativeTabs.tabRedstone);
+        this.setCreativeTab(ModItems.tabHarmonioncraftI);//CreativeTabs.tabRedstone);
     }
 
     /**

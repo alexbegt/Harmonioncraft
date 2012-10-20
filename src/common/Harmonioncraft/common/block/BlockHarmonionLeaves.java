@@ -30,6 +30,7 @@ public class BlockHarmonionLeaves extends BlockLeaves implements IShearable {
         this.disableStats();
         this.graphicsLevel = true;
         this.setTextureFile(Reference.SPRITE_SHEET_LOCATION + Reference.BLOCK_SPRITE_SHEET);
+        this.setCreativeTab(ModBlocks.tabHarmonioncraftB);
     }
 
     /**

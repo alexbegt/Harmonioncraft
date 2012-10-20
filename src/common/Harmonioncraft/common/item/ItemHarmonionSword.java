@@ -26,7 +26,7 @@ public class ItemHarmonionSword extends ItemHarmonion {
         this.toolMaterial = par2EnumToolMaterial;
         this.maxStackSize = 1;
         this.setMaxDamage(par2EnumToolMaterial.getMaxUses());
-        this.setCreativeTab(CreativeTabs.tabCombat);
+        this.setCreativeTab(ModItems.tabHarmonioncraftI);//CreativeTabs.tabCombat);
         this.weaponDamage = 4 + par2EnumToolMaterial.getDamageVsEntity();
     }
 

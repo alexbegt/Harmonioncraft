@@ -14,7 +14,7 @@ public class BlockHarmonionPlank extends BlockHarmonion{
     public BlockHarmonionPlank(int par1)
     {
         super(par1, 4, Material.wood);
-        this.setCreativeTab(CreativeTabs.tabBlock);
+        this.setCreativeTab(ModBlocks.tabHarmonioncraftB);
     }
 
     /**

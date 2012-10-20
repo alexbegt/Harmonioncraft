@@ -11,7 +11,7 @@ public class BlockHarmonionOre extends BlockHarmonion {
 	public BlockHarmonionOre(int par1, int par2) {
 		
 		super(par1, par2, Material.rock);
-		this.setCreativeTab(CreativeTabs.tabBlock);
+		this.setCreativeTab(ModBlocks.tabHarmonioncraftB);//CreativeTabs.tabBlock);
 		this.setHardness(3.0F);
 		this.setResistance(7.0F);
 		

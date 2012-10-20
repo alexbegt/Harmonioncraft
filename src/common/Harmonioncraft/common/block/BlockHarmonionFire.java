@@ -31,8 +31,9 @@ public class BlockHarmonionFire extends Block{
     protected BlockHarmonionFire(int par1, int par2)
     {
         super(par1, par2, Material.fire);
-        this.setCreativeTab(CreativeTabs.tabBlock);
+        //this.setCreativeTab(CreativeTabs.tabBlock);
         this.setTickRandomly(true);
+        this.setCreativeTab(ModBlocks.tabHarmonioncraftB);
     }
 
     /**

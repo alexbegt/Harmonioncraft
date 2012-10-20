@@ -14,6 +14,7 @@
 	<entry key="item.Soundstonelegs.name">Soundstone Leggings</entry>
 	<entry key="item.Soundstoneboots.name">Soundstone Boots</entry>
 	<entry key="item.Resoniumpowder.name">Resonium Powder</entry>
+	
 	<entry key="tile.Soundstoneore.name">Harmonion Ore</entry>
 	<entry key="tile.Soundstoneportal.name">Soundstone Portal</entry>
 	<entry key="tile.Soundstoneblock.name">Soundstone Block</entry>
@@ -26,5 +27,9 @@
 	<entry key="tile.Soundstoneplank.name">Crystal Planks</entry>
 	<entry key="tile.Soundstonewire.name">Harmonion Wire</entry>
 	<entry key="item.Soundstonewire.name">Harmonion Wire</entry>
+	
+	<entry key="itemGroup.HarmonioncraftB">Harmonioncraft Blocks</entry>
+	<entry key="itemGroup.HarmonioncraftI">Harmonioncraft Items</entry>
+	
 	<entry key="achievement.acquireResin.desc">Test</entry>
 </properties>

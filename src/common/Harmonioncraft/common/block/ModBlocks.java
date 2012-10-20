@@ -1,11 +1,13 @@
 package Harmonioncraft.common.block;
 
+import Harmonioncraft.common.core.creativetabs.CreativeTabHarmonionB;
 import Harmonioncraft.common.item.ModItems;
 import Harmonioncraft.common.lib.BlockIds;
 import Harmonioncraft.common.worldgen.HarmonionWorldGenerator;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.minecraft.src.Block;
+import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.FurnaceRecipes;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
@@ -39,6 +41,8 @@ public class ModBlocks {
 
 	/* WorldGen Reg */
 	public static HarmonionWorldGenerator worldGen = new HarmonionWorldGenerator();
+	
+	public static final CreativeTabs tabHarmonioncraftB = new CreativeTabHarmonionB(17, "HarmonioncraftB");
 	
 	public static void init() {
 		

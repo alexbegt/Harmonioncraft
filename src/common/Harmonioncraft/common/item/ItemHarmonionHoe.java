@@ -21,7 +21,7 @@ public class ItemHarmonionHoe extends ItemHarmonion {
 	        this.field_77843_a = par2EnumToolMaterial;
 	        this.maxStackSize = 1;
 	        this.setMaxDamage(par2EnumToolMaterial.getMaxUses());
-	        this.setCreativeTab(CreativeTabs.tabTools);
+	        this.setCreativeTab(ModItems.tabHarmonioncraftI);//CreativeTabs.tabTools);
 	    }
 
 	    public boolean tryPlaceIntoWorld(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, World par3World, int par4, int par5, int par6, int par7, float par8, float par9, float par10)

@@ -36,7 +36,7 @@ public class ItemHarmonionTool extends ItemHarmonion {
 	        this.setMaxDamage(par3EnumToolMaterial.getMaxUses());
 	        this.efficiencyOnProperMaterial = par3EnumToolMaterial.getEfficiencyOnProperMaterial();
 	        this.damageVsEntity = par2 + par3EnumToolMaterial.getDamageVsEntity();
-	        this.setCreativeTab(CreativeTabs.tabTools);
+	        this.setCreativeTab(ModItems.tabHarmonioncraftI);//CreativeTabs.tabTools);
 	    }
 
 	    /**

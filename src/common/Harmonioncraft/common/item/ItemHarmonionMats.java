@@ -10,5 +10,6 @@ public class ItemHarmonionMats extends Item {
         super(id);
         maxStackSize = 64;
         setTextureFile(Reference.SPRITE_SHEET_LOCATION + Reference.ITEM_SPRITE_SHEET);
+        setCreativeTab(ModItems.tabHarmonioncraftI);
     }
 }

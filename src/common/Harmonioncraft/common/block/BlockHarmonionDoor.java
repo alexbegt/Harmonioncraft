@@ -33,6 +33,7 @@ public class BlockHarmonionDoor extends BlockDoor {
         this.disableStats();
         this.setRequiresSelfNotify();
         this.setTextureFile(Reference.SPRITE_SHEET_LOCATION + Reference.BLOCK_SPRITE_SHEET);
+        
     }
 
     public BlockHarmonionDoor setItemDropped(int var1)
