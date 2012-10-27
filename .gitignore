@@ -10,16 +10,24 @@
 /reobf/*
 /runtime/*
 /temp/*
-/Build_Files/*
 
-/src/common/*
+/src/common/cpw/*
+/src/common/net/minecraft/*
+/src/common/net/minecraftforge/*
+/src/common/org/*
+
+/src/common/fml_at.cfg
+/src/common/forge_at.cfg
+/src/common/fml_marker.cfg
+/src/common/fmlversion.properties
+/src/common/mcpmod.cfg
+
 /src/minecraft/*
 /src/minecraft_server/*
 
-!/resources/
 !/src/common/net/Harmonioncraft/
 !/src/minecraft/net/Harmonioncraft/
 !/src/common/mcmod.info
 
-*
-*
+*.bat
+*.sh
