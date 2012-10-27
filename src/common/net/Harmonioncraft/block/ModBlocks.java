@@ -28,7 +28,8 @@ public class ModBlocks {
 	public static final String Sound_Stone_Plank_Name = "Soundstoneplank";
 	public static final String Sound_Stone_Door_Name = "Soundstonedoor";
 	public static final String Sound_Stone_Wire_Name = "Soundstonewire";
-
+	
+	
     /* Mod Block instances */
 	public static Block HarmonionOre;
 	public static Block HarmonionBlock;
@@ -40,6 +41,7 @@ public class ModBlocks {
 	public static Block HarmonionPlank;
 	public static Block HarmonionDoor;
 	public static Block HarmonionWire;
+	
 
 	/* WorldGen Reg */
 	public static HarmonionWorldGenerator worldGen = new HarmonionWorldGenerator();
