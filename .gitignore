@@ -22,8 +22,15 @@
 /src/common/fmlversion.properties
 /src/common/mcpmod.cfg
 
-/src/minecraft/*
-/src/minecraft_server/*
+/src/minecraft/cpw/*
+/src/minecraft/ibxm/*
+/src/minecraft/net/minecraft/*
+/src/minecraft/net/minecraftforge/*
+/src/minecraft/paulscode/*
+/src/minecraft/forge_logo.png
+/src/minecraft/mcp.png
+/src/minecraft/Start.java
+/src/minecraft/armor/*
 
 !/src/common/net/Harmonioncraft/
 !/src/minecraft/net/Harmonioncraft/
