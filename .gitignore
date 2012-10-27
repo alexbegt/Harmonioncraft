@@ -10,14 +10,16 @@
 /reobf/*
 /runtime/*
 /temp/*
+/Build_Files/*
 
 /src/common/*
 /src/minecraft/*
 /src/minecraft_server/*
 
-!/src/common/Harmonioncraft/
-!/src/minecraft/Harmonioncraft/
+!/resources/
+!/src/common/net/Harmonioncraft/
+!/src/minecraft/net/Harmonioncraft/
 !/src/common/mcmod.info
 
-*.bat
-*.sh
+*
+*
