@@ -20,7 +20,7 @@
 /src/common/forge_at.cfg
 /src/common/fml_marker.cfg
 /src/common/fmlversion.properties
-/src/common/mcpmod.cfg
+/src/common/mcpmod.info
 
 /src/minecraft/cpw/*
 /src/minecraft/ibxm/*
