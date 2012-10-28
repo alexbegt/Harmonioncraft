@@ -2,7 +2,6 @@ package net.Harmonioncraft.block;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
-import net.Harmonioncraft.HmcBonemeal;
 import net.Harmonioncraft.core.creativetabs.CreativeTabHarmonionB;
 import net.Harmonioncraft.item.ModItems;
 import net.Harmonioncraft.lib.BlockIds;
@@ -33,8 +32,6 @@ public class ModBlocks {
     /* Mod Block instances */
 	public static Block HarmonionOre;
 	public static Block HarmonionBlock;
-	public static BlockHarmonionPortal HarmonionPortal;
-	public static BlockHarmonionFire HarmonionFire;
 	public static Block HarmonionLog;
 	public static Block HarmonionLeaves;
 	public static Block HarmonionSapling;
@@ -50,13 +47,9 @@ public class ModBlocks {
 	
 	public static void init() {
 		
-		MinecraftForge.EVENT_BUS.register(new HmcBonemeal());
-		
 		/* Initialize each mod block individually */
 		HarmonionOre = new BlockHarmonionOre(BlockIds.Harmonion, 0).setBlockName(Sound_Stone_Ore_Name);
-		HarmonionPortal = (BlockHarmonionPortal) new BlockHarmonionPortal(BlockIds.Harmonion_Portal, 14).setBlockName(Sound_Stone_Portal_Name);
 		HarmonionBlock = new BlockHarmonionBlock(BlockIds.Harmonion_Block, 8).setBlockName(Sound_Stone_Block_Name);
-		HarmonionFire = (BlockHarmonionFire) new BlockHarmonionFire(BlockIds.Harmonion_Fire, 31).setBlockName(Sound_Stone_Fire_Name);
 		HarmonionLog = new BlockHarmonionLog(BlockIds.Harmonion_Log).setBlockName(Sound_Stone_Log_Name);
 		HarmonionLeaves = new BlockHarmonionLeaves(BlockIds.Harmonion_Leaves).setBlockName(Sound_Stone_Leaves_Name);
 		HarmonionSapling = new BlockHarmonionSapling(BlockIds.Harmonion_Sapling, 13).setBlockName(Sound_Stone_Sapling_Name);
@@ -68,9 +61,7 @@ public class ModBlocks {
 		
 		/* Adds Blocks into the game */
 		GameRegistry.registerBlock(HarmonionOre);
-		GameRegistry.registerBlock(HarmonionPortal);
 		GameRegistry.registerBlock(HarmonionBlock);
-		GameRegistry.registerBlock(HarmonionFire);
 		GameRegistry.registerBlock(HarmonionLog);
 		GameRegistry.registerBlock(HarmonionLeaves);
 		GameRegistry.registerBlock(HarmonionSapling);

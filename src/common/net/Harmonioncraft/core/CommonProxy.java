@@ -5,7 +5,6 @@ import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.TickRegistry;
-import net.Harmonioncraft.ServerTickHandler;
 import net.Harmonioncraft.command.CommandHMCV;
 import net.Harmonioncraft.lib.GuiIds;
 import net.minecraft.server.MinecraftServer;
@@ -24,14 +23,14 @@ import net.minecraft.src.World;
  * The common proxy class between client and server. Client proxy extends this
  * for further client specific functionality
  * 
- * @author pahimar
+ * @author alexbegt
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  * 
  */
 public class CommonProxy implements IGuiHandler {
 	
 	public void registerTickHander() {
-		TickRegistry.registerTickHandler(new ServerTickHandler(), Side.SERVER);
+		//TickRegistry.registerTickHandler(new ServerTickHandler(), Side.SERVER);
 	}
 
     public void registerKeyBindingHandler() {}

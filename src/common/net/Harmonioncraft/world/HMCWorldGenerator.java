@@ -4,8 +4,6 @@ import cpw.mods.fml.common.IWorldGenerator;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-
-import net.Harmonioncraft.world.biomes.BiomeGenHarmonion;
 import net.Harmonioncraft.world.worldgen.WorldGenHarmonionTree;
 import net.minecraft.src.BiomeGenBase;
 import net.minecraft.src.IChunkProvider;
@@ -49,10 +47,5 @@ public class HMCWorldGenerator implements IWorldGenerator
                 }
             }
         }
-    }
-
-    private boolean isRainforest(World var1, int var2, int var3)
-    {
-        return var1.getWorldChunkManager().getBiomeGenAt(var2, var3) == BiomeGenHarmonion.rainforestHills || var1.getWorldChunkManager().getBiomeGenAt(var2, var3) == BiomeGenHarmonion.rainforestMountains || var1.getWorldChunkManager().getBiomeGenAt(var2, var3) == BiomeGenHarmonion.rainforestPlains;
     }
 }

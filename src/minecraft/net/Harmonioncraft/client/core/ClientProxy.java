@@ -1,6 +1,5 @@
 package net.Harmonioncraft.client.core;
 
-import net.Harmonioncraft.ClientTickHandler;
 import net.Harmonioncraft.client.core.handlers.SoundHandler;
 import net.Harmonioncraft.client.core.handlers.ThreadDownloadResourcesHandler;
 import static net.Harmonioncraft.lib.CustomItemRarity.*;
@@ -33,7 +32,6 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void registerTickHander() {
 		super.registerTickHander();
-        TickRegistry.registerTickHandler(new ClientTickHandler(), Side.CLIENT);
 	}
 	
 	//hello

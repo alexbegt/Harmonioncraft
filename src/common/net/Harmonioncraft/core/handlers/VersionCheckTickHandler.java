@@ -3,6 +3,7 @@ package net.Harmonioncraft.core.handlers;
 import java.util.EnumSet;
 
 import net.Harmonioncraft.core.helper.VersionHelper;
+import net.Harmonioncraft.lib.Colours;
 import net.Harmonioncraft.lib.ConfigurationSettings;
 import net.Harmonioncraft.lib.Reference;
 
@@ -25,7 +26,7 @@ public class VersionCheckTickHandler implements ITickHandler {
 					if (tickType == TickType.CLIENT) {
 						if (FMLClientHandler.instance().getClient().currentScreen == null) {
 							initialized = true;
-							FMLClientHandler.instance().getClient().ingameGUI.getChatGUI().printChatMessage(Reference.VERSION_CHECK_COLOUR_PREFIX + "[" + Reference.MOD_NAME + "] " + VersionHelper.getResultMessage());
+							FMLClientHandler.instance().getClient().ingameGUI.getChatGUI().printChatMessage(Colours.VERSION_CHECK_PREFIX + "[" + Reference.MOD_NAME + "] " + VersionHelper.getResultMessage());
 						}
 					}
 				}

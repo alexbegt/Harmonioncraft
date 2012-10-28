@@ -5,6 +5,7 @@ import java.util.List;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.FMLCommonHandler;
 import net.Harmonioncraft.core.helper.VersionHelper;
+import net.Harmonioncraft.lib.Colours;
 import net.Harmonioncraft.lib.Reference;
 import net.Harmonioncraft.mods.Harmonioncraft;
 import net.minecraft.server.MinecraftServer;
@@ -55,17 +56,12 @@ public class CommandHMCV extends CommandBase{
         {
         	this.commandVersion(var1, var2);
         }
-        else if (var2[0].matches("Teleport hmc"))
-        {
-        	this.commandTeleport(var1, var2);
-        }
         else if (var2[0].matches("help"))
         {
             var1.sendChatToPlayer("Format: \'" + this.getCommandName() + " <command> <arguments>\'");
             var1.sendChatToPlayer("Available commands:");
             var1.sendChatToPlayer("- about : Mod Information.");
             var1.sendChatToPlayer("- version : Check Mod Version.");
-            var1.sendChatToPlayer("- Teleport hmc : Teleport to the Harmonioncraft Realm");
         }
         else
         {
@@ -79,24 +75,10 @@ public class CommandHMCV extends CommandBase{
         var1.sendChatToPlayer("Was Made By Alexbegt and DJ Pantheris.");
     }
 	
-	private void commandTeleport(ICommandSender var1, String[] var2)
-    {
-		EntityPlayer var3 = getCommandSenderAsPlayer(var1);
-
-        if (var3 instanceof EntityPlayerMP)
-        {
-            Harmonioncraft.teleportPlayerToHarmonion1((EntityPlayerMP)var3);
-        }
-        else
-        {
-            System.out.println("Not EntityPlayerMP");
-        }
-    }
-	
 	private void commandVersion(ICommandSender var1, String[] var2)
 	{
 		VersionHelper.checkVersion();
-		FMLClientHandler.instance().getClient().ingameGUI.getChatGUI().printChatMessage(Reference.VERSION_CHECK_COLOUR_PREFIX + "[" + Reference.MOD_NAME + "] " + VersionHelper.getResultMessage());
+		FMLClientHandler.instance().getClient().ingameGUI.getChatGUI().printChatMessage(Colours.VERSION_CHECK_PREFIX + "[" + Reference.MOD_NAME + "] " + VersionHelper.getResultMessage());
 	}
 	
 	/**

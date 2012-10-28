@@ -35,9 +35,15 @@ public class Reference {
     public static final String ENABLE_SOUNDS = "enable_sounds";
     public static final String ENABLE_PARTICLE_FX = "enable_particle_fx";
     public static final String AUTO_RESOLVE_BLOCK_IDS = "auto_resolve_block_ids";
-
-    /* Text colour related constants */
-    public static final String VERSION_CHECK_COLOUR_PREFIX = "\u00a7e";
+    
+    /* Gui related constants */
+    public static final String GUI_CALCINATOR_NAME = "gui.calcinator.name";
+    
+    /* General Tile Entity related constants */
+    public static final String TE_GEN_OWNER_NBT_TAG_LABEL = "owner";
+    public static final String TE_GEN_STATE_NBT_TAG_LABEL = "state";
+    public static final String TE_GEN_DIRECTION_NBT_TAG_LABEL = "direction";
+    
     
     /* Texture related constants */
     public static final String SPRITE_SHEET_LOCATION = "/net/Harmonioncraft/client/textures/";
@@ -45,4 +51,7 @@ public class Reference {
     public static final String BLOCK_SPRITE_SHEET = "Harmonioncraft_blocks.png";
     public static final String GUI_SHEET_LOCATION = "/net/Harmonioncraft/client/textures/gui/";
     public static final String ARMOR_SHEET_LOCATION = "/net/Harmonioncraft/client/textures/armor/";
+    
+    public static int HMCDimensionID = -127;
+    
 }

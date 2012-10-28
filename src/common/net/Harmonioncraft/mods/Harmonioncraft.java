@@ -15,8 +15,6 @@ import net.Harmonioncraft.item.ModItems;
 import net.Harmonioncraft.lib.ConfigurationSettings;
 import net.Harmonioncraft.lib.Reference;
 import net.Harmonioncraft.network.NetworkManager;
-import net.Harmonioncraft.world.WorldProviderHarmonion;
-import net.Harmonioncraft.world.teleporter.TeleporterHarmonion;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.src.ChunkCoordinates;
 import net.minecraft.src.CommandHandler;
@@ -143,13 +141,6 @@ public class Harmonioncraft {
         ModBlocks.initBlockSmelting();
         ModBlocks.initBlockRecipes();
         
-        /* Dimension Adding */
-        //DimensionManager.registerProviderType(8, WorldProviderHarmonioncraft.class, true);
-        //DimensionManager.registerDimension(8, 8);
-        
-        DimensionManager.registerProviderType(-128, WorldProviderHarmonion.class, true);
-        DimensionManager.registerDimension(-128, -128);
-        
         // Registering the Achevement Handler
         AchievementPage.registerAchievementPage(new AchievementPageHandler());
         
@@ -170,82 +161,5 @@ public class Harmonioncraft {
 	{
 		proxy.serverStarting(event.getServer());
 	}
-	
-	public static void teleportPlayerToHarmonion1(EntityPlayerMP var0)
-    {
-		TeleporterHarmonion var1 = new TeleporterHarmonion();
-        ServerConfigurationManager var2 = MinecraftServer.getServer().getConfigurationManager();
-
-        if (var0.dimension == 0)
-        {
-            var2.transferPlayerToDimension(var0, -128, var1);
-        }
-        else
-        {
-            var2.transferPlayerToDimension(var0, 0, var1);
-        }
-    }
-
-    public void initialWorldChunkLoad(WorldServer var1)
-    {
-        MinecraftServer var2 = FMLCommonHandler.instance().getMinecraftServerInstance();
-        short var3 = 196;
-        long var4 = System.currentTimeMillis();
-        byte var6 = -127;
-        MinecraftServer.logger.info("Preparing start region for level " + var6);
-        WorldServer var7 = var1;
-        ChunkCoordinates var8 = var1.getSpawnPoint();
-
-        for (int var9 = -var3; var9 <= var3 && var2.isServerRunning(); var9 += 16)
-        {
-            for (int var10 = -var3; var10 <= var3 && var2.isServerRunning(); var10 += 16)
-            {
-                long var11 = System.currentTimeMillis();
-
-                if (var11 < var4)
-                {
-                    var4 = var11;
-                }
-
-                if (var11 > var4 + 1000L)
-                {
-                    int var13 = (var3 * 2 + 1) * (var3 * 2 + 1);
-                    int var14 = (var9 + var3) * (var3 * 2 + 1) + var10 + 1;
-                    var4 = var11;
-                }
-
-                var7.theChunkProviderServer.loadChunk(var8.posX + var9 >> 4, var8.posZ + var10 >> 4);
-
-                while (var7.isDaytime() && var2.isServerRunning())
-                {
-                }
-            }
-        }
-    }
-
-    public static Object getPrivateValueBoth(Class var0, Object var1, String var2, String var3)
-    {
-        try
-        {
-            return ModLoader.getPrivateValue(var0, var1, var2);
-        }
-        catch (Exception var5)
-        {
-            var5.printStackTrace();
-            return null;
-        }
-    }
-
-    public static void setPrivateValueBoth(Class var0, Object var1, String var2, String var3, Object var4)
-    {
-        try
-        {
-            ModLoader.setPrivateValue(var0, var1, var2, var4);
-        }
-        catch (Exception var6)
-        {
-            var6.printStackTrace();
-        }
-    }
 	
 }
