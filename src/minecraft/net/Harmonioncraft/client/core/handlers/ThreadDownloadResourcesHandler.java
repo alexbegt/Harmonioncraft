@@ -28,9 +28,9 @@ public class ThreadDownloadResourcesHandler extends Thread
     public ThreadDownloadResourcesHandler(File var1, Minecraft var2)
     {
         this.mc = var2;
-        this.setName("Portal Gun Resource download thread");
+        this.setName("Harmonioncraft Resource download thread");
         this.setDaemon(true);
-        this.resourcesFolder = new File(var1, "/mods/portalgun/resources");
+        this.resourcesFolder = new File(var1, "/mods/Harmonioncraft/resources");
 
         if (!this.resourcesFolder.exists() && !this.resourcesFolder.mkdirs())
         {
@@ -42,7 +42,7 @@ public class ThreadDownloadResourcesHandler extends Thread
     {
         try
         {
-            URL var1 = new URL("http://portalmod.atl6.creeperhost.net/portalgun/resources/fileslist.xml");
+            URL var1 = new URL("http://electro-gaming.org/Harmonioncraft/resources/fileslist.xml");
             DocumentBuilderFactory var2 = DocumentBuilderFactory.newInstance();
             DocumentBuilder var3 = var2.newDocumentBuilder();
             URLConnection var4 = var1.openConnection();
@@ -149,7 +149,7 @@ public class ThreadDownloadResourcesHandler extends Thread
                 }
             }
 
-            var2 = var2.replaceFirst("portalgun", "pg");
+            var2 = var2.replaceFirst("Harmonioncraft", "HMC");
             this.mc.installResource(var2, var8);
         }
         catch (Exception var10)

@@ -1,7 +1,6 @@
 package net.Harmonioncraft.mods;
 
 import net.Harmonioncraft.block.ModBlocks;
-import net.Harmonioncraft.client.network.NetworkManagerClient;
 import net.Harmonioncraft.command.CommandHMCV;
 import net.Harmonioncraft.core.CommonProxy;
 import net.Harmonioncraft.core.handlers.AchievementPageHandler;
@@ -13,13 +12,17 @@ import net.Harmonioncraft.core.helper.LogHelper;
 import net.Harmonioncraft.core.helper.VersionHelper;
 import net.Harmonioncraft.item.ModItems;
 import net.Harmonioncraft.lib.ConfigurationSettings;
+import net.Harmonioncraft.lib.EntityLib;
 import net.Harmonioncraft.lib.Reference;
-import net.Harmonioncraft.network.NetworkManager;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.src.BiomeGenBase;
 import net.minecraft.src.ChunkCoordinates;
 import net.minecraft.src.CommandHandler;
+import net.minecraft.src.EntityEggInfo;
+import net.minecraft.src.EntityList;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.EntityPlayerMP;
+import net.minecraft.src.EnumCreatureType;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.ModLoader;
 import net.minecraft.src.ServerConfigurationManager;
@@ -27,6 +30,8 @@ import net.minecraft.src.WorldServer;
 import net.minecraftforge.common.AchievementPage;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.event.ForgeSubscribe;
+import net.Harmonioncraft.core.handlers.PacketHandler;
+import net.Harmonioncraft.entity.EntityHarmonionWolf;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.world.WorldEvent.Save;
 import cpw.mods.fml.common.*;
@@ -44,6 +49,7 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.NetworkMod.NULL;
 import cpw.mods.fml.common.network.NetworkMod.SidedPacketHandler;
+import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.TickRegistry;
 
@@ -59,14 +65,8 @@ import cpw.mods.fml.common.registry.TickRegistry;
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION, useMetadata = true)
 @NetworkMod(
         clientSideRequired = true,
-        clientPacketHandlerSpec =       @SidedPacketHandler(
-                channels = {Reference.CHANNEL_NAME},
-                packetHandler = NetworkManagerClient.class
-                ),
-        serverPacketHandlerSpec =       @SidedPacketHandler(
-                channels = {Reference.CHANNEL_NAME},
-                packetHandler = NetworkManager.class
-                )
+        serverSideRequired = false, 
+        packetHandler = PacketHandler.class
 )
 public class Harmonioncraft {
 	
@@ -78,12 +78,6 @@ public class Harmonioncraft {
 			serverSide = Reference.SERVER_PROXY_CLASS
 	)
     public static CommonProxy proxy;
-	
-	@SidedProxy(
-			clientSide = Reference.CLIENT_NETWORK_CLASS,
-			serverSide = Reference.SERVER_NETWORK_CLASS
-	)
-    public static NetworkManager network;
 	
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event) {	
@@ -107,9 +101,6 @@ public class Harmonioncraft {
 		
 		// Load the localization files into the LanguageRegistry
     	LocalizationHandler.loadLanguages();
-
-        // Register the KeyBinding Handler (Client only)
-        proxy.registerKeyBindingHandler();
 
         // Register the Sound Handler (Client only)
         proxy.registerSoundHandler();
@@ -145,6 +136,10 @@ public class Harmonioncraft {
         AchievementPage.registerAchievementPage(new AchievementPageHandler());
         
         proxy.initSounds();
+        
+        proxy.initEntitys();
+        
+        proxy.initEntitysClient();
 		
 	}
 	

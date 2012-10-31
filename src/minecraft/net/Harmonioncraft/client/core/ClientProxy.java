@@ -2,8 +2,11 @@ package net.Harmonioncraft.client.core;
 
 import net.Harmonioncraft.client.core.handlers.SoundHandler;
 import net.Harmonioncraft.client.core.handlers.ThreadDownloadResourcesHandler;
+import net.Harmonioncraft.client.models.ModelHarmonionWolf;
+import net.Harmonioncraft.client.render.RenderHarmonionWolf;
 import static net.Harmonioncraft.lib.CustomItemRarity.*;
 import net.Harmonioncraft.core.CommonProxy;
+import net.Harmonioncraft.entity.EntityHarmonionWolf;
 import net.Harmonioncraft.lib.Reference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.Block;
@@ -14,8 +17,10 @@ import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.client.registry.ClientRegistry;
+import cpw.mods.fml.client.registry.KeyBindingRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.Side;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.common.registry.TickRegistry;
 
 /**
@@ -33,24 +38,11 @@ public class ClientProxy extends CommonProxy {
 	public void registerTickHander() {
 		super.registerTickHander();
 	}
-	
-	//hello
-	
-    @Override
-    public void registerKeyBindingHandler() {
-        //KeyBindingRegistry.registerKeyBinding(new KeyBindingHandler());
-    }
     
     @Override
     public int getBlockTexture(Block var1, IBlockAccess var2, int var3, int var4, int var5, int var6)
     {
         return var1.getBlockTexture(var2, var3, var4, var5, var6);
-    }
-
-    @Override
-    public void setKeyBinding(String name, int value) {
-        //KeyBindings.addKeyBinding(name, value);
-        //KeyBindings.addIsRepeating(false);
     }
     
     @Override
@@ -64,6 +56,19 @@ public class ClientProxy extends CommonProxy {
     	{
     	}
     }
+    
+    @Override
+    public void initEntitys() {
+    	super.initEntitys();
+    }
+    
+    @Override
+    public void initEntitysClient() {
+    	RenderingRegistry.registerEntityRenderingHandler(
+    			EntityHarmonionWolf.class, new RenderHarmonionWolf(new ModelHarmonionWolf(),
+    					new ModelHarmonionWolf(), 0.5F));
+    }
+    
 
     @Override
     public void registerSoundHandler() {

@@ -2,7 +2,6 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties version="1.0">
 	<comment>English (US) Localization File</comment>
-	
 	<entry key="item.Harmonicsword.name">Harmonic Sword</entry>
 	<entry key="item.Refinedsoundstone.name">Refined Soundstone</entry>
 	<entry key="item.Soundstonepearl.name">Soundstone Pearl</entry>
@@ -15,7 +14,7 @@
 	<entry key="item.Soundstonelegs.name">Soundstone Leggings</entry>
 	<entry key="item.Soundstoneboots.name">Soundstone Boots</entry>
 	<entry key="item.Resoniumpowder.name">Resonium Powder</entry>
-	
+	<entry key="entity.HMC.HMCW.name">LMM</entry>
 	<entry key="tile.Soundstoneore.name">Harmonion Ore</entry>
 	<entry key="tile.Soundstoneportal.name">Soundstone Portal</entry>
 	<entry key="tile.Soundstoneblock.name">Soundstone Block</entry>
@@ -26,22 +25,13 @@
 	<entry key="item.Soundstonedoor.name">Harmonion Door</entry>
 	<entry key="tile.Soundstonedoor.name">Harmonion Door</entry>
 	<entry key="tile.Soundstoneplank.name">Crystal Planks</entry>
-	
-	<entry key="item.HMCPCable1.name">Harmonion Wire</entry>
-	<entry key="item.itemCable.name">Harmonion Wire</entry>
-	
-	<entry key="itemCable.name">Harmonion Wire</entry>
-	
 	<entry key="itemGroup.HarmonioncraftB">Harmonioncraft Blocks</entry>
 	<entry key="itemGroup.HarmonioncraftI">Harmonioncraft Items</entry>
-	
 	<entry key="achievement.acquireResin.desc">Test</entry>
-	
 	<entry key="version.init_log_message">Initializing version check against the remote version authority file, located at</entry>
     <entry key="version.uninitialized">The version check did not complete successfully (version check did not initialize properly)</entry>
     <entry key="version.current">You are currently using the most up to date version for your version of Minecraft</entry>
     <entry key="version.outdated">You are currently using an out of date version; consider updating here - http://goo.gl/0McU8</entry>
     <entry key="version.connection_error">Error connecting to the remote version authority file (check your Internet connection?)</entry>
     <entry key="version.check_disabled">Remote version check disabled, skipping</entry>
-    
 </properties>

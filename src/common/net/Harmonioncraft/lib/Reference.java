@@ -20,15 +20,10 @@ public class Reference {
     public static final String VERSION = "0.0.0.5";
     public static final String CHANNEL_NAME = MOD_ID;
     public static final String LOGGER_PREFIX = "[" + MOD_ID + "] ";
-    
     public static final int SECOND_IN_TICKS = 20;
     public static final int SHIFTED_ID_RANGE_CORRECTION = 256;
-    
     public static final String SERVER_PROXY_CLASS = "net.Harmonioncraft.core.CommonProxy";
     public static final String CLIENT_PROXY_CLASS = "net.Harmonioncraft.client.core.ClientProxy";
-    
-    public static final String SERVER_NETWORK_CLASS = "net.Harmonioncraft.network.NetworkManager";
-    public static final String CLIENT_NETWORK_CLASS = "net.Harmonioncraft.client.network.NetworkManagerClient";
     
     /* Configuration related constants */
     public static final String ENABLE_VERSION_CHECK = "enable_version_check";
@@ -44,14 +39,17 @@ public class Reference {
     public static final String TE_GEN_STATE_NBT_TAG_LABEL = "state";
     public static final String TE_GEN_DIRECTION_NBT_TAG_LABEL = "direction";
     
-    
     /* Texture related constants */
     public static final String SPRITE_SHEET_LOCATION = "/net/Harmonioncraft/client/textures/";
     public static final String ITEM_SPRITE_SHEET = "Harmonioncraft_items.png";
     public static final String BLOCK_SPRITE_SHEET = "Harmonioncraft_blocks.png";
+    
     public static final String GUI_SHEET_LOCATION = "/net/Harmonioncraft/client/textures/gui/";
     public static final String ARMOR_SHEET_LOCATION = "/net/Harmonioncraft/client/textures/armor/";
     
-    public static int HMCDimensionID = -127;
+    public static final String WOLF_SHEET_LOCATION = "/net/Harmonioncraft/client/textures/entity/";
+    public static final String LMM_WOLF_MAIN_SHEET = "cyberwolfn.png";
+    public static final String LMM_WOLF_TAIMED_SHEET = "cyberwolft.png";
+    public static final String LMM_WOLF_ANGRY_SHEET = "cyberwolfa.png";
     
 }

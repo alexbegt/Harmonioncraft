@@ -3,14 +3,20 @@ package net.Harmonioncraft.core;
 import java.util.Iterator;
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.network.IGuiHandler;
+import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.TickRegistry;
 import net.Harmonioncraft.command.CommandHMCV;
+import net.Harmonioncraft.entity.EntityHarmonionWolf;
+import net.Harmonioncraft.lib.EntityLib;
 import net.Harmonioncraft.lib.GuiIds;
+import net.Harmonioncraft.mods.Harmonioncraft;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.src.BiomeGenBase;
 import net.minecraft.src.Block;
 import net.minecraft.src.CommandHandler;
 import net.minecraft.src.EntityPlayer;
+import net.minecraft.src.EnumCreatureType;
 import net.minecraft.src.EnumRarity;
 import net.minecraft.src.IBlockAccess;
 import net.minecraft.src.ICommand;
@@ -33,10 +39,6 @@ public class CommonProxy implements IGuiHandler {
 		//TickRegistry.registerTickHandler(new ServerTickHandler(), Side.SERVER);
 	}
 
-    public void registerKeyBindingHandler() {}
-
-    public void setKeyBinding(String name, int value) {}
-
     public void registerSoundHandler() {}
 
     public void initCustomRarityTypes() {}
@@ -46,6 +48,16 @@ public class CommonProxy implements IGuiHandler {
     }
     
     public void initSounds() {}
+    
+    public void initEntitys() {
+    	EntityRegistry.registerModEntity(EntityHarmonionWolf.class, "HMCW",
+ 				3, Harmonioncraft.instance, 80, 3, true);
+ 		EntityRegistry.addSpawn(EntityHarmonionWolf.class, 5, 5, 5,
+ 				EnumCreatureType.creature, BiomeGenBase.plains);
+ 		EntityLib.registerEntityEgg(EntityHarmonionWolf.class, 12698049, 12698049);
+    }
+    
+    public void initEntitysClient() {}
     
     public void initRenderingAndTextures() {}
     
@@ -61,19 +73,11 @@ public class CommonProxy implements IGuiHandler {
     
     @Override
     public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-        /*if (ID == GuiIds.HARMONION_CRAFTING) {
-            return new ContainerPortableCrafting(player.inventory, world, x, y, z);
-        }*/
-        
         return null;
     }
 
     @Override
-    public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-        /*if (ID == GuiIds.PORTABLE_CRAFTING) {
-            return new GuiPortableCrafting(player, world, x, y, z);
-        }*/
-        
+    public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) { 
         return null;
     }
     
