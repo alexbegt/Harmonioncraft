@@ -167,7 +167,7 @@ public class EntityHarmonionWolf extends EntityTameable
      */
     protected String getLivingSound()
     {
-        return this.isAngry() ? "mob.wolf.growl" : (this.rand.nextInt(3) == 0 ? (this.isTamed() && this.dataWatcher.getWatchableObjectInt(18) < 10 ? "mob.wolf.whine" : "mob.wolf.panting") : "mob.wolf.bark");
+        return this.isAngry() ? "HMC.wolf.Meow" : (this.rand.nextInt(3) == 0 ? (this.isTamed() && this.dataWatcher.getWatchableObjectInt(18) < 10 ? "HMC.wolf.WolfM" : "HMC.wolf.Meow") : "HMC.wolf.Meow");
     }
 
     /**
@@ -175,7 +175,7 @@ public class EntityHarmonionWolf extends EntityTameable
      */
     protected String getHurtSound()
     {
-        return "mob.wolf.hurt";
+        return "HMC.wolf.WolfM";
     }
 
     /**
@@ -183,7 +183,7 @@ public class EntityHarmonionWolf extends EntityTameable
      */
     protected String getDeathSound()
     {
-        return "mob.wolf.death";
+        return "HMC.wolf.WolfM";
     }
 
     /**

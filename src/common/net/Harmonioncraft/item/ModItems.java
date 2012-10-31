@@ -78,6 +78,7 @@ public class ModItems {
 		Harmonionlegs = new ItemHarmonionArmor(ItemIds.Harmonion_Leggings, 8, harmonionarmor, Harmonioncraft.proxy.addArmor("Harmonioncraft/client/armor/soundstone"), 2).setIconIndex(5).setItemName(Sound_Stone_Leggings_Name);
 		Harmonionboots = new ItemHarmonionArmor(ItemIds.Harmonion_Boots, 9, harmonionarmor, Harmonioncraft.proxy.addArmor("Harmonioncraft/client/armor/soundstone"), 3).setIconIndex(6).setItemName(Sound_Stone_Boots_Name);
 		HarmonionDoor = new ItemHarmonionDoor(ItemIds.Harmonion_Door).setItemName(Sound_Stone_Door_Name).setIconIndex(14);
+		HarmonionDoor = (new ItemRecords(ItemIds.Harmonion_Door + 1, "HMC.WolfM", "State of the art")).setIconIndex(11).setItemName("record");
 		
 		/* Gives Item its name */
 		/** Removed */

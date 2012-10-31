@@ -3,6 +3,7 @@ package net.Harmonioncraft.world.worldgen;
 import java.util.Random;
 
 import net.Harmonioncraft.block.ModBlocks;
+import net.Harmonioncraft.world.HMCWorldGenerator;
 import net.minecraft.src.BiomeGenBase;
 import net.minecraft.src.IChunkProvider;
 import net.minecraft.src.World;
