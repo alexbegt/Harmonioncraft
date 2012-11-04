@@ -4,18 +4,38 @@
   "name": "Harmonioncraft",
   "description": "Sonic devices and tools.  ENOUGH SAID.  Mmmm Tesla coils... yum.",
   "version": "0.0.0.4B",
-  "mcversion": "1.3.2",
+  "mcversion": "1.4.2",
   "url": "",
   "updateUrl": "",
   "authors": [
     "alexbegt", "DJPantheris"
   ],
   "credits": "Authored by Alexbegt and DJPantheris.",
-  "logoFile": "/Harmonioncraft/client/textures/Harmonioncraft_logo.png",
+  "logoFile": "/net/Harmonioncraft/client/textures/Harmonioncraft_logo.png",
   "screenshots": [
   ],
   "parent":"",
   "dependencies": [
+  ]
+},
+{
+  "modid": "HMCC",
+  "name": "Fat Cat Cart Pack",
+  "description": "Carts, lots and lots and lots of carts... and lots of rails too",
+  "version": "0.0.0.4B",
+  "mcversion": "1.4.2",
+  "url": "",
+  "updateUrl": "",
+  "authors": [
+    "alexbegt", "DJPantheris"
+  ],
+  "credits": "Authored by Alexbegt and DJPantheris.",
+  "logoFile": "/net/Harmonioncraft/client/textures/Harmonioncraft_logo.png",
+  "screenshots": [
+  ],
+  "parent":"",
+  "dependencies": [
+     "HMC"
   ]
 }
 ]

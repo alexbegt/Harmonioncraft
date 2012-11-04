@@ -17,5 +17,25 @@
   "parent":"",
   "dependencies": [
   ]
+},
+{
+  "modid": "HMCC",
+  "name": "Fat Cat Cart Pack",
+  "description": "Carts, lots and lots and lots of carts... and lots of rails too",
+  "version": "0.0.0.4B",
+  "mcversion": "1.4.2",
+  "url": "",
+  "updateUrl": "",
+  "authors": [
+    "alexbegt", "DJPantheris"
+  ],
+  "credits": "Authored by Alexbegt and DJPantheris.",
+  "logoFile": "/net/Harmonioncraft/client/textures/Harmonioncraft_logo.png",
+  "screenshots": [
+  ],
+  "parent":"",
+  "dependencies": [
+     "HMC"
+  ]
 }
 ]

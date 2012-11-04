@@ -61,7 +61,7 @@ public class ModItems {
 	static EnumToolMaterial harmoniontool = EnumHelper.addToolMaterial("Harmonion", 3, 3000, 40.0F, 3, 9);
 	static EnumArmorMaterial harmonionarmor = EnumHelper.addArmorMaterial("Harmonion", 30, new int[]{3, 8, 6, 3}, 9);
 	
-	public static final CreativeTabs tabHarmonioncraftI = new CreativeTabHarmonionI(18, "HarmonioncraftI");
+	public static final CreativeTabs tabHarmonioncraftI = new CreativeTabHarmonionI(CreativeTabs.getNextID(), "HarmonioncraftI");
 	
 	public static void init() {
 		

@@ -43,7 +43,7 @@ public class ModBlocks {
 	/* WorldGen Reg */
 	public static HarmonionWorldGenerator worldGen = new HarmonionWorldGenerator();
 	
-	public static final CreativeTabs tabHarmonioncraftB = new CreativeTabHarmonionB(17, "HarmonioncraftB");
+	public static final CreativeTabs tabHarmonioncraftB = new CreativeTabHarmonionB(CreativeTabs.getNextID(), "HarmonioncraftB");
 	
 	public static void init() {
 		
