@@ -13,7 +13,7 @@ import net.minecraft.src.World;
 
 public class Game
 {
-    private static final Logger log = Logger.getLogger("Railcraft");
+    private static final Logger log = Logger.getLogger("Harmonioncraft Carts");
 
     public static boolean isHost(World var0)
     {

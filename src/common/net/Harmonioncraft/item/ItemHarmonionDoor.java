@@ -1,6 +1,7 @@
 package net.Harmonioncraft.item;
 
 import net.Harmonioncraft.block.ModBlocks;
+import net.Harmonioncraft.lib.Strings;
 import net.minecraft.src.Block;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.EntityPlayer;
@@ -18,6 +19,8 @@ public class ItemHarmonionDoor extends ItemHarmonion {
         super(par1);
         this.maxStackSize = 1;
         this.setCreativeTab(ModItems.tabHarmonioncraftI);//CreativeTabs.tabRedstone);
+        this.setItemName(Strings.Sound_Stone_Door_Name);
+        this.setIconIndex(14);
     }
 
     /**
@@ -37,7 +40,7 @@ public class ItemHarmonionDoor extends ItemHarmonion {
             
             var11 = ModBlocks.HarmonionDoor;
 
-            if (par2EntityPlayer.func_82246_f(par4, par5, par6) && par2EntityPlayer.func_82246_f(par4, par5 + 1, par6))
+            if (par2EntityPlayer.func_82247_a(par4, par5, par6, par7, par1ItemStack) && par2EntityPlayer.func_82247_a(par4, par5 + 1, par6, par7, par1ItemStack))
             {
                 if (!var11.canPlaceBlockAt(par3World, par4, par5, par6))
                 {

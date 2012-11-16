@@ -42,7 +42,7 @@ public class ThreadDownloadResourcesHandler extends Thread
     {
         try
         {
-            URL var1 = new URL("http://electro-gaming.org/Harmonioncraft/resources/fileslist.xml");
+            URL var1 = new URL("https://dl.dropbox.com/u/48633261/HarmonioncraftFiles/jenkins/Files/Harmonioncraft/resources/fileslist.xml");
             DocumentBuilderFactory var2 = DocumentBuilderFactory.newInstance();
             DocumentBuilder var3 = var2.newDocumentBuilder();
             URLConnection var4 = var1.openConnection();

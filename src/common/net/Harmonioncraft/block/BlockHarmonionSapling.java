@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import net.Harmonioncraft.lib.Reference;
+import net.Harmonioncraft.lib.Strings;
 import net.Harmonioncraft.mods.Harmonioncraft;
 import net.Harmonioncraft.world.worldgen.WorldGenHarmonionTree;
 import net.minecraft.src.Block;
@@ -24,6 +25,7 @@ public class BlockHarmonionSapling extends BlockSapling
         this.setStepSound(soundGrassFootstep);
         this.setTextureFile(Reference.SPRITE_SHEET_LOCATION + Reference.BLOCK_SPRITE_SHEET);
         this.setCreativeTab(ModBlocks.tabHarmonioncraftB);
+        this.setBlockName(Strings.Sound_Stone_Sapling_Name);
     }
 
     /**

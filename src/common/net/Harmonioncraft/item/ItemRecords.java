@@ -43,7 +43,7 @@ public class ItemRecords extends ItemRecord
             }
             else
             {
-                ((BlockJukeBox)Block.jukebox).insertRecord(var3, var4, var5, var6, this.shiftedIndex);
+                ((BlockJukeBox)Block.jukebox).func_85106_a(var3, var4, var5, var6, var1);
                 var3.playAuxSFXAtEntity((EntityPlayer)null, 1005, var4, var5, var6, this.shiftedIndex);
                 --var1.stackSize;
                 ByteArrayOutputStream var11 = new ByteArrayOutputStream();

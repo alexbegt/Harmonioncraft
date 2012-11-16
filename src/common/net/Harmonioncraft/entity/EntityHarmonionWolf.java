@@ -16,12 +16,14 @@ import net.minecraft.src.EntityAISwimming;
 import net.minecraft.src.EntityAITargetNonTamed;
 import net.minecraft.src.EntityAIWander;
 import net.minecraft.src.EntityAIWatchClosest;
+import net.minecraft.src.EntityAgeable;
 import net.minecraft.src.EntityAnimal;
 import net.minecraft.src.EntityArrow;
 import net.minecraft.src.EntityLiving;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.EntitySheep;
 import net.minecraft.src.EntityTameable;
+import net.minecraft.src.EntityWolf;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemFood;
 import net.minecraft.src.ItemStack;
@@ -571,9 +573,26 @@ public class EntityHarmonionWolf extends EntityTameable
             return !var2.isTamed() ? false : (var2.isSitting() ? false : this.isInLove() && var2.isInLove());
         }
     }
+    
+    /**
+     * This function is used when two same-species animals in 'love mode' breed to generate the new baby animal.
+     */
+    public EntityHarmonionWolf spawnBabyAnimal(EntityAgeable par1EntityAgeable)
+    {
+    	EntityHarmonionWolf var2 = new EntityHarmonionWolf(this.worldObj);
+        var2.setOwner(this.getOwnerName());
+        var2.setTamed(true);
+        return var2;
+    }
 
     public boolean func_70922_bv()
     {
         return this.dataWatcher.getWatchableObjectByte(19) == 1;
+    }
+
+	@Override
+	public EntityAgeable func_90011_a(EntityAgeable par1EntityAgeable)
+    {
+        return this.spawnBabyAnimal(par1EntityAgeable);
     }
 }

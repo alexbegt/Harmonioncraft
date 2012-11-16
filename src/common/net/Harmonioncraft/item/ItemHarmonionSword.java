@@ -3,6 +3,7 @@ package net.Harmonioncraft.item;
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
 import net.Harmonioncraft.lib.CustomItemRarity;
+import net.Harmonioncraft.lib.Strings;
 import net.Harmonioncraft.mods.Harmonioncraft;
 import net.minecraft.src.Block;
 import net.minecraft.src.CreativeTabs;
@@ -28,6 +29,9 @@ public class ItemHarmonionSword extends ItemHarmonion {
         this.setMaxDamage(par2EnumToolMaterial.getMaxUses());
         this.setCreativeTab(ModItems.tabHarmonioncraftI);//CreativeTabs.tabCombat);
         this.weaponDamage = 4 + par2EnumToolMaterial.getDamageVsEntity();
+        this.setIconIndex(7);
+        this.setItemName(Strings.Sound_Stone_Sword_Name);
+        this.setCreativeTab(ModItems.tabHarmonioncraftI);
     }
 
     /**

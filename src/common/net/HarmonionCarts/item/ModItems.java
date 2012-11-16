@@ -1,20 +1,26 @@
 package net.HarmonionCarts.item;
 
+import java.util.Calendar;
 import java.util.Iterator;
-
+import java.util.logging.Level;
 import cpw.mods.fml.common.registry.LanguageRegistry;
-
 import net.HarmonionCarts.carts.EntityCartBasic;
 import net.HarmonionCarts.carts.EntityCartChest;
 import net.HarmonionCarts.carts.EntityCartFurnace;
 import net.HarmonionCarts.carts.EnumCart;
+import net.HarmonionCarts.carts.ItemCart;
 import net.HarmonionCarts.carts.ItemCartVanilla;
 import net.HarmonionCarts.carts.LinkageHandler;
 import net.HarmonionCarts.carts.MinecartHooks;
+import net.HarmonionCarts.carts.util.Game;
 import net.HarmonionCarts.carts.util.GeneralTools;
+import net.HarmonionCarts.carts.util.ItemRegistry;
 import net.HarmonionCarts.core.creativetabs.CreativeTabHarmonionCartI;
 import net.HarmonionCarts.lang.LocalizationHelper;
+import net.HarmonionCarts.lib.ConfigurationSettings;
 import net.HarmonionCarts.mods.HarmonioncraftCarts;
+import net.minecraft.src.Block;
+import net.minecraft.src.CraftingManager;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.EntityMinecart;
 import net.minecraft.src.Item;
@@ -24,12 +30,15 @@ import net.minecraftforge.common.MinecraftForge;
 
 public class ModItems {
 	
-public static final CreativeTabs tabHarmonioncraftCartI = new CreativeTabHarmonionCartI(CreativeTabs.getNextID(), "HarmonionCartI");
+	public static final CreativeTabs tabHarmonioncraftCartI = new CreativeTabHarmonionCartI(CreativeTabs.getNextID(), "HarmonionCartI");
 	
 	public static void init() {
 		MinecraftForge.EVENT_BUS.register(MinecartHooks.getInstance());
-        //MinecraftForge.EVENT_BUS.register(LinkageHandler.getInstance());
-        
+		
+		InitCart0();
+	}
+	
+	public static void InitCart0() {
         int var11 = Item.shovelSteel.shiftedIndex;
         int var12 = Item.minecartEmpty.shiftedIndex;
         int var13 = Item.minecartCrate.shiftedIndex;

@@ -5,6 +5,7 @@ import java.util.Random;
 
 import net.Harmonioncraft.item.ModItems;
 import net.Harmonioncraft.lib.Reference;
+import net.Harmonioncraft.lib.Strings;
 import net.minecraft.src.AxisAlignedBB;
 import net.minecraft.src.Block;
 import net.minecraft.src.BlockDoor;
@@ -33,6 +34,7 @@ public class BlockHarmonionDoor extends BlockDoor {
         this.disableStats();
         this.setRequiresSelfNotify();
         this.setTextureFile(Reference.SPRITE_SHEET_LOCATION + Reference.BLOCK_SPRITE_SHEET);
+        this.setBlockName(Strings.Sound_Stone_Door_Name);
         
     }
 

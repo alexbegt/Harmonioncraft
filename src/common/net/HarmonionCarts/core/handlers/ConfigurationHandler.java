@@ -3,9 +3,9 @@ package net.HarmonionCarts.core.handlers;
 import java.io.File;
 import java.util.logging.Level;
 import cpw.mods.fml.common.FMLLog;
+import net.HarmonionCarts.carts.EnumCart;
 import net.HarmonionCarts.lib.ConfigurationSettings;
 import net.HarmonionCarts.lib.Reference;
-import net.Harmonioncraft.mods.Harmonioncraft;
 import net.minecraftforge.common.Configuration;
 import static net.minecraftforge.common.Configuration.*;
 
@@ -21,6 +21,7 @@ import static net.minecraftforge.common.Configuration.*;
 public class ConfigurationHandler {
 
     private static final String CATEGORY_KEYBIND = "keybinds";
+    private static final String CATEGORY_CARTS = "carts";
 
     public static void init(File configFile) {
         Configuration configuration = new Configuration(configFile);
@@ -46,6 +47,12 @@ public class ConfigurationHandler {
             
             /* KeyBinding Configs */
             configuration.addCustomCategoryComment(CATEGORY_KEYBIND, "");
+            
+            /* Carts Configs */
+            configuration.addCustomCategoryComment(CATEGORY_CARTS, "Set to false to disable, Set to true to enable the cart.");
+            ConfigurationSettings.ENABLE_PUMPKIN_CART = configuration
+            		.get(CATEGORY_CARTS, "cart.pumpkin", ConfigurationSettings.ENABLE_PARTICLE_FX_DEFAULT)
+            		.getBoolean(ConfigurationSettings.ENABLE_PUMPKIN_CART_DEFAULT);
             
         }
         catch (Exception e) {

@@ -1,6 +1,5 @@
 package net.HarmonionCarts.carts;
 
-import net.Harmonioncraft.block.ModBlocks;
 import net.minecraft.src.Block;
 import net.minecraft.src.EntityMinecart;
 import net.minecraft.src.ItemStack;
@@ -10,7 +9,7 @@ public enum EnumCart
 {
     BASIC(1, 135, "Minecart", EntityCartBasic.class, (ItemStack)null),
     CHEST(2, 151, "Chest Cart", EntityCartChest.class, new ItemStack(Block.chest)),
-    FURNACE(3, 167, "Furnace Cart", EntityCartFurnace.class, new ItemStack(ModBlocks.HarmonionBlock));
+    FURNACE(3, 167, "Furnace Cart", EntityCartFurnace.class, new ItemStack(Block.stoneOvenIdle));
     private final int icon;
     private final String name;
     private final Class type;

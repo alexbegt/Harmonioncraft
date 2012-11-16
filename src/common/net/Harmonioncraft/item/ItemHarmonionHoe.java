@@ -1,5 +1,6 @@
 package net.Harmonioncraft.item;
 
+import net.Harmonioncraft.lib.Strings;
 import net.minecraft.src.Block;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.EntityPlayer;
@@ -22,12 +23,14 @@ public class ItemHarmonionHoe extends ItemHarmonion {
 	        this.theToolMaterial = par2EnumToolMaterial;
 	        this.maxStackSize = 1;
 	        this.setMaxDamage(par2EnumToolMaterial.getMaxUses());
-	        this.setCreativeTab(ModItems.tabHarmonioncraftI);//CreativeTabs.tabTools);
+	        this.setIconIndex(11);
+	        this.setItemName(Strings.Sound_Stone_Hoe_Name);
+	        this.setCreativeTab(ModItems.tabHarmonioncraftI);
 	    }
 
 	    public boolean tryPlaceIntoWorld(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, World par3World, int par4, int par5, int par6, int par7, float par8, float par9, float par10)
 	    {
-	        if (!par2EntityPlayer.func_82246_f(par4, par5, par6))
+	        if (!par2EntityPlayer.func_82247_a(par4, par5, par6, par7, par1ItemStack))
 	        {
 	            return false;
 	        }

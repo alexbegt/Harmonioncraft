@@ -4,6 +4,7 @@ import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
 import net.Harmonioncraft.lib.CustomItemRarity;
 import net.Harmonioncraft.lib.Reference;
+import net.Harmonioncraft.lib.Strings;
 import net.Harmonioncraft.mods.Harmonioncraft;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.EnumArmorMaterial;

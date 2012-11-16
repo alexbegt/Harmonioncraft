@@ -1,6 +1,7 @@
 package net.HarmonionCarts.client.render;
 
 import net.HarmonionCarts.carts.util.FakeBlockRenderInfo;
+import net.HarmonionCarts.carts.util.IExplosiveCart;
 import net.HarmonionCarts.carts.*;
 import net.minecraft.src.Block;
 import net.minecraft.src.Entity;
@@ -126,6 +127,10 @@ public class RenderCart extends Render
                 GL11.glRotatef(-90.0F, 0.0F, 1.0F, 0.0F);
                 GL11.glTranslatef(0.5F, 0.0F, -0.5F);
             }
+            else if (var1 instanceof IExplosiveCart && var1 instanceof ICartRenderInterface)
+            {
+                this.renderTNTCart((EntityCartTNT)var1, var33, var9);
+            }
             else if (var1 instanceof ICartRenderInterface)
             {
                 GL11.glTranslatef(0.0F, 0.3125F, 0.0F);
@@ -146,7 +151,15 @@ public class RenderCart extends Render
         float var30 = (float)(var34 >> 8 & 255) / 255.0F;
         float var31 = (float)(var34 & 255) / 255.0F;
         GL11.glColor4f(var36 * var33, var30 * var33, var31 * var33, 1.0F);
-        this.loadTexture("/item/cart.png");
+        
+        if (var1 instanceof EntityCartTNT)
+        {
+            this.loadTexture("/railcraft/client/textures/cart_wood.png");
+        }
+        else
+        {
+            this.loadTexture("/item/cart.png");
+        }
 
         GL11.glScalef(-1.0F, -1.0F, 1.0F);
         this.modelMinecart.render(var1, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
@@ -162,5 +175,56 @@ public class RenderCart extends Render
     public void doRender(Entity var1, double var2, double var4, double var6, float var8, float var9)
     {
         this.renderCart((EntityMinecart)var1, var2, var4, var6, var8, var9);
+    }
+    
+    public void renderTNTCart(EntityCartTNT var1, float var2, float var3)
+    {
+        Block var4 = var1.getBlock();
+        int var5 = var1.getBlockMetadata();
+        GL11.glPushMatrix();
+        this.loadTexture("/terrain.png");
+        GL11.glTranslatef(0.0F, 0.3125F, 0.0F);
+        GL11.glRotatef(90.0F, 0.0F, 1.0F, 0.0F);
+        float var7;
+
+        if (var1.isPrimed() && (float)var1.getFuse() - var3 + 1.0F < 10.0F)
+        {
+            var7 = 1.0F - ((float)var1.getFuse() - var3 + 1.0F) / 10.0F;
+
+            if (var7 < 0.0F)
+            {
+                var7 = 0.0F;
+            }
+
+            if (var7 > 1.0F)
+            {
+                var7 = 1.0F;
+            }
+
+            var7 *= var7;
+            var7 *= var7;
+            var7 = 1.0F + var7 * 0.3F;
+            GL11.glScalef(var7, var7, var7);
+        }
+
+        (new RenderBlocks()).renderBlockAsItem(var4, var5, var2);
+
+        if (var1.isPrimed() && var1.getFuse() / 5 % 2 == 0)
+        {
+            GL11.glDisable(GL11.GL_TEXTURE_2D);
+            GL11.glDisable(GL11.GL_LIGHTING);
+            GL11.glEnable(GL11.GL_BLEND);
+            GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_DST_ALPHA);
+            var7 = (1.0F - ((float)var1.getFuse() - var3 + 1.0F) / 100.0F) * 0.8F;
+            GL11.glColor4f(1.0F, 1.0F, 1.0F, var7);
+            GL11.glScalef(1.01F, 1.01F, 1.01F);
+            this.renderBlocks.renderBlockAsItem(var4, var5, 1.0F);
+            GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+            GL11.glDisable(GL11.GL_BLEND);
+            GL11.glEnable(GL11.GL_LIGHTING);
+            GL11.glEnable(GL11.GL_TEXTURE_2D);
+        }
+
+        GL11.glPopMatrix();
     }
 }

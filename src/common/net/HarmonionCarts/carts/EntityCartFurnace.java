@@ -2,10 +2,8 @@ package net.HarmonionCarts.carts;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import net.HarmonionCarts.carts.util.GeneralTools;
 import net.HarmonionCarts.carts.util.InventoryTools;
-import net.Harmonioncraft.block.ModBlocks;
 import net.minecraft.src.Block;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.Item;
@@ -159,7 +157,7 @@ public class EntityCartFurnace extends CartBase implements ICartRenderInterface
 
     public Block getBlock()
     {
-        return ModBlocks.HarmonionBlock;
+        return Block.stoneOvenIdle;
     }
 
     public int getBlockMetadata()

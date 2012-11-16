@@ -4,6 +4,7 @@ import java.util.List;
 
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
+import net.Harmonioncraft.lib.Strings;
 import net.minecraft.src.BlockWood;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.ItemStack;
@@ -15,6 +16,7 @@ public class BlockHarmonionPlank extends BlockHarmonion{
     {
         super(par1, 4, Material.wood);
         this.setCreativeTab(ModBlocks.tabHarmonioncraftB);
+        this.setBlockName(Strings.Sound_Stone_Plank_Name);
     }
 
     /**

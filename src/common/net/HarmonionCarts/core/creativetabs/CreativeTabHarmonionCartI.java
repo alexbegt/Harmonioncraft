@@ -1,6 +1,5 @@
 package net.HarmonionCarts.core.creativetabs;
 
-import net.Harmonioncraft.item.ModItems;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.Item;
 import cpw.mods.fml.common.Side;

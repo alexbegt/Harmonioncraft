@@ -14,7 +14,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 public class VersionHelper {
 
 	// The (publicly available) remote version number authority file
-	private static final String REMOTE_VERSION_FILE = "http://bit.ly/Harmonioncraftvern";
+	private static final String REMOTE_VERSION_FILE = "http://bit.ly/Harmonioncraftver";
 
 	// All possible results of the remote version number check
 	public static final byte UNINITIALIZED = 0;

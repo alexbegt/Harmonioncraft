@@ -1,5 +1,6 @@
 package net.Harmonioncraft.item;
 
+import net.Harmonioncraft.lib.Strings;
 import net.minecraft.src.Block;
 import net.minecraft.src.EnumToolMaterial;
 import net.minecraft.src.ItemStack;
@@ -12,6 +13,9 @@ public class ItemHarmonionPick extends ItemHarmonionTool {
 	
 	public ItemHarmonionPick(int par1, EnumToolMaterial par2EnumToolMaterial) {
 		super(par1, 2, par2EnumToolMaterial, blocksEffectiveAgainst);
+		this.setIconIndex(9);
+		this.setItemName(Strings.Sound_Stone_Pickaxe_Name);
+		this.setCreativeTab(ModItems.tabHarmonioncraftI);
 	}
 	
 	/**

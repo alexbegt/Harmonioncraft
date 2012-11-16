@@ -8,6 +8,7 @@ import java.util.Random;
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
 import net.Harmonioncraft.lib.Reference;
+import net.Harmonioncraft.lib.Strings;
 import net.minecraft.src.BlockLeaves;
 import net.minecraft.src.ColorizerFoliage;
 import net.minecraft.src.CreativeTabs;
@@ -31,6 +32,7 @@ public class BlockHarmonionLeaves extends BlockLeaves implements IShearable {
         this.graphicsLevel = true;
         this.setTextureFile(Reference.SPRITE_SHEET_LOCATION + Reference.BLOCK_SPRITE_SHEET);
         this.setCreativeTab(ModBlocks.tabHarmonioncraftB);
+        this.setBlockName(Strings.Sound_Stone_Leaves_Name);
     }
 
     /**

@@ -15,19 +15,6 @@ import net.minecraft.src.Material;
 import net.minecraftforge.common.MinecraftForge;
 
 public class ModBlocks {
-
-	/* Block name constants */
-	public static final String Sound_Stone_Ore_Name = "Soundstoneore";
-	public static final String Sound_Stone_Portal_Name = "Soundstoneportal";
-	public static final String Sound_Stone_Block_Name = "Soundstoneblock";
-	public static final String Sound_Stone_Fire_Name = "Soundstonefire";
-	public static final String Sound_Stone_Log_Name = "Soundstonelog";
-	public static final String Sound_Stone_Leaves_Name = "Soundstoneleaves";
-	public static final String Sound_Stone_Sapling_Name = "Soundstonesapling";
-	public static final String Sound_Stone_Plank_Name = "Soundstoneplank";
-	public static final String Sound_Stone_Door_Name = "Soundstonedoor";
-	public static final String Sound_Stone_Wire_Name = "Soundstonewire";
-	
 	
     /* Mod Block instances */
 	public static Block HarmonionOre;
@@ -48,13 +35,13 @@ public class ModBlocks {
 	public static void init() {
 		
 		/* Initialize each mod block individually */
-		HarmonionOre = new BlockHarmonionOre(BlockIds.Harmonion, 0).setBlockName(Sound_Stone_Ore_Name);
-		HarmonionBlock = new BlockHarmonionBlock(BlockIds.Harmonion_Block, 8).setBlockName(Sound_Stone_Block_Name);
-		HarmonionLog = new BlockHarmonionLog(BlockIds.Harmonion_Log).setBlockName(Sound_Stone_Log_Name);
-		HarmonionLeaves = new BlockHarmonionLeaves(BlockIds.Harmonion_Leaves).setBlockName(Sound_Stone_Leaves_Name);
-		HarmonionSapling = new BlockHarmonionSapling(BlockIds.Harmonion_Sapling, 13).setBlockName(Sound_Stone_Sapling_Name);
-		HarmonionDoor = new BlockHarmonionDoor(BlockIds.Harmonion_Door, 11, 12, Material.iron).setBlockName(Sound_Stone_Door_Name);
-		HarmonionPlank = new BlockHarmonionPlank(BlockIds.Harmonion_Plank).setBlockName(Sound_Stone_Plank_Name);
+		HarmonionOre = new BlockHarmonionOre(BlockIds.Harmonion, 0);
+		HarmonionBlock = new BlockHarmonionBlock(BlockIds.Harmonion_Block, 8);
+		HarmonionLog = new BlockHarmonionLog(BlockIds.Harmonion_Log);
+		HarmonionLeaves = new BlockHarmonionLeaves(BlockIds.Harmonion_Leaves);
+		HarmonionSapling = new BlockHarmonionSapling(BlockIds.Harmonion_Sapling, 13);
+		HarmonionDoor = new BlockHarmonionDoor(BlockIds.Harmonion_Door, 11, 12, Material.iron);
+		HarmonionPlank = new BlockHarmonionPlank(BlockIds.Harmonion_Plank);
 		
 		/* Gives Blocks its name */
 		/** Removed */

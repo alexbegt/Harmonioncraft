@@ -21,4 +21,8 @@ public class ConfigurationSettings {
     public static boolean ENABLE_VERSION_CHECK;
     public static final boolean ENABLE_VERSION_CHECK_DEFAULT = true;
     
+    // Does the cart load?
+    public static boolean ENABLE_PUMPKIN_CART;
+    public static final boolean ENABLE_PUMPKIN_CART_DEFAULT = true;
+    
 }

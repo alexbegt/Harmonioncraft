@@ -14,6 +14,7 @@ import net.Harmonioncraft.item.ModItems;
 import net.Harmonioncraft.lib.ConfigurationSettings;
 import net.Harmonioncraft.lib.EntityLib;
 import net.Harmonioncraft.lib.Reference;
+import net.Harmonioncraft.network.MapPacketHandler;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.src.BiomeGenBase;
 import net.minecraft.src.ChunkCoordinates;
@@ -66,6 +67,7 @@ import cpw.mods.fml.common.registry.TickRegistry;
 @NetworkMod(
         clientSideRequired = true,
         serverSideRequired = false, 
+        tinyPacketHandler = MapPacketHandler.class, 
         packetHandler = PacketHandler.class
 )
 public class Harmonioncraft {

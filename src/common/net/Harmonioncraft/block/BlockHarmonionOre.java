@@ -3,6 +3,7 @@ package net.Harmonioncraft.block;
 import java.util.Random;
 
 import net.Harmonioncraft.item.ModItems;
+import net.Harmonioncraft.lib.Strings;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.Item;
 import net.minecraft.src.Material;
@@ -14,6 +15,7 @@ public class BlockHarmonionOre extends BlockHarmonion {
 		super(par1, par2, Material.rock);
 		this.setCreativeTab(ModBlocks.tabHarmonioncraftB);//CreativeTabs.tabBlock);
 		this.setHardness(3.0F);
+		this.setBlockName(Strings.Sound_Stone_Ore_Name);
 		this.setResistance(7.0F);
 		
 	}

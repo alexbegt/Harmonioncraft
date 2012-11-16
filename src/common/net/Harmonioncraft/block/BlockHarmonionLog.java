@@ -5,6 +5,7 @@ import java.util.Random;
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.Harmonioncraft.lib.Strings;
 import net.Harmonioncraft.mods.Harmonioncraft;
 import net.minecraft.src.Block;
 import net.minecraft.src.BlockPistonBase;
@@ -25,6 +26,7 @@ public class BlockHarmonionLog extends BlockHarmonion
         this.setStepSound(soundWoodFootstep);
         //this.setCreativeTab(CreativeTabs.tabBlock);
         this.setCreativeTab(ModBlocks.tabHarmonioncraftB);
+        this.setBlockName(Strings.Sound_Stone_Log_Name);
     }
     
     /**
