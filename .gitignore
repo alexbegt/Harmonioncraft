@@ -10,6 +10,7 @@
 /reobf/*
 /runtime/*
 /temp/*
+/src - Copy/*
 
 /src/common/cpw/*
 /src/common/net/minecraft/*

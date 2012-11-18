@@ -18,7 +18,7 @@ public class ConfigurationSettings {
     public static final boolean ENABLE_PARTICLE_FX_DEFAULT = true;
     
     // Whether or not HMC will do a version check when loaded
-    public static boolean ENABLE_VERSION_CHECK;
-    public static final boolean ENABLE_VERSION_CHECK_DEFAULT = true;
+    public static boolean ENABLE_VERSION_NOTICE;
+    public static final boolean ENABLE_VERSION_NOTICE_DEFAULT = true;
     
 }

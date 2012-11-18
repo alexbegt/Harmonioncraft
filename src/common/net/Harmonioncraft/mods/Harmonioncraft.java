@@ -7,9 +7,8 @@ import net.Harmonioncraft.core.handlers.AchievementPageHandler;
 import net.Harmonioncraft.core.handlers.AddonHandler;
 import net.Harmonioncraft.core.handlers.ConfigurationHandler;
 import net.Harmonioncraft.core.handlers.LocalizationHandler;
-import net.Harmonioncraft.core.handlers.VersionCheckTickHandler;
 import net.Harmonioncraft.core.helper.LogHelper;
-import net.Harmonioncraft.core.helper.VersionHelper;
+import net.Harmonioncraft.core.helper.VersionUtils;
 import net.Harmonioncraft.item.ModItems;
 import net.Harmonioncraft.lib.ConfigurationSettings;
 import net.Harmonioncraft.lib.EntityLib;
@@ -63,7 +62,13 @@ import cpw.mods.fml.common.registry.TickRegistry;
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  * 
  */
-@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION, useMetadata = true)
+@Mod
+(
+		modid = Reference.MOD_ID,
+		name = Reference.MOD_NAME,
+		version = Reference.VERSION,
+		useMetadata = true
+)
 @NetworkMod(
         clientSideRequired = true,
         serverSideRequired = false, 
@@ -94,15 +99,9 @@ public class Harmonioncraft {
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
 		
         // Conduct the version check and log the result
-        if (ConfigurationSettings.ENABLE_VERSION_CHECK) {
-        	VersionHelper.checkVersion();
-        }
-    	VersionHelper.logResult();
+        VersionUtils.checkForNewVersion();
     	
     	proxy.registerTickHander();
-    	
-    	 // Initialize the Version Check Tick Handler (Client only)
-        TickRegistry.registerTickHandler(new VersionCheckTickHandler(), Side.CLIENT);
 
         // Register the Sound Handler (Client only)
         proxy.registerSoundHandler();
@@ -150,6 +149,9 @@ public class Harmonioncraft {
 		
 		// Initialize the Addon Handler
         AddonHandler.init(); 
+        
+        // Tick Handler
+        proxy.modsLoaded();
         
 	}
 	

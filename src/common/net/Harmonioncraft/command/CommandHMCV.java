@@ -4,7 +4,7 @@ import java.util.List;
 
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.FMLCommonHandler;
-import net.Harmonioncraft.core.helper.VersionHelper;
+import net.Harmonioncraft.core.helper.VersionUtils;
 import net.Harmonioncraft.lib.Colours;
 import net.Harmonioncraft.lib.Reference;
 import net.Harmonioncraft.mods.Harmonioncraft;
@@ -77,8 +77,8 @@ public class CommandHMCV extends CommandBase{
 	
 	private void commandVersion(ICommandSender var1, String[] var2)
 	{
-		VersionHelper.checkVersion();
-		FMLClientHandler.instance().getClient().ingameGUI.getChatGUI().printChatMessage(Colours.VERSION_CHECK_PREFIX + "[" + Reference.MOD_NAME + "] " + VersionHelper.getResultMessage());
+		VersionUtils.checkForNewVersion();
+		//FMLClientHandler.instance().getClient().ingameGUI.getChatGUI().printChatMessage(Colours.VERSION_CHECK_PREFIX + "[" + Reference.MOD_NAME + "] " + VersionUtils.isNewVersionAvailable());
 	}
 	
 	/**

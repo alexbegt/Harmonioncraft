@@ -1,9 +1,9 @@
 package net.Harmonioncraft.core.handlers;
 
 import cpw.mods.fml.common.network.IPacketHandler;
+import net.Harmonioncraft.network.PacketHMC;
 import net.Harmonioncraft.network.PacketTypeHandler;
 import cpw.mods.fml.common.network.Player;
-import net.Harmonioncraft.network.PacketHMC;
 import net.minecraft.src.INetworkManager;
 import net.minecraft.src.Packet250CustomPayload;
 

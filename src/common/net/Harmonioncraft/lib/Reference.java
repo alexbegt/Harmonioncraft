@@ -26,7 +26,7 @@ public class Reference {
     public static final String CLIENT_PROXY_CLASS = "net.Harmonioncraft.client.core.ClientProxy";
     
     /* Configuration related constants */
-    public static final String ENABLE_VERSION_CHECK = "enable_version_check";
+    public static final String ENABLE_VERSION_NOTICE = "enable_version_notice";
     public static final String ENABLE_SOUNDS = "enable_sounds";
     public static final String ENABLE_PARTICLE_FX = "enable_particle_fx";
     public static final String AUTO_RESOLVE_BLOCK_IDS = "auto_resolve_block_ids";
