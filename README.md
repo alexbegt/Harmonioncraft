@@ -6,14 +6,14 @@ build every time a change is pushed to github.
 
 ### Contributing
 If you wish to submit a pull request to fix bugs or broken behaivor feel free to do so. If you would like to add 
-features or change existing behaivour or balance, please discuss it with Sengir or Krapht before submiting the pull request.
+features or change existing behaivour or balance, please discuss it with alexbegt or DJ before submiting the pull request.
 
 ### Compiling and packaging Buildcraft
 1. Ensure that `Apache Ant` (found [here](http://ant.apache.org/)) is installed correctly on your system.
  * Linux users will need the latest version of astyle installed as well.
 1. Create a base directory for the build
-1. Clone the Buildcraft repository into `basedir/Harmonioncraft/`
- * Optional: Copy BuildCraft localization repository into `basedir/Harmonioncraft-Localization`
+1. Clone the Harmonioncraft repository into `basedir/Harmonioncraft/`
+ * Optional: Copy Harmonioncraft localization repository into `basedir/Harmonioncraft-Localization`
 1. Copy the minecraft bin dir and minecraft_server.jar into `basedir/jars/`
 1. Navigate to basedir/Harmonioncraft in a shell and run `ant` (this will take 2-5 minutes)
 1. The compiled and obfuscated jar will be in basedir/build/dist
@@ -27,11 +27,12 @@ Your directory structure should look like this:
      \- bin
       |- minecraft.jar
       |- ...
-    \- BuildCraft
-     |- buildcraft_resources
-     |- common
+    \- Harmonioncraft
+     |- resources
+     |- src
+	 |- sounds
      |- ...
-    \- BuildCraft-Localization
+    \- Harmonioncraft-Localization
      |- lang
 
 ***
