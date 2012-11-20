@@ -30,14 +30,11 @@ public class AddonHandler {
           addBlockIDToGrabList.invoke(null, new Object[] { Integer.valueOf(ModBlocks.HarmonionBlock.blockID) });
           minorMods = new StringBuilder().append(minorMods).append(", Portal Gun").toString(); } catch (Throwable e) {
         }
-        /**try {
+        try {
           Method addCustomItem = Class.forName("mod_Gibbing").getMethod("addCustomItem", new Class[] { Integer.TYPE, Double.TYPE });
-          addCustomItem.invoke(null, new Object[] { Integer.valueOf(Ic2Items.nanoSaber.c), Double.valueOf(0.5D) });
-          addCustomItem.invoke(null, new Object[] { Integer.valueOf(Ic2Items.chainsaw.c), Double.valueOf(0.5D) });
-          addCustomItem.invoke(null, new Object[] { Integer.valueOf(Ic2Items.miningDrill.c), Double.valueOf(0.333D) });
-          addCustomItem.invoke(null, new Object[] { Integer.valueOf(Ic2Items.diamondDrill.c), Double.valueOf(0.333D) });
+          addCustomItem.invoke(null, new Object[] { Integer.valueOf(ModItems.Harmonionaxe.shiftedIndex), Double.valueOf(0.333D) });
           minorMods = new StringBuilder().append(minorMods).append(", Mob Amputation").toString(); } catch (Throwable e) {
-        }*/
+        }
         try {
           Field axes = Class.forName("mod_Timber").getDeclaredField("axes");
           axes.set(null, new StringBuilder().append(axes.get(null)).append(", ").append(ModItems.Harmonionaxe.shiftedIndex).append(", ").append(ModItems.Harmonionaxe.shiftedIndex).toString());

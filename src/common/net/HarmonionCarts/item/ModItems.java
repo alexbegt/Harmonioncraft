@@ -7,6 +7,8 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.HarmonionCarts.carts.EntityCartBasic;
 import net.HarmonionCarts.carts.EntityCartChest;
 import net.HarmonionCarts.carts.EntityCartFurnace;
+import net.HarmonionCarts.carts.EntityCartPumpkin;
+import net.HarmonionCarts.carts.EntityCartTNT;
 import net.HarmonionCarts.carts.EnumCart;
 import net.HarmonionCarts.carts.ItemCart;
 import net.HarmonionCarts.carts.ItemCartVanilla;

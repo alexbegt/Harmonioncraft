@@ -42,8 +42,6 @@ public class CommonProxy implements IGuiHandler {
     public void registerSoundHandler() {}
 
     public void initCustomRarityTypes() {}
-    
-    public void modsLoaded() {}
 
     public EnumRarity getCustomRarityType(String customRarity) {
         return null;

@@ -8,7 +8,7 @@ import net.Harmonioncraft.core.handlers.AddonHandler;
 import net.Harmonioncraft.core.handlers.ConfigurationHandler;
 import net.Harmonioncraft.core.handlers.LocalizationHandler;
 import net.Harmonioncraft.core.helper.LogHelper;
-import net.Harmonioncraft.core.helper.VersionUtils;
+import net.Harmonioncraft.core.helper.VersionHelper;
 import net.Harmonioncraft.item.ModItems;
 import net.Harmonioncraft.lib.ConfigurationSettings;
 import net.Harmonioncraft.lib.EntityLib;
@@ -99,7 +99,10 @@ public class Harmonioncraft {
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
 		
         // Conduct the version check and log the result
-        VersionUtils.checkForNewVersion();
+        if (ConfigurationSettings.ENABLE_VERSION_CHECK) {
+        	VersionHelper.checkVersion();
+        }
+    	VersionHelper.logResult();
     	
     	proxy.registerTickHander();
 
@@ -149,9 +152,6 @@ public class Harmonioncraft {
 		
 		// Initialize the Addon Handler
         AddonHandler.init(); 
-        
-        // Tick Handler
-        proxy.modsLoaded();
         
 	}
 	

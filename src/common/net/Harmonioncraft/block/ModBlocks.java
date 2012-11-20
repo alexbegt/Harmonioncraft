@@ -28,7 +28,7 @@ public class ModBlocks {
 	
 
 	/* WorldGen Reg */
-	public static HarmonionWorldGenerator worldGen = new HarmonionWorldGenerator();
+	//public static HarmonionWorldGenerator worldGen = new HarmonionWorldGenerator();
 	
 	public static final CreativeTabs tabHarmonioncraftB = new CreativeTabHarmonionB(CreativeTabs.getNextID(), "HarmonioncraftB");
 	
@@ -59,7 +59,7 @@ public class ModBlocks {
 		//initBlockRecipes();
 		
 		/* WorldGen */
-		GameRegistry.registerWorldGenerator(worldGen);
+		//GameRegistry.registerWorldGenerator(worldGen);
 		
 	}
 	
@@ -67,13 +67,12 @@ public class ModBlocks {
 		
 		/* Harmonic Block Recipe*/
 		GameRegistry.addRecipe(new ItemStack(ModBlocks.HarmonionBlock), new Object[] {"###", "###", "###", '#', ModItems.Harmonionpearl});
-		/**GameRegistry.addRecipe(new ItemStack(ModBlocks.HarmonionBlock, 1), 
-				new Object[]{"hhh","hhh","hhh", 
-			Character.valueOf('h'), ModItems.Harmonionpearl
-		});*/
 		
 		/* Harmonic Block Recipe*/
 		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.Harmonionpearl, 9), new Object[] {ModBlocks.HarmonionBlock});
+		
+		/* Harmonic Plank Recipe*/
+		GameRegistry.addShapelessRecipe(new ItemStack(ModBlocks.HarmonionPlank, 4), new Object[] {ModBlocks.HarmonionLog});
 	}
 	
 	public static void initBlockSmelting() {

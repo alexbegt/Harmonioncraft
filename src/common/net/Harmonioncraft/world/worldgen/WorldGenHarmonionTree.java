@@ -1,129 +1,188 @@
 package net.Harmonioncraft.world.worldgen;
 
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.util.Iterator;
 import java.util.Random;
 import net.Harmonioncraft.block.ModBlocks;
+import net.Harmonioncraft.lib.Reference;
 import net.Harmonioncraft.mods.Harmonioncraft;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.src.Block;
 import net.minecraft.src.Direction;
+import net.minecraft.src.EntityPlayerMP;
+import net.minecraft.src.Packet250CustomPayload;
 import net.minecraft.src.World;
 import net.minecraft.src.WorldGenerator;
 
 public class WorldGenHarmonionTree extends WorldGenerator
 {
-	 public WorldGenHarmonionTree(boolean par1)
-	 {
-	      super(par1);
-	 }
-	
-	public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5)
+	public static final int maxHeight = 8;
+
+    public boolean generate(World var1, Random var2, int var3, int var4, int var5)
     {
-        int var6 = par2Random.nextInt(3) + 5;
-        boolean var7 = true;
-
-        if (par4 >= 1 && par4 + var6 + 1 <= 256)
+        while (var4 > 0)
         {
-            int var8;
-            int var10;
-            int var11;
-            int var12;
+            int var6;
 
-            for (var8 = par4; var8 <= par4 + 1 + var6; ++var8)
+            for (var6 = getWorldHeight(var1) - 1; var1.getBlockId(var3, var6 - 1, var5) == 0 && var6 > 0; --var6)
             {
-                byte var9 = 1;
-
-                if (var8 == par4)
-                {
-                    var9 = 0;
-                }
-
-                if (var8 >= par4 + 1 + var6 - 2)
-                {
-                    var9 = 2;
-                }
-
-                for (var10 = par3 - var9; var10 <= par3 + var9 && var7; ++var10)
-                {
-                    for (var11 = par5 - var9; var11 <= par5 + var9 && var7; ++var11)
-                    {
-                        if (var8 >= 0 && var8 < 256)
-                        {
-                            var12 = par1World.getBlockId(var10, var8, var11);
-
-                            Block block = Block.blocksList[var12];
-
-                            if (var12 != 0 && (block != null && !block.isLeaves(par1World, var10,  var8, var11)))
-                            {
-                                var7 = false;
-                            }
-                        }
-                        else
-                        {
-                            var7 = false;
-                        }
-                    }
-                }
+                ;
             }
 
-            if (!var7)
+            if (!this.grow(var1, var3, var6, var5, var2))
+            {
+                var4 -= 3;
+            }
+
+            var3 += var2.nextInt(15) - 7;
+            var5 += var2.nextInt(15) - 7;
+            --var4;
+        }
+
+        return true;
+    }
+    
+    public static int getWorldHeight(World var0)
+	{
+		return var0.getHeight();
+	}
+
+    public boolean grow(World var1, int var2, int var3, int var4, Random var5)
+    {
+        if (var1 != null && ModBlocks.HarmonionLog != null)
+        {
+            int var6 = 25;
+            int var7 = this.getGrowHeight(var1, var2, var3, var4);
+
+            if (var7 < 2)
             {
                 return false;
             }
             else
             {
-                var8 = par1World.getBlockId(par3, par4 - 1, par5);
+                int var8 = var7 / 2;
+                var7 -= var7 / 2;
+                var8 += var5.nextInt(var7 + 1);
+                int var9;
 
-                if ((var8 == Block.grass.blockID || var8 == Block.dirt.blockID) && par4 < 256 - var6 - 1)
+                for (var9 = 0; var9 < var8; ++var9)
                 {
-                    this.setBlock(par1World, par3, par4 - 1, par5, Block.dirt.blockID);
-                    int var16;
+                    var1.setBlockWithNotify(var2, var3 + var9, var4, ModBlocks.HarmonionLog.blockID);
 
-                    for (var16 = par4 - 3 + var6; var16 <= par4 + var6; ++var16)
+                    if (var5.nextInt(100) <= var6)
                     {
-                        var10 = var16 - (par4 + var6);
-                        var11 = 1 - var10 / 2;
+                        var6 -= 10;
+                        var1.setBlockMetadata(var2, var3 + var9, var4, var5.nextInt(4) + 2);
+                    }
+                    else
+                    {
+                        var1.setBlockMetadata(var2, var3 + var9, var4, 1);
+                    }
 
-                        for (var12 = par3 - var11; var12 <= par3 + var11; ++var12)
+                    announceBlockUpdate(var1, var2, var3 + var9, var4);
+
+                    if (var8 < 4 || var8 < 7 && var9 > 1 || var9 > 2)
+                    {
+                        for (int var10 = var2 - 2; var10 <= var2 + 2; ++var10)
                         {
-                            int var13 = var12 - par3;
-
-                            for (int var14 = par5 - var11; var14 <= par5 + var11; ++var14)
+                            for (int var11 = var4 - 2; var11 <= var4 + 2; ++var11)
                             {
-                                int var15 = var14 - par5;
+                                int var12 = var9 + 4 - var8;
 
-                                Block block = Block.blocksList[par1World.getBlockId(var12, var16, var14)];
-                                
-                                if ((Math.abs(var13) != var11 || Math.abs(var15) != var11 || par2Random.nextInt(2) != 0 && var10 != 0) && 
-                                    (block == null || block.canBeReplacedByLeaves(par1World, var12, var16, var14)))
+                                if (var12 < 1)
                                 {
-                                    this.setBlockAndMetadata(par1World, var12, var16, var14, ModBlocks.HarmonionLeaves.blockID, 0);
+                                    var12 = 1;
+                                }
+
+                                boolean var13 = var10 > var2 - 2 && var10 < var2 + 2 && var11 > var4 - 2 && var11 < var4 + 2 || var10 > var2 - 2 && var10 < var2 + 2 && var5.nextInt(var12) == 0 || var11 > var4 - 2 && var11 < var4 + 2 && var5.nextInt(var12) == 0;
+
+                                if (var13 && var1.getBlockId(var10, var3 + var9, var11) == 0)
+                                {
+                                    var1.setBlockWithNotify(var10, var3 + var9, var11, ModBlocks.HarmonionLeaves.blockID);
                                 }
                             }
                         }
                     }
-
-                    for (var16 = 0; var16 < var6; ++var16)
-                    {
-                        var10 = par1World.getBlockId(par3, par4 + var16, par5);
-
-                        Block block = Block.blocksList[var10];
-
-                        if (var10 == 0 || block == null || block.isLeaves(par1World, par3, par4 + var16, par5))
-                        {
-                            this.setBlockAndMetadata(par1World, par3, par4 + var16, par5, ModBlocks.HarmonionLog.blockID, 2);
-                        }
-                    }
-
-                    return true;
                 }
-                else
+
+                for (var9 = 0; var9 <= var8 / 4 + var5.nextInt(2); ++var9)
                 {
-                    return false;
+                    if (var1.getBlockId(var2, var3 + var8 + var9, var4) == 0)
+                    {
+                        var1.setBlockWithNotify(var2, var3 + var8 + var9, var4, ModBlocks.HarmonionLeaves.blockID);
+                    }
                 }
+
+                return true;
             }
         }
         else
         {
+            System.out.println("[ERROR] Had a null that shouldn\'t have been. RubberTree did not spawn! w=" + var1 + " r=" + ModBlocks.HarmonionLog);
             return false;
+        }
+    }
+    
+    public void announceBlockUpdate(World var1, int var2, int var3, int var4)
+    {
+        Packet250CustomPayload var5 = null;
+        Iterator var6 = var1.playerEntities.iterator();
+
+        while (var6.hasNext())
+        {
+            Object var7 = var6.next();
+            EntityPlayerMP var8 = (EntityPlayerMP)var7;
+            int var9 = Math.min(Math.abs(var2 - (int)var8.posX), Math.abs(var4 - (int)var8.posZ));
+
+            if (var9 <= MinecraftServer.getServer().getConfigurationManager().getEntityViewDistance() + 16)
+            {
+                if (var5 == null)
+                {
+                    try
+                    {
+                        ByteArrayOutputStream var10 = new ByteArrayOutputStream();
+                        DataOutputStream var11 = new DataOutputStream(var10);
+                        var11.writeByte(3);
+                        var11.writeInt(var1.provider.dimensionId);
+                        var11.writeInt(var2);
+                        var11.writeInt(var3);
+                        var11.writeInt(var4);
+                        var11.close();
+                        var5 = new Packet250CustomPayload();
+                        var5.channel = Reference.CHANNEL_NAME;
+                        var5.isChunkDataPacket = true;
+                        var5.data = var10.toByteArray();
+                        var5.length = var10.size();
+                    }
+                    catch (IOException var12)
+                    {
+                        throw new RuntimeException(var12);
+                    }
+                }
+
+                var8.playerNetServerHandler.sendPacketToPlayer(var5);
+            }
+        }
+    }
+
+    public int getGrowHeight(World var1, int var2, int var3, int var4)
+    {
+        if ((var1.getBlockId(var2, var3 - 1, var4) == Block.grass.blockID || var1.getBlockId(var2, var3 - 1, var4) == Block.dirt.blockID) && (var1.getBlockId(var2, var3, var4) == 0 || var1.getBlockId(var2, var3, var4) == ModBlocks.HarmonionSapling.blockID))
+        {
+            int var5;
+
+            for (var5 = 1; var1.getBlockId(var2, var3 + 1, var4) == 0 && var5 < 8; ++var3)
+            {
+                ++var5;
+            }
+
+            return var5;
+        }
+        else
+        {
+            return 0;
         }
     }
 }

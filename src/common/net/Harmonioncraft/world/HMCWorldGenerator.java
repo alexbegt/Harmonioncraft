@@ -21,31 +21,28 @@ public class HMCWorldGenerator implements IWorldGenerator
 
     public void generateSurface(World var1, Random var2, int var3, int var4)
     {
-        WorldType var10001 = var1.provider.terrainType;
-
-        if (var1.provider.terrainType == WorldType.DEFAULT)
+    	int var8;
+		BiomeGenBase var7 = var1.getWorldChunkManager().getBiomeGenAt(var3 * 16 + 16, var4 * 16 + 16);
+    	var8 = 0;
+    	
+    	if (var7.biomeName.toLowerCase().contains("taiga"))
         {
-            int var5 = var3 + var2.nextInt(16) + 8;
-            int var6 = var2.nextInt(62) + 64;
-            int var7 = var4 + var2.nextInt(16) + 8;
-            int var8;
+            var8 += var2.nextInt(3);
+        }
 
-            if (var1.getWorldChunkManager().getBiomeGenAt(var5, var7) == BiomeGenBase.desert || var1.getWorldChunkManager().getBiomeGenAt(var5, var7) == BiomeGenBase.beach)
-            {
-                for (var8 = 0; var8 < 8; ++var8)
-                {
-                    var6 = var2.nextInt(62) + 64;
+        if (var7.biomeName.toLowerCase().contains("forest") || var7.biomeName.toLowerCase().contains("jungle"))
+        {
+            var8 += var2.nextInt(5) + 1;
+        }
 
-                    if (var2.nextInt(5) == 0)
-                    {
-                        (new WorldGenHarmonionTree(true)).generate(var1, var2, var5, var6, var7);
-                    }
-                    else if (var2.nextInt(5) != 1 && var2.nextInt(5) != 2)
-                    {
-                        (new WorldGenHarmonionTree(true)).generate(var1, var2, var5, var6, var7);
-                    }
-                }
-            }
+        if (var7.biomeName.toLowerCase().contains("swamp"))
+        {
+            var8 += var2.nextInt(10) + 5;
+        }
+
+        if (var2.nextInt(10) + 1 <= var8 * 2)
+        {
+            (new WorldGenHarmonionTree()).generate(var1, var2, var3 * 16 + var2.nextInt(16), var8, var4 * 16 + var2.nextInt(16));
         }
     }
 }

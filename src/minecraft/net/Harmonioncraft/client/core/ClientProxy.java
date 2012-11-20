@@ -8,7 +8,6 @@ import static net.Harmonioncraft.lib.CustomItemRarity.*;
 import net.Harmonioncraft.core.CommonProxy;
 import net.Harmonioncraft.core.handlers.ConfigurationHandler;
 import net.Harmonioncraft.core.handlers.VersionCheckTickHandler;
-import net.Harmonioncraft.core.helper.VersionUtils;
 import net.Harmonioncraft.entity.EntityHarmonionWolf;
 import net.Harmonioncraft.lib.ConfigurationSettings;
 import net.Harmonioncraft.lib.Reference;
@@ -59,14 +58,6 @@ public class ClientProxy extends CommonProxy {
     	catch (Exception var2)
     	{
     	}
-    }
-    
-    public void modsLoaded()
-    {
-        if (!VersionUtils.isMinecraftOutdated() && (ConfigurationSettings.ENABLE_VERSION_NOTICE || VersionUtils.isCriticalUpdate()))
-        {
-            TickRegistry.registerScheduledTickHandler(VersionCheckTickHandler.instance, Side.CLIENT);
-        }
     }
     
     @Override

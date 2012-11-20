@@ -1,7 +1,7 @@
 package net.Harmonioncraft.core.handlers;
 
 import java.util.EnumSet;
-import net.Harmonioncraft.core.helper.VersionUtils;
+import net.Harmonioncraft.core.helper.VersionHelper;
 import net.Harmonioncraft.lib.Colours;
 import net.Harmonioncraft.lib.ConfigurationSettings;
 import net.Harmonioncraft.lib.Reference;
@@ -11,43 +11,54 @@ import cpw.mods.fml.common.IScheduledTickHandler;
 import cpw.mods.fml.common.ITickHandler;
 import cpw.mods.fml.common.TickType;
 
-public class VersionCheckTickHandler implements IScheduledTickHandler {
+/**
+ * VersionCheckTickHandler
+ * 
+ * Class for notifying the player on their client when they get in game the
+ * outcome of the remote version check
+ * 
+ * @author pahimar
+ * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
+ * 
+ */
+public class VersionCheckTickHandler implements ITickHandler {
 
-	private static boolean initialized = false;
-	public static VersionCheckTickHandler instance = new VersionCheckTickHandler();
-	private boolean sent;
+    private static boolean initialized = false;
 
-	public void tickStart(EnumSet var1, Object ... var2)
-    {
-        if (!this.sent && VersionUtils.isVersionCheckComplete())
-        {
-            this.sent = true;
+    @Override
+    public void tickStart(EnumSet<TickType> type, Object... tickData) {
 
-            if (VersionUtils.isNewVersionAvailable())
-            {
-                EntityPlayer var3 = (EntityPlayer)var2[0];
-                var3.sendChatToPlayer("[Harmonioncraft Mods] A new version is available: " + VersionUtils.getLatestVersion());
-                var3.sendChatToPlayer(VersionUtils.getVersionDescription());
+    }
+
+    @Override
+    public void tickEnd(EnumSet<TickType> type, Object... tickData) {
+
+        if (ConfigurationSettings.ENABLE_VERSION_CHECK) {
+            if (!initialized) {
+                for (TickType tickType : type) {
+                    if (tickType == TickType.CLIENT) {
+                        if (FMLClientHandler.instance().getClient().currentScreen == null) {
+                            initialized = true;
+                            if (VersionHelper.result == VersionHelper.OUTDATED) {
+                                FMLClientHandler.instance().getClient().ingameGUI.getChatGUI().printChatMessage(VersionHelper.getResultMessageForClient());
+                            }
+                        }
+                    }
+                }
             }
         }
     }
 
-    public void tickEnd(EnumSet var1, Object ... var2) {}
+    @Override
+    public EnumSet<TickType> ticks() {
 
-	@Override
-	public EnumSet ticks()
-    {
-        return this.sent ? EnumSet.noneOf(TickType.class) : EnumSet.of(TickType.PLAYER);
+        return EnumSet.of(TickType.CLIENT);
     }
 
-	@Override
-	public String getLabel() {
-		return Reference.MOD_NAME + ": " + this.getClass().getSimpleName();
-	}
-	
-	public int nextTickSpacing()
-    {
-        return !this.sent ? 400 : 72000;
+    @Override
+    public String getLabel() {
+
+        return Reference.MOD_NAME + ": " + this.getClass().getSimpleName();
     }
 
 }
