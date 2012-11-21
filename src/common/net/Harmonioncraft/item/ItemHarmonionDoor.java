@@ -40,7 +40,7 @@ public class ItemHarmonionDoor extends ItemHarmonion {
             
             var11 = ModBlocks.HarmonionDoor;
 
-            if (par2EntityPlayer.func_82247_a(par4, par5, par6, par7, par1ItemStack) && par2EntityPlayer.func_82247_a(par4, par5 + 1, par6, par7, par1ItemStack))
+            if (par2EntityPlayer.canPlayerEdit(par4, par5, par6, par7, par1ItemStack) && par2EntityPlayer.canPlayerEdit(par4, par5 + 1, par6, par7, par1ItemStack))
             {
                 if (!var11.canPlaceBlockAt(par3World, par4, par5, par6))
                 {

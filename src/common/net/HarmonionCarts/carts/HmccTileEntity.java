@@ -30,7 +30,7 @@ public abstract class HmccTileEntity extends TileEntity
 
     public void markBlockNeedsUpdate()
     {
-        this.worldObj.markBlockNeedsUpdate(this.xCoord, this.yCoord, this.zCoord);
+        this.worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
     }
 
     public void onBlockPlacedBy(EntityLiving var1)

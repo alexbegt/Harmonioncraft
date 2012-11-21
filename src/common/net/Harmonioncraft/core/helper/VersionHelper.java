@@ -28,7 +28,7 @@ import net.minecraftforge.common.Property;
 public class VersionHelper {
 
     // The (publicly available) remote version number authority file
-    private static final String REMOTE_VERSION_XML_FILE = "https://raw.github.com/pahimar/Equivalent-Exchange-3/master/version.xml";
+    private static final String REMOTE_VERSION_XML_FILE = "https://raw.github.com/alexbegt/Harmonioncraft/master/version.xml";
 
     public static Properties remoteVersionProperties = new Properties();
 

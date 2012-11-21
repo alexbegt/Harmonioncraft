@@ -32,6 +32,7 @@
 /src/minecraft/mcp.png
 /src/minecraft/Start.java
 /src/minecraft/armor/*
+/src/minecraft/org/bouncycastle/crypto/*
 
 !/src/common/net/Harmonioncraft/
 !/src/minecraft/net/Harmonioncraft/

@@ -7,6 +7,7 @@ import net.Harmonioncraft.core.handlers.AchievementPageHandler;
 import net.Harmonioncraft.core.handlers.AddonHandler;
 import net.Harmonioncraft.core.handlers.ConfigurationHandler;
 import net.Harmonioncraft.core.handlers.LocalizationHandler;
+import net.Harmonioncraft.core.handlers.VersionCheckTickHandler;
 import net.Harmonioncraft.core.helper.LogHelper;
 import net.Harmonioncraft.core.helper.VersionHelper;
 import net.Harmonioncraft.item.ModItems;
@@ -104,7 +105,9 @@ public class Harmonioncraft {
         }
     	VersionHelper.logResult();
     	
+    	// Initialize the Version Check Tick Handler (Client only)
     	proxy.registerTickHander();
+    	TickRegistry.registerTickHandler(new VersionCheckTickHandler(), Side.CLIENT);
 
         // Register the Sound Handler (Client only)
         proxy.registerSoundHandler();
