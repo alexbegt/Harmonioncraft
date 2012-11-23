@@ -33,7 +33,7 @@
   "logoFile": "/net/Harmonion/core/textures/Harmonioncraft_logo.png",
   "screenshots": [
   ],
-  "parent":"",
+  "parent":"HMC",
   "dependencies": [
      "HMC"
   ]

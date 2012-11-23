@@ -57,10 +57,10 @@ public class ModItems {
 		Harmonionaxe = new ItemHarmonionAxe(ItemIds.Harmonion_Axe, harmoniontool);
 		Harmonionshovel = new ItemHarmonionShovel(ItemIds.Harmonion_Shovel, harmoniontool);
 		Harmonionhoe = new ItemHarmonionHoe(ItemIds.Harmonion_Hoe, harmoniontool);
-		Harmonionhelmet = new ItemHarmonionArmor(ItemIds.Harmonion_Helmet, 6, harmonionarmor, Harmonion.proxy.addArmor("Harmonion/client/armor/soundstone"), 0).setIconIndex(3).setItemName(Strings.Sound_Stone_Helmet_Name);
-		Harmonionchestplate = new ItemHarmonionArmor(ItemIds.Harmonion_Chestplate, 7, harmonionarmor, Harmonion.proxy.addArmor("Harmonion/client/armor/soundstone"), 1).setIconIndex(4).setItemName(Strings.Sound_Stone_Chestplate_Name);
-		Harmonionlegs = new ItemHarmonionArmor(ItemIds.Harmonion_Leggings, 8, harmonionarmor, Harmonion.proxy.addArmor("Harmonion/client/armor/soundstone"), 2).setIconIndex(5).setItemName(Strings.Sound_Stone_Leggings_Name);
-		Harmonionboots = new ItemHarmonionArmor(ItemIds.Harmonion_Boots, 9, harmonionarmor, Harmonion.proxy.addArmor("Harmonion/client/armor/soundstone"), 3).setIconIndex(6).setItemName(Strings.Sound_Stone_Boots_Name);
+		Harmonionhelmet = new ItemHarmonionArmor(ItemIds.Harmonion_Helmet, 6, harmonionarmor, Harmonion.proxy.addArmor("Harmonion/core/armor/soundstone"), 0).setIconIndex(3).setItemName(Strings.Sound_Stone_Helmet_Name);
+		Harmonionchestplate = new ItemHarmonionArmor(ItemIds.Harmonion_Chestplate, 7, harmonionarmor, Harmonion.proxy.addArmor("Harmonion/core/armor/soundstone"), 1).setIconIndex(4).setItemName(Strings.Sound_Stone_Chestplate_Name);
+		Harmonionlegs = new ItemHarmonionArmor(ItemIds.Harmonion_Leggings, 8, harmonionarmor, Harmonion.proxy.addArmor("Harmonion/core/armor/soundstone"), 2).setIconIndex(5).setItemName(Strings.Sound_Stone_Leggings_Name);
+		Harmonionboots = new ItemHarmonionArmor(ItemIds.Harmonion_Boots, 9, harmonionarmor, Harmonion.proxy.addArmor("Harmonion/core/armor/soundstone"), 3).setIconIndex(6).setItemName(Strings.Sound_Stone_Boots_Name);
 		HarmonionDoor = new ItemHarmonionDoor(ItemIds.Harmonion_Door);
 		HarmonionDoor = (new ItemRecords(ItemIds.Harmonion_Door + 1, "HMC.WolfM", "State of the art")).setIconIndex(11).setItemName("record");
 		
