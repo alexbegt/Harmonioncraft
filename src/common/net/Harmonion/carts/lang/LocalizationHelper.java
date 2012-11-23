@@ -39,7 +39,7 @@ public class LocalizationHelper {
     public LocalizationHelper()
     {
         this.loadDefaultLanguage("en_US", "");
-        File var1 = new File("Config", "HarmonionCarts/lang");
+        File var1 = new File("Config", "Harmonion/Carts/lang");
 
         if (!var1.exists())
         {
