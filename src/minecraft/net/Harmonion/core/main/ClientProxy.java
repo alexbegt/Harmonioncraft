@@ -1,5 +1,6 @@
 package net.Harmonion.core.main;
 
+import net.Harmonion.Harmonion;
 import net.Harmonion.core.main.handlers.ConfigurationHandler;
 import net.Harmonion.core.main.handlers.SoundHandler;
 import net.Harmonion.core.main.handlers.ThreadDownloadResourcesHandler;
@@ -7,6 +8,7 @@ import net.Harmonion.core.main.handlers.VersionCheckTickHandler;
 import net.Harmonion.core.models.ModelHarmonionWolf;
 import net.Harmonion.core.render.RenderHarmonionWolf;
 import static net.Harmonion.core.lib.CustomItemRarity.*;
+import net.Harmonion.core.block.render.RenderHarmonion;
 import net.Harmonion.core.entity.EntityHarmonionWolf;
 import net.Harmonion.core.lib.ConfigurationSettings;
 import net.Harmonion.core.lib.Reference;
@@ -22,6 +24,7 @@ import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.KeyBindingRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.Side;
+import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.common.registry.TickRegistry;
 
@@ -99,20 +102,16 @@ public class ClientProxy extends CommonProxy {
     
     @Override
     public void initRenderingAndTextures() {
-    	//RenderIds.calcinatorRenderId = RenderingRegistry.getNextAvailableRenderId();
     	
     	MinecraftForgeClient.preloadTexture(Reference.SPRITE_SHEET_LOCATION + Reference.BLOCK_SPRITE_SHEET);
         MinecraftForgeClient.preloadTexture(Reference.SPRITE_SHEET_LOCATION + Reference.ITEM_SPRITE_SHEET);
         
-        //FMLClientHandler.instance().getClient().renderEngine.registerTextureFX(new TextureRedWaterFX());
-       // FMLClientHandler.instance().getClient().renderEngine.registerTextureFX(new TextureRedWaterFlowFX());
+        RenderingRegistry.registerBlockHandler(new RenderHarmonion());
+        
     }
     
     @Override
     public void initTileEntities() {
-    	//super.initTileEntities();
-    	
-    	//ClientRegistry.bindTileEntitySpecialRenderer(TileCalcinator.class, new RenderCalcinator());
     	
     }
     

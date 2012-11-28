@@ -19,6 +19,6 @@ public final class CreativeTabHarmonionB extends CreativeTabs
      */
     public int getTabIconItemIndex()
     {
-        return ModBlocks.HarmonionBlock.blockID;
+        return ModBlocks.HarmonionOre.blockID;
     }
 }

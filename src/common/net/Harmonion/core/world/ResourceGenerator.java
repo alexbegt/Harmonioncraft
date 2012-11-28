@@ -44,66 +44,10 @@ public class ResourceGenerator implements IWorldGenerator
         int var8;
         int var9;
         int var10;
-
-        if (BlockHarmonionOre.enable[0])
-        {
-            for (var7 = 0; var7 < 8; ++var7)
-            {
-                var8 = var5 + var2.nextInt(16);
-                var9 = 25 + var2.nextInt(50);
-                var10 = var6 + var2.nextInt(16);
-                (new WorldGenMinable(ModBlocks.HarmonionOre.blockID, 0, 7)).generate(var1, var2, var8, var9, var10);
-            }
-        }
-
-        if (BlockHarmonionOre.enable[1])
-        {
-            for (var7 = 0; var7 < 7; ++var7)
-            {
-                var8 = var5 + var2.nextInt(16);
-                var9 = 20 + var2.nextInt(35);
-                var10 = var6 + var2.nextInt(16);
-                (new WorldGenMinable(ModBlocks.HarmonionOre.blockID, 1, 6)).generate(var1, var2, var8, var9, var10);
-            }
-        }
-
-        if (BlockHarmonionOre.enable[2])
-        {
-            for (var7 = 0; var7 < 3; ++var7)
-            {
-                var8 = var5 + var2.nextInt(16);
-                var9 = 15 + var2.nextInt(30);
-                var10 = var6 + var2.nextInt(16);
-
-                if (BlockHarmonionOre.enable[3])
-                {
-                    (new WorldGenDual(ModBlocks.HarmonionOre.blockID, 2, ModBlocks.HarmonionOre.blockID, 3, 8, 15)).generate(var1, var2, var8, var9, var10);
-                }
-                else
-                {
-                    (new WorldGenMinable(ModBlocks.HarmonionOre.blockID, 2, 5)).generate(var1, var2, var8, var9, var10);
-                }
-            }
-        }
-
-        if (BlockHarmonionOre.enable[3])
-        {
-            for (var7 = 0; var7 < 4; ++var7)
-            {
-                var8 = var5 + var2.nextInt(16);
-                var9 = 15 + var2.nextInt(35);
-                var10 = var6 + var2.nextInt(16);
-
-                if (BlockHarmonionOre.enable[2])
-                {
-                    (new WorldGenDual(ModBlocks.HarmonionOre.blockID, 3, ModBlocks.HarmonionOre.blockID, 2, 10, 15)).generate(var1, var2, var8, var9, var10);
-                }
-                else
-                {
-                    (new WorldGenMinable(ModBlocks.HarmonionOre.blockID, 3, 6)).generate(var1, var2, var8, var9, var10);
-                }
-            }
-        }
+        
+        
+        
+        
         int var20;
 		BiomeGenBase var21 = var1.getWorldChunkManager().getBiomeGenAt(var3 * 16 + 16, var4 * 16 + 16);
     	var8 = 0;

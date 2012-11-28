@@ -26,7 +26,7 @@ public class AddonHandler {
           Class modPortalGun = Class.forName("portalgun.common.PortalGun");
           Method addBlockIDToGrabListMeta = modPortalGun.getMethod("addBlockIDToGrabList", new Class[] { Integer.TYPE, int[].class });
           Method addBlockIDToGrabList = modPortalGun.getMethod("addBlockIDToGrabList", new Class[] { Integer.TYPE });
-          addBlockIDToGrabList.invoke(null, new Object[] { Integer.valueOf(ModBlocks.HarmonionBlock.blockID) });
+          addBlockIDToGrabList.invoke(null, new Object[] { Integer.valueOf(ModBlocks.HarmonionOre.blockID) });
           minorMods = new StringBuilder().append(minorMods).append(", Portal Gun").toString(); } catch (Throwable e) {
         }
         try {

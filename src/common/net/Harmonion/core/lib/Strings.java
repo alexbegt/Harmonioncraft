@@ -14,15 +14,11 @@ public class Strings {
 	
 	/* Block name constants */
 	public static final String Sound_Stone_Ore_Name = "Soundstoneore";
-	public static final String Sound_Stone_Portal_Name = "Soundstoneportal";
-	public static final String Sound_Stone_Block_Name = "Soundstoneblock";
-	public static final String Sound_Stone_Fire_Name = "Soundstonefire";
+	public static final String Sound_Stone_Glass_Name = "Soundstoneglass";
 	public static final String Sound_Stone_Log_Name = "Soundstonelog";
 	public static final String Sound_Stone_Leaves_Name = "Soundstoneleaves";
 	public static final String Sound_Stone_Sapling_Name = "Soundstonesapling";
-	public static final String Sound_Stone_Plank_Name = "Soundstoneplank";
 	public static final String Sound_Stone_Door_Name = "Soundstonedoor";
-	public static final String Sound_Stone_Wire_Name = "Soundstonewire";
     
     /* Item name constants */
 	public static final String Sound_Stone_Sword_Name = "Harmonicsword";

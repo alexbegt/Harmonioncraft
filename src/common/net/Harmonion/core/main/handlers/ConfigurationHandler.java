@@ -51,16 +51,6 @@ public class ConfigurationHandler {
             BlockIds.Harmonion =  configuration
             		.getBlock(Strings.Sound_Stone_Ore_Name, BlockIds.Harmonion_Default)
             		.getInt(BlockIds.Harmonion_Default);
-            BlockIds.Harmonion_Portal = configuration
-            		.getBlock(Strings.Sound_Stone_Portal_Name, BlockIds.Harmonion_Portal_Default)
-            		.getInt(BlockIds.Harmonion_Portal_Default);
-            
-            BlockIds.Harmonion_Block =  configuration
-            		.getBlock(Strings.Sound_Stone_Block_Name, BlockIds.Harmonion_Block_Default)
-            		.getInt(BlockIds.Harmonion_Block_Default);
-            BlockIds.Harmonion_Fire = configuration
-            		.getBlock(Strings.Sound_Stone_Fire_Name, BlockIds.Harmonion_Fire_Default)
-            		.getInt(BlockIds.Harmonion_Fire_Default);
             BlockIds.Harmonion_Log =  configuration
             		.getBlock(Strings.Sound_Stone_Log_Name, BlockIds.Harmonion_Log_Default)
             		.getInt(BlockIds.Harmonion_Log_Default);
@@ -73,12 +63,9 @@ public class ConfigurationHandler {
             BlockIds.Harmonion_Door = configuration
             		.getBlock(Strings.Sound_Stone_Door_Name, BlockIds.Harmonion_Door_Default)
             		.getInt(BlockIds.Harmonion_Door_Default);
-            BlockIds.Harmonion_Plank =  configuration
-            		.getBlock(Strings.Sound_Stone_Plank_Name, BlockIds.Harmonion_Planks_Default)
-            		.getInt(BlockIds.Harmonion_Planks_Default);
-            BlockIds.Harmonion_Wire = configuration
-            		.getBlock(Strings.Sound_Stone_Wire_Name, BlockIds.Harmonion_Wire_Default)
-            		.getInt(BlockIds.Harmonion_Wire_Default);
+            BlockIds.Harmonion_Glass =  configuration
+            		.getBlock(Strings.Sound_Stone_Glass_Name, BlockIds.Harmonion_Glass_Default)
+            		.getInt(BlockIds.Harmonion_Glass_Default);
 
             /* Item Configs */
             ItemIds.Harmonion_Sword =  configuration
@@ -117,9 +104,6 @@ public class ConfigurationHandler {
             ItemIds.Harmonion_Door = configuration
             		.getItem(Strings.Sound_Stone_Door_Name, ItemIds.Harmonion_Door_Default)
             		.getInt(ItemIds.Harmonion_Door_Default);
-            ItemIds.Harmonion_Wire = configuration
-            		.getItem(Strings.Sound_Stone_Wire_Name, ItemIds.Harmonion_Wire_Default)
-            		.getInt(ItemIds.Harmonion_Wire_Default);
             
             /* KeyBinding Configs */
             configuration.addCustomCategoryComment(CATEGORY_KEYBIND, "");

@@ -114,7 +114,7 @@ public class BlockHarmonionLog extends BlockHarmonion
     {
         int var3 = par2 & 12;
         int var4 = par2 & 3;
-        return var3 == 0 && (par1 == 1 || par1 == 0) ? 2 : (var3 == 4 && (par1 == 5 || par1 == 4) ? 2 : (var3 == 8 && (par1 == 2 || par1 == 3) ? 2 : (var4 == 1 ? 3 : (var4 == 2 ? 3 : (var4 == 3 ? 3 : 3)))));
+        return var3 == 0 && (par1 == 1 || par1 == 0) ? 5 : (var3 == 4 && (par1 == 5 || par1 == 4) ? 5 : (var3 == 8 && (par1 == 2 || par1 == 3) ? 6 : (var4 == 1 ? 6 : (var4 == 2 ? 6 : (var4 == 3 ? 6 : 6)))));
     }
 
     /**

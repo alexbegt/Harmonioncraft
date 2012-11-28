@@ -14,6 +14,8 @@ import net.Harmonion.core.main.handlers.VersionCheckTickHandler;
 import net.Harmonion.core.main.helper.LogHelper;
 import net.Harmonion.core.main.helper.VersionHelper;
 import net.Harmonion.core.network.MapPacketHandler;
+import net.Harmonion.core.recipe.HarmonionRecipe;
+
 import net.minecraftforge.common.AchievementPage;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
@@ -112,10 +114,6 @@ public class Harmonion {
         /* Initialize custom rendering and pre-load textures (Client only) */
         proxy.initRenderingAndTextures();
         
-        /* Block Smelting */
-        ModBlocks.initBlockSmelting();
-        ModBlocks.initBlockRecipes();
-        
         // Registering the Achevement Handler
         AchievementPage.registerAchievementPage(new AchievementPageHandler());
         
@@ -132,6 +130,8 @@ public class Harmonion {
 		
 		// Initialize the Addon Handler
         AddonHandler.init(); 
+        
+        HarmonionRecipe.init();
         
 	}
 	

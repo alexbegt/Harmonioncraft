@@ -23,7 +23,7 @@ public class BlockHarmonionLeaves extends BlockLeaves implements IShearable {
 
     public BlockHarmonionLeaves(int var1)
     {
-        super(var1, 4);
+        super(var1, 14);
         this.setTickRandomly(true);
         this.setHardness(0.2F);
         this.setLightOpacity(1);

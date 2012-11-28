@@ -24,8 +24,15 @@ public class ItemHarmonionArmor extends ItemArmor{
         setCreativeTab(ModItems.tabHarmonionI);
     }
     
+    public String texture;
+    
     @SideOnly(Side.CLIENT)
     public EnumRarity getRarity(ItemStack stack) {
         return Harmonion.proxy.getCustomRarityType(CustomItemRarity.MAGICAL);
+    }
+    public ItemHarmonionArmor(int i, int j, String path, int l, EnumArmorMaterial enumArmorMaterial)
+    {
+      this(i, j, enumArmorMaterial, 0, l);
+      this.texture = path;
     }
 }

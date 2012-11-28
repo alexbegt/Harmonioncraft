@@ -3,7 +3,11 @@ package net.Harmonion.carts.item;
 import java.util.Calendar;
 import java.util.Iterator;
 import java.util.logging.Level;
+
 import cpw.mods.fml.common.registry.LanguageRegistry;
+import net.minecraftforge.common.MinecartRegistry;
+import net.minecraftforge.common.MinecraftForge;
+
 import net.Harmonion.carts.carts.EntityCartBasic;
 import net.Harmonion.carts.carts.EntityCartChest;
 import net.Harmonion.carts.carts.EntityCartFurnace;
@@ -20,15 +24,14 @@ import net.Harmonion.carts.carts.util.ItemRegistry;
 import net.Harmonion.carts.lang.LocalizationHelper;
 import net.Harmonion.carts.lib.ConfigurationSettings;
 import net.Harmonion.carts.main.creativetabs.CreativeTabHarmonionCartI;
-import net.Harmonion.*;
+import net.Harmonion.HarmonionCart;
+
 import net.minecraft.src.Block;
 import net.minecraft.src.CraftingManager;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.EntityMinecart;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
-import net.minecraftforge.common.MinecartRegistry;
-import net.minecraftforge.common.MinecraftForge;
 
 public class ModItems {
 	

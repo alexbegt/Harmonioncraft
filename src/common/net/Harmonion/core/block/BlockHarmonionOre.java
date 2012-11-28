@@ -2,40 +2,48 @@ package net.Harmonion.core.block;
 
 import java.util.List;
 import java.util.Random;
-
+import cpw.mods.fml.common.Side;
+import cpw.mods.fml.common.asm.SideOnly;
+import net.Harmonion.core.block.render.RenderHarmonion;
 import net.Harmonion.core.item.ModItems;
+import net.Harmonion.core.lib.BlockIds;
+import net.Harmonion.core.lib.Reference;
 import net.Harmonion.core.lib.Strings;
+import net.minecraft.src.Block;
 import net.minecraft.src.CreativeTabs;
+import net.minecraft.src.EnumCreatureType;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;
+import net.minecraft.src.World;
 import net.minecraftforge.common.MinecraftForge;
 
 public class BlockHarmonionOre extends BlockHarmonion {
-	
-	public static boolean[] enable = new boolean[4];
 
-    public BlockHarmonionOre(int var1)
+	public BlockHarmonionOre(int var1, int var2)
     {
-        super(var1, Material.rock);
-        this.setHardness(3.0F);
-        this.setResistance(5.0F);
-        this.setStepSound(soundStoneFootstep);
-        this.setTextureFile(Strings.Sound_Stone_Ore_Name);
+        super(var1, var2, Material.iron);
+        this.setHardness(1.5F);
+        this.setResistance(8.0F);
+        this.setTickRandomly(true);
         this.setCreativeTab(ModBlocks.tabHarmonioncraftB);
-        MinecraftForge.setBlockHarvestLevel(this, 0, "pickaxe", 1);
-        MinecraftForge.setBlockHarvestLevel(this, 1, "pickaxe", 1);
-        MinecraftForge.setBlockHarvestLevel(this, 2, "pickaxe", 2);
-        MinecraftForge.setBlockHarvestLevel(this, 3, "pickaxe", 2);
-        this.blockIndexInTexture = 240;
     }
 
     /**
-     * Determines the damage on the item the block drops. Used in cloth and wood.
+     * Is this block (a) opaque and (b) a full 1m cube?  This determines whether or not to render the shared face of two
+     * adjacent blocks and also whether the player can attach torches, redstone wire, etc to this block.
      */
-    public int damageDropped(int var1)
+    public boolean isOpaqueCube()
     {
-        return var1;
+        return true;
+    }
+
+    /**
+     * The type of render function that is called for this block
+     */
+    public int getRenderType()
+    {
+        return RenderHarmonion.renderID;
     }
 
     /**
@@ -43,8 +51,41 @@ public class BlockHarmonionOre extends BlockHarmonion {
      */
     public int getBlockTextureFromSideAndMetadata(int var1, int var2)
     {
-        return this.blockIndexInTexture + var2;
+        return var2 < 6 ? this.blockIndexInTexture + var2 % 7 : (var2 == 11 ? 21 : 32);
     }
+
+    public int quantityDropped(int var1, int var2, Random var3)
+    {
+        return var1 < 2 ? 3 + var3.nextInt(2) : 1;
+    }
+
+    /**
+     * Determines the damage on the item the block drops. Used in cloth and wood.
+     */
+    public int damageDropped(int var1)
+    {
+        return var1 < 5 ? 0 : var1;
+    }
+
+    /**
+     * Returns the ID of the items to drop on destruction.
+     */
+    public int idDropped(int var1, Random var2, int var3)
+    {
+        switch (var1)
+        {
+            case 0:
+            	return this.blockID;
+
+            case 1:
+                return ModItems.Harmonionlegs.shiftedIndex;
+
+            default:
+                return this.blockID;
+        }
+    }
+
+    @SideOnly(Side.CLIENT)
 
     /**
      * returns a list of blocks with the same ID, but different meta (eg: wood returns 4 blocks)
@@ -53,11 +94,18 @@ public class BlockHarmonionOre extends BlockHarmonion {
     {
         for (int var4 = 0; var4 < 4; ++var4)
         {
-            if (enable[var4])
-            {
-                var3.add(new ItemStack(var1, 1, var4));
-            }
+            var3.add(new ItemStack(this, 1, var4));
         }
     }
-}
 
+    public boolean canCreatureSpawn(EnumCreatureType var1, World var2, int var3, int var4, int var5)
+    {
+        return var2.getBlockMetadata(var3, var4, var5) < 6;
+    }
+
+    public boolean isBeaconBase(World var1, int var2, int var3, int var4, int var5, int var6, int var7)
+    {
+        return var1.getBlockMetadata(var2, var3, var4) >= 6;
+    }
+    
+}
