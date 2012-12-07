@@ -1,5 +1,7 @@
 package net.Harmonion;
 
+import java.util.logging.Logger;
+
 import net.Harmonion.core.block.ModBlocks;
 import net.Harmonion.core.item.ModItems;
 import net.Harmonion.core.lib.ConfigurationSettings;
@@ -8,15 +10,15 @@ import net.Harmonion.core.main.CommonProxy;
 import net.Harmonion.core.main.handlers.AchievementPageHandler;
 import net.Harmonion.core.main.handlers.AddonHandler;
 import net.Harmonion.core.main.handlers.ConfigurationHandler;
-import net.Harmonion.core.main.handlers.LocalizationHandler;
 import net.Harmonion.core.main.handlers.PacketHandler;
-import net.Harmonion.core.main.handlers.VersionCheckTickHandler;
+import net.Harmonion.core.main.handlers.LocalizationHandler;
 import net.Harmonion.core.main.helper.LogHelper;
-import net.Harmonion.core.main.helper.VersionHelper;
+import net.Harmonion.core.main.helper.Version;
 import net.Harmonion.core.network.MapPacketHandler;
 import net.Harmonion.core.recipe.HarmonionRecipe;
 
 import net.minecraftforge.common.AchievementPage;
+import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.PostInit;
@@ -66,6 +68,8 @@ public class Harmonion {
 	)
     public static CommonProxy proxy;
 	
+	public static Logger hmcLog = Logger.getLogger(Reference.MOD_NAME);
+	
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event) {	
 		
@@ -80,13 +84,14 @@ public class Harmonion {
 		
         // Conduct the version check and log the result
         if (ConfigurationSettings.ENABLE_VERSION_CHECK) {
-        	VersionHelper.checkVersion();
+        	Version.versionCheck();
         }
-    	VersionHelper.logResult();
+        hmcLog.setParent(FMLLog.getLogger());
+        hmcLog.info("Starting Harmonioncraft " + Version.getVersion());
+        hmcLog.info("Copyright (c) alexbegt, DJ, 2011");
     	
     	// Initialize the Version Check Tick Handler (Client only)
     	proxy.registerTickHander();
-    	TickRegistry.registerTickHandler(new VersionCheckTickHandler(), Side.CLIENT);
 
         // Register the Sound Handler (Client only)
         proxy.registerSoundHandler();

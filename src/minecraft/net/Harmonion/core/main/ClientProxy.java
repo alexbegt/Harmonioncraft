@@ -4,7 +4,6 @@ import net.Harmonion.Harmonion;
 import net.Harmonion.core.main.handlers.ConfigurationHandler;
 import net.Harmonion.core.main.handlers.SoundHandler;
 import net.Harmonion.core.main.handlers.ThreadDownloadResourcesHandler;
-import net.Harmonion.core.main.handlers.VersionCheckTickHandler;
 import net.Harmonion.core.models.ModelHarmonionWolf;
 import net.Harmonion.core.render.RenderHarmonionWolf;
 import static net.Harmonion.core.lib.CustomItemRarity.*;
@@ -16,6 +15,9 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.src.Block;
 import net.minecraft.src.EnumRarity;
 import net.minecraft.src.IBlockAccess;
+import net.minecraft.src.Item;
+import net.minecraft.src.ItemStack;
+import net.minecraft.src.StringTranslate;
 import net.minecraftforge.client.EnumHelperClient;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
@@ -114,6 +116,25 @@ public class ClientProxy extends CommonProxy {
     public void initTileEntities() {
     	
     }
+    
+    @Override
+	public String getCurrentLanguage() {
+		return StringTranslate.getInstance().getCurrentLanguage();
+	}
+	@Override
+	public void addName(Object obj, String s) {
+		LanguageRegistry.addName(obj, s);
+	}
+	@Override
+	public void addLocalization(String s1, String string) {
+		LanguageRegistry.instance().addStringLocalization(s1, string);
+	}
+	@Override
+	public String getItemDisplayName(ItemStack stack){
+		if (Item.itemsList[stack.itemID] == null) return "";
+
+		return Item.itemsList[stack.itemID].getItemDisplayName(stack);
+	}
     
     public int addArmor(String name)
     {

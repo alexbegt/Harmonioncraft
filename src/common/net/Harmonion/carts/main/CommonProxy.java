@@ -6,7 +6,6 @@ import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.TickRegistry;
-import net.Harmonion.carts.command.CommandHMCCV;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.src.BiomeGenBase;
 import net.minecraft.src.Block;
@@ -72,27 +71,6 @@ public class CommonProxy implements IGuiHandler {
     public boolean isSimulating()
     {
         return Thread.currentThread() instanceof ThreadMinecraftServer;
-    }
-    
-    public void serverStarting(MinecraftServer var1)
-    {
-        CommandHandler var2 = (CommandHandler)var1.getCommandManager();
-        
-        ICommand[] var5 = this.getConsoleCommands();
-        {
-        	ICommand[] var6 = var5;
-        	int var7 = var5.length;
-        	for (int var8 = 0; var8 < var7; ++var8)
-        	{
-        		ICommand var9 = var6[var8];
-        		var2.registerCommand(var9);
-        	}
-        }
-    }
-    
-    public ICommand[] getConsoleCommands()
-    {
-        return new ICommand[] {new CommandHMCCV()};
     }
     
     public World getClientWorld()

@@ -5,7 +5,8 @@ import java.util.List;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.FMLCommonHandler;
 
-import net.Harmonion.core.main.helper.VersionHelper;
+import net.Harmonion.Harmonion;
+import net.Harmonion.core.main.helper.Version;
 
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.src.CommandBase;
@@ -29,62 +30,35 @@ public class CommandHMCV extends CommandBase{
 		return "hmc";
 	}
 	
-	Entity var5;
+	@Override
+	public String getCommandUsage(ICommandSender sender) {
+		return "/" + this.getCommandName() + " help";
+	}
+
+	@Override public List getCommandAliases() { return null; }
 	
-	public String getCommandUsage(ICommandSender var1)
-	  {
-	    return "/" + this.getCommandName() + " help";
-	  }
-	
-	public List getCommandAliases()
-    {
-        return null;
-    }
-	
-	public void processCommand(ICommandSender var1, String[] var2) {
+	@Override
+	public void processCommand(ICommandSender sender, String[] arguments) {
 		
-		if (var2.length <= 0)
-        {
-            throw new WrongUsageException("Type \'" + this.getCommandUsage(var1) + "\' for help.", new Object[0]);
+        if (arguments.length <= 0)
+        	throw new WrongUsageException("Type '" + this.getCommandUsage(sender) + "' for help.");
+        
+        if(arguments[0].matches("version")) {
+        	commandVersion(sender, arguments);
+        	return;
+        } else if(arguments[0].matches("help")) {
+        	sender.sendChatToPlayer("Format: '"+ this.getCommandName() +" <command> <arguments>'");
+        	sender.sendChatToPlayer("Available commands:");
+        	sender.sendChatToPlayer("- version : Version information.");
+        	return;
         }
-        else if (var2[0].matches("about"))
-        {
-            this.commandAbout(var1, var2);
-        }
-        else if (var2[0].matches("version"))
-        {
-        	this.commandVersion(var1, var2);
-        }
-        else if (var2[0].matches("help"))
-        {
-            var1.sendChatToPlayer("Format: \'" + this.getCommandName() + " <command> <arguments>\'");
-            var1.sendChatToPlayer("Available commands:");
-            var1.sendChatToPlayer("- about : Mod Information.");
-            var1.sendChatToPlayer("- version : Check Mod Version.");
-        }
-        else
-        {
-            throw new WrongUsageException(this.getCommandUsage(var1), new Object[0]);
-        }
+
+    	throw new WrongUsageException(this.getCommandUsage(sender));
+	}
+
+	private void commandVersion(ICommandSender sender, String[] arguments) {
+    	sender.sendChatToPlayer(String.format("BuildCraft %s for Minecraft %s (Latest: %s).", Version.getVersion(), Harmonion.proxy.getMinecraftVersion(), Version.getRecommendedVersion()));
 	}
 	
-	
-	private void commandAbout(ICommandSender var1, String[] var2)
-    {
-        var1.sendChatToPlayer("Was Made By Alexbegt and DJ Pantheris.");
-    }
-	
-	private void commandVersion(ICommandSender var1, String[] var2)
-	{
-		VersionHelper.checkVersion();
-		if (VersionHelper.result == VersionHelper.OUTDATED) {
-            FMLClientHandler.instance().getClient().ingameGUI.getChatGUI().printChatMessage(VersionHelper.getResultMessageForClient());
-        }
-	}
-	
-	public static String getMinecraftVersion()
-	{
-	    return "1.3.2";
-	}
 
 }

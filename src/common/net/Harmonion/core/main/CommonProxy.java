@@ -1,6 +1,8 @@
 package net.Harmonion.core.main;
 
 import java.util.Iterator;
+
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.common.registry.EntityRegistry;
@@ -19,6 +21,7 @@ import net.minecraft.src.EnumCreatureType;
 import net.minecraft.src.EnumRarity;
 import net.minecraft.src.IBlockAccess;
 import net.minecraft.src.ICommand;
+import net.minecraft.src.ItemStack;
 import net.minecraft.src.ThreadMinecraftServer;
 import net.minecraft.src.World;
 
@@ -37,6 +40,19 @@ public class CommonProxy implements IGuiHandler {
 	public void registerTickHander() {
 		//TickRegistry.registerTickHandler(new ServerTickHandler(), Side.SERVER);
 	}
+	
+	public String getCurrentLanguage() {
+		return null;
+	}
+	
+	public String getMinecraftVersion() {
+		return Loader.instance().getMinecraftModContainer().getVersion();
+	}
+	
+	/* LOCALIZATION */
+	public void addName(Object obj, String s) {}
+	public void addLocalization(String s1, String string) {}
+	public String getItemDisplayName(ItemStack newStack) { return ""; }
 
     public void registerSoundHandler() {}
 

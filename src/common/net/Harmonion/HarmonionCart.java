@@ -7,10 +7,8 @@ import net.Harmonion.carts.main.CommonProxy;
 import net.Harmonion.carts.main.handlers.AchievementPageHandler;
 import net.Harmonion.carts.main.handlers.AddonHandler;
 import net.Harmonion.carts.main.handlers.ConfigurationHandler;
-import net.Harmonion.carts.main.handlers.LocalizationHandler;
-import net.Harmonion.carts.main.handlers.VersionCheckTickHandler;
 import net.Harmonion.carts.main.helper.LogHelper;
-import net.Harmonion.carts.main.helper.VersionHelper;
+
 import net.minecraftforge.common.AchievementPage;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
@@ -56,23 +54,11 @@ public class HarmonionCart {
 		
 		// Initialize the log helper
     	LogHelper.init();
-    	
-    	// Load the localization files into the LanguageRegistry
-    	LocalizationHandler.loadLanguages();
 		
 		// Initialize the configuration
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
-		
-        // Conduct the version check and log the result
-        if (ConfigurationSettings.ENABLE_VERSION_CHECK) {
-        	VersionHelper.checkVersion();
-        }
-    	VersionHelper.logResult();
     	
     	proxy.registerTickHander();
-    	
-    	 // Initialize the Version Check Tick Handler (Client only)
-        TickRegistry.registerTickHandler(new VersionCheckTickHandler(), Side.CLIENT);
 
         // Register the Sound Handler (Client only)
         proxy.registerSoundHandler();
@@ -114,12 +100,6 @@ public class HarmonionCart {
         
         proxy.initEntitysClient();
         
-	}
-	
-	@ServerStarting
-	public void serverStarting(FMLServerStartingEvent event)
-	{
-		proxy.serverStarting(event.getServer());
 	}
 	
 }

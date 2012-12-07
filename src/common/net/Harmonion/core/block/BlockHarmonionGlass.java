@@ -24,7 +24,7 @@ public class BlockHarmonionGlass extends BlockBreakable
      */
     public int quantityDropped(Random par1Random)
     {
-        return this.blockID;
+        return 1;
     }
 
     @SideOnly(Side.CLIENT)

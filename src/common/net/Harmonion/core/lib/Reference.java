@@ -51,4 +51,7 @@ public class Reference {
     public static final String LMM_WOLF_TAIMED_SHEET = "cyberwolft.png";
     public static final String LMM_WOLF_ANGRY_SHEET = "cyberwolfa.png";
     
+    /* Lang */
+    public static final String DEFAULT_LANGUAGE = "en_US";
+    
 }

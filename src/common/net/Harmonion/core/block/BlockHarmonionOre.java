@@ -56,7 +56,7 @@ public class BlockHarmonionOre extends BlockHarmonion {
 
     public int quantityDropped(int var1, int var2, Random var3)
     {
-        return var1 < 2 ? 3 + var3.nextInt(2) : 1;
+        return var1 == 1 ? 3 + var3.nextInt(2) : 1;
     }
 
     /**
@@ -64,7 +64,7 @@ public class BlockHarmonionOre extends BlockHarmonion {
      */
     public int damageDropped(int var1)
     {
-        return var1 < 5 ? 0 : var1;
+        return var1 == 1 ? 0 : var1;
     }
 
     /**
