@@ -10,18 +10,12 @@
 /reobf/*
 /runtime/*
 /temp/*
-/src - Copy/*
 
-/src/common/cpw/*
-/src/common/net/minecraft/*
-/src/common/net/minecraftforge/*
-/src/common/org/*
-
-/src/common/fml_at.cfg
-/src/common/forge_at.cfg
-/src/common/fml_marker.cfg
-/src/common/fmlversion.properties
-/src/common/mcpmod.info
+/src/minecraft/fml_at.cfg
+/src/minecraft/forge_at.cfg
+/src/minecraft/fml_marker.cfg
+/src/minecraft/fmlversion.properties
+/src/minecraft/mcpmod.info
 
 /src/minecraft/cpw/*
 /src/minecraft/ibxm/*
