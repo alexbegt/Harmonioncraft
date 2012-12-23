@@ -73,7 +73,7 @@ public class ModBlocks {
     	blockMachine = new BlockMachine(610);
         blockMachine.setBlockName("rpmachine");
         GameRegistry.registerBlock(blockMachine, ItemExtended.class, "machine");
-        blockMachine.setItemName(0, "rpbatbox");
+        blockMachine.setItemName(0, "Harmonionbatbox");
         GameRegistry.registerTileEntity(TileBatteryBox.class, "HarmoionBatBox");
         blockMachine.addTileEntityMapping(0, TileBatteryBox.class);
         
@@ -81,7 +81,7 @@ public class ModBlocks {
         GameRegistry.registerBlock(blockMachinePanel, ItemMachinePanel.class, "machinePanel");
         GameRegistry.registerTileEntity(TileSolarPanel.class, "HarmonionSolar");
         blockMachinePanel.addTileEntityMapping(0, TileSolarPanel.class);
-        blockMachinePanel.setItemName(0, "rpsolar");
+        blockMachinePanel.setItemName(0, "Harmonionsolar");
         
         
         int var1;

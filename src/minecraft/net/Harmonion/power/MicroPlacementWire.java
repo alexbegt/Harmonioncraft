@@ -147,7 +147,7 @@ public class MicroPlacementWire implements IMicroPlacement
             case 5:
                 if (var2 == 0)
                 {
-                    return "tile.bluewire";
+                    return "tile.Harmonionbluewire";
                 }
         }
 

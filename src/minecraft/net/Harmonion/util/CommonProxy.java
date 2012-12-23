@@ -232,7 +232,7 @@ public class CommonProxy implements IGuiHandler {
         ModBlocks.blockMicro.registerPlacement(2, var0);
         ModBlocks.blockMicro.registerPlacement(3, var0);
         ModBlocks.blockMicro.registerPlacement(5, var0);
-        GameRegistry.registerTileEntity(TileBluewire.class, "Bluewire");
+        GameRegistry.registerTileEntity(TileBluewire.class, "HarmonionBluewire");
         ModBlocks.blockMicro.addTileEntityMapping(1, TileBluewire.class);
         ModBlocks.blockMicro.addTileEntityMapping(2, TileBluewire.class);
         ModBlocks.blockMicro.addTileEntityMapping(3, TileBluewire.class);

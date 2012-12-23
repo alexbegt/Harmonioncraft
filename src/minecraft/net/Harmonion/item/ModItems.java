@@ -70,9 +70,9 @@ public class ModItems {
 		HarmonionDoor = new ItemHarmonionDoor(ItemIds.Harmonion_Door);
 		
 		itemBatteryEmpty = new ItemTextured(27282, 14, Reference.SPRITE_SHEET_LOCATION + Reference.POWER_SPRITE_SHEET);
-        itemBatteryEmpty.setItemName("btbattery");
+        itemBatteryEmpty.setItemName("Harmonionbattery");
         itemBatteryPowered = new ItemBattery(27283);
-        itemBatteryPowered.setItemName("btbattery");
+        itemBatteryPowered.setItemName("Harmonionbattery");
 		
 		/* Item Recipes*/
 		initItemRecipes();
