@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import net.Harmonion.block.ModBlocks;
 import net.Harmonion.item.ModItems;
-import net.Harmonion.power.IChargeable;
+import net.Harmonion.power.IChargeableHarmonion;
 import net.Harmonion.util.Reference;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -33,7 +33,7 @@ public class ItemBattery extends Item
         {
             ItemStack var5 = var3.inventory.getStackInSlot(var4);
 
-            if (var5 != null && var5.getItem() instanceof IChargeable && var5.getItemDamage() > 1)
+            if (var5 != null && var5.getItem() instanceof IChargeableHarmonion && var5.getItemDamage() > 1)
             {
                 int var6 = Math.min(var5.getItemDamage() - 1, var1.getMaxDamage() - var1.getItemDamage());
                 var6 = Math.min(var6, 25);
