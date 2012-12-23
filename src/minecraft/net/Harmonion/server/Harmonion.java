@@ -77,7 +77,7 @@ public class Harmonion {
 	@Init
 	public void load(FMLInitializationEvent evt) {
 		
-		Packet.addIdClassMapping(211, true, true, Packet211TileDesc.class);
+		Packet.addIdClassMapping(300, true, true, Packet211TileDesc.class);
 		
 		/* Initialize the custom item rarity types */
         proxy.initCustomRarityTypes();
