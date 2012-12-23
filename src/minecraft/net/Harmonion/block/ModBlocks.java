@@ -65,7 +65,7 @@ public class ModBlocks {
 		HarmonionFire = (new BlockHarmonionFire(BlockIds.Harmonion_Fire, Block.fire.blockIndexInTexture));
 		
 		blockMicro = new BlockMicro(609);
-        blockMicro.setBlockName("rpwire");
+        blockMicro.setBlockName("Harmonionwire");
         GameRegistry.registerBlock(blockMicro, ItemMicro.class, "micro");
         blockMicro.addTileEntityMapping(0, TileCovered.class);
     	CoverLib.blockCoverPlate = blockMicro;
@@ -74,12 +74,12 @@ public class ModBlocks {
         blockMachine.setBlockName("rpmachine");
         GameRegistry.registerBlock(blockMachine, ItemExtended.class, "machine");
         blockMachine.setItemName(0, "rpbatbox");
-        GameRegistry.registerTileEntity(TileBatteryBox.class, "RPBatBox");
+        GameRegistry.registerTileEntity(TileBatteryBox.class, "HarmoionBatBox");
         blockMachine.addTileEntityMapping(0, TileBatteryBox.class);
         
         blockMachinePanel = new BlockMachinePanel(611);
         GameRegistry.registerBlock(blockMachinePanel, ItemMachinePanel.class, "machinePanel");
-        GameRegistry.registerTileEntity(TileSolarPanel.class, "RPSolar");
+        GameRegistry.registerTileEntity(TileSolarPanel.class, "HarmonionSolar");
         blockMachinePanel.addTileEntityMapping(0, TileSolarPanel.class);
         blockMachinePanel.setItemName(0, "rpsolar");
         
