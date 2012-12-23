@@ -1,8 +1,7 @@
 package net.Harmonion.block.power;
 
-import net.Harmonion.block.BlockMultipart;
-import net.Harmonion.tileentity.CoreLib;
-import net.Harmonion.tileentity.TileCoverable;
+import net.Harmonion.power.CoreLib;
+import net.Harmonion.power.TileCoverable;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;

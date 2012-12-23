@@ -2,8 +2,9 @@ package net.Harmonion.item.power;
 
 import java.util.ArrayList;
 
+import net.Harmonion.block.ModBlocks;
 import net.Harmonion.item.ModItems;
-import net.Harmonion.tileentity.IChargeable;
+import net.Harmonion.power.IChargeable;
 import net.Harmonion.util.Reference;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,11 +17,11 @@ public class ItemBattery extends Item
     public ItemBattery(int var1)
     {
         super(var1);
-        this.setIconIndex(25);
+        this.setIconIndex(14);
         this.setMaxStackSize(1);
         this.setNoRepair();
         this.setMaxDamage(1500);
-        this.setCreativeTab(CreativeTabs.tabRedstone);
+        this.setCreativeTab(ModBlocks.tabHarmonioncraftW);
     }
 
     /**

@@ -4,9 +4,6 @@ import net.Harmonion.block.ModBlocks;
 import net.Harmonion.item.ModItems;
 import net.Harmonion.item.crafting.HarmonionRecipe;
 import net.Harmonion.network.MapPacketHandler;
-import net.Harmonion.tileentity.MicroPlacementWire;
-import net.Harmonion.tileentity.Packet211TileDesc;
-import net.Harmonion.tileentity.TileBluewire;
 import net.Harmonion.util.CommonProxy;
 import net.Harmonion.util.ConfigurationHandler;
 import net.Harmonion.util.ItemIds;
@@ -14,6 +11,9 @@ import net.Harmonion.util.LocalizationHandler;
 import net.Harmonion.util.Reference;
 import net.Harmonion.village.VillageManager;
 import net.Harmonion.network.packet.PacketHandler;
+import net.Harmonion.power.MicroPlacementWire;
+import net.Harmonion.power.Packet211TileDesc;
+import net.Harmonion.power.TileBluewire;
 import net.minecraft.network.packet.Packet;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -94,18 +94,6 @@ public class Harmonion {
         /* Initialize mod tile entities */
         proxy.initTileEntities();
         
-        MicroPlacementWire var0 = new MicroPlacementWire();
-        ModBlocks.blockMicro.registerPlacement(1, var0);
-        ModBlocks.blockMicro.registerPlacement(2, var0);
-        ModBlocks.blockMicro.registerPlacement(3, var0);
-        ModBlocks.blockMicro.registerPlacement(5, var0);
-        GameRegistry.registerTileEntity(TileBluewire.class, "Bluewire");
-        ModBlocks.blockMicro.addTileEntityMapping(1, TileBluewire.class);
-        ModBlocks.blockMicro.addTileEntityMapping(2, TileBluewire.class);
-        ModBlocks.blockMicro.addTileEntityMapping(3, TileBluewire.class);
-        ModBlocks.blockMicro.addTileEntityMapping(4, TileBluewire.class);
-    	ModBlocks.blockMicro.addTileEntityMapping(5, TileBluewire.class);
-        
         VillageManager villageManager = new VillageManager();
         VillagerRegistry.instance().registerVillageCreationHandler(villageManager);
         VillagerRegistry.instance().registerVillagerType(ItemIds.Harmonion_Villager, "/thaumcraft/resources/wizard.png");
@@ -121,6 +109,8 @@ public class Harmonion {
         proxy.initEntitys();
         
         proxy.initEntitysClient();
+        
+        proxy.initPower();
 		
 	}
 	
@@ -128,6 +118,8 @@ public class Harmonion {
 	public void modsLoaded(FMLPostInitializationEvent evt) {
 		
         HarmonionRecipe.init();
+        
+        LocalizationHandler.saveLanguages();
         
 	}
 	

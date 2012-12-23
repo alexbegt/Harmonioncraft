@@ -11,10 +11,15 @@ import net.Harmonion.client.ClientProxy;
 import net.Harmonion.command.CommandHMCV;
 import net.Harmonion.entity.EntityLib;
 import net.Harmonion.entity.passive.EntityHarmonionWolf;
+import net.Harmonion.power.ContainerBatteryBox;
+import net.Harmonion.power.CoreLib;
+import net.Harmonion.power.GuiBatteryBox;
+import net.Harmonion.power.IHandlePackets;
+import net.Harmonion.power.MicroPlacementWire;
+import net.Harmonion.power.Packet211TileDesc;
+import net.Harmonion.power.TileBatteryBox;
+import net.Harmonion.power.TileBluewire;
 import net.Harmonion.server.Harmonion;
-import net.Harmonion.tileentity.IHandlePackets;
-import net.Harmonion.tileentity.Packet211TileDesc;
-import net.Harmonion.tileentity.TileBluewire;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandHandler;
@@ -152,14 +157,28 @@ public class CommonProxy implements IGuiHandler {
         return 0;
     }
     
-    @Override
-    public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-        return null;
+    public Object getClientGuiElement(int var1, EntityPlayer var2, World var3, int var4, int var5, int var6)
+    {
+        switch (var1)
+        {
+            case 8:
+                return new GuiBatteryBox(var2.inventory, (TileBatteryBox)CoreLib.getGuiTileEntity(var3, var4, var5, var6, TileBatteryBox.class));
+                
+            default:
+                return null;
+        }
     }
 
-    @Override
-    public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) { 
-        return null;
+    public Object getServerGuiElement(int var1, EntityPlayer var2, World var3, int var4, int var5, int var6)
+    {
+        switch (var1)
+        {
+            case 8:
+                return new ContainerBatteryBox(var2.inventory, (TileBatteryBox)CoreLib.getTileEntity(var3, var4, var5, var6, TileBatteryBox.class));
+
+            default:
+                return null;
+        }
     }
     
     public boolean isSimulating()
@@ -205,4 +224,20 @@ public class CommonProxy implements IGuiHandler {
     public int addArmor(String name) {
         return 0;
       }
+
+	public void initPower() {
+		
+        MicroPlacementWire var0 = new MicroPlacementWire();
+        ModBlocks.blockMicro.registerPlacement(1, var0);
+        ModBlocks.blockMicro.registerPlacement(2, var0);
+        ModBlocks.blockMicro.registerPlacement(3, var0);
+        ModBlocks.blockMicro.registerPlacement(5, var0);
+        GameRegistry.registerTileEntity(TileBluewire.class, "Bluewire");
+        ModBlocks.blockMicro.addTileEntityMapping(1, TileBluewire.class);
+        ModBlocks.blockMicro.addTileEntityMapping(2, TileBluewire.class);
+        ModBlocks.blockMicro.addTileEntityMapping(3, TileBluewire.class);
+        ModBlocks.blockMicro.addTileEntityMapping(4, TileBluewire.class);
+    	ModBlocks.blockMicro.addTileEntityMapping(5, TileBluewire.class);
+		
+	}
 }

@@ -69,7 +69,7 @@ public class ModItems {
 		Harmonionboots = new ItemHarmonionArmor(ItemIds.Harmonion_Boots, 9, harmonionarmor, Harmonion.proxy.addArmor("Harmonion/core/armor/soundstone"), 3).setIconIndex(6).setItemName(Strings.Sound_Stone_Boots_Name);
 		HarmonionDoor = new ItemHarmonionDoor(ItemIds.Harmonion_Door);
 		
-		itemBatteryEmpty = new ItemTextured(27282, 25, Reference.SPRITE_SHEET_LOCATION + Reference.POWER_SPRITE_SHEET);
+		itemBatteryEmpty = new ItemTextured(27282, 14, Reference.SPRITE_SHEET_LOCATION + Reference.POWER_SPRITE_SHEET);
         itemBatteryEmpty.setItemName("btbattery");
         itemBatteryPowered = new ItemBattery(27283);
         itemBatteryPowered.setItemName("btbattery");

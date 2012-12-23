@@ -1,0 +1,37 @@
+# Harmonion Default Language
+
+tile.Soundstoneore.name=Harmonion Ore
+tile.Resoniumore.name=Resonium Ore
+tile.Soundstoneportal.name=Soundstone Portal
+tile.Soundstoneblock.name=Soundstone Block
+tile.Soundstonefire.name=Soundstone Fire
+tile.Soundstonelog.name=Crystal Oak
+tile.Soundstoneleaves.name=Crystal Leaves
+tile.Soundstonesapling.name=Crystalline Sapling
+tile.Soundstonedoor.name=HarmonionDoor
+tile.Soundstoneplank.name=Crystal Planks
+tile.bluewire.name=Soundstone Wire
+tile.rpbatbox.name=Battery Box
+tile.rpthermo.name=Thermopile
+tile.rpsolar.name=Solar Panel
+
+item.Harmonicsword.name=Harmonic Sword
+item.Refinedsoundstone.name=Refined Soundstone
+item.Soundstonepearl.name=Soundstone Pearl
+item.Soundstonepick.name=Soundstone Pickaxe
+item.Soundstoneaxe.name=Soundstone Axe
+item.Soundstoneshovel.name=Soundstone Shovel
+item.Soundstonehoe.name=Soundstone Hoe
+item.Soundstonehelmet.name=Soundstone Helmet
+item.Soundstonechestplate.name=Soundstone ChestPlate
+item.Soundstonelegs.name=Soundstone Leggings
+item.Soundstoneboots.name=Soundstone Boots
+item.Resoniumpowder.name=Resonium Powder
+item.Soundstonedoor.name=Harmonion Door
+item.btbattery.name=Harmonion Battery
+item.sonicDriver.name=Sonic Screwdriver
+
+# Groups
+itemGroup.HarmonionB=Harmonion Blocks
+itemGroup.HarmonionP=Harmonion Power
+itemGroup.HarmonionI=Harmonion Items

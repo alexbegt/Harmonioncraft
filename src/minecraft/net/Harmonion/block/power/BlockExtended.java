@@ -8,10 +8,10 @@ import java.util.Random;
 
 import net.Harmonion.block.ModBlocks;
 import net.Harmonion.item.power.ItemExtended;
-import net.Harmonion.tileentity.CoreLib;
-import net.Harmonion.tileentity.RenderCustomBlock;
-import net.Harmonion.tileentity.RenderLib;
-import net.Harmonion.tileentity.TileExtended;
+import net.Harmonion.power.CoreLib;
+import net.Harmonion.power.RenderCustomBlock;
+import net.Harmonion.power.RenderLib;
+import net.Harmonion.power.TileExtended;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;

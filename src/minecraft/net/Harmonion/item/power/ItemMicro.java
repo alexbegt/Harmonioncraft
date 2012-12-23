@@ -5,12 +5,12 @@ import cpw.mods.fml.relauncher.SideOnly;
 import java.util.List;
 
 import net.Harmonion.block.ModBlocks;
-import net.Harmonion.tileentity.CoreLib;
-import net.Harmonion.tileentity.CoverLib;
-import net.Harmonion.tileentity.ICoverable;
-import net.Harmonion.tileentity.IMicroPlacement;
-import net.Harmonion.tileentity.RedPowerLib;
-import net.Harmonion.tileentity.WorldCoord;
+import net.Harmonion.power.CoreLib;
+import net.Harmonion.power.CoverLib;
+import net.Harmonion.power.ICoverable;
+import net.Harmonion.power.IMicroPlacement;
+import net.Harmonion.power.RedPowerLib;
+import net.Harmonion.power.WorldCoord;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;

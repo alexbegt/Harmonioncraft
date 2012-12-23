@@ -2,9 +2,9 @@ package net.Harmonion.block.power;
 
 import net.Harmonion.block.ModBlocks;
 import net.Harmonion.item.power.ItemMicro;
-import net.Harmonion.tileentity.CoreLib;
-import net.Harmonion.tileentity.IMicroPlacement;
-import net.Harmonion.tileentity.RedPowerLib;
+import net.Harmonion.power.CoreLib;
+import net.Harmonion.power.IMicroPlacement;
+import net.Harmonion.power.RedPowerLib;
 import net.minecraft.item.Item;
 import net.minecraft.world.IBlockAccess;
 

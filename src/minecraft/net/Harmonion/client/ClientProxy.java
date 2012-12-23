@@ -5,11 +5,13 @@ import net.Harmonion.client.model.ModelHarmonionWolf;
 import net.Harmonion.client.renderer.entity.RenderHarmonionWolf;
 import net.Harmonion.client.renderer.tileentity.RenderHarmonion;
 import net.Harmonion.entity.passive.EntityHarmonionWolf;
-import net.Harmonion.tileentity.IHandlePackets;
-import net.Harmonion.tileentity.Packet211TileDesc;
-import net.Harmonion.tileentity.RenderCustomBlock;
-import net.Harmonion.tileentity.RenderLib;
-import net.Harmonion.tileentity.RenderRedwire;
+import net.Harmonion.power.IHandlePackets;
+import net.Harmonion.power.Packet211TileDesc;
+import net.Harmonion.power.RenderBatteryBox;
+import net.Harmonion.power.RenderCustomBlock;
+import net.Harmonion.power.RenderLib;
+import net.Harmonion.power.RenderRedwire;
+import net.Harmonion.power.RenderSolarPanel;
 import net.Harmonion.util.CommonProxy;
 import net.Harmonion.util.Reference;
 import net.Harmonion.util.ThreadDownloadResourcesHandler;
@@ -78,6 +80,8 @@ public class ClientProxy extends CommonProxy implements ISimpleBlockRenderingHan
     @Override
     public void initEntitysClient() {
     	RenderLib.setDefaultRenderer(ModBlocks.blockMicro, 8, RenderRedwire.class);
+    	RenderLib.setRenderer(ModBlocks.blockMachine, 0, RenderBatteryBox.class);
+    	RenderLib.setRenderer(ModBlocks.blockMachinePanel, 0, RenderSolarPanel.class);
     	ModBlocks.customBlockModel = RenderingRegistry.getNextAvailableRenderId();
     	
     	RenderingRegistry.registerBlockHandler(ModBlocks.customBlockModel, new ClientProxy());

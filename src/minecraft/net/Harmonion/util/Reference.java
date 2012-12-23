@@ -48,6 +48,7 @@ public class Reference {
     public static final String POWER_SPRITE_SHEET = "Harmonion_power.png";
     
     public static final String GUI_SHEET_LOCATION = "/net/Harmonion/client/textures/gui/";
+    public static final String BATBOX_SPRITE_SHEET = "batbox.png";
     
     public static final String WOLF_SHEET_LOCATION = "/net/Harmonion/client/textures/entity/";
     public static final String LMM_WOLF_MAIN_SHEET = "cyberwolfn.png";

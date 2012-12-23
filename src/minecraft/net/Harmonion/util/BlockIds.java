@@ -19,9 +19,11 @@ public class BlockIds {
     public static int Harmonion_Door_Default = 604;
     public static int Harmonion_Glass_Default = 605;
     public static int Harmonion_Block_Default = 606;
-    
     public static int Harmonion_Portal_Default = 607;
     public static int Harmonion_Fire_Default = 608;
+    public static int Harmonion_Wire_Default = 609;
+    public static int Harmonion_Machine_Default = 610;
+    
     public static int Harmonion_Dimension_Default = 12;
     
     /* Current block ids */
@@ -32,9 +34,11 @@ public class BlockIds {
     public static int Harmonion_Sapling;
     public static int Harmonion_Door;
     public static int Harmonion_Glass;
-    
     public static int Harmonion_Portal;
     public static int Harmonion_Fire;
+    public static int Harmonion_Wire;
+    public static int Harmonion_Machine;
+    
     public static int Harmonion_Dimension;
 
 }
