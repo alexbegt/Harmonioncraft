@@ -49,7 +49,7 @@ public class ModItems {
     public static Item itemBatteryPowered;
 	
 	static EnumToolMaterial harmoniontool = EnumHelper.addToolMaterial("Harmonion_Tool", 3, 3000, 40.0F, 3, 9);
-	static EnumArmorMaterial harmonionarmor = EnumHelper.addArmorMaterial("Harmonion_tool", 30, new int[]{3, 8, 6, 3}, 9);
+	static EnumArmorMaterial harmonionarmor = EnumHelper.addArmorMaterial("Harmonion_Armor", 30, new int[]{3, 8, 6, 3}, 9);
 	
 	public static final CreativeTabs tabHarmonionI = new CreativeTabHarmonionI(CreativeTabs.getNextID(), "HarmonionI");
 	

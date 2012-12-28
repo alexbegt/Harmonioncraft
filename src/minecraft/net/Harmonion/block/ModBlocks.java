@@ -1,5 +1,6 @@
 package net.Harmonion.block;
 
+import net.Harmonion.block.power.BlockAppliance;
 import net.Harmonion.block.power.BlockMachine;
 import net.Harmonion.block.power.BlockMachinePanel;
 import net.Harmonion.block.power.BlockMicro;
@@ -14,6 +15,7 @@ import net.Harmonion.power.MicroPlacementWire;
 import net.Harmonion.power.RedPowerLib;
 import net.Harmonion.power.TileBatteryBox;
 import net.Harmonion.power.TileBluewire;
+import net.Harmonion.power.TileChargingBench;
 import net.Harmonion.power.TileCovered;
 import net.Harmonion.power.TileSolarPanel;
 import net.Harmonion.server.Harmonion;
@@ -46,6 +48,7 @@ public class ModBlocks {
 	public static BlockMicro blockMicro;
 	public static BlockMachine blockMachine;
 	public static BlockMachinePanel blockMachinePanel;
+	public static BlockAppliance blockAppliance;
 	public static int customBlockModel;
 	
 	public static final CreativeTabs tabHarmonioncraftB = new CreativeTabHarmonionB(CreativeTabs.getNextID(), "HarmonionB");
@@ -82,6 +85,12 @@ public class ModBlocks {
         GameRegistry.registerTileEntity(TileSolarPanel.class, "HarmonionSolar");
         blockMachinePanel.addTileEntityMapping(0, TileSolarPanel.class);
         blockMachinePanel.setItemName(0, "Harmonionsolar");
+        
+        blockAppliance = new BlockAppliance(612);
+        GameRegistry.registerBlock(blockAppliance, ItemExtended.class, "appliance");
+        GameRegistry.registerTileEntity(TileChargingBench.class, "HarmonionCharge");
+        blockAppliance.setItemName(0, "harmonioncharge");
+        blockAppliance.addTileEntityMapping(0, TileChargingBench.class);
         
         
         int var1;

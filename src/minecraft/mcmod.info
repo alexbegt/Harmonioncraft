@@ -11,7 +11,7 @@
     "alexbegt", "DJPantheris"
   ],
   "credits": "Authored by Alexbegt and DJPantheris.",
-  "logoFile": "/net/Harmonion/core/textures/Harmonion_logo.png",
+  "logoFile": "/net/Harmonion/client/textures/Harmonion_logo.png",
   "screenshots": [
   ],
   "parent":"",

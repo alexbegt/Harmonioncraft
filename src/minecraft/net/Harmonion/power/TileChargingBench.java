@@ -1,10 +1,7 @@
 package net.Harmonion.power;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
-import net.Harmonion.block.ModBlocks;
-import net.Harmonion.item.ModItems;
 import net.Harmonion.server.Harmonion;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,19 +9,14 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
-import net.minecraft.network.packet.Packet;
-import net.minecraft.world.IBlockAccess;
-import net.minecraftforge.common.ForgeDirection;
-import net.minecraftforge.common.ISidedInventory;
 
-public class TileBatteryBox extends TileExtended implements IHandlePackets, IInventory, IBluePowerConnectable, ISidedInventory, IFrameSupport
+public class TileChargingBench extends TileAppliance implements IInventory, IBluePowerConnectable
 {
-    BluePowerConductor cond = new TileBatteryBox$1(this);
-    protected ItemStack[] contents = new ItemStack[2];
-    public int Charge = 0;
-    public int Storage = 0;
-    public int ConMask = -1;
+    BluePowerEndpoint cond = new TileChargingBench$1(this);
     public boolean Powered = false;
+    public int Storage = 0;
+    private ItemStack[] contents = new ItemStack[16];
+    public int ConMask = -1;
 
     public int getConnectableMask()
     {
@@ -33,7 +25,7 @@ public class TileBatteryBox extends TileExtended implements IHandlePackets, IInv
 
     public int getConnectClass(int var1)
     {
-        return 65;
+        return 64;
     }
 
     public int getCornerPowerMode()
@@ -46,62 +38,29 @@ public class TileBatteryBox extends TileExtended implements IHandlePackets, IInv
         return this.cond;
     }
 
-    public int getStartInventorySide(ForgeDirection var1)
+    public int getLightValue()
     {
-        int var2 = var1.ordinal();
-        return var2 == 0 ? 1 : 0;
-    }
-
-    public int getSizeInventorySide(ForgeDirection var1)
-    {
-        int var2 = var1.ordinal();
-        return var2 >= 2 ? 0 : 1;
-    }
-
-    public void addHarvestContents(ArrayList var1)
-    {
-        ItemStack var2 = new ItemStack(this.getBlockID(), 1, this.getExtendedID());
-
-        if (this.Storage > 0)
-        {
-            var2.setTagCompound(new NBTTagCompound());
-            var2.stackTagCompound.setShort("batLevel", (short)this.Storage);
-        }
-
-        var1.add(var2);
-    }
-
-    public void onBlockPlaced(ItemStack var1, int var2, EntityLiving var3)
-    {
-        if (var1.stackTagCompound != null)
-        {
-            this.Storage = var1.stackTagCompound.getShort("batLevel");
-        }
+        return 0;
     }
 
     public int getExtendedID()
     {
-        return 6;
-    }
-
-    public int getBlockID()
-    {
-        return ModBlocks.blockMachine.blockID;
+        return 5;
     }
 
     public int getMaxStorage()
     {
-        return 6000;
+        return 3000;
     }
 
     public int getStorageForRender()
     {
-        return this.Storage * 8 / this.getMaxStorage();
+        return this.Storage * 4 / this.getMaxStorage();
     }
 
     public int getChargeScaled(int var1)
     {
-        return Math.min(var1, var1 * this.Charge / 1000);
+        return Math.min(var1, var1 * this.cond.Charge / 1000);
     }
 
     public int getStorageScaled(int var1)
@@ -127,63 +86,95 @@ public class TileBatteryBox extends TileExtended implements IHandlePackets, IInv
 
             this.cond.iterate();
             this.dirtyBlock();
-            this.Charge = (int)(this.cond.getVoltage() * 10.0D);
+
+            if (this.cond.Flow == 0)
+            {
+                if (this.Powered)
+                {
+                    this.Powered = false;
+                    this.updateBlock();
+                }
+            }
+            else if (!this.Powered)
+            {
+                this.Powered = true;
+                this.updateBlock();
+            }
+
             int var1 = this.getStorageForRender();
-            int var2;
 
-            if (this.contents[0] != null && this.Storage > 0)
+            if (this.cond.Charge > 600 && this.Storage < this.getMaxStorage())
             {
-                if (this.contents[0].getItem() == ModItems.itemBatteryEmpty)
-                {
-                    this.contents[0] = new ItemStack(ModItems.itemBatteryPowered, 1, ModItems.itemBatteryPowered.getMaxDamage());
-                    this.onInventoryChanged();
-                }
-
-                if (this.contents[0].getItem() == ModItems.itemBatteryPowered)
-                {
-                    var2 = Math.min(this.contents[0].getItemDamage() - 1, this.Storage);
-                    var2 = Math.min(var2, 25);
-                    this.Storage -= var2;
-                    this.contents[0].setItemDamage(this.contents[0].getItemDamage() - var2);
-                    this.onInventoryChanged();
-                }
-            }
-
-            if (this.contents[1] != null && this.contents[1].getItem() == ModItems.itemBatteryPowered)
-            {
-                var2 = Math.min(this.contents[1].getMaxDamage() - this.contents[1].getItemDamage(), this.getMaxStorage() - this.Storage);
-                var2 = Math.min(var2, 25);
-                this.Storage += var2;
-                this.contents[1].setItemDamage(this.contents[1].getItemDamage() + var2);
-
-                if (this.contents[1].getItemDamage() == this.contents[1].getMaxDamage())
-                {
-                    this.contents[1] = new ItemStack(ModItems.itemBatteryEmpty, 1);
-                }
-
-                this.onInventoryChanged();
-            }
-
-            if (this.Charge > 900 && this.Storage < this.getMaxStorage())
-            {
-                var2 = Math.min((this.Charge - 900) / 10, 10);
+                int var2 = Math.min((this.cond.Charge - 600) / 40, 5);
                 var2 = Math.min(var2, this.getMaxStorage() - this.Storage);
                 this.cond.drawPower((double)(var2 * 1000));
                 this.Storage += var2;
             }
-            else if (this.Charge < 800 && this.Storage > 0 && !this.Powered)
+
+            boolean var5 = this.Active;
+            this.Active = false;
+
+            if (this.Storage > 0)
             {
-                var2 = Math.min((800 - this.Charge) / 10, 10);
-                var2 = Math.min(var2, this.Storage);
-                this.cond.applyPower((double)(var2 * 1000));
-                this.Storage -= var2;
+                for (int var3 = 0; var3 < 16; ++var3)
+                {
+                    if (this.contents[var3] != null && this.contents[var3].getItem() instanceof IChargeableHarmonion && this.contents[var3].getItemDamage() > 1)
+                    {
+                        int var4 = Math.min(this.contents[var3].getItemDamage() - 1, this.Storage);
+                        var4 = Math.min(var4, 25);
+                        this.contents[var3].setItemDamage(this.contents[var3].getItemDamage() - var4);
+                        this.Storage -= var4;
+                        this.onInventoryChanged();
+                        this.Active = true;
+                    }
+                }
             }
 
-            if (var1 != this.getStorageForRender())
+            if (var1 != this.getStorageForRender() || var5 != this.Active)
             {
                 this.updateBlock();
             }
         }
+    }
+
+    public boolean onBlockActivated(EntityPlayer var1)
+    {
+        if (var1.isSneaking())
+        {
+            return false;
+        }
+        else if (CoreLib.isClient(this.worldObj))
+        {
+            return true;
+        }
+        else
+        {
+            var1.openGui(Harmonion.instance, 14, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
+            return true;
+        }
+    }
+
+    public void onBlockPlaced(ItemStack var1, int var2, EntityLiving var3)
+    {
+        this.Rotation = (int)Math.floor((double)(var3.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+    }
+
+    public void onBlockRemoval()
+    {
+        for (int var1 = 0; var1 < 2; ++var1)
+        {
+            ItemStack var2 = this.contents[var1];
+
+            if (var2 != null && var2.stackSize > 0)
+            {
+                CoreLib.dropItem(this.worldObj, this.xCoord, this.yCoord, this.zCoord, var2);
+            }
+        }
+    }
+
+    public void onBlockNeighborChange(int var1)
+    {
+        this.ConMask = -1;
     }
 
     /**
@@ -191,7 +182,7 @@ public class TileBatteryBox extends TileExtended implements IHandlePackets, IInv
      */
     public int getSizeInventory()
     {
-        return 2;
+        return 16;
     }
 
     /**
@@ -276,7 +267,7 @@ public class TileBatteryBox extends TileExtended implements IHandlePackets, IInv
      */
     public String getInvName()
     {
-        return "Battery Box";
+        return "Charging Bench";
     }
 
     /**
@@ -285,7 +276,7 @@ public class TileBatteryBox extends TileExtended implements IHandlePackets, IInv
      */
     public int getInventoryStackLimit()
     {
-        return 1;
+        return 64;
     }
 
     /**
@@ -299,79 +290,6 @@ public class TileBatteryBox extends TileExtended implements IHandlePackets, IInv
     public void closeChest() {}
 
     public void openChest() {}
-
-    public void onBlockNeighborChange(int var1)
-    {
-        this.ConMask = -1;
-
-        if (RedPowerLib.isPowered(this.worldObj, this.xCoord, this.yCoord, this.zCoord, 16777215, 63))
-        {
-            if (!this.Powered)
-            {
-                this.Powered = true;
-                this.dirtyBlock();
-            }
-        }
-        else if (this.Powered)
-        {
-            this.Powered = false;
-            this.dirtyBlock();
-        }
-    }
-
-    public boolean onBlockActivated(EntityPlayer var1)
-    {
-        if (var1.isSneaking())
-        {
-            return false;
-        }
-        else if (CoreLib.isClient(this.worldObj))
-        {
-            return true;
-        }
-        else
-        {
-            var1.openGui(Harmonion.instance, 8, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
-            return true;
-        }
-    }
-
-    public void onBlockRemoval()
-    {
-        super.onBlockRemoval();
-
-        for (int var1 = 0; var1 < 2; ++var1)
-        {
-            ItemStack var2 = this.contents[var1];
-
-            if (var2 != null && var2.stackSize > 0)
-            {
-                CoreLib.dropItem(this.worldObj, this.xCoord, this.yCoord, this.zCoord, var2);
-            }
-        }
-    }
-
-    public byte[] getFramePacket()
-    {
-        Packet211TileDesc var1 = new Packet211TileDesc();
-        var1.subId = 7;
-        this.writeToPacket(var1);
-        var1.headout.write(var1.subId);
-        return var1.toByteArray();
-    }
-
-    public void handleFramePacket(byte[] var1) throws IOException
-    {
-        Packet211TileDesc var2 = new Packet211TileDesc(var1);
-        var2.subId = var2.getByte();
-        this.readFromPacket(var2);
-    }
-
-    public void onFrameRefresh(IBlockAccess var1) {}
-
-    public void onFramePickup(IBlockAccess var1) {}
-
-    public void onFrameDrop() {}
 
     /**
      * Reads a tile entity from NBT.
@@ -394,7 +312,6 @@ public class TileBatteryBox extends TileExtended implements IHandlePackets, IInv
         }
 
         this.cond.readFromNBT(var1);
-        this.Charge = var1.getShort("chg");
         this.Storage = var1.getShort("stor");
         byte var6 = var1.getByte("ps");
         this.Powered = (var6 & 1) > 0;
@@ -422,53 +339,25 @@ public class TileBatteryBox extends TileExtended implements IHandlePackets, IInv
 
         var1.setTag("Items", var2);
         this.cond.writeToNBT(var1);
-        var1.setShort("chg", (short)this.Charge);
         var1.setShort("stor", (short)this.Storage);
         var3 = this.Powered ? 1 : 0;
-        var1.setByte("ps", (byte)var3);
+        var1.setByte("ps2", (byte)var3);
     }
 
     protected void readFromPacket(Packet211TileDesc var1) throws IOException
     {
+        this.Rotation = var1.getByte();
+        int var2 = var1.getByte();
+        this.Active = (var2 & 1) > 0;
+        this.Powered = (var2 & 2) > 0;
         this.Storage = (int)var1.getUVLC();
     }
 
     protected void writeToPacket(Packet211TileDesc var1)
     {
+        var1.addByte(this.Rotation);
+        int var2 = (this.Active ? 1 : 0) | (this.Powered ? 2 : 0);
+        var1.addByte(var2);
         var1.addUVLC((long)this.Storage);
-    }
-
-    /**
-     * Overriden in a sign to provide the text.
-     */
-    public Packet getDescriptionPacket()
-    {
-        Packet211TileDesc var1 = new Packet211TileDesc();
-        var1.subId = 7;
-        var1.xCoord = this.xCoord;
-        var1.yCoord = this.yCoord;
-        var1.zCoord = this.zCoord;
-        this.writeToPacket(var1);
-        var1.encode();
-        return var1;
-    }
-
-    public void handlePacket(Packet211TileDesc var1)
-    {
-        try
-        {
-            if (var1.subId != 7)
-            {
-                return;
-            }
-
-            this.readFromPacket(var1);
-        }
-        catch (IOException var3)
-        {
-            ;
-        }
-
-        this.updateBlock();
     }
 }

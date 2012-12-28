@@ -8,6 +8,7 @@ import net.Harmonion.entity.passive.EntityHarmonionWolf;
 import net.Harmonion.power.IHandlePackets;
 import net.Harmonion.power.Packet211TileDesc;
 import net.Harmonion.power.RenderBatteryBox;
+import net.Harmonion.power.RenderChargingBench;
 import net.Harmonion.power.RenderCustomBlock;
 import net.Harmonion.power.RenderLib;
 import net.Harmonion.power.RenderRedwire;
@@ -82,6 +83,7 @@ public class ClientProxy extends CommonProxy implements ISimpleBlockRenderingHan
     	RenderLib.setDefaultRenderer(ModBlocks.blockMicro, 8, RenderRedwire.class);
     	RenderLib.setRenderer(ModBlocks.blockMachine, 0, RenderBatteryBox.class);
     	RenderLib.setRenderer(ModBlocks.blockMachinePanel, 0, RenderSolarPanel.class);
+    	RenderLib.setRenderer(ModBlocks.blockAppliance, 0, RenderChargingBench.class);
     	ModBlocks.customBlockModel = RenderingRegistry.getNextAvailableRenderId();
     	
     	RenderingRegistry.registerBlockHandler(ModBlocks.customBlockModel, new ClientProxy());

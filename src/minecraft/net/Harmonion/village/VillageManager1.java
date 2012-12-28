@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Random;
 import net.Harmonion.item.ModItems;
 import net.Harmonion.world.gen.structure.ComponentPowerRoom;
-import net.Harmonion.world.gen.structure.ComponentWizardTower;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.util.MathHelper;
 import net.minecraft.village.MerchantRecipe;
@@ -16,7 +15,7 @@ import cpw.mods.fml.common.registry.VillagerRegistry.IVillageTradeHandler;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class VillageManager implements IVillageCreationHandler, IVillageTradeHandler
+public class VillageManager1 implements IVillageCreationHandler, IVillageTradeHandler
 {
     public void manipulateTradesForVillager(EntityVillager var1, MerchantRecipeList var2, Random var3)
     {
@@ -28,16 +27,16 @@ public class VillageManager implements IVillageCreationHandler, IVillageTradeHan
 
     public StructureVillagePieceWeight getVillagePieceWeight(Random var1, int var2)
     {
-        return new StructureVillagePieceWeight(ComponentWizardTower.class, 15, MathHelper.getRandomIntegerInRange(var1, 0 + var2, 1 + var2));
+        return new StructureVillagePieceWeight(ComponentPowerRoom.class, 15, MathHelper.getRandomIntegerInRange(var1, 0, 1 + var2));
     }
 
     public Class getComponentClass()
     {
-        return ComponentWizardTower.class;
+        return ComponentPowerRoom.class;
     }
 
     public Object buildComponent(StructureVillagePieceWeight var1, ComponentVillageStartPiece var2, List var3, Random var4, int var5, int var6, int var7, int var8, int var9)
     {
-        return ComponentWizardTower.buildComponent(var2, var3, var4, var5, var6, var7, var8, var9);
+        return ComponentPowerRoom.buildComponent(var2, var3, var4, var5, var6, var7, var8, var9);
     }
 }
