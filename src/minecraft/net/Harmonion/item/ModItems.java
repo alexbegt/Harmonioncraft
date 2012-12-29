@@ -3,8 +3,6 @@ package net.Harmonion.item;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.Harmonion.creativetab.CreativeTabHarmonionI;
-import net.Harmonion.item.power.ItemBattery;
-import net.Harmonion.item.power.ItemTextured;
 import net.Harmonion.server.Harmonion;
 import net.Harmonion.util.ItemIds;
 import net.Harmonion.util.Reference;
@@ -68,11 +66,6 @@ public class ModItems {
 		Harmonionlegs = new ItemHarmonionArmor(ItemIds.Harmonion_Leggings, 8, harmonionarmor, Harmonion.proxy.addArmor("Harmonion/core/armor/soundstone"), 2).setIconIndex(5).setItemName(Strings.Sound_Stone_Leggings_Name);
 		Harmonionboots = new ItemHarmonionArmor(ItemIds.Harmonion_Boots, 9, harmonionarmor, Harmonion.proxy.addArmor("Harmonion/core/armor/soundstone"), 3).setIconIndex(6).setItemName(Strings.Sound_Stone_Boots_Name);
 		HarmonionDoor = new ItemHarmonionDoor(ItemIds.Harmonion_Door);
-		
-		itemBatteryEmpty = new ItemTextured(27282, 14, Reference.SPRITE_SHEET_LOCATION + Reference.POWER_SPRITE_SHEET);
-        itemBatteryEmpty.setItemName("Harmonionbattery");
-        itemBatteryPowered = new ItemBattery(27283);
-        itemBatteryPowered.setItemName("Harmonionbattery");
 		
 		/* Item Recipes*/
 		initItemRecipes();

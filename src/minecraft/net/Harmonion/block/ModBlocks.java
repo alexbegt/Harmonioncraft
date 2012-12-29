@@ -1,23 +1,7 @@
 package net.Harmonion.block;
 
-import net.Harmonion.block.power.BlockAppliance;
-import net.Harmonion.block.power.BlockMachine;
-import net.Harmonion.block.power.BlockMachinePanel;
-import net.Harmonion.block.power.BlockMicro;
 import net.Harmonion.creativetab.CreativeTabHarmonionB;
-import net.Harmonion.creativetab.CreativeTabHarmonionP;
 import net.Harmonion.item.ModItems;
-import net.Harmonion.item.power.ItemExtended;
-import net.Harmonion.item.power.ItemMachinePanel;
-import net.Harmonion.item.power.ItemMicro;
-import net.Harmonion.power.CoverLib;
-import net.Harmonion.power.MicroPlacementWire;
-import net.Harmonion.power.RedPowerLib;
-import net.Harmonion.power.TileBatteryBox;
-import net.Harmonion.power.TileBluewire;
-import net.Harmonion.power.TileChargingBench;
-import net.Harmonion.power.TileCovered;
-import net.Harmonion.power.TileSolarPanel;
 import net.Harmonion.server.Harmonion;
 import net.Harmonion.util.BlockIds;
 import net.Harmonion.world.WorldProviderHarmonion;
@@ -45,14 +29,7 @@ public class ModBlocks {
 	public static Block HarmonionDoor;
 	public static Block HarmonionGlass;
 	
-	public static BlockMicro blockMicro;
-	public static BlockMachine blockMachine;
-	public static BlockMachinePanel blockMachinePanel;
-	public static BlockAppliance blockAppliance;
-	public static int customBlockModel;
-	
 	public static final CreativeTabs tabHarmonioncraftB = new CreativeTabHarmonionB(CreativeTabs.getNextID(), "HarmonionB");
-	public static final CreativeTabs tabHarmonioncraftW = new CreativeTabHarmonionP(CreativeTabs.getNextID(), "HarmonionP");
 	
 	public static void init() {
 		
@@ -66,58 +43,6 @@ public class ModBlocks {
 		HarmonionGlass = new BlockHarmonionGlass(BlockIds.Harmonion_Glass, 4, Material.glass, false);
 		HarmonionPortal = (BlockHarmonionPortal)((BlockHarmonionPortal)(new BlockHarmonionPortal(BlockIds.Harmonion_Portal, 14)));
 		HarmonionFire = (new BlockHarmonionFire(BlockIds.Harmonion_Fire, Block.fire.blockIndexInTexture));
-		
-		blockMicro = new BlockMicro(609);
-        blockMicro.setBlockName("Harmonionwire");
-        GameRegistry.registerBlock(blockMicro, ItemMicro.class, "micro");
-        blockMicro.addTileEntityMapping(0, TileCovered.class);
-    	CoverLib.blockCoverPlate = blockMicro;
-    	
-    	blockMachine = new BlockMachine(610);
-        blockMachine.setBlockName("rpmachine");
-        GameRegistry.registerBlock(blockMachine, ItemExtended.class, "machine");
-        blockMachine.setItemName(0, "Harmonionbatbox");
-        GameRegistry.registerTileEntity(TileBatteryBox.class, "HarmoionBatBox");
-        blockMachine.addTileEntityMapping(0, TileBatteryBox.class);
-        
-        blockMachinePanel = new BlockMachinePanel(611);
-        GameRegistry.registerBlock(blockMachinePanel, ItemMachinePanel.class, "machinePanel");
-        GameRegistry.registerTileEntity(TileSolarPanel.class, "HarmonionSolar");
-        blockMachinePanel.addTileEntityMapping(0, TileSolarPanel.class);
-        blockMachinePanel.setItemName(0, "Harmonionsolar");
-        
-        blockAppliance = new BlockAppliance(612);
-        GameRegistry.registerBlock(blockAppliance, ItemExtended.class, "appliance");
-        GameRegistry.registerTileEntity(TileChargingBench.class, "HarmonionCharge");
-        blockAppliance.setItemName(0, "harmonioncharge");
-        blockAppliance.addTileEntityMapping(0, TileChargingBench.class);
-        
-        
-        int var1;
-        int var2;
-        RedPowerLib.addCompatibleMapping(0, 1);
-
-        for (var1 = 0; var1 < 16; ++var1)
-        {
-            RedPowerLib.addCompatibleMapping(0, 2 + var1);
-            RedPowerLib.addCompatibleMapping(1, 2 + var1);
-            RedPowerLib.addCompatibleMapping(65, 2 + var1);
-
-            for (var2 = 0; var2 < 16; ++var2)
-            {
-                RedPowerLib.addCompatibleMapping(19 + var2, 2 + var1);
-            }
-
-            RedPowerLib.addCompatibleMapping(18, 2 + var1);
-            RedPowerLib.addCompatibleMapping(18, 19 + var1);
-        }
-
-        RedPowerLib.addCompatibleMapping(0, 65);
-        RedPowerLib.addCompatibleMapping(1, 65);
-        RedPowerLib.addCompatibleMapping(64, 65);
-        RedPowerLib.addCompatibleMapping(64, 67);
-        RedPowerLib.addCompatibleMapping(65, 67);
-        RedPowerLib.addCompatibleMapping(66, 67);
 
 		/* Adds Blocks into the game */
 		OreDictionary.registerOre("HarmonionOre", HarmonionOre);

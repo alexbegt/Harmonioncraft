@@ -5,14 +5,6 @@ import net.Harmonion.client.model.ModelHarmonionWolf;
 import net.Harmonion.client.renderer.entity.RenderHarmonionWolf;
 import net.Harmonion.client.renderer.tileentity.RenderHarmonion;
 import net.Harmonion.entity.passive.EntityHarmonionWolf;
-import net.Harmonion.power.IHandlePackets;
-import net.Harmonion.power.Packet211TileDesc;
-import net.Harmonion.power.RenderBatteryBox;
-import net.Harmonion.power.RenderChargingBench;
-import net.Harmonion.power.RenderCustomBlock;
-import net.Harmonion.power.RenderLib;
-import net.Harmonion.power.RenderRedwire;
-import net.Harmonion.power.RenderSolarPanel;
 import net.Harmonion.util.CommonProxy;
 import net.Harmonion.util.Reference;
 import net.Harmonion.util.ThreadDownloadResourcesHandler;
@@ -48,7 +40,7 @@ import cpw.mods.fml.common.registry.TickRegistry;
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  * 
  */
-public class ClientProxy extends CommonProxy implements ISimpleBlockRenderingHandler {
+public class ClientProxy extends CommonProxy{
 	
 	@Override
 	public void registerTickHander() {
@@ -80,95 +72,9 @@ public class ClientProxy extends CommonProxy implements ISimpleBlockRenderingHan
     
     @Override
     public void initEntitysClient() {
-    	RenderLib.setDefaultRenderer(ModBlocks.blockMicro, 8, RenderRedwire.class);
-    	RenderLib.setRenderer(ModBlocks.blockMachine, 0, RenderBatteryBox.class);
-    	RenderLib.setRenderer(ModBlocks.blockMachinePanel, 0, RenderSolarPanel.class);
-    	RenderLib.setRenderer(ModBlocks.blockAppliance, 0, RenderChargingBench.class);
-    	ModBlocks.customBlockModel = RenderingRegistry.getNextAvailableRenderId();
-    	
-    	RenderingRegistry.registerBlockHandler(ModBlocks.customBlockModel, new ClientProxy());
     	RenderingRegistry.registerEntityRenderingHandler(
     			EntityHarmonionWolf.class, new RenderHarmonionWolf(new ModelHarmonionWolf(),
     					new ModelHarmonionWolf(), 0.5F));
-    }
-    
-    public void processPacket211(Packet211TileDesc var1, NetHandler var2)
-    {
-        if (var2 instanceof NetClientHandler)
-        {
-            NetClientHandler var3 = (NetClientHandler)var2;
-            World var4 = var3.getPlayer().worldObj;
-
-            if (var4.blockExists(var1.xCoord, var1.yCoord, var1.zCoord))
-            {
-                TileEntity var5 = var4.getBlockTileEntity(var1.xCoord, var1.yCoord, var1.zCoord);
-
-                if (var5 instanceof IHandlePackets)
-                {
-                    ((IHandlePackets)var5).handlePacket(var1);
-                    return;
-                }
-            }
-        }
-        else
-        {
-            super.processPacket211(var1, var2);
-        }
-    }
-    
-    public void renderInventoryBlock(Block var1, int var2, int var3, RenderBlocks var4)
-    {
-        if (var3 == ModBlocks.customBlockModel)
-        {
-            RenderCustomBlock var5 = RenderLib.getInvRenderer(var1.blockID, var2);
-
-            if (var5 == null)
-            {
-                System.out.printf("Bad Render at %d:%d\n", new Object[] {Integer.valueOf(var1.blockID), Integer.valueOf(var2)});
-            }
-            else
-            {
-                var5.renderInvBlock(var4, var2);
-            }
-        }
-    }
-
-    public boolean renderWorldBlock(IBlockAccess var1, int var2, int var3, int var4, Block var5, int var6, RenderBlocks var7)
-    {
-        if (var7.overrideBlockTexture >= 0)
-        {
-            return true;
-        }
-        else if (var6 != ModBlocks.customBlockModel)
-        {
-            return false;
-        }
-        else
-        {
-            int var8 = var1.getBlockMetadata(var2, var3, var4);
-            RenderCustomBlock var9 = RenderLib.getRenderer(var5.blockID, var8);
-
-            if (var9 == null)
-            {
-                System.out.printf("Bad Render at %d:%d\n", new Object[] {Integer.valueOf(var5.blockID), Integer.valueOf(var8)});
-                return true;
-            }
-            else
-            {
-                var9.renderWorldBlock(var7, var1, var2, var3, var4, var8);
-                return true;
-            }
-        }
-    }
-
-    public boolean shouldRender3DInInventory()
-    {
-        return true;
-    }
-
-    public int getRenderId()
-    {
-        return ModBlocks.customBlockModel;
     }
     
     public String getCurrentLanguage()

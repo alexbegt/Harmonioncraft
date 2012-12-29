@@ -3,7 +3,6 @@ package net.Harmonion.village;
 import java.util.List;
 import java.util.Random;
 import net.Harmonion.item.ModItems;
-import net.Harmonion.world.gen.structure.ComponentPowerRoom;
 import net.Harmonion.world.gen.structure.ComponentWizardTower;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.util.MathHelper;
