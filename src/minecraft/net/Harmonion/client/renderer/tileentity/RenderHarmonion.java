@@ -22,7 +22,7 @@ public class RenderHarmonion extends RenderBlockHelper implements ISimpleBlockRe
     public void renderInventoryBlock(Block var1, int var2, int var3, RenderBlocks var4)
     {
         var1.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-        var4.updateCustomBlockBounds(var1);
+        var4.setRenderBoundsFromBlock(var1);
 
         if (var2 < 5)
         {
@@ -47,7 +47,7 @@ public class RenderHarmonion extends RenderBlockHelper implements ISimpleBlockRe
         float var8 = (float)var5.getBlue() / 255.0F;
         GL11.glColor3f(var6, var7, var8);
         var1.setBlockBounds(0.01F, 0.01F, 0.01F, 0.99F, 0.99F, 0.99F);
-        var4.updateCustomBlockBounds(var1);
+        var4.setRenderBoundsFromBlock(var1);
 
         if (var2 < 5)
         {
@@ -64,7 +64,7 @@ public class RenderHarmonion extends RenderBlockHelper implements ISimpleBlockRe
 
         GL11.glColor3f(1.0F, 1.0F, 1.0F);
         var1.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-        var4.updateCustomBlockBounds(var1);
+        var4.setRenderBoundsFromBlock(var1);
     }
 
     public boolean renderWorldBlock(IBlockAccess var1, int var2, int var3, int var4, Block var5, int var6, RenderBlocks var7)
@@ -72,7 +72,7 @@ public class RenderHarmonion extends RenderBlockHelper implements ISimpleBlockRe
         setBrightness(var1, var2, var3, var4, var5);
         int var9 = var1.getBlockMetadata(var2, var3, var4);
         var5.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-        var7.updateCustomBlockBounds(var5);
+        var7.setRenderBoundsFromBlock(var5);
 
         if (var9 == 11)
         {
@@ -85,7 +85,7 @@ public class RenderHarmonion extends RenderBlockHelper implements ISimpleBlockRe
             var10.setColorOpaque_I(colors[var9 % 6].getRGB());
             var10.setBrightness(var9 == 5 ? 175 : 200);
             var5.setBlockBounds(0.01F, 0.01F, 0.01F, 0.99F, 0.99F, 0.99F);
-            var7.updateCustomBlockBounds(var5);
+            var7.setRenderBoundsFromBlock(var5);
 
             if (var9 == 5)
             {
@@ -99,7 +99,7 @@ public class RenderHarmonion extends RenderBlockHelper implements ISimpleBlockRe
 
         var7.overrideBlockTexture = -1;
         var5.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-        var7.updateCustomBlockBounds(var5);
+        var7.setRenderBoundsFromBlock(var5);
         return true;
     }
 

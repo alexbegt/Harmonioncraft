@@ -11,6 +11,14 @@ import net.Harmonion.client.ClientProxy;
 import net.Harmonion.command.CommandHMCV;
 import net.Harmonion.entity.EntityLib;
 import net.Harmonion.entity.passive.EntityHarmonionWolf;
+import net.Harmonion.power.ContainerBatteryBox;
+import net.Harmonion.power.CoreLib;
+import net.Harmonion.power.GuiBatteryBox;
+import net.Harmonion.power.IHandlePackets;
+import net.Harmonion.power.MicroPlacementWire;
+import net.Harmonion.power.Packet211TileDesc;
+import net.Harmonion.power.TileBatteryBox;
+import net.Harmonion.power.TileBluewire;
 import net.Harmonion.server.Harmonion;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -72,6 +80,27 @@ public class CommonProxy implements IGuiHandler {
         return var2.getConfigurationManager().areCommandsAllowed(var1.username);
     }
 	
+	public void processPacket211(Packet211TileDesc var1, NetHandler var2)
+    {
+        if (var2 instanceof NetServerHandler)
+        {
+            NetServerHandler var3 = (NetServerHandler)var2;
+            EntityPlayerMP var4 = var3.getPlayer();
+            World var5 = var4.worldObj;
+
+            if (var5.blockExists(var1.xCoord, var1.yCoord, var1.zCoord))
+            {
+                TileEntity var6 = var5.getBlockTileEntity(var1.xCoord, var1.yCoord, var1.zCoord);
+
+                if (var6 instanceof IHandlePackets)
+                {
+                    ((IHandlePackets)var6).handlePacket(var1);
+                    return;
+                }
+            }
+        }
+    }
+	
 	public String getCurrentLanguage()
 	{
 	       return null;
@@ -128,6 +157,30 @@ public class CommonProxy implements IGuiHandler {
         return 0;
     }
     
+    public Object getClientGuiElement(int var1, EntityPlayer var2, World var3, int var4, int var5, int var6)
+    {
+        switch (var1)
+        {
+            case 8:
+                return new GuiBatteryBox(var2.inventory, (TileBatteryBox)CoreLib.getGuiTileEntity(var3, var4, var5, var6, TileBatteryBox.class));
+                
+            default:
+                return null;
+        }
+    }
+
+    public Object getServerGuiElement(int var1, EntityPlayer var2, World var3, int var4, int var5, int var6)
+    {
+        switch (var1)
+        {
+            case 8:
+                return new ContainerBatteryBox(var2.inventory, (TileBatteryBox)CoreLib.getTileEntity(var3, var4, var5, var6, TileBatteryBox.class));
+
+            default:
+                return null;
+        }
+    }
+    
     public boolean isSimulating()
     {
         return Thread.currentThread() instanceof ThreadMinecraftServer;
@@ -170,19 +223,21 @@ public class CommonProxy implements IGuiHandler {
     }
     public int addArmor(String name) {
         return 0;
-      }
+    }
 
-	@Override
-	public Object getServerGuiElement(int ID, EntityPlayer player, World world,
-			int x, int y, int z) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Object getClientGuiElement(int ID, EntityPlayer player, World world,
-			int x, int y, int z) {
-		// TODO Auto-generated method stub
-		return null;
+	public void initPower() {
+		
+        MicroPlacementWire var0 = new MicroPlacementWire();
+        ModBlocks.blockPower.registerPlacement(1, var0);
+        ModBlocks.blockPower.registerPlacement(2, var0);
+        ModBlocks.blockPower.registerPlacement(3, var0);
+        ModBlocks.blockPower.registerPlacement(5, var0);
+        GameRegistry.registerTileEntity(TileBluewire.class, "HarmonionBluewire");
+        ModBlocks.blockPower.addTileEntityMapping(1, TileBluewire.class);
+        ModBlocks.blockPower.addTileEntityMapping(2, TileBluewire.class);
+        ModBlocks.blockPower.addTileEntityMapping(3, TileBluewire.class);
+        ModBlocks.blockPower.addTileEntityMapping(4, TileBluewire.class);
+    	ModBlocks.blockPower.addTileEntityMapping(5, TileBluewire.class);
+		
 	}
 }

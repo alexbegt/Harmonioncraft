@@ -19,6 +19,6 @@ public final class CreativeTabHarmonionI extends CreativeTabs
      */
     public int getTabIconItemIndex()
     {
-        return ModItems.Refinedsoundstone.shiftedIndex;
+        return ModItems.Refinedsoundstone.itemID;
     }
 }

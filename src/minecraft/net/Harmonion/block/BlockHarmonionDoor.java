@@ -64,6 +64,6 @@ public class BlockHarmonionDoor extends BlockDoor {
      */
     public int idPicked(World par1World, int par2, int par3, int par4)
     {
-        return ModItems.HarmonionDoor.shiftedIndex;
+        return ModItems.HarmonionDoor.itemID;
     }
 }

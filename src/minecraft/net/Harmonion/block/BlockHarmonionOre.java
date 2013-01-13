@@ -73,7 +73,7 @@ public class BlockHarmonionOre extends BlockHarmonion {
             	return this.blockID;
 
             case 1:
-                return ModItems.Harmonionlegs.shiftedIndex;
+                return ModItems.Harmonionlegs.itemID;
 
             default:
                 return this.blockID;

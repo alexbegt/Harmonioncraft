@@ -10,7 +10,11 @@ import net.Harmonion.util.ItemIds;
 import net.Harmonion.util.LocalizationHandler;
 import net.Harmonion.util.Reference;
 import net.Harmonion.village.VillageManager;
+import net.Harmonion.village.VillageManager1;
 import net.Harmonion.network.packet.PacketHandler;
+import net.Harmonion.power.MicroPlacementWire;
+import net.Harmonion.power.Packet211TileDesc;
+import net.Harmonion.power.TileBluewire;
 import net.minecraft.network.packet.Packet;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -74,6 +78,8 @@ public class Harmonion {
 	@Init
 	public void load(FMLInitializationEvent evt) {
 		
+		Packet.addIdClassMapping(300, true, true, Packet211TileDesc.class);
+		
 		/* Initialize the custom item rarity types */
         proxy.initCustomRarityTypes();
 
@@ -91,8 +97,11 @@ public class Harmonion {
         
         VillageManager villageManager = new VillageManager();
         VillagerRegistry.instance().registerVillageCreationHandler(villageManager);
-        VillagerRegistry.instance().registerVillagerType(ItemIds.Harmonion_Villager, "/thaumcraft/resources/wizard.png");
-        VillagerRegistry.instance().registerVillageTradeHandler(ItemIds.Harmonion_Villager, villageManager);
+        //VillagerRegistry.instance().registerVillagerType(ItemIds.Harmonion_Villager, "/thaumcraft/resources/wizard.png");
+        //VillagerRegistry.instance().registerVillageTradeHandler(ItemIds.Harmonion_Villager, villageManager);
+        
+        VillageManager1 villageManager1 = new VillageManager1();
+        VillagerRegistry.instance().registerVillageCreationHandler(villageManager1);
         
         /* Initialize custom rendering and pre-load textures (Client only) */
         proxy.initRenderingAndTextures();
@@ -104,6 +113,8 @@ public class Harmonion {
         proxy.initEntitys();
         
         proxy.initEntitysClient();
+        
+        proxy.initPower();
 		
 	}
 	
