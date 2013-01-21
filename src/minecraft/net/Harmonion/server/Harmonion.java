@@ -97,8 +97,6 @@ public class Harmonion {
         
         VillageManager villageManager = new VillageManager();
         VillagerRegistry.instance().registerVillageCreationHandler(villageManager);
-        //VillagerRegistry.instance().registerVillagerType(ItemIds.Harmonion_Villager, "/thaumcraft/resources/wizard.png");
-        //VillagerRegistry.instance().registerVillageTradeHandler(ItemIds.Harmonion_Villager, villageManager);
         
         VillageManager1 villageManager1 = new VillageManager1();
         VillagerRegistry.instance().registerVillageCreationHandler(villageManager1);
