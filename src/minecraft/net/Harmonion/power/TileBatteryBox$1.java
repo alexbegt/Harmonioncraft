@@ -2,7 +2,7 @@ package net.Harmonion.power;
 
 import net.minecraft.tileentity.TileEntity;
 
-class TileBatteryBox$1 extends BluePowerConductor
+class TileBatteryBox$1 extends HarmonionConductor
 {
     final TileBatteryBox this$0;
 

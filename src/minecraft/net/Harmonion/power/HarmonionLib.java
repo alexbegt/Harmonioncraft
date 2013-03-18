@@ -274,7 +274,7 @@ public class HarmonionLib
 
     private static int getSidePowerMask(IBlockAccess var0, int var1, int var2, int var3, int var4, int var5)
     {
-        IRedPowerConnectable var6 = (IRedPowerConnectable)CoreLib.getTileEntity(var0, var1, var2, var3, IRedPowerConnectable.class);
+        IHarmonionPowerConnectable var6 = (IHarmonionPowerConnectable)CoreLib.getTileEntity(var0, var1, var2, var3, IHarmonionPowerConnectable.class);
         int var7 = getConDirMask(var5);
 
         if (var6 != null)
@@ -757,15 +757,15 @@ public class HarmonionLib
 
     public static int getTileCurrentStrength(World var0, int var1, int var2, int var3, int var4, int var5)
     {
-        IRedPowerConnectable var6 = (IRedPowerConnectable)CoreLib.getTileEntity(var0, var1, var2, var3, IRedPowerConnectable.class);
+        IHarmonionPowerConnectable var6 = (IHarmonionPowerConnectable)CoreLib.getTileEntity(var0, var1, var2, var3, IHarmonionPowerConnectable.class);
 
         if (var6 == null)
         {
             return -1;
         }
-        else if (var6 instanceof IRedPowerWiring)
+        else if (var6 instanceof IHarmonionPowerWiring)
         {
-            IRedPowerWiring var7 = (IRedPowerWiring)var6;
+            IHarmonionPowerWiring var7 = (IHarmonionPowerWiring)var6;
             return var7.getCurrentStrength(var4, var5);
         }
         else
@@ -789,15 +789,15 @@ public class HarmonionLib
         }
         else
         {
-            IRedPowerConnectable var7 = (IRedPowerConnectable)CoreLib.getTileEntity(var0, var1, var2, var3, IRedPowerConnectable.class);
+            IHarmonionPowerConnectable var7 = (IHarmonionPowerConnectable)CoreLib.getTileEntity(var0, var1, var2, var3, IHarmonionPowerConnectable.class);
 
             if (var7 == null)
             {
                 return -1;
             }
-            else if (var7 instanceof IRedPowerWiring)
+            else if (var7 instanceof IHarmonionPowerWiring)
             {
-                IRedPowerWiring var8 = (IRedPowerWiring)var7;
+                IHarmonionPowerWiring var8 = (IHarmonionPowerWiring)var7;
                 return var8.getCurrentStrength(var4, var5);
             }
             else
@@ -1091,7 +1091,7 @@ public class HarmonionLib
                 List var4 = (List)powerSearch.removeFirst();
                 powerSearchTest.remove(var4);
                 Integer[] var5 = (Integer[])((Integer[])var4.toArray());
-                IRedPowerWiring var6 = (IRedPowerWiring)CoreLib.getTileEntity(var0, var5[0].intValue(), var5[1].intValue(), var5[2].intValue(), IRedPowerWiring.class);
+                IHarmonionPowerWiring var6 = (IHarmonionPowerWiring)CoreLib.getTileEntity(var0, var5[0].intValue(), var5[1].intValue(), var5[2].intValue(), IHarmonionPowerWiring.class);
 
                 if (var6 != null)
                 {
@@ -1112,7 +1112,7 @@ public class HarmonionLib
         }
     }
 
-    public static int updateBlockCurrentStrength(World var0, IRedPowerWiring var1, int var2, int var3, int var4, int var5, int var6)
+    public static int updateBlockCurrentStrength(World var0, IHarmonionPowerWiring var1, int var2, int var3, int var4, int var5, int var6)
     {
         int var7 = var1.getConnectionMask() & var5;
         int var8 = var1.getExtConnectionMask() & var5;

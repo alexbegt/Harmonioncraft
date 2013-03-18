@@ -1,9 +1,15 @@
 package net.Harmonion.block;
 
+import java.util.Arrays;
+
+import net.Harmonion.api.core.items.ItemRegistry;
 import net.Harmonion.block.power.BlockAppliance;
 import net.Harmonion.block.power.BlockMachine;
 import net.Harmonion.block.power.BlockMachinePanel;
 import net.Harmonion.block.power.BlockMicro;
+import net.Harmonion.block.tank.EnumMachineBeta;
+import net.Harmonion.block.tank.ItemMachine;
+import net.Harmonion.block.tank.MachineProxyBeta;
 import net.Harmonion.creativetab.CreativeTabHarmonionB;
 import net.Harmonion.creativetab.CreativeTabHarmonionP;
 import net.Harmonion.item.ModItems;
@@ -19,7 +25,8 @@ import net.Harmonion.power.TileChargingBench;
 import net.Harmonion.power.TileCovered;
 import net.Harmonion.power.TileSolarPanel;
 import net.Harmonion.server.Harmonion;
-import net.Harmonion.util.BlockIds;
+import net.Harmonion.util.LocalizationHandler;
+import net.Harmonion.util.random.BlockIds;
 import net.Harmonion.world.WorldProviderHarmonion;
 import net.Harmonion.world.gen.feature.WorldPopulator;
 import net.minecraft.block.Block;
@@ -29,6 +36,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraftforge.common.DimensionManager;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.OreDictionary;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -44,6 +52,8 @@ public class ModBlocks {
 	public static Block HarmonionSapling;
 	public static Block HarmonionDoor;
 	public static Block HarmonionGlass;
+	
+	private static Block blockMachineBeta;
 	
 	public static BlockMicro blockPower;
 	public static BlockMachine blockMachine;
@@ -137,6 +147,21 @@ public class ModBlocks {
 		/* WorldGen */
 		GameRegistry.registerWorldGenerator(new WorldPopulator());
 		
+		EnumMachineBeta[] var6 = EnumMachineBeta.values();
+        int var3 = var6.length;
+        int var4;
+        var3 = var6.length;
+
+        for (var4 = 0; var4 < var3; ++var4)
+        {
+            EnumMachineBeta var12 = var6[var4];
+
+            if (var12.isEnabled())
+            {
+                ItemRegistry.registerItem(var12.getTag(), var12.getItem());
+            }
+        }
+		
 	}
 	
 	public static void initBlockSmelting() {
@@ -146,5 +171,38 @@ public class ModBlocks {
 		/* Harmonon Ore Smelting. */
 		furnaceRecipes.addSmelting(ModBlocks.HarmonionOre.blockID, new ItemStack(ModItems.Refinedsoundstone), 5.0F);
 	}
+	
+	public static void registerBlockMachineBeta()
+    {
+        if (blockMachineBeta == null)
+        {
+            int var0 = LocalizationHandler.getBlockID("blocks.machine.beta.id");
+
+            if (var0 > 0)
+            {
+                int var1 = Harmonion.proxy.getRenderIdTank();
+                int[] var2 = new int[16];
+                Arrays.fill(var2, 255);
+                var2[EnumMachineBeta.TANK_IRON_WALL.ordinal()] = 0;
+                var2[EnumMachineBeta.TANK_IRON_VALVE.ordinal()] = 0;
+                var2[EnumMachineBeta.TANK_IRON_GAUGE.ordinal()] = 0;
+                blockMachineBeta = (new net.Harmonion.tanks.BlockMachine(var0, var1, new MachineProxyBeta(), false, var2)).setBlockName("rcBlockMachineBeta");
+                GameRegistry.registerBlock(blockMachineBeta, ItemMachine.class, blockMachineBeta.getBlockName());
+                EnumMachineBeta[] var3 = EnumMachineBeta.values();
+                int var4 = var3.length;
+
+                for (int var5 = 0; var5 < var4; ++var5)
+                {
+                    EnumMachineBeta var6 = var3[var5];
+                    MinecraftForge.setBlockHarvestLevel(blockMachineBeta, var6.ordinal(), "pickaxe", 2);
+                }
+            }
+        }
+    }
+	
+	public static Block getBlockMachineBeta()
+    {
+        return blockMachineBeta;
+    }
 	
 }

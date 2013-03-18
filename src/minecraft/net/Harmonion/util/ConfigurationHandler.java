@@ -3,6 +3,10 @@ package net.Harmonion.util;
 import java.io.File;
 import java.util.logging.Level;
 import cpw.mods.fml.common.FMLLog;
+import net.Harmonion.util.random.BlockIds;
+import net.Harmonion.util.random.ItemIds;
+import net.Harmonion.util.random.Reference;
+import net.Harmonion.util.random.Strings;
 import net.minecraftforge.common.Configuration;
 import static net.minecraftforge.common.Configuration.*;
 

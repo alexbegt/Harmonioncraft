@@ -1,6 +1,6 @@
 package net.Harmonion.item;
 
-import net.Harmonion.util.Strings;
+import net.Harmonion.util.random.Strings;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;

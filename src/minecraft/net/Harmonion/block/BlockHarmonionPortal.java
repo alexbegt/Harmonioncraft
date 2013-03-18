@@ -4,8 +4,9 @@ import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import java.util.Random;
-import net.Harmonion.util.BlockIds;
-import net.Harmonion.util.Strings;
+
+import net.Harmonion.util.random.BlockIds;
+import net.Harmonion.util.random.Strings;
 import net.Harmonion.world.TeleporterHarmonion;
 import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.Material;
@@ -31,7 +32,8 @@ public class BlockHarmonionPortal extends BlockBreakable
         this.setHardness(10000.0F);
         this.setResistance(6000000.0F);
         this.setBlockName(Strings.Sound_Stone_Portal_Name);
-        this.setCreativeTab(ModBlocks.tabHarmonioncraftB);
+        this.setCreativeTab(null);
+        //this.setCreativeTab(ModBlocks.tabHarmonioncraftB);
     }
 
     /**

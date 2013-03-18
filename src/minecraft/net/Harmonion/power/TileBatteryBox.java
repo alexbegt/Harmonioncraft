@@ -17,9 +17,9 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.common.ISidedInventory;
 
-public class TileBatteryBox extends TileExtended implements IHandlePackets, IInventory, IBluePowerConnectable, ISidedInventory, IFrameSupport
+public class TileBatteryBox extends TileExtended implements IHandlePackets, IInventory, IHarmonionConnectable, ISidedInventory
 {
-    BluePowerConductor cond = new TileBatteryBox$1(this);
+    HarmonionConductor cond = new TileBatteryBox$1(this);
     protected ItemStack[] contents = new ItemStack[2];
     public int Charge = 0;
     public int Storage = 0;
@@ -41,7 +41,7 @@ public class TileBatteryBox extends TileExtended implements IHandlePackets, IInv
         return 0;
     }
 
-    public BluePowerConductor getBlueConductor(int var1)
+    public HarmonionConductor getBlueConductor(int var1)
     {
         return this.cond;
     }

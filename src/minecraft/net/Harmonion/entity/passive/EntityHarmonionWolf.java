@@ -3,7 +3,7 @@ package net.Harmonion.entity.passive;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.Harmonion.entity.ai.EntityAIBeg;
-import net.Harmonion.util.Reference;
+import net.Harmonion.util.random.Reference;
 import net.minecraft.block.BlockCloth;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;

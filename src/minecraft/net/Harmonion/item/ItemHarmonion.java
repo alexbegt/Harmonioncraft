@@ -1,7 +1,7 @@
 package net.Harmonion.item;
 
 import net.Harmonion.*;
-import net.Harmonion.util.Reference;
+import net.Harmonion.util.random.Reference;
 import net.minecraft.item.Item;
 
 public class ItemHarmonion extends Item {

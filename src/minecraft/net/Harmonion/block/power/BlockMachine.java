@@ -3,7 +3,7 @@ package net.Harmonion.block.power;
 import net.Harmonion.block.ModBlocks;
 import net.Harmonion.power.CoreLib;
 import net.Harmonion.power.TileMachine;
-import net.Harmonion.util.Reference;
+import net.Harmonion.util.random.Reference;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -79,6 +79,6 @@ public class BlockMachine extends BlockExtended
 
     public String getTextureFile()
     {
-        return Reference.SPRITE_SHEET_LOCATION + Reference.POWER_SPRITE_SHEET;
+        return Reference.SPRITE_SHEET_LOCATION + Reference.POWER_BLOCK_SPRITE_SHEET;
     }
 }

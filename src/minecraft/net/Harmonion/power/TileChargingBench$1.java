@@ -2,7 +2,7 @@ package net.Harmonion.power;
 
 import net.minecraft.tileentity.TileEntity;
 
-class TileChargingBench$1 extends BluePowerEndpoint
+class TileChargingBench$1 extends HarmonionEndpoint
 {
     final TileChargingBench this$0;
 

@@ -1,6 +1,6 @@
 package net.Harmonion.block;
 
-import net.Harmonion.util.Reference;
+import net.Harmonion.util.random.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 

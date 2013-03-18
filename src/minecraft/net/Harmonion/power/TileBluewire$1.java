@@ -2,7 +2,7 @@ package net.Harmonion.power;
 
 import net.minecraft.tileentity.TileEntity;
 
-class TileBluewire$1 extends BluePowerConductor
+class TileBluewire$1 extends HarmonionConductor
 {
     final TileBluewire this$0;
 

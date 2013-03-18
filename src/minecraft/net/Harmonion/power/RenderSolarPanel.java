@@ -2,7 +2,7 @@ package net.Harmonion.power;
 
 import java.util.Random;
 
-import net.Harmonion.util.Reference;
+import net.Harmonion.util.random.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
@@ -34,7 +34,7 @@ public class RenderSolarPanel extends RenderCustomBlock
             this.context.setSize(0.0D, 0.0D, 0.0D, 1.0D, 0.25D, 1.0D);
             this.context.setupBox();
             this.context.transform();
-            RenderLib.bindTexture(Reference.SPRITE_SHEET_LOCATION + Reference.POWER_SPRITE_SHEET);
+            RenderLib.bindTexture(Reference.SPRITE_SHEET_LOCATION + Reference.POWER_BLOCK_SPRITE_SHEET);
             this.context.renderGlobFaces(62);
             RenderLib.unbindTexture();
         }
@@ -46,7 +46,7 @@ public class RenderSolarPanel extends RenderCustomBlock
         this.context.setDefaults();
         this.context.setPos(-0.5D, -0.5D, -0.5D);
         this.context.useNormal = true;
-        RenderLib.bindTexture(Reference.SPRITE_SHEET_LOCATION + Reference.POWER_SPRITE_SHEET);
+        RenderLib.bindTexture(Reference.SPRITE_SHEET_LOCATION + Reference.POWER_BLOCK_SPRITE_SHEET);
         Tessellator var3 = Tessellator.instance;
         var3.startDrawingQuads();
         this.context.setTex(5, 5, 6, 6, 6, 6);

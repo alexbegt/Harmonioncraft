@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import net.Harmonion.block.ModBlocks;
 import net.Harmonion.item.ModItems;
 import net.Harmonion.power.IChargeableHarmonion;
-import net.Harmonion.util.Reference;
+import net.Harmonion.util.random.Reference;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -17,7 +17,7 @@ public class ItemBattery extends Item
     public ItemBattery(int var1)
     {
         super(var1);
-        this.setIconIndex(14);
+        this.setIconIndex(8);
         this.setMaxStackSize(1);
         this.setNoRepair();
         this.setMaxDamage(1500);
@@ -57,6 +57,6 @@ public class ItemBattery extends Item
 
     public String getTextureFile()
     {
-        return Reference.SPRITE_SHEET_LOCATION + Reference.POWER_SPRITE_SHEET;
+        return Reference.SPRITE_SHEET_LOCATION + Reference.POWER_ITEM_SPRITE_SHEET;
     }
 }

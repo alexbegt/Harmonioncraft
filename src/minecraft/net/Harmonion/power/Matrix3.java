@@ -103,7 +103,8 @@ public class Matrix3
     public String toString()
     {
         StringBuilder var1 = new StringBuilder();
-        Formatter var2 = new Formatter(var1, Locale.US);
+        @SuppressWarnings("resource")
+		Formatter var2 = new Formatter(var1, Locale.US);
         var2.format("Matrix:\n", new Object[0]);
         var2.format("  < %f %f %f >\n", new Object[] {Double.valueOf(this.xx), Double.valueOf(this.xy), Double.valueOf(this.xz)});
         var2.format("  < %f %f %f >\n", new Object[] {Double.valueOf(this.yx), Double.valueOf(this.yy), Double.valueOf(this.yz)});

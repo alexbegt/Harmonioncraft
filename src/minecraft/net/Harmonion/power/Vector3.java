@@ -115,7 +115,8 @@ public class Vector3
     public String toString()
     {
         StringBuilder var1 = new StringBuilder();
-        Formatter var2 = new Formatter(var1, Locale.US);
+        @SuppressWarnings("resource")
+		Formatter var2 = new Formatter(var1, Locale.US);
         var2.format("Vector:\n", new Object[0]);
         var2.format("  < %f %f %f >\n", new Object[] {Double.valueOf(this.x), Double.valueOf(this.y), Double.valueOf(this.z)});
         return var1.toString();

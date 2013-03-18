@@ -10,9 +10,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 
-public class TileChargingBench extends TileAppliance implements IInventory, IBluePowerConnectable
+public class TileChargingBench extends TileAppliance implements IInventory, IHarmonionConnectable
 {
-    BluePowerEndpoint cond = new TileChargingBench$1(this);
+    HarmonionEndpoint cond = new TileChargingBench$1(this);
     public boolean Powered = false;
     public int Storage = 0;
     private ItemStack[] contents = new ItemStack[16];
@@ -33,7 +33,7 @@ public class TileChargingBench extends TileAppliance implements IInventory, IBlu
         return 0;
     }
 
-    public BluePowerConductor getBlueConductor(int var1)
+    public HarmonionConductor getBlueConductor(int var1)
     {
         return this.cond;
     }

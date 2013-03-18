@@ -1,6 +1,6 @@
 package net.Harmonion.item;
 
-import net.Harmonion.util.Reference;
+import net.Harmonion.util.random.Reference;
 import net.minecraft.item.Item;
 
 

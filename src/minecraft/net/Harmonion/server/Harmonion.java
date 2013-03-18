@@ -1,17 +1,24 @@
 package net.Harmonion.server;
 
 import net.Harmonion.block.ModBlocks;
+import net.Harmonion.block.tank.TileTankHarmonionGauge;
+import net.Harmonion.block.tank.TileTankHarmonionValve;
+import net.Harmonion.block.tank.TileTankHarmonionWall;
+import net.Harmonion.gui.GuiHandler;
 import net.Harmonion.item.ModItems;
 import net.Harmonion.item.crafting.HarmonionRecipe;
-import net.Harmonion.network.MapPacketHandler;
-import net.Harmonion.util.CommonProxy;
+import net.Harmonion.modules.ModuleManager;
+import net.Harmonion.tanks.RailcraftTileEntity;
+//import net.Harmonion.network.MapPacketHandler;
 import net.Harmonion.util.ConfigurationHandler;
-import net.Harmonion.util.ItemIds;
 import net.Harmonion.util.LocalizationHandler;
-import net.Harmonion.util.Reference;
+import net.Harmonion.util.random.CommonProxy;
+import net.Harmonion.util.random.ItemIds;
+import net.Harmonion.util.random.Reference;
 import net.Harmonion.village.VillageManager;
 import net.Harmonion.village.VillageManager1;
-import net.Harmonion.network.packet.PacketHandler;
+import net.Harmonion.util.network.*;
+//import net.Harmonion.network.packet.PacketHandler;
 import net.Harmonion.power.MicroPlacementWire;
 import net.Harmonion.power.Packet211TileDesc;
 import net.Harmonion.power.TileBluewire;
@@ -45,8 +52,18 @@ import cpw.mods.fml.relauncher.SideOnly;
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  * 
  */
-@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION, certificateFingerprint = "28f7f8a775e597088f3a418ea29290b6a1d23c7b")
-@NetworkMod(clientSideRequired = true, serverSideRequired = false, tinyPacketHandler = MapPacketHandler.class, packetHandler = PacketHandler.class)
+@Mod(
+		modid = Reference.MOD_ID,
+		name = Reference.MOD_NAME,
+		version = Reference.VERSION,
+		certificateFingerprint = "28f7f8a775e597088f3a418ea29290b6a1d23c7b"
+)
+@NetworkMod(
+		channels={Reference.CHANNEL_NAME},
+		clientSideRequired = true,
+		serverSideRequired = false,
+		packetHandler = HarmonionPacketHandler.class
+)
 public class Harmonion {
 	
 	@Instance(Reference.MOD_ID)
@@ -63,6 +80,8 @@ public class Harmonion {
     	
     	// Load the localization files into the LanguageRegistry
     	LocalizationHandler.loadLanguages();
+    	
+    	ModuleManager.preInit();
 		
 		// Initialize the configuration
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
@@ -75,16 +94,31 @@ public class Harmonion {
         
 	}
 	
+	public static String getVersion()
+    {
+        return Reference.VERSION;
+    }
+	
 	@Init
 	public void load(FMLInitializationEvent evt) {
+		
+		ModuleManager.init();
 		
 		Packet.addIdClassMapping(300, true, true, Packet211TileDesc.class);
 		
 		/* Initialize the custom item rarity types */
         proxy.initCustomRarityTypes();
+        
+        proxy.initClient();
 
         /* Register the GUI Handler */
-        NetworkRegistry.instance().registerGuiHandler(instance, proxy);
+        NetworkRegistry.instance().registerGuiHandler(Harmonion.getMod(), new GuiHandler());
+        //NetworkRegistry.instance().registerGuiHandler(instance, proxy);
+        
+        GameRegistry.registerTileEntity(RailcraftTileEntity.class, "HarmonionBase");
+        GameRegistry.registerTileEntity(TileTankHarmonionWall.class, "HarmonionTankWall");
+        GameRegistry.registerTileEntity(TileTankHarmonionGauge.class, "HarmonionTankGauge");
+        GameRegistry.registerTileEntity(TileTankHarmonionValve.class, "HarmonionTankValve");
 
         /* Initialize mod blocks */
         ModBlocks.init();
@@ -119,6 +153,8 @@ public class Harmonion {
 	@PostInit
 	public void modsLoaded(FMLPostInitializationEvent evt) {
 		
+		ModuleManager.postInit();
+		
         HarmonionRecipe.init();
         
         LocalizationHandler.saveLanguages();
@@ -130,5 +166,10 @@ public class Harmonion {
 	{
 		proxy.serverStarting(event.getServer());
 	}
+	
+	public static Harmonion getMod()
+    {
+        return instance;
+    }
 	
 }

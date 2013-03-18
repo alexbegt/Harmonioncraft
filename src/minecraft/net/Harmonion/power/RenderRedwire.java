@@ -2,7 +2,7 @@ package net.Harmonion.power;
 
 import java.util.Random;
 
-import net.Harmonion.util.Reference;
+import net.Harmonion.util.random.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
@@ -19,10 +19,10 @@ public class RenderRedwire extends RenderWiring
         super(var1);
     }
 
-    static TileRedwire getTileEntity(IBlockAccess var0, int var1, int var2, int var3)
+    static TileHarmonionRwire getTileEntity(IBlockAccess var0, int var1, int var2, int var3)
     {
         TileEntity var4 = var0.getBlockTileEntity(var1, var2, var3);
-        return !(var4 instanceof TileRedwire) ? null : (TileRedwire)var4;
+        return !(var4 instanceof TileHarmonionRwire) ? null : (TileHarmonionRwire)var4;
     }
 
     public void randomDisplayTick(World var1, int var2, int var3, int var4, Random var5) {}
@@ -65,7 +65,7 @@ public class RenderRedwire extends RenderWiring
 
                 if (var6 == 1)
                 {
-                    TileRedwire var13 = (TileRedwire)var9;
+                    TileHarmonionRwire var13 = (TileHarmonionRwire)var9;
                     this.context.setTint(0.3F + 0.7F * ((float)var13.PowerState / 255.0F), 0.0F, 0.0F);
                     this.setSideTex(1, 2, 1);
                     this.setWireSize(0.125F, 0.125F);
@@ -122,7 +122,7 @@ public class RenderRedwire extends RenderWiring
 
                         if (var6 == 1)
                         {
-                            var14 = ((TileRedwire)var9).PowerState > 0 ? 6 : 5;
+                            var14 = ((TileHarmonionRwire)var9).PowerState > 0 ? 6 : 5;
                         }
                         else if (var6 == 3)
                         {
@@ -536,7 +536,7 @@ public class RenderRedwire extends RenderWiring
                 this.context.renderBox(51, 0.25D, 0.25D, 0.0D, 0.75D, 0.75D, 1.0D);
                 var3.draw();
                 var3.startDrawingQuads();
-                this.context.setTexFile(Reference.SPRITE_SHEET_LOCATION + Reference.POWER_SPRITE_SHEET);
+                this.context.setTexFile(Reference.SPRITE_SHEET_LOCATION + Reference.POWER_BLOCK_SPRITE_SHEET);
                 this.context.setTex(var4 == 66 ? 10 : (var4 == 64 ? 5 : 7));
                 this.context.renderBox(3, 0.25D, 0.0D, 0.25D, 0.75D, 1.0D, 0.75D);
                 this.context.renderBox(48, 0.0D, 0.25D, 0.25D, 1.0D, 0.75D, 0.75D);

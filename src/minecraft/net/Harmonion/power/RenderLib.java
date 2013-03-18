@@ -1,6 +1,6 @@
 package net.Harmonion.power;
 
-import net.Harmonion.util.Reference;
+import net.Harmonion.util.random.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraftforge.client.ForgeHooksClient;
@@ -31,7 +31,7 @@ public class RenderLib
 
     public static void setRedPowerTexture()
     {
-        bindTexture(Reference.SPRITE_SHEET_LOCATION + Reference.POWER_SPRITE_SHEET);
+        bindTexture(Reference.SPRITE_SHEET_LOCATION + Reference.POWER_BLOCK_SPRITE_SHEET);
     }
 
     public static void setDefaultTexture()

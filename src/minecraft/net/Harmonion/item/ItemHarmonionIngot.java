@@ -1,6 +1,6 @@
 package net.Harmonion.item;
 
-import net.Harmonion.util.Strings;
+import net.Harmonion.util.random.Strings;
 
 
 public class ItemHarmonionIngot extends ItemHarmonionMats {

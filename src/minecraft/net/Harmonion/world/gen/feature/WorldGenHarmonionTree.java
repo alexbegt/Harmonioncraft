@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.Random;
 
 import net.Harmonion.block.ModBlocks;
-import net.Harmonion.util.Reference;
+import net.Harmonion.util.random.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.packet.Packet250CustomPayload;

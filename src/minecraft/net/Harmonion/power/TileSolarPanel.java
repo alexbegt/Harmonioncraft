@@ -4,9 +4,9 @@ import net.Harmonion.block.power.BlockMultipart;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.ForgeDirection;
 
-public class TileSolarPanel extends TileMachinePanel implements IBluePowerConnectable
+public class TileSolarPanel extends TileMachinePanel implements IHarmonionConnectable
 {
-    BluePowerConductor cond = new TileSolarPanel$1(this);
+    HarmonionConductor cond = new TileSolarPanel$1(this);
     public int ConMask = -1;
 
     public void onBlockNeighborChange(int var1)
@@ -39,7 +39,7 @@ public class TileSolarPanel extends TileMachinePanel implements IBluePowerConnec
         return 0;
     }
 
-    public BluePowerConductor getBlueConductor(int var1)
+    public HarmonionConductor getBlueConductor(int var1)
     {
         return this.cond;
     }

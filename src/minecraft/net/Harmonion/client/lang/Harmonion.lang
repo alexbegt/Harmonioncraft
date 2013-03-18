@@ -10,10 +10,9 @@ tile.Soundstoneleaves.name=Crystal Leaves
 tile.Soundstonesapling.name=Crystalline Sapling
 tile.Soundstonedoor.name=HarmonionDoor
 tile.Soundstoneplank.name=Crystal Planks
-tile.Harmonionbluewire.name=Soundstone Wire
-tile.Harmonionbatbox.name=Battery Box
-tile.Harmonionthermo.name=Thermopile
-tile.Harmonionsolar.name=Solar Panel
+tile.Harmonionbluewire.name=Soundstone Resonant Wire
+tile.Harmonionbatbox.name=Resonant Capacitor
+tile.Harmonionsolar.name=Resonant Receptor
 
 item.Harmonicsword.name=Harmonic Sword
 item.Refinedsoundstone.name=Refined Soundstone
@@ -28,8 +27,14 @@ item.Soundstonelegs.name=Soundstone Leggings
 item.Soundstoneboots.name=Soundstone Boots
 item.Resoniumpowder.name=Resonium Powder
 item.Soundstonedoor.name=Harmonion Door
-item.Harmonionbattery.name=Harmonion Battery
+item.Harmonionbattery.name=Power Crystal
 item.sonicDriver.name=Sonic Screwdriver
+item.ResoniumPowder.name=Resonium Powder
+
+tile.tankgauge.name=Iron Tank Gauge
+tile.tankvalve.name=Iron Tank Valve
+tile.tankwall.name=Iron Tank Wall
+gui.tank.iron=Iron Tank
 
 # Groups
 itemGroup.HarmonionB=Harmonion Blocks

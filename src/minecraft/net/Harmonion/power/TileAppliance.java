@@ -9,7 +9,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.world.IBlockAccess;
 
-public class TileAppliance extends TileExtended implements IHandlePackets, IFrameSupport
+public class TileAppliance extends TileExtended implements IHandlePackets
 {
     public int Rotation = 0;
     public boolean Active = false;

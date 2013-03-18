@@ -6,9 +6,9 @@ import net.Harmonion.creativetab.CreativeTabHarmonionI;
 import net.Harmonion.item.power.ItemBattery;
 import net.Harmonion.item.power.ItemTextured;
 import net.Harmonion.server.Harmonion;
-import net.Harmonion.util.ItemIds;
-import net.Harmonion.util.Reference;
-import net.Harmonion.util.Strings;
+import net.Harmonion.util.random.ItemIds;
+import net.Harmonion.util.random.Reference;
+import net.Harmonion.util.random.Strings;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.EnumToolMaterial;
@@ -69,7 +69,7 @@ public class ModItems {
 		Harmonionboots = new ItemHarmonionArmor(ItemIds.Harmonion_Boots, 9, harmonionarmor, Harmonion.proxy.addArmor("Harmonion/core/armor/soundstone"), 3).setIconIndex(6).setItemName(Strings.Sound_Stone_Boots_Name);
 		HarmonionDoor = new ItemHarmonionDoor(ItemIds.Harmonion_Door);
 		
-		itemBatteryEmpty = new ItemTextured(27282, 14, Reference.SPRITE_SHEET_LOCATION + Reference.POWER_SPRITE_SHEET);
+		itemBatteryEmpty = new ItemTextured(27282, 8, Reference.SPRITE_SHEET_LOCATION + Reference.POWER_ITEM_SPRITE_SHEET);
         itemBatteryEmpty.setItemName("Harmonionbattery");
         itemBatteryPowered = new ItemBattery(27283);
         itemBatteryPowered.setItemName("Harmonionbattery");

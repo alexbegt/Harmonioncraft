@@ -1,6 +1,6 @@
 package net.Harmonion.power;
 
-import net.Harmonion.util.Reference;
+import net.Harmonion.util.random.Reference;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -29,7 +29,7 @@ public class GuiBatteryBox extends GuiContainer
      */
     protected void drawGuiContainerForegroundLayer(int var1, int var2)
     {
-        this.fontRenderer.drawString("Battery Box", 60, 6, 4210752);
+        this.fontRenderer.drawString("Resonant Capacitor", 60, 6, 4210752);
         this.fontRenderer.drawString("Inventory", 8, this.ySize - 96 + 2, 4210752);
     }
 

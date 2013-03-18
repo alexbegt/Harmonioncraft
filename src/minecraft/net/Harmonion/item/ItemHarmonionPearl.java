@@ -1,6 +1,6 @@
 package net.Harmonion.item;
 
-import net.Harmonion.util.Strings;
+import net.Harmonion.util.random.Strings;
 import cpw.mods.fml.common.network.PacketDispatcher;
 
 public class ItemHarmonionPearl extends ItemHarmonionMats {

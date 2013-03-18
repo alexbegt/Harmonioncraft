@@ -5,8 +5,8 @@ import java.util.Random;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-import net.Harmonion.util.BlockIds;
-import net.Harmonion.util.Strings;
+import net.Harmonion.util.random.BlockIds;
+import net.Harmonion.util.random.Strings;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.AxisAlignedBB;
@@ -19,7 +19,8 @@ public class BlockHarmonionFire extends Block
         super(var1, var2, Material.fire);
         this.setTickRandomly(true);
         this.setBlockName(Strings.Sound_Stone_Fire_Name);
-        this.setCreativeTab(ModBlocks.tabHarmonioncraftB);
+        this.setCreativeTab(null);
+        //this.setCreativeTab(ModBlocks.tabHarmonioncraftB);
     }
 
     /**

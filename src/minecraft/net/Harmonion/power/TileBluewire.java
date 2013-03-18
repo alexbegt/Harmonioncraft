@@ -2,9 +2,9 @@ package net.Harmonion.power;
 
 import net.minecraft.nbt.NBTTagCompound;
 
-public class TileBluewire extends TileWiring implements IBluePowerConnectable
+public class TileBluewire extends TileWiring implements IHarmonionConnectable
 {
-    BluePowerConductor cond = new TileBluewire$1(this);
+    HarmonionConductor cond = new TileBluewire$1(this);
 
     public float getWireHeight()
     {
@@ -44,7 +44,7 @@ public class TileBluewire extends TileWiring implements IBluePowerConnectable
         }
     }
 
-    public BluePowerConductor getBlueConductor(int var1)
+    public HarmonionConductor getBlueConductor(int var1)
     {
         return this.cond;
     }

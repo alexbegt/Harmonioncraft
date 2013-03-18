@@ -1,7 +1,7 @@
 package net.Harmonion.item;
 
 import net.Harmonion.block.ModBlocks;
-import net.Harmonion.util.Strings;
+import net.Harmonion.util.random.Strings;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;

@@ -7,7 +7,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.world.IBlockAccess;
 
-public class TileCovered extends TileCoverable implements IHandlePackets, IFrameSupport
+public class TileCovered extends TileCoverable implements IHandlePackets
 {
     public int CoverSides = 0;
     public short[] Covers = new short[29];

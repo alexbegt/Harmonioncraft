@@ -3,8 +3,8 @@ package net.Harmonion.block;
 import java.util.Random;
 
 import net.Harmonion.item.ModItems;
-import net.Harmonion.util.Reference;
-import net.Harmonion.util.Strings;
+import net.Harmonion.util.random.Reference;
+import net.Harmonion.util.random.Strings;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.IBlockAccess;

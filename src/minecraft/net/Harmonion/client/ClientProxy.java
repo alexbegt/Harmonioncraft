@@ -1,9 +1,15 @@
 package net.Harmonion.client;
 
 import net.Harmonion.block.ModBlocks;
+import net.Harmonion.block.tank.TileTankHarmonionGauge;
+import net.Harmonion.block.tank.TileTankHarmonionValve;
+import net.Harmonion.block.tank.TileTankHarmonionWall;
 import net.Harmonion.client.model.ModelHarmonionWolf;
 import net.Harmonion.client.renderer.entity.RenderHarmonionWolf;
 import net.Harmonion.client.renderer.tileentity.RenderHarmonion;
+import net.Harmonion.client.renderer.tileentity.RenderHarmonionTank;
+import net.Harmonion.client.renderer.tileentity.tank.RenderBlockMachineBeta;
+import net.Harmonion.client.textureFX.TexturePhazonFX;
 import net.Harmonion.entity.passive.EntityHarmonionWolf;
 import net.Harmonion.power.IHandlePackets;
 import net.Harmonion.power.Packet211TileDesc;
@@ -13,13 +19,14 @@ import net.Harmonion.power.RenderCustomBlock;
 import net.Harmonion.power.RenderLib;
 import net.Harmonion.power.RenderRedwire;
 import net.Harmonion.power.RenderSolarPanel;
-import net.Harmonion.util.CommonProxy;
-import net.Harmonion.util.Reference;
-import net.Harmonion.util.ThreadDownloadResourcesHandler;
+import net.Harmonion.util.random.CommonProxy;
+import net.Harmonion.util.random.Reference;
+import net.Harmonion.util.sounds.ThreadDownloadResourcesHandler;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.NetClientHandler;
 import net.minecraft.client.renderer.RenderBlocks;
+import net.minecraft.item.ItemStack;
 import net.minecraft.network.packet.NetHandler;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.StringTranslate;
@@ -30,6 +37,7 @@ import net.minecraftforge.client.ForgeHooksClient;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.client.FMLClientHandler;
+import cpw.mods.fml.client.TextureFXManager;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.client.registry.KeyBindingRegistry;
@@ -54,6 +62,21 @@ public class ClientProxy extends CommonProxy implements ISimpleBlockRenderingHan
 	public void registerTickHander() {
 		super.registerTickHander();
 	}
+	
+	public int getRenderIdTank()
+    {
+        return RenderingRegistry.getNextAvailableRenderId();
+    }
+	
+	public int getItemRarityColor(ItemStack var1)
+    {
+        return var1.getItem().getRarity(var1).rarityColor;
+    }
+	
+	public String getItemDisplayName(ItemStack var1)
+    {
+        return var1.getItem().getItemDisplayName(var1);
+    }
     
     @Override
     public int getBlockTexture(Block var1, IBlockAccess var2, int var3, int var4, int var5, int var6)
@@ -71,6 +94,23 @@ public class ClientProxy extends CommonProxy implements ISimpleBlockRenderingHan
     	catch (Exception var2)
     	{
     	}
+    }
+    
+    public void initClient()
+    {
+    	
+    	RenderBlockMachineBeta var2 = new RenderBlockMachineBeta();
+
+        if (var2.getBlock() != null)
+        {
+            RenderingRegistry.registerBlockHandler(var2);
+            MinecraftForgeClient.registerItemRenderer(var2.getBlock().blockID, var2.getItemRenderer());
+        }
+    	
+        TextureFXManager.instance().addAnimation(new TexturePhazonFX());
+    	ClientRegistry.bindTileEntitySpecialRenderer(TileTankHarmonionGauge.class, new RenderHarmonionTank());
+        ClientRegistry.bindTileEntitySpecialRenderer(TileTankHarmonionWall.class, new RenderHarmonionTank());
+        ClientRegistry.bindTileEntitySpecialRenderer(TileTankHarmonionValve.class, new RenderHarmonionTank());
     }
     
     @Override
@@ -186,7 +226,10 @@ public class ClientProxy extends CommonProxy implements ISimpleBlockRenderingHan
     	
     	MinecraftForgeClient.preloadTexture(Reference.SPRITE_SHEET_LOCATION + Reference.BLOCK_SPRITE_SHEET);
         MinecraftForgeClient.preloadTexture(Reference.SPRITE_SHEET_LOCATION + Reference.ITEM_SPRITE_SHEET);
-    	MinecraftForgeClient.preloadTexture(Reference.SPRITE_SHEET_LOCATION + Reference.POWER_SPRITE_SHEET);
+    	MinecraftForgeClient.preloadTexture(Reference.SPRITE_SHEET_LOCATION + Reference.POWER_BLOCK_SPRITE_SHEET);
+    	MinecraftForgeClient.preloadTexture(Reference.SPRITE_SHEET_LOCATION + Reference.POWER_ITEM_SPRITE_SHEET);
+    	MinecraftForgeClient.preloadTexture(Reference.SPRITE_SHEET_LOCATION + Reference.TANK_BLOCK_SPRITE_SHEET);
+    	
         
         RenderingRegistry.registerBlockHandler(new RenderHarmonion());
         

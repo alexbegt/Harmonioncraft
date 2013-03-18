@@ -2,7 +2,7 @@ package net.Harmonion.power;
 
 import net.minecraft.tileentity.TileEntity;
 
-class TileSolarPanel$1 extends BluePowerConductor
+class TileSolarPanel$1 extends HarmonionConductor
 {
     final TileSolarPanel this$0;
 

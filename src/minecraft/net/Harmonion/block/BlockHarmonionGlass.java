@@ -4,8 +4,8 @@ import java.util.Random;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.Harmonion.util.Reference;
-import net.Harmonion.util.Strings;
+import net.Harmonion.util.random.Reference;
+import net.Harmonion.util.random.Strings;
 import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.Material;
 

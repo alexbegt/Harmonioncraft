@@ -2,7 +2,8 @@ package net.Harmonion.block;
 
 import java.util.List;
 import java.util.Random;
-import net.Harmonion.util.Strings;
+
+import net.Harmonion.util.random.Strings;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPistonBase;
 import net.minecraft.block.material.Material;
