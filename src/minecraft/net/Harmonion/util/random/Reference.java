@@ -11,7 +11,7 @@ package net.Harmonion.util.random;
  */
 public class Reference {
 	
-	/* Debug Mode On-Off; */
+	/* Debug Mode On-Off */
     public static final boolean DEBUG_MODE = false;
 
     /* General Mod related constants */
