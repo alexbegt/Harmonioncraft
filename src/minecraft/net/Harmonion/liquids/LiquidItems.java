@@ -2,9 +2,9 @@ package net.Harmonion.liquids;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.Harmonion.api.core.items.ItemRegistry;
-import net.Harmonion.api.fuel.FuelManager;
 import net.Harmonion.block.ModBlocks;
-import net.Harmonion.util.LocalizationHandler;
+import net.Harmonion.util.Config;
+import net.Harmonion.util.random.Strings;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.liquids.LiquidDictionary;
@@ -24,6 +24,8 @@ public abstract class LiquidItems
     public static void initialize()
     {
         initPhazon();
+        getPhazonBucket();
+        getPhazonBottle();
     }
 
     public static ItemStack getPhazon()
@@ -36,16 +38,16 @@ public abstract class LiquidItems
     {
         if (itemPhazon == null)
         {
-            String var0 = "rc.liquid.creosote.liquid";
-            int var1 = LocalizationHandler.getItemID(var0);
-            Item var2 = (new ItemLiquid(var1)).setRarity(1).setIconIndex(0).setItemName(var0);
+            String var0 = "items.liquid.Phazon.liquid.id";
+            int var1 = Config.getItemID(var0);
+            Item var2 = (new ItemLiquid(var1)).setRarity(1).setIconIndex(16).setItemName(var0);
             GameRegistry.registerItem(var2, var0);
+            var2.setItemName(Strings.Phazon_Liquid_Name);
             //RailcraftLanguage.getInstance().registerItemName(var2, var0);
-            liquidPhazon = LiquidDictionary.getOrCreateLiquid("Creosote Oil", new LiquidStack(var2.itemID, 0));
+            liquidPhazon = LiquidDictionary.getOrCreateLiquid("Phazon", new LiquidStack(var2.itemID, 0));
             ItemRegistry.registerItem(var0, new ItemStack(var2));
             LiquidStack var3 = liquidPhazon.copy();
             var3.amount = 1000;
-            FuelManager.addBoilerFuel(var3, 3200);
             itemPhazon = var2;
         }
     }
@@ -64,10 +66,11 @@ public abstract class LiquidItems
 
         if (var0 == null)
         {
-            String var1 = "rc.liquid.creosote.bucket";
-            int var2 = LocalizationHandler.getItemID(var1);
-            var0 = (new ItemLiquidContainer(var2)).setIconIndex(1).setItemName(var1).setMaxStackSize(1).setContainerItem(Item.bucketEmpty).setCreativeTab(ModBlocks.tabHarmonioncraftB);
+            String var1 = "items.liquid.Phazon.bucket.id";
+            int var2 = Config.getItemID(var1);
+            var0 = (new ItemLiquidContainer(var2)).setIconIndex(10).setMaxStackSize(1).setContainerItem(Item.bucketEmpty);
             GameRegistry.registerItem(var0, var1);
+            var0.setItemName(Strings.Phazon_Bucket_Name);
             //RailcraftLanguage.getInstance().registerItemName(var0, var1);
             LiquidManager.getInstance().registerBucket(getPhazonLiquid(1000), new ItemStack(var0));
             ItemRegistry.registerItem(var1, new ItemStack(var0));
@@ -88,16 +91,17 @@ public abstract class LiquidItems
 
         if (var1 == null)
         {
-            String var2 = "rc.liquid.creosote.bottle";
-            int var3 = LocalizationHandler.getItemID(var2);
+            String var2 = "items.liquid.Phazon.bottle.id";
+            int var3 = Config.getItemID(var2);
 
             if (var3 <= 0)
             {
                 return null;
             }
 
-            var1 = (new ItemLiquidContainer(var3)).setIconIndex(2).setItemName(var2).setCreativeTab(ModBlocks.tabHarmonioncraftB);
+            var1 = (new ItemLiquidContainer(var3)).setIconIndex(11);
             GameRegistry.registerItem(var1, var2);
+            var1.setItemName(Strings.Phazon_Bottle_Name);
             //RailcraftLanguage.getInstance().registerItemName(var1, var2);
             LiquidManager.getInstance().registerBottle(getPhazonLiquid(1000), new ItemStack(var1));
             ItemRegistry.registerItem(var2, new ItemStack(var1));

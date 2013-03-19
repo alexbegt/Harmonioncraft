@@ -7,7 +7,7 @@ import net.Harmonion.client.gui.LiquidRenderer;
 import net.Harmonion.client.gui.RenderFakeBlock;
 import net.Harmonion.liquids.TankManager;
 import net.Harmonion.liquids.tanks.StandardTank;
-import net.Harmonion.util.LocalizationHandler;
+import net.Harmonion.util.Config;
 import net.Harmonion.util.misc.FakeBlockRenderInfo;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
@@ -39,7 +39,7 @@ public class RenderHarmonionTank extends TileEntitySpecialRenderer
     {
         int var2 = var1.getPatternPositionY();
 
-        if (!LocalizationHandler.allowTankStacking())
+        if (!Config.allowTankStacking())
         {
             --var2;
         }
@@ -51,7 +51,7 @@ public class RenderHarmonionTank extends TileEntitySpecialRenderer
     {
         int var2 = var1.getPattern().getPatternHeight();
 
-        if (!LocalizationHandler.allowTankStacking())
+        if (!Config.allowTankStacking())
         {
             var2 -= 2;
         }

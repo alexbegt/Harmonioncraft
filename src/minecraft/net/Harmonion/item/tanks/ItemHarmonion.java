@@ -7,18 +7,18 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class ItemRailcraft extends Item
+public class ItemHarmonion extends Item
 {
     private float smeltingExperiance = -1.0F;
     private int rarity = 0;
 
-    public ItemRailcraft(int var1)
+    public ItemHarmonion(int var1)
     {
         super(var1);
         this.setCreativeTab(ModBlocks.tabHarmonioncraftB);
     }
 
-    public ItemRailcraft setRarity(int var1)
+    public ItemHarmonion setRarity(int var1)
     {
         this.rarity = var1;
         return this;
@@ -36,10 +36,10 @@ public class ItemRailcraft extends Item
 
     public String getTextureFile()
     {
-        return "/railcraft/client/textures/railcraft.png";
+        return "/Harmonion/client/textures/Harmonion.png";
     }
 
-    public ItemRailcraft setSmeltingExperiance(float var1)
+    public ItemHarmonion setSmeltingExperiance(float var1)
     {
         this.smeltingExperiance = var1;
         return this;

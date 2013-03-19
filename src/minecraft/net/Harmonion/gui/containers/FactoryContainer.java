@@ -25,7 +25,7 @@ public class FactoryContainer
         {
             try
             {
-                switch (FactoryContainer$1.$SwitchMap$railcraft$common$gui$EnumGui[var0.ordinal()])
+                switch ($SwitchMap$net$Harmonion$gui$EnumGui[var0.ordinal()])
                 {
                 	case 1:
                 		return new ContainerTank(var1, (ITankTile)var2);
@@ -45,6 +45,20 @@ public class FactoryContainer
                 Game.log(Level.WARNING, "Error when attempting to build gui container {0}: {1}", new Object[] {var0, var4});
                 return null;
             }
+        }
+    }
+    
+    static final int[] $SwitchMap$net$Harmonion$gui$EnumGui = new int[EnumGui.values().length];
+
+    static
+    {
+        try
+        {
+        	$SwitchMap$net$Harmonion$gui$EnumGui[EnumGui.TANK.ordinal()] = 17;
+        }
+        catch (NoSuchFieldError var17)
+        {
+            ;
         }
     }
 }

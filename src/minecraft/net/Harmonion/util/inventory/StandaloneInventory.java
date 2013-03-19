@@ -3,8 +3,8 @@ package net.Harmonion.util.inventory;
 import com.google.common.collect.Iterators;
 import java.util.Iterator;
 
-import net.Harmonion.tanks.RailcraftTileEntity;
-import net.Harmonion.util.LocalizationHandler;
+import net.Harmonion.tanks.HarmonionTileEntity;
+import net.Harmonion.util.Config;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
@@ -12,7 +12,7 @@ import net.minecraft.nbt.NBTTagCompound;
 
 public class StandaloneInventory implements IInventory, Iterable
 {
-    private StandaloneInventory$Callback callback;
+    private Callback callback;
     private final String name;
     private ItemStack[] contents;
 
@@ -20,14 +20,14 @@ public class StandaloneInventory implements IInventory, Iterable
     {
         this.name = var2;
         this.contents = new ItemStack[var1];
-        this.callback = var3 == null ? null : new StandaloneInventory$InventoryCallback(this, var3);
+        this.callback = var3 == null ? null : new InventoryCallback(this, var3);
     }
 
-    public StandaloneInventory(int var1, String var2, RailcraftTileEntity var3)
+    public StandaloneInventory(int var1, String var2, HarmonionTileEntity var3)
     {
         this.name = var2;
         this.contents = new ItemStack[var1];
-        this.callback = var3 == null ? null : new StandaloneInventory$TileCallback(this, var3);
+        this.callback = var3 == null ? null : new TileCallback(this, var3);
     }
 
     public StandaloneInventory(int var1, IInventory var2)
@@ -35,19 +35,19 @@ public class StandaloneInventory implements IInventory, Iterable
         this(var1, (String)null, var2);
     }
 
-    public StandaloneInventory(int var1, RailcraftTileEntity var2)
+    public StandaloneInventory(int var1, HarmonionTileEntity var2)
     {
         this(var1, (String)null, var2);
     }
 
     public StandaloneInventory(int var1, String var2)
     {
-        this(var1, var2, (RailcraftTileEntity)null);
+        this(var1, var2, (HarmonionTileEntity)null);
     }
 
     public StandaloneInventory(int var1)
     {
-        this(var1, (String)null, (RailcraftTileEntity)null);
+        this(var1, (String)null, (HarmonionTileEntity)null);
     }
 
     /**
@@ -122,7 +122,7 @@ public class StandaloneInventory implements IInventory, Iterable
      */
     public String getInvName()
     {
-        return this.name != null ? LocalizationHandler.translate(this.name) : (this.callback != null ? this.callback.getInvName() : this.invTypeName());
+        return this.name != null ? Config.translate(this.name) : (this.callback != null ? this.callback.getInvName() : this.invTypeName());
     }
 
     protected String invTypeName()
@@ -202,4 +202,96 @@ public class StandaloneInventory implements IInventory, Iterable
     {
         return Iterators.forArray(this.contents);
     }
+    
+    abstract class Callback
+    {
+        final StandaloneInventory this$0;
+
+        private Callback(StandaloneInventory var1)
+        {
+            this.this$0 = var1;
+        }
+
+        public boolean isUseableByPlayer(EntityPlayer var1)
+        {
+            return true;
+        }
+
+        public void openChest() {}
+
+        public void closeChest() {}
+
+        public abstract void onInventoryChanged();
+
+        public abstract String getInvName();
+
+        Callback(StandaloneInventory var1, StandaloneInventory var2)
+        {
+            this(var1);
+        }
+    }
+    
+    class InventoryCallback extends Callback
+    {
+        private IInventory inv;
+
+        final StandaloneInventory this$0;
+
+        public InventoryCallback(StandaloneInventory var1, IInventory var2)
+        {
+            super(var1, (StandaloneInventory)null);
+            this.this$0 = var1;
+            this.inv = var2;
+        }
+
+        public boolean isUseableByPlayer(EntityPlayer var1)
+        {
+            return this.inv.isUseableByPlayer(var1);
+        }
+
+        public void openChest()
+        {
+            this.inv.openChest();
+        }
+
+        public void closeChest()
+        {
+            this.inv.closeChest();
+        }
+
+        public void onInventoryChanged()
+        {
+            this.inv.onInventoryChanged();
+        }
+
+        public String getInvName()
+        {
+            return this.inv.getInvName();
+        }
+    }
+    
+    class TileCallback extends Callback
+    {
+        private HarmonionTileEntity inv;
+
+        final StandaloneInventory this$0;
+
+        public TileCallback(StandaloneInventory var1, HarmonionTileEntity var2)
+        {
+            super(var1, (StandaloneInventory)null);
+            this.this$0 = var1;
+            this.inv = var2;
+        }
+
+        public void onInventoryChanged()
+        {
+            this.inv.onInventoryChanged();
+        }
+
+        public String getInvName()
+        {
+            return this.inv.getInvName();
+        }
+    }
+    
 }

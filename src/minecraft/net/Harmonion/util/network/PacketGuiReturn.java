@@ -86,6 +86,6 @@ public class PacketGuiReturn extends HarmonionPacket
 
     public int getID()
     {
-        return HarmonionPacket$PacketType.GUI_RETURN.ordinal();
+        return PacketType.GUI_RETURN.ordinal();
     }
 }

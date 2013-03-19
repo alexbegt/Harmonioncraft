@@ -1,13 +1,11 @@
 package net.Harmonion.util.network;
 
-import net.Harmonion.api.signals.AbstractPair;
-import net.Harmonion.api.signals.ISignalPacketBuilder;
-import net.Harmonion.tanks.RailcraftTileEntity;
+import net.Harmonion.tanks.HarmonionTileEntity;
 import net.minecraft.server.management.PlayerInstance;
 import net.minecraft.world.WorldServer;
 import cpw.mods.fml.common.network.PacketDispatcher;
 
-public class PacketBuilder implements ISignalPacketBuilder
+public class PacketBuilder
 {
     private static PacketBuilder instance;
 
@@ -21,7 +19,7 @@ public class PacketBuilder implements ISignalPacketBuilder
         return instance;
     }
 
-    public void sendTileEntityPacket(RailcraftTileEntity var1)
+    public void sendTileEntityPacket(HarmonionTileEntity var1)
     {
         if (var1.worldObj instanceof WorldServer)
         {
@@ -34,18 +32,6 @@ public class PacketBuilder implements ISignalPacketBuilder
                 var3.sendToAllPlayersWatchingChunk(var4.getPacket());
             }
         }
-    }
-
-    public void sendPairPacketUpdate(AbstractPair var1)
-    {
-        PacketPairUpdate var2 = new PacketPairUpdate(var1);
-        PacketDispatcher.sendPacketToAllInDimension(var2.getPacket(), var1.getTile().worldObj.provider.dimensionId);
-    }
-
-    public void sendPairPacketRequest(AbstractPair var1)
-    {
-        PacketPairRequest var2 = new PacketPairRequest(var1);
-        PacketDispatcher.sendPacketToServer(var2.getPacket());
     }
 
     public void sendGuiReturnPacket(IGuiReturnHandler var1)

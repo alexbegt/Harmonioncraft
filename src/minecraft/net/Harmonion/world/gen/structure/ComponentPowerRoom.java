@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Random;
 import net.Harmonion.block.ModBlocks;
 import net.Harmonion.item.ModItems;
-import net.Harmonion.util.random.ItemIds;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.util.WeightedRandomChestContent;

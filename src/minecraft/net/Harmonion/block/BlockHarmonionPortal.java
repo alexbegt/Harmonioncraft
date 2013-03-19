@@ -5,7 +5,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import java.util.Random;
 
-import net.Harmonion.util.random.BlockIds;
+import net.Harmonion.util.Config;
 import net.Harmonion.util.random.Strings;
 import net.Harmonion.world.TeleporterHarmonion;
 import net.minecraft.block.BlockBreakable;
@@ -264,9 +264,9 @@ public class BlockHarmonionPortal extends BlockBreakable
 
                     if (var5.ridingEntity == null && var5.riddenByEntity == null && var5 instanceof EntityPlayer)
                     {
-                        if (var7.dimension != BlockIds.Harmonion_Dimension)
+                        if (var7.dimension != Config.getBlockID("dimension.dimension.id"))
                         {
-                            var7.mcServer.getConfigurationManager().transferPlayerToDimension(var7, BlockIds.Harmonion_Dimension, new TeleporterHarmonion(var7.mcServer.worldServerForDimension(BlockIds.Harmonion_Dimension)));
+                            var7.mcServer.getConfigurationManager().transferPlayerToDimension(var7, Config.getBlockID("dimension.dimension.id"), new TeleporterHarmonion(var7.mcServer.worldServerForDimension(Config.getBlockID("dimension.dimension.id"))));
                         }
                         else
                         {

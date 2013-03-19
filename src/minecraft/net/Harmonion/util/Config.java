@@ -21,7 +21,7 @@ import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 /**
- * LocalizationHandler
+ * Config
  * 
  * Loads in all specified localizations for the mod
  * 
@@ -29,10 +29,10 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  * 
  */
-public class LocalizationHandler {
+public class Config {
 	
 	static Properties hmcTranslateTable = null;
-	private static LocalizationHandler instance;
+	private static Config instance;
 	static File configDir = null;
     static File configFile = null;
     static boolean[] reservedIds = new boolean[32768];
@@ -44,7 +44,7 @@ public class LocalizationHandler {
 	/***
 	 * Loads in all the localization files from the Localizations library class
 	 */
-	public static void loadLanguages() {
+	public static void loadConfig() {
 		config = new TagFile();
         InputStream var0 = Harmonion.class.getResourceAsStream("/net/Harmonion/client/lang/default.cfg");
         config.readStream(var0);
@@ -107,11 +107,11 @@ public class LocalizationHandler {
         }
 	}
 	
-	public static LocalizationHandler getInstance()
+	public static Config getInstance()
     {
         if (instance == null)
         {
-            instance = new LocalizationHandler();
+            instance = new Config();
         }
 
         return instance;
@@ -225,7 +225,7 @@ public class LocalizationHandler {
         return var1;
     }
 	
-	public static void saveLanguages() {
+	public static void saveConfig() {
 		config.saveFile(configFile);
 		
         try

@@ -17,7 +17,7 @@ import net.Harmonion.liquids.LiquidManager;
 import net.Harmonion.liquids.TankManager;
 import net.Harmonion.liquids.tanks.StandardTank;
 import net.Harmonion.util.Game;
-import net.Harmonion.util.LocalizationHandler;
+import net.Harmonion.util.Config;
 import net.Harmonion.util.inventory.StandaloneInventory;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -271,7 +271,7 @@ public abstract class TileTankHarmonion extends TileMultiBlock implements ITankT
           pats.add(buildPattern(map, xOffset, yOffset, zOffset, entityCheck));
         }
 
-        if ((client) || (LocalizationHandler.getMaxTankSize() >= 5)) {
+        if ((client) || (Config.getMaxTankSize() >= 5)) {
           xOffset = zOffset = 3;
 
           bottom = new char[][] { { 'O', 'O', 'O', 'O', 'O', 'O', 'O' }, { 'O', 'B', 'B', 'B', 'B', 'B', 'O' }, { 'O', 'B', 'W', 'W', 'W', 'B', 'O' }, { 'O', 'B', 'W', 'M', 'W', 'B', 'O' }, { 'O', 'B', 'W', 'W', 'W', 'B', 'O' }, { 'O', 'B', 'B', 'B', 'B', 'B', 'O' }, { 'O', 'O', 'O', 'O', 'O', 'O', 'O' } };
@@ -290,7 +290,7 @@ public abstract class TileTankHarmonion extends TileMultiBlock implements ITankT
 
         }
 
-        if ((client) || (LocalizationHandler.getMaxTankSize() >= 7)) {
+        if ((client) || (Config.getMaxTankSize() >= 7)) {
           xOffset = zOffset = 4;
 
           bottom = new char[][] { { 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O' }, { 'O', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'O' }, { 'O', 'B', 'W', 'W', 'W', 'W', 'W', 'B', 'O' }, { 'O', 'B', 'W', 'W', 'W', 'W', 'W', 'B', 'O' }, { 'O', 'B', 'W', 'W', 'M', 'W', 'W', 'B', 'O' }, { 'O', 'B', 'W', 'W', 'W', 'W', 'W', 'B', 'O' }, { 'O', 'B', 'W', 'W', 'W', 'W', 'W', 'B', 'O' }, { 'O', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'O' }, { 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O' } };
@@ -309,7 +309,7 @@ public abstract class TileTankHarmonion extends TileMultiBlock implements ITankT
 
         }
 
-        if ((client) || (LocalizationHandler.getMaxTankSize() >= 9)) {
+        if ((client) || (Config.getMaxTankSize() >= 9)) {
           xOffset = zOffset = 5;
 
           bottom = new char[][] { { 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O' }, { 'O', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'O' }, { 'O', 'B', 'W', 'W', 'W', 'W', 'W', 'W', 'W', 'B', 'O' }, { 'O', 'B', 'W', 'W', 'W', 'W', 'W', 'W', 'W', 'B', 'O' }, { 'O', 'B', 'W', 'W', 'W', 'W', 'W', 'W', 'W', 'B', 'O' }, { 'O', 'B', 'W', 'W', 'W', 'M', 'W', 'W', 'W', 'B', 'O' }, { 'O', 'B', 'W', 'W', 'W', 'W', 'W', 'W', 'W', 'B', 'O' }, { 'O', 'B', 'W', 'W', 'W', 'W', 'W', 'W', 'W', 'B', 'O' }, { 'O', 'B', 'W', 'W', 'W', 'W', 'W', 'W', 'W', 'B', 'O' }, { 'O', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'O' }, { 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O' } };
@@ -331,7 +331,7 @@ public abstract class TileTankHarmonion extends TileMultiBlock implements ITankT
       }
     
     private static MultiBlockPattern buildPattern(char[][][] map, int xOffset, int yOffset, int zOffset, AxisAlignedBB entityCheck) {
-        if (!LocalizationHandler.allowTankStacking()) {
+        if (!Config.allowTankStacking()) {
           entityCheck.offset(0.0D, 1.0D, 0.0D);
           yOffset = 1;
         }
@@ -341,7 +341,7 @@ public abstract class TileTankHarmonion extends TileMultiBlock implements ITankT
     private static char[][][] buildMap(int height, char[][] bottom, char[][] mid, char[][] top, char[][] border)
     {
       char[][][] map;
-      if (LocalizationHandler.allowTankStacking()) {
+      if (Config.allowTankStacking()) {
         map = new char[height][][];
 
         map[0] = bottom;

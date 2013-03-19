@@ -6,11 +6,11 @@ import net.Harmonion.liquids.LiquidItems;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 
-public class ModuleTanks extends RailcraftModule {
+public class ModuleTanks extends HarmonionModule {
 	
 	public void preInit()
     {
-		//LiquidItems.initialize();
+		LiquidItems.initialize();
     }
 	
 	public void initFirst()
@@ -32,7 +32,7 @@ public class ModuleTanks extends RailcraftModule {
         if (var17 != null)
         {
         	ItemStack var5 = var16.getItem();
-        	//CraftingPlugin.addShapedRecipe(var16.getItem(4), new Object[] {"GPG", "PGP", "GPG", 'P', RailcraftPartItems.getPlateIron(), 'G', new ItemStack(Block.thinGlass)});
+        	//CraftingPlugin.addShapedRecipe(var16.getItem(4), new Object[] {"GPG", "PGP", "GPG", 'P', HarmonionPartItems.getPlateIron(), 'G', new ItemStack(Block.thinGlass)});
         }
 
         EnumMachineBeta var18 = EnumMachineBeta.TANK_IRON_VALVE;
@@ -42,7 +42,7 @@ public class ModuleTanks extends RailcraftModule {
         if (var19 != null)
         {
         	ItemStack var6 = var18.getItem();
-        	//CraftingPlugin.addShapedRecipe(var18.getItem(4), new Object[] {"GPG", "PLP", "GPG", 'P', RailcraftPartItems.getPlateIron(), 'L', new ItemStack(Block.lever), 'G', new ItemStack(Block.fenceIron)});
+        	//CraftingPlugin.addShapedRecipe(var18.getItem(4), new Object[] {"GPG", "PLP", "GPG", 'P', HarmonionPartItems.getPlateIron(), 'L', new ItemStack(Block.lever), 'G', new ItemStack(Block.fenceIron)});
         }
     }
 	

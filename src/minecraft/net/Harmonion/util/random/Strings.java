@@ -42,6 +42,11 @@ public class Strings {
 	public static final String Sound_Stone_Boots_Name = "Soundstoneboots";
 	public static final String Sound_Stone_Powder_Name = "Resoniumpowder";
 	public static final String Sound_Stone_Chip_Name = "Soundstonechip";
+	
+	/* Liquid name Constants */
+	public static final String Phazon_Liquid_Name = "PhazonLiquid";
+	public static final String Phazon_Bucket_Name = "PhazonLiquidBucket";
+	public static final String Phazon_Bottle_Name = "PhazonLiquidBottle";
 
     
 }

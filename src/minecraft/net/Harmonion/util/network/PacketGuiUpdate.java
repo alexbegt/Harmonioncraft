@@ -52,6 +52,6 @@ public class PacketGuiUpdate extends HarmonionPacket
 
     public int getID()
     {
-        return HarmonionPacket$PacketType.GUI_UPDATE.ordinal();
+        return PacketType.GUI_UPDATE.ordinal();
     }
 }

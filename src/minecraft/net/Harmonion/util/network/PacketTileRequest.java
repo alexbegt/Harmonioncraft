@@ -55,6 +55,6 @@ public class PacketTileRequest extends HarmonionPacket
 
     public int getID()
     {
-        return HarmonionPacket$PacketType.TILE_REQUEST.ordinal();
+        return PacketType.TILE_REQUEST.ordinal();
     }
 }

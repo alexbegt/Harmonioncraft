@@ -7,7 +7,7 @@ import java.util.Random;
 import java.util.logging.Level;
 
 import net.Harmonion.util.Game;
-import net.Harmonion.util.LocalizationHandler;
+import net.Harmonion.util.Config;
 import net.Harmonion.util.inventory.InvTools;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureType;
@@ -16,7 +16,7 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.ForgeDirection;
 
-public abstract class TileMachineBase extends RailcraftTileEntity
+public abstract class TileMachineBase extends HarmonionTileEntity
 {
     private boolean checkedBlock = false;
 
@@ -27,7 +27,7 @@ public abstract class TileMachineBase extends RailcraftTileEntity
      */
     public String getInvName()
     {
-        return LocalizationHandler.translate(this.getMachineType().getTag());
+        return Config.translate(this.getMachineType().getTag());
     }
 
     public final short getId()

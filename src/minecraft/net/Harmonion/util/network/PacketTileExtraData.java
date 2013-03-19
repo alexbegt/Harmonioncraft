@@ -60,6 +60,6 @@ public class PacketTileExtraData extends HarmonionPacket
 
     public int getID()
     {
-        return HarmonionPacket$PacketType.TILE_EXTRA_DATA.ordinal();
+        return PacketType.TILE_EXTRA_DATA.ordinal();
     }
 }

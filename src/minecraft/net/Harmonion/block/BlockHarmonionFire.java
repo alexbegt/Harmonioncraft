@@ -5,7 +5,7 @@ import java.util.Random;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-import net.Harmonion.util.random.BlockIds;
+import net.Harmonion.util.Config;
 import net.Harmonion.util.random.Strings;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -109,7 +109,7 @@ public class BlockHarmonionFire extends Block
                 var1.scheduleBlockUpdate(var2, var3, var4, this.blockID, this.tickRate() + var1.rand.nextInt(10));
             }
         }
-        if (var1.provider.dimensionId > BlockIds.Harmonion_Dimension || var1.getBlockId(var2, var3 - 1, var4) != ModBlocks.HarmonionBlock.blockID || !ModBlocks.HarmonionPortal.tryToCreatePortal(var1, var2, var3, var4))
+        if (var1.provider.dimensionId > Config.getBlockID("dimension.dimension.id") || var1.getBlockId(var2, var3 - 1, var4) != ModBlocks.HarmonionBlock.blockID || !ModBlocks.HarmonionPortal.tryToCreatePortal(var1, var2, var3, var4))
         {
             if (!var1.doesBlockHaveSolidTopSurface(var2, var3 - 1, var4))
             {

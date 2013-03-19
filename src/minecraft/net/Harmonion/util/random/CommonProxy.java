@@ -152,7 +152,7 @@ public class CommonProxy implements IGuiHandler {
     
     public void initEntitys() {
     	EntityRegistry.registerModEntity(EntityHarmonionWolf.class, "HMCW",
- 				ItemIds.Harmonion_Wolf, Harmonion.instance, 80, 3, true);
+ 				201, Harmonion.instance, 80, 3, true);
  		EntityRegistry.addSpawn(EntityHarmonionWolf.class, 5, 5, 5,
  				EnumCreatureType.creature, BiomeGenBase.plains);
  		EntityLib.registerEntityEgg(EntityHarmonionWolf.class, 12698049, 12698049);

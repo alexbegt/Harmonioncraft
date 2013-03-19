@@ -17,7 +17,7 @@ public class Reference {
     /* General Mod related constants */
     public static final String MOD_ID = "HMC";
     public static final String MOD_NAME = "Harmonion";
-    public static final String VERSION = "0.0.0.6";
+    public static final String VERSION = "0.0.0.7";
     public static final String CHANNEL_NAME = MOD_ID;
     public static final String LOGGER_PREFIX = "[" + MOD_ID + "] ";
     public static final int SECOND_IN_TICKS = 20;
@@ -51,6 +51,7 @@ public class Reference {
     
     public static final String GUI_SHEET_LOCATION = "/net/Harmonion/client/textures/gui/";
     public static final String BATBOX_SPRITE_SHEET = "batbox.png";
+    public static final String TANK_SPRITE_SHEET = "tank.png";
     
     public static final String WOLF_SHEET_LOCATION = "/net/Harmonion/client/textures/entity/";
     public static final String LMM_WOLF_MAIN_SHEET = "cyberwolfn.png";

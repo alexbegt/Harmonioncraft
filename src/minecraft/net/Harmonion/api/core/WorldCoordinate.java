@@ -1,37 +1,17 @@
 package net.Harmonion.api.core;
 
-/**
- * This immutable class represents a point in the Minecraft world,
- * while taking into account the possibility of coordinates in different dimensions.
- * @author CovertJaguar <railcraft.wikispaces.com>
- */
 public class WorldCoordinate
 {
-
-    /**
-     * The dimension
-     */
+	
     public final int dimension;
-    /**
-     * x-Coord
-     */
+    
     public final int x;
-    /**
-     * y-Coord
-     */
+    
     public final int y;
-    /**
-     * z-Coord
-     */
-    public final int z;
 
-    /**
-     * Creates a new WorldCoordinate
-     * @param dimension
-     * @param i
-     * @param j
-     * @param k
-     */
+    
+    public final int z;
+    
     public WorldCoordinate(int dimension, int i, int j, int k)
     {
         this.dimension = dimension;

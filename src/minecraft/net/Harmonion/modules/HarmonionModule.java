@@ -1,6 +1,6 @@
 package net.Harmonion.modules;
 
-public abstract class RailcraftModule
+public abstract class HarmonionModule
 {
     public void preInit() {}
 

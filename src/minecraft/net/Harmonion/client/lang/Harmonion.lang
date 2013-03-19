@@ -31,10 +31,12 @@ item.Harmonionbattery.name=Power Crystal
 item.sonicDriver.name=Sonic Screwdriver
 item.ResoniumPowder.name=Resonium Powder
 
-tile.tankgauge.name=Iron Tank Gauge
-tile.tankvalve.name=Iron Tank Valve
-tile.tankwall.name=Iron Tank Wall
-gui.tank.iron=Iron Tank
+tile.tankgauge.name=Sounstone Reinforced Tank Indicator
+tile.tankvalve.name=Soundstone Reinforced Tank Valve
+tile.tankwall.name=Soundstone Reinforced Tank Body
+item.PhazonLiquid.name=Phazon
+item.PhazonLiquidBucket.name=Phazon Bucket
+item.PhazonLiquidBottle.name=Phazon Bottle
 
 # Groups
 itemGroup.HarmonionB=Harmonion Blocks

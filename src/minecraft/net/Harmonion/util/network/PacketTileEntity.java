@@ -5,9 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-
-import net.Harmonion.api.tracks.TrackRegistry;
-import net.Harmonion.tanks.RailcraftTileEntity;
+import net.Harmonion.tanks.HarmonionTileEntity;
 import net.Harmonion.util.Game;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.tileentity.TileEntity;
@@ -15,11 +13,11 @@ import net.minecraft.world.World;
 
 public class PacketTileEntity extends HarmonionPacket
 {
-    private RailcraftTileEntity tile;
+    private HarmonionTileEntity tile;
 
     public PacketTileEntity() {}
 
-    public PacketTileEntity(RailcraftTileEntity var1)
+    public PacketTileEntity(HarmonionTileEntity var1)
     {
         this.tile = var1;
     }
@@ -56,9 +54,9 @@ public class PacketTileEntity extends HarmonionPacket
             {
                 TileEntity var7 = var2.getBlockTileEntity(var3, var4, var5);
 
-                if (var7 instanceof RailcraftTileEntity)
+                if (var7 instanceof HarmonionTileEntity)
                 {
-                    this.tile = (RailcraftTileEntity)var7;
+                    this.tile = (HarmonionTileEntity)var7;
 
                     if (this.tile.getId() != var6)
                     {
@@ -80,6 +78,6 @@ public class PacketTileEntity extends HarmonionPacket
 
     public int getID()
     {
-        return HarmonionPacket$PacketType.TILE_ENTITY.ordinal();
+        return PacketType.TILE_ENTITY.ordinal();
     }
 }

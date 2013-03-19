@@ -8,7 +8,7 @@ import net.Harmonion.modules.ModuleManager;
 import net.Harmonion.modules.ModuleManager.Module;
 import net.Harmonion.tanks.IEnumMachine;
 import net.Harmonion.tanks.TileMachineBase;
-import net.Harmonion.util.LocalizationHandler;
+import net.Harmonion.util.Config;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

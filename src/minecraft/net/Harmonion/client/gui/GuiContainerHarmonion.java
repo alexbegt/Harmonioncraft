@@ -3,7 +3,7 @@ package net.Harmonion.client.gui;
 import java.util.Iterator;
 import java.util.List;
 
-import net.Harmonion.gui.containers.RailcraftContainer;
+import net.Harmonion.gui.containers.HarmonionContainer;
 import net.Harmonion.gui.indicator.Indicator;
 import net.Harmonion.gui.util.ToolTip;
 import net.Harmonion.liquids.LiquidGauge;
@@ -16,12 +16,12 @@ import net.minecraftforge.liquids.LiquidStack;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
-public abstract class GuiContainerRailcraft extends GuiContainer
+public abstract class GuiContainerHarmonion extends GuiContainer
 {
-    private final RailcraftContainer container;
+    private final HarmonionContainer container;
     public final String texturePath;
 
-    public GuiContainerRailcraft(RailcraftContainer var1, String var2)
+    public GuiContainerHarmonion(HarmonionContainer var1, String var2)
     {
         super(var1);
         this.container = var1;

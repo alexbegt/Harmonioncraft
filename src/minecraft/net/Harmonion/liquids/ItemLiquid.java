@@ -1,9 +1,10 @@
 package net.Harmonion.liquids;
 
-import net.Harmonion.item.tanks.ItemRailcraft;
+import net.Harmonion.item.tanks.ItemHarmonion;
+import net.Harmonion.util.random.Reference;
 import net.minecraft.creativetab.CreativeTabs;
 
-public class ItemLiquid extends ItemRailcraft
+public class ItemLiquid extends ItemHarmonion
 {
     public ItemLiquid(int var1)
     {
@@ -13,6 +14,6 @@ public class ItemLiquid extends ItemRailcraft
 
     public String getTextureFile()
     {
-        return "/railcraft/client/textures/liquids.png";
+        return Reference.SPRITE_SHEET_LOCATION + Reference.POWER_ITEM_SPRITE_SHEET;
     }
 }

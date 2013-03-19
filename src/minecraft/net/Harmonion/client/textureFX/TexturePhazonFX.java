@@ -6,6 +6,6 @@ public class TexturePhazonFX extends TextureLiquidFX
 {
     public TexturePhazonFX()
     {
-        super(80, 130, 80, 130, 0, 20, LiquidItems.getPhazon().getIconIndex(), LiquidItems.getPhazon().getItem().getTextureFile());
+        super(0, 0, 200, 255, 200, 255, LiquidItems.getPhazon().getIconIndex(), LiquidItems.getPhazon().getItem().getTextureFile());
     }
 }

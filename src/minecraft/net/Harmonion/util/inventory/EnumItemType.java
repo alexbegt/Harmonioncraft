@@ -36,7 +36,7 @@ public enum EnumItemType implements IItemType
         }
         else
         {
-            switch (EnumItemType$1.$SwitchMap$railcraft$common$util$inventory$EnumItemType[this.ordinal()])
+            switch ($SwitchMap$net$Harmonion$util$inventory$EnumItemType[this.ordinal()])
             {
                 case 1:
                     return MiscTools.getItemBurnTime(var1) > 0;
@@ -46,6 +46,56 @@ public enum EnumItemType implements IItemType
                 default:
                     return false;
             }
+        }
+    }
+    
+    static final int[] $SwitchMap$net$Harmonion$util$inventory$EnumItemType = new int[EnumItemType.values().length];
+
+    static
+    {
+        try
+        {
+        	$SwitchMap$net$Harmonion$util$inventory$EnumItemType[EnumItemType.FUEL.ordinal()] = 1;
+        }
+        catch (NoSuchFieldError var5)
+        {
+            ;
+        }
+
+        try
+        {
+        	$SwitchMap$net$Harmonion$util$inventory$EnumItemType[EnumItemType.TRACK.ordinal()] = 2;
+        }
+        catch (NoSuchFieldError var4)
+        {
+            ;
+        }
+
+        try
+        {
+        	$SwitchMap$net$Harmonion$util$inventory$EnumItemType[EnumItemType.MINECART.ordinal()] = 3;
+        }
+        catch (NoSuchFieldError var3)
+        {
+            ;
+        }
+
+        try
+        {
+        	$SwitchMap$net$Harmonion$util$inventory$EnumItemType[EnumItemType.BALLAST.ordinal()] = 4;
+        }
+        catch (NoSuchFieldError var2)
+        {
+            ;
+        }
+
+        try
+        {
+        	$SwitchMap$net$Harmonion$util$inventory$EnumItemType[EnumItemType.FEED.ordinal()] = 5;
+        }
+        catch (NoSuchFieldError var1)
+        {
+            ;
         }
     }
 }

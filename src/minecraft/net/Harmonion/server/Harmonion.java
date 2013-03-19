@@ -8,17 +8,13 @@ import net.Harmonion.gui.GuiHandler;
 import net.Harmonion.item.ModItems;
 import net.Harmonion.item.crafting.HarmonionRecipe;
 import net.Harmonion.modules.ModuleManager;
-import net.Harmonion.tanks.RailcraftTileEntity;
-//import net.Harmonion.network.MapPacketHandler;
-import net.Harmonion.util.ConfigurationHandler;
-import net.Harmonion.util.LocalizationHandler;
+import net.Harmonion.tanks.HarmonionTileEntity;
+import net.Harmonion.util.Config;
 import net.Harmonion.util.random.CommonProxy;
-import net.Harmonion.util.random.ItemIds;
 import net.Harmonion.util.random.Reference;
 import net.Harmonion.village.VillageManager;
 import net.Harmonion.village.VillageManager1;
 import net.Harmonion.util.network.*;
-//import net.Harmonion.network.packet.PacketHandler;
 import net.Harmonion.power.MicroPlacementWire;
 import net.Harmonion.power.Packet211TileDesc;
 import net.Harmonion.power.TileBluewire;
@@ -79,12 +75,9 @@ public class Harmonion {
 	public void preInit(FMLPreInitializationEvent event) {	
     	
     	// Load the localization files into the LanguageRegistry
-    	LocalizationHandler.loadLanguages();
+    	Config.loadConfig();
     	
     	ModuleManager.preInit();
-		
-		// Initialize the configuration
-        ConfigurationHandler.init(event.getSuggestedConfigurationFile());
     	
     	// Initialize the Version Check Tick Handler (Client only)
     	proxy.registerTickHander();
@@ -115,7 +108,7 @@ public class Harmonion {
         NetworkRegistry.instance().registerGuiHandler(Harmonion.getMod(), new GuiHandler());
         //NetworkRegistry.instance().registerGuiHandler(instance, proxy);
         
-        GameRegistry.registerTileEntity(RailcraftTileEntity.class, "HarmonionBase");
+        GameRegistry.registerTileEntity(HarmonionTileEntity.class, "HarmonionBase");
         GameRegistry.registerTileEntity(TileTankHarmonionWall.class, "HarmonionTankWall");
         GameRegistry.registerTileEntity(TileTankHarmonionGauge.class, "HarmonionTankGauge");
         GameRegistry.registerTileEntity(TileTankHarmonionValve.class, "HarmonionTankValve");
@@ -157,7 +150,7 @@ public class Harmonion {
 		
         HarmonionRecipe.init();
         
-        LocalizationHandler.saveLanguages();
+        Config.saveConfig();
         
 	}
 	

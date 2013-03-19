@@ -45,4 +45,18 @@ public abstract class HarmonionPacket
     {
         return this.getClass().getSimpleName();
     }
+    
+    public enum PacketType
+    {
+        TILE_ENTITY,
+        GUI_RETURN,
+        TILE_EXTRA_DATA,
+        TILE_REQUEST,
+        GUI_UPDATE,
+        EFFECT,
+        CONTROLLER_REQUEST,
+        CONTROLLER_UPDATE,
+        RECEIVER_REQUEST,
+        RECEIVER_UPDATE;
+    }
 }

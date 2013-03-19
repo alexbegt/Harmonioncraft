@@ -68,7 +68,7 @@ public class BlockMachine extends BlockContainer
 
     public String getTextureFile()
     {
-        return Reference.SPRITE_SHEET_LOCATION + Reference.TANK_BLOCK_SPRITE_SHEET;//"/railcraft/client/textures/machines.png";
+        return Reference.SPRITE_SHEET_LOCATION + Reference.TANK_BLOCK_SPRITE_SHEET;//"/Harmonion/client/textures/machines.png";
     }
 
     public IMachineProxy getMachineProxy()

@@ -48,7 +48,7 @@ public abstract class ModuleManager
             }
             else
             {
-                RailcraftModule var6 = (RailcraftModule)modules.get(var5);
+                HarmonionModule var6 = (HarmonionModule)modules.get(var5);
 
                 if (var6.canModuleLoad())
                 {
@@ -125,14 +125,14 @@ public abstract class ModuleManager
         return loadedModules.contains(var0);
     }
 
-    private static void registerModule(Module var0, RailcraftModule var1)
+    private static void registerModule(Module var0, HarmonionModule var1)
     {
         modules.put(var0, var1);
     }
 
     private static void preInit(Module var0)
     {
-        RailcraftModule var1 = (RailcraftModule)modules.get(var0);
+        HarmonionModule var1 = (HarmonionModule)modules.get(var0);
 
         if (var1 != null)
         {
@@ -140,7 +140,7 @@ public abstract class ModuleManager
 
             try
             {
-                var2 = var1.getClass().getMethod("preInit", new Class[0]).getDeclaringClass() != RailcraftModule.class;
+                var2 = var1.getClass().getMethod("preInit", new Class[0]).getDeclaringClass() != HarmonionModule.class;
             }
             catch (Exception var4)
             {
@@ -158,7 +158,7 @@ public abstract class ModuleManager
 
     private static void initFirst(Module var0)
     {
-        RailcraftModule var1 = (RailcraftModule)modules.get(var0);
+        HarmonionModule var1 = (HarmonionModule)modules.get(var0);
 
         if (var1 != null)
         {
@@ -166,7 +166,7 @@ public abstract class ModuleManager
 
             try
             {
-                var2 = var1.getClass().getMethod("initFirst", new Class[0]).getDeclaringClass() != RailcraftModule.class;
+                var2 = var1.getClass().getMethod("initFirst", new Class[0]).getDeclaringClass() != HarmonionModule.class;
             }
             catch (Exception var4)
             {
@@ -184,7 +184,7 @@ public abstract class ModuleManager
 
     private static void initSecond(Module var0)
     {
-        RailcraftModule var1 = (RailcraftModule)modules.get(var0);
+        HarmonionModule var1 = (HarmonionModule)modules.get(var0);
 
         if (var1 != null)
         {
@@ -192,7 +192,7 @@ public abstract class ModuleManager
 
             try
             {
-                var2 = var1.getClass().getMethod("initSecond", new Class[0]).getDeclaringClass() != RailcraftModule.class;
+                var2 = var1.getClass().getMethod("initSecond", new Class[0]).getDeclaringClass() != HarmonionModule.class;
             }
             catch (Exception var4)
             {
@@ -210,7 +210,7 @@ public abstract class ModuleManager
 
     private static void postInit(Module var0)
     {
-        RailcraftModule var1 = (RailcraftModule)modules.get(var0);
+        HarmonionModule var1 = (HarmonionModule)modules.get(var0);
 
         if (var1 != null)
         {
@@ -218,7 +218,7 @@ public abstract class ModuleManager
 
             try
             {
-                var2 = var1.getClass().getMethod("postInit", new Class[0]).getDeclaringClass() != RailcraftModule.class;
+                var2 = var1.getClass().getMethod("postInit", new Class[0]).getDeclaringClass() != HarmonionModule.class;
             }
             catch (Exception var4)
             {
@@ -236,7 +236,7 @@ public abstract class ModuleManager
 
     private static void postInitNotLoaded(Module var0)
     {
-        RailcraftModule var1 = (RailcraftModule)modules.get(var0);
+        HarmonionModule var1 = (HarmonionModule)modules.get(var0);
 
         if (var1 != null)
         {
@@ -244,7 +244,7 @@ public abstract class ModuleManager
 
             try
             {
-                var2 = var1.getClass().getMethod("postInitNotLoaded", new Class[0]).getDeclaringClass() != RailcraftModule.class;
+                var2 = var1.getClass().getMethod("postInitNotLoaded", new Class[0]).getDeclaringClass() != HarmonionModule.class;
             }
             catch (Exception var4)
             {

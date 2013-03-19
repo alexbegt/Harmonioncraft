@@ -17,7 +17,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
 
-public abstract class RailcraftTileEntity extends TileEntity implements INetworkedObject
+public abstract class HarmonionTileEntity extends TileEntity implements INetworkedObject
 {
     private String owner = "[Harmonion]";
 

@@ -15,19 +15,18 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
-
-public abstract class RailcraftContainer extends Container
+public abstract class HarmonionContainer extends Container
 {
     private final IInventory callback;
     private List gauges = new ArrayList();
     private List indicators = new ArrayList();
 
-    public RailcraftContainer(IInventory var1)
+    public HarmonionContainer(IInventory var1)
     {
         this.callback = var1;
     }
 
-    public RailcraftContainer()
+    public HarmonionContainer()
     {
         this.callback = null;
     }

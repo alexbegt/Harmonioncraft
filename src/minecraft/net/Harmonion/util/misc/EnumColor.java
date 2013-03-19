@@ -1,6 +1,6 @@
 package net.Harmonion.util.misc;
 
-import net.Harmonion.util.LocalizationHandler;
+import net.Harmonion.util.Config;
 
 public enum EnumColor
 {
@@ -69,7 +69,7 @@ public enum EnumColor
 
     public String getTranslatedName()
     {
-        return LocalizationHandler.translate(this.getTag());
+        return Config.translate(this.getTag());
     }
 
     public String getDye()

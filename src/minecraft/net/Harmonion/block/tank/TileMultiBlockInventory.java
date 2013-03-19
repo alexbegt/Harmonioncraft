@@ -2,7 +2,7 @@ package net.Harmonion.block.tank;
 
 import java.util.List;
 
-import net.Harmonion.util.LocalizationHandler;
+import net.Harmonion.util.Config;
 import net.Harmonion.util.inventory.InvTools;
 import net.Harmonion.util.inventory.StandaloneInventory;
 import net.minecraft.inventory.IInventory;
@@ -104,7 +104,7 @@ public abstract class TileMultiBlockInventory extends TileMultiBlock implements 
      */
     public String getInvName()
     {
-        return LocalizationHandler.translate(this.guiTag);
+        return Config.translate(this.guiTag);
     }
 
     /**

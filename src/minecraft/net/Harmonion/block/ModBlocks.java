@@ -25,8 +25,7 @@ import net.Harmonion.power.TileChargingBench;
 import net.Harmonion.power.TileCovered;
 import net.Harmonion.power.TileSolarPanel;
 import net.Harmonion.server.Harmonion;
-import net.Harmonion.util.LocalizationHandler;
-import net.Harmonion.util.random.BlockIds;
+import net.Harmonion.util.Config;
 import net.Harmonion.world.WorldProviderHarmonion;
 import net.Harmonion.world.gen.feature.WorldPopulator;
 import net.minecraft.block.Block;
@@ -67,36 +66,36 @@ public class ModBlocks {
 	public static void init() {
 		
 		/* Initialize each mod block individually */
-		HarmonionOre = new BlockHarmonionOre(BlockIds.Harmonion, 0);
-		HarmonionBlock = new BlockHarmonionBlock(BlockIds.Harmonion_Block, 3);
-		HarmonionLog = new BlockHarmonionLog(BlockIds.Harmonion_Log);
-		HarmonionLeaves = new BlockHarmonionLeaves(BlockIds.Harmonion_Leaves);
-		HarmonionSapling = new BlockHarmonionSapling(BlockIds.Harmonion_Sapling, 13);
-		HarmonionDoor = new BlockHarmonionDoor(BlockIds.Harmonion_Door, 11, 12, Material.iron);
-		HarmonionGlass = new BlockHarmonionGlass(BlockIds.Harmonion_Glass, 4, Material.glass, false);
-		HarmonionPortal = (BlockHarmonionPortal)((BlockHarmonionPortal)(new BlockHarmonionPortal(BlockIds.Harmonion_Portal, 14)));
-		HarmonionFire = (new BlockHarmonionFire(BlockIds.Harmonion_Fire, Block.fire.blockIndexInTexture));
+		HarmonionOre = new BlockHarmonionOre(Config.getBlockID("blocks.base.harmonionore.id"), 0);
+		HarmonionBlock = new BlockHarmonionBlock(Config.getBlockID("blocks.base.harmonionblock.id"), 3);
+		HarmonionLog = new BlockHarmonionLog(Config.getBlockID("blocks.base.harmonionlog.id"));
+		HarmonionLeaves = new BlockHarmonionLeaves(Config.getBlockID("blocks.base.harmonionleaves.id"));
+		HarmonionSapling = new BlockHarmonionSapling(Config.getBlockID("blocks.base.harmonionsapling.id"), 13);
+		HarmonionDoor = new BlockHarmonionDoor(Config.getBlockID("blocks.base.harmoniondoor.id"), 11, 12, Material.iron);
+		HarmonionGlass = new BlockHarmonionGlass(Config.getBlockID("blocks.base.harmonionglass.id"), 4, Material.glass, false);
+		HarmonionPortal = (BlockHarmonionPortal)((BlockHarmonionPortal)(new BlockHarmonionPortal(Config.getBlockID("blocks.base.harmonionportal.id"), 14)));
+		HarmonionFire = (new BlockHarmonionFire(Config.getBlockID("blocks.base.harmonionfire.id"), Block.fire.blockIndexInTexture));
 		
-		blockPower = new BlockMicro(609);
+		blockPower = new BlockMicro(Config.getBlockID("blocks.base.harmonionwire.id"));
 		blockPower.setBlockName("Harmonionwire");
         GameRegistry.registerBlock(blockPower, ItemMicro.class, "micro");
         blockPower.addTileEntityMapping(0, TileCovered.class);
     	CoverLib.blockCoverPlate = blockPower;
     	
-    	blockMachine = new BlockMachine(610);
-        blockMachine.setBlockName("rpmachine");
+    	blockMachine = new BlockMachine(Config.getBlockID("blocks.base.harmonionmachine.id"));
+        blockMachine.setBlockName("Harmonionmachine");
         GameRegistry.registerBlock(blockMachine, ItemExtended.class, "machine");
         blockMachine.setItemName(0, "Harmonionbatbox");
         GameRegistry.registerTileEntity(TileBatteryBox.class, "HarmoionBatBox");
         blockMachine.addTileEntityMapping(0, TileBatteryBox.class);
         
-        blockMachinePanel = new BlockMachinePanel(611);
+        blockMachinePanel = new BlockMachinePanel(Config.getBlockID("blocks.base.harmonionmachinepanel.id"));
         GameRegistry.registerBlock(blockMachinePanel, ItemMachinePanel.class, "machinePanel");
         GameRegistry.registerTileEntity(TileSolarPanel.class, "HarmonionSolar");
         blockMachinePanel.addTileEntityMapping(0, TileSolarPanel.class);
         blockMachinePanel.setItemName(0, "Harmonionsolar");
         
-        blockAppliance = new BlockAppliance(612);
+        blockAppliance = new BlockAppliance(Config.getBlockID("blocks.base.harmonionappliance.id"));
         GameRegistry.registerBlock(blockAppliance, ItemExtended.class, "appliance");
         GameRegistry.registerTileEntity(TileChargingBench.class, "HarmonionCharge");
         blockAppliance.setItemName(0, "harmonioncharge");
@@ -141,8 +140,8 @@ public class ModBlocks {
 		GameRegistry.registerBlock(HarmonionPortal);
 		GameRegistry.registerBlock(HarmonionFire);
 		
-		DimensionManager.registerProviderType(BlockIds.Harmonion_Dimension, WorldProviderHarmonion.class, false);
-        DimensionManager.registerDimension(BlockIds.Harmonion_Dimension, BlockIds.Harmonion_Dimension);
+		DimensionManager.registerProviderType(Config.getBlockID("dimension.dimension.id"), WorldProviderHarmonion.class, false);
+        DimensionManager.registerDimension(Config.getBlockID("dimension.dimension.id"), Config.getBlockID("dimension.dimension.id"));
 		
 		/* WorldGen */
 		GameRegistry.registerWorldGenerator(new WorldPopulator());
@@ -176,7 +175,7 @@ public class ModBlocks {
     {
         if (blockMachineBeta == null)
         {
-            int var0 = LocalizationHandler.getBlockID("blocks.machine.beta.id");
+            int var0 = Config.getBlockID("blocks.base.harmoniontank.id");
 
             if (var0 > 0)
             {

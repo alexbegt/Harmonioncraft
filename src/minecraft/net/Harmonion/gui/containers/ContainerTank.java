@@ -11,7 +11,7 @@ import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraftforge.liquids.ILiquidTank;
 
-public class ContainerTank extends RailcraftContainer
+public class ContainerTank extends HarmonionContainer
 {
     private ITankTile tile;
     private Slot input;
