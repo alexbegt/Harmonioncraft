@@ -11,8 +11,6 @@ package net.Harmonion.util.random;
  */
 public class Reference {
 	
-	//JENKINSWORK
-	
 	/* Debug Mode On-Off */
     public static final boolean DEBUG_MODE = false;
 
