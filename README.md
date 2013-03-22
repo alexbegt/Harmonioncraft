@@ -4,7 +4,7 @@ The Harmonioncraft project consists Many New Blocks, Items, Entitys, And worldge
 
 Setup
 =====
-Minecraft: 1.4.7 
+Minecraft: 1.4.7  
 MCP: 7.23  
 Forge: #504
 
