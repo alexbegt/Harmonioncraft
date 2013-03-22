@@ -1,0 +1,44 @@
+# Harmonion Default Language
+
+tile.Soundstoneore.name=Harmonion Ore
+tile.Resoniumore.name=Resonium Ore
+tile.Soundstoneportal.name=Soundstone Portal
+tile.Soundstoneblock.name=Soundstone Block
+tile.Soundstonefire.name=Soundstone Fire
+tile.Soundstonelog.name=Crystal Oak
+tile.Soundstoneleaves.name=Crystal Leaves
+tile.Soundstonesapling.name=Crystalline Sapling
+tile.Soundstonedoor.name=HarmonionDoor
+tile.Soundstoneplank.name=Crystal Planks
+tile.Harmonionbluewire.name=Soundstone Resonant Wire
+tile.Harmonionbatbox.name=Resonant Capacitor
+tile.Harmonionsolar.name=Resonant Receptor
+
+item.Harmonicsword.name=Harmonic Sword
+item.Refinedsoundstone.name=Refined Soundstone
+item.Soundstonepearl.name=Soundstone Pearl
+item.Soundstonepick.name=Soundstone Pickaxe
+item.Soundstoneaxe.name=Soundstone Axe
+item.Soundstoneshovel.name=Soundstone Shovel
+item.Soundstonehoe.name=Soundstone Hoe
+item.Soundstonehelmet.name=Soundstone Helmet
+item.Soundstonechestplate.name=Soundstone ChestPlate
+item.Soundstonelegs.name=Soundstone Leggings
+item.Soundstoneboots.name=Soundstone Boots
+item.Resoniumpowder.name=Resonium Powder
+item.Soundstonedoor.name=Harmonion Door
+item.Harmonionbattery.name=Power Crystal
+item.sonicDriver.name=Sonic Screwdriver
+item.ResoniumPowder.name=Resonium Powder
+
+tile.tankgauge.name=Sounstone Reinforced Tank Indicator
+tile.tankvalve.name=Soundstone Reinforced Tank Valve
+tile.tankwall.name=Soundstone Reinforced Tank Body
+item.PhazonLiquid.name=Phazon
+item.PhazonLiquidBucket.name=Phazon Bucket
+item.PhazonLiquidBottle.name=Phazon Bottle
+
+# Groups
+itemGroup.HarmonionB=Harmonion Blocks
+itemGroup.HarmonionP=Harmonion Power
+itemGroup.HarmonionI=Harmonion Items
